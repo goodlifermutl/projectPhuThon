@@ -12,12 +12,14 @@ session_start();
 include ("connect_db.php");
 $con = connect_db();
 
-$sql_user = mysqli_query($con,"SELECT permiss_id,user_id,pass_id FROM user WHERE user_id = '$_POST[username]' AND pass_id = '$_POST[pw]'")or die("SQL chk_user.php ERROR".mysqli_error($con));
+$pass=md5($_POST['pw']);
+
+$sql_user = mysqli_query($con,"SELECT permiss_id,user_id,pass_id FROM user WHERE user_id = '$_POST[username]' AND pass_id = '$pass'")or die("SQL chk_user.php ERROR".mysqli_error($con));
 list($permiss_id,$user_name,$password)=mysqli_fetch_row($sql_user);
 
 $_SESSION['user_name']=$user_name;
 
-if($user_name==$_POST['username'] && $password==$_POST['pw']){
+if($user_name==$_POST['username'] && $password==$pass){
     ?>
     <script>
             swal({

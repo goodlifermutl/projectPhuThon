@@ -65,21 +65,51 @@ window.location.href = "index.html";
 
 <div class="container bigbody">
   <div  class="topbigbody">
-  <br>
+  <!-- <br>
     <form class="form-inline my-2 my-lg-0 menusearch">
       <input class="form-control mr-sm-2" type="search" placeholder="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
+    </form> -->
     <div class="subbigbody">
       <br>
-      <div class="btn-group btn-group-justified">
-      <a href="#" class="btn btn-primary">Apple</a>
-      <a href="#" class="btn btn-primary">Samsung</a>
-      <a href="#" class="btn btn-primary">Sony</a>
-</div>
+    <div class="row">
+    <div class="col-sm-4">
+    <p class="text-center"><b>ค้นหาข้อมูล</b></p>
+      <a href="#">
+      <p class="text-center"><i class="fas fa-search-plus" style="font-size: 80px"></i></i></p>
+      </a>
     </div>
+    <div class="col-sm-4">
+      <p class="text-center"><b>แก้ไขข้อมูล</b></p>
+      <a href="#">
+      <p class="text-center"><i class="fas fa-edit" style="font-size: 80px"></i></p>
+      </a>
+    </div>
+    <div class="col-sm-4">
+      <p class="text-center"><b>เพิ่มข้อมูล</b></p>
+      <a href="#">
+      <p class="text-center"><i class="fas fa-plus-circle" style="font-size: 80px"></i></i></p>
+      </a>
+    </div>
+    </div>
+    </div>
+    </div>
+  <div class="beforfooter">
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
   </div>
-  
 </div>
 
 <div class="footer">

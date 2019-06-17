@@ -12,14 +12,27 @@
 .menusearch{
     justify-content: center;
     display: flex;
-    border: 1px solid #29ecdc;
+    /* border: 1px solid #29ecdc; */
 }
 .bigbody{
-  border: 1px solid  #cfec29;
+  /* border: 1px solid  #cfec29; */
 }
 .topbigbody{
-  border:1px solid #ee780a;
+  /* border:1px solid #ee780a; */
 }
 .subbigbody{
+  /* border: 1px solid #f31d76; */
+}
+.iconcenter{
+  font-size: 34px;
+  justify-content: center;
+}
+a{
+  color: green;
+}
+a:hover{
+  color: greenyellow;
+}
+.beforfooter{
   border: 1px solid #f31d76;
 }
