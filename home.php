@@ -64,13 +64,20 @@ window.location.href = "index.html";
 
 
 <div class="container bigbody">
-  <div>
+  <div  class="topbigbody">
   <br>
-  <form class="form-inline my-2 my-lg-0 menusearch">
+    <form class="form-inline my-2 my-lg-0 menusearch">
       <input class="form-control mr-sm-2" type="search" placeholder="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
-
+    <div class="subbigbody">
+      <br>
+      <div class="btn-group btn-group-justified">
+      <a href="#" class="btn btn-primary">Apple</a>
+      <a href="#" class="btn btn-primary">Samsung</a>
+      <a href="#" class="btn btn-primary">Sony</a>
+</div>
+    </div>
   </div>
   
 </div>
