@@ -36,3 +36,14 @@ a:hover{
 .beforfooter{
   border: 1px solid #f31d76;
 }
+.footer {
+  background-color: #d9cad3;
+  display: -ms-flexbox;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-pack: end;
+  padding: 1rem;
+  border-top: 1px solid #dee2e6;
+  border-bottom-right-radius: .3rem;
+  border-bottom-left-radius: .3rem;
+}
