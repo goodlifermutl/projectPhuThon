@@ -47,3 +47,10 @@ a:hover{
   border-bottom-right-radius: .3rem;
   border-bottom-left-radius: .3rem;
 }
+td.details-control {
+  background: url('image/open.png') no-repeat center center;
+  cursor: pointer;
+}
+tr.shown td.details-control {
+  background: url('image/close.png') no-repeat center center;
+}
