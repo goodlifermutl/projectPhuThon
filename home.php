@@ -37,7 +37,6 @@ $con = connect_db();
 
 $select = mysqli_query($con,"SELECT case_id,case_name,case_type FROM case_name")or die("select sql error".mysqli_error($con));
 
-
 if(empty($_SESSION['user_name'])){
   $com_s="<!--";
   $com_e="-->"
@@ -108,9 +107,28 @@ window.location.href = "index.html";
     </div>
   <div class="beforfooter">
       <br>
-      <br>
-      <br>
-      <br>
+      <?php 
+      if(empty($_GET['datacase'])){
+        $data = "";
+      }else{
+        $data=$_GET['datacase'];
+        $result_victim = mysqli_query($con,"SELECT * FROM victim WHERE case_id = '$data'")or die("resualt_victim sqli error".mysqli_error($con));
+
+        while(list($case_id,$title_id,$victim_name,$victim_lastname,$victim_sex,$victim_idcard,$victim_address,$victim_education)=mysqli_fetch_row($result_victim))
+        
+        echo "
+        <tr>
+        <td>$case_id</td>
+        <td>$title_id</td>
+        <td>$victim_name</td>
+        <td>$victim_lastname</td>
+        <td>$victim_sex</td>
+        <td>$victim_idcard</td>
+        <td>$victim_address</td>
+        <td>$victim_education</td>
+        </tr>";
+      }
+      ?>
       <br>
       <br>
       <br>
@@ -123,69 +141,48 @@ window.location.href = "index.html";
       <br>
 </div>
 
-<div class="footer">
+<div class="footer">1</div>
 
 <div class="modal fade" id="SC" role="dialog">
-    <div class="modal-dialog modal-xl  role="document"">
-    
-
-      <div class="modal-content">
-        <div class="modal-header" style="padding:35px 50px;">
+  <div class="modal-dialog modal-xl  role="document"">
+    <div class="modal-content">
+      <div class="modal-header" style="padding:35px 50px;">
           <h4 style=" justify-content: center"><i class="fas fa-search"></i> ค้นหาข้อมูล</h4>
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           
-        </div>
+       </div>
         <div class="modal-body" style="padding:40px 50px;">
 
         <div class="row">
               <div class="col-md">
-              <!-- <table id="table_id" class="display table">
+                <form method="get">
+              <table id="table_id" class="display table">
                     <thead>
                       <tr>
-                        <th>Firstname</th>
-                        <th>Lastname</th>
-                        <th>Email</th>
+                        <th>เลขคดี</th>
+                        <th>ชื่อคดี</th>
+                        <th>ประเภทคดี</th>
                       </tr>
                     </thead>
                     <tbody>
                       <?php
                       while(list($case_id,$case_name,$case_type)=mysqli_fetch_row($select)){
-                      if($case_type==0){
-                        $case_typeName="คดีอาญา";
+                      if($case_type==1){
+                        $case_typeName="คดีเพ่ง";
                       }else{
-                        $case_typeName="คดีแพ่ง";
+                        $case_typeName="คดีอาญา";
                       }
-                   
                           echo"
                           <tr>
-                            <td>$case_id</td>
+                            <td><a href='?datacase=$case_id'>$case_id</a></td>
                             <td>$case_name</td>
                             <td>$case_typeName</td>
                         </tr>";
                       }
                       ?>
-                    </tbody>
-                  </table> -->
-                  <table id="example" class="display" style="width:100%">
-                  <thead>
-                      <tr>
-                          <th></th>
-                          <th>Name</th>
-                          <th>Position</th>
-                          <th>Office</th>
-                          <th>Salary</th>
-                      </tr>
-                  </thead>
-                  <tfoot>
-                      <tr>
-                          <th></th>
-                          <th>Name</th>
-                          <th>Position</th>
-                          <th>Office</th>
-                          <th>Salary</th>
-                      </tr>
-                  </tfoot>
-              </table>
+                  </tbody>
+                </table>
+                </form>
               </div>
             </div>
            </div>
@@ -198,7 +195,7 @@ window.location.href = "index.html";
             </div>
           </div>
       </div>
-        </div>
+  </div>
        
 <script>
 $(document).ready(function(){
@@ -206,63 +203,7 @@ $(document).ready(function(){
   $("#myBtnSc").click(function(){
     $("#SC").modal();
   });
-});
-
-function format ( d ) {
-    // `d` is the original data object for the row
-    return '<table  cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">'+
-        '<tr>'+
-            '<td>Full name:</td>'+
-            '<td>'+d.name+'</td>'+
-        '</tr>'+
-        '<tr>'+
-            '<td> เงิน:</td>'+
-            '<td>'+d.salary+'</td>'+
-        '</tr>'+
-        '<tr>'+
-            '<td >Extra info:</td>'+
-            '<td>And any further details here (images etc)...</td>'+
-        '</tr>'+
-    '</table>';
-}
- 
-$(document).ready(function() {
-    var table = $('#example').DataTable( {
-        "ajax": "showdata.php",
-        "columns": [
-            {
-                "className":      'details-control',
-                "orderable":      false,
-                "data":           null,
-                "defaultContent": ''
-            },
-            { "data": "name" },
-            { "data": "position" },
-            { "data": "office" },
-            { "data": "salary" }
-        ],
-        "order": [[1, 'asc']]
-    } );
-     
-    // Add event listener for opening and closing details
-    $('#example tbody').on('click', 'td.details-control', function () {
-        var tr = $(this).closest('tr');
-        var row = table.row( tr );
- 
-        if ( row.child.isShown() ) {
-            // This row is already open - close it
-            row.child.hide();
-            tr.removeClass('shown');
-        }
-        else {
-            // Open this row
-            row.child( format(row.data()) ).show();
-            tr.addClass('shown');
-        }
-    } );
-
-   
-} );
+})
 
 </script>
 </div>

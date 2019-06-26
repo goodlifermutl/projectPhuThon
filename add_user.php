@@ -13,7 +13,7 @@ $con = connect_db();
 
 $pass=md5($_POST['psw']);
 
-$sql_user = mysqli_query($con,"INSERT INTO user (id, permiss_id, user_id, pass_id,card_id) VALUES ('', '3', '$_POST[usrname]', '$pass', '$_POST[idcard]')")or die("add_user/ insert error".mysqli_error($con));
+mysqli_query($con,"INSERT INTO user (permiss_id,user_id,pass_id,card_id) VALUES ('3', '$_POST[usrname]', '$pass', '$_POST[idcard]')")or die("add_user/ insert error".mysqli_error($con));
 
 mysqli_close($con);
 
