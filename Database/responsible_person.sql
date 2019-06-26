@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 26, 2019 at 11:06 AM
+-- Generation Time: Jun 26, 2019 at 11:05 AM
 -- Server version: 10.3.15-MariaDB
 -- PHP Version: 7.3.6
 
@@ -25,32 +25,42 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Table structure for table `responsible_person`
 --
 
-CREATE TABLE `user` (
-  `permiss_id` tinyint(2) NOT NULL,
-  `user_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `pass_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+CREATE TABLE `responsible_person` (
+  `case_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `card_id` char(13) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `user`
+-- Dumping data for table `responsible_person`
 --
 
-INSERT INTO `user` (`permiss_id`, `user_id`, `pass_id`, `card_id`) VALUES
-(3, 'admin01', 'c93ccd78b2076528346216b3b2f701e6', '1234567890123');
+INSERT INTO `responsible_person` (`case_id`, `card_id`) VALUES
+('ค.001', '1234567890123');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `user`
+-- Indexes for table `responsible_person`
 --
-ALTER TABLE `user`
-  ADD PRIMARY KEY (`card_id`);
+ALTER TABLE `responsible_person`
+  ADD PRIMARY KEY (`case_id`),
+  ADD KEY `card_id` (`card_id`);
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `responsible_person`
+--
+ALTER TABLE `responsible_person`
+  ADD CONSTRAINT `responsible_person_ibfk_1` FOREIGN KEY (`case_id`) REFERENCES `case_name` (`case_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `responsible_person_ibfk_2` FOREIGN KEY (`card_id`) REFERENCES `police_person` (`card_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

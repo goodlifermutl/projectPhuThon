@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 26, 2019 at 11:06 AM
+-- Generation Time: Jun 26, 2019 at 11:05 AM
 -- Server version: 10.3.15-MariaDB
 -- PHP Version: 7.3.6
 
@@ -25,32 +25,32 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Table structure for table `case_name`
 --
 
-CREATE TABLE `user` (
-  `permiss_id` tinyint(2) NOT NULL,
-  `user_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `pass_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `card_id` char(13) COLLATE utf8_unicode_ci NOT NULL
+CREATE TABLE `case_name` (
+  `case_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `case_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `case_type` varchar(255) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `user`
+-- Dumping data for table `case_name`
 --
 
-INSERT INTO `user` (`permiss_id`, `user_id`, `pass_id`, `card_id`) VALUES
-(3, 'admin01', 'c93ccd78b2076528346216b3b2f701e6', '1234567890123');
+INSERT INTO `case_name` (`case_id`, `case_name`, `case_type`) VALUES
+('ค.001', 'แมวดำ', '1'),
+('ง.12/52', 'ตีโปร่ง', '2');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `user`
+-- Indexes for table `case_name`
 --
-ALTER TABLE `user`
-  ADD PRIMARY KEY (`card_id`);
+ALTER TABLE `case_name`
+  ADD PRIMARY KEY (`case_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
