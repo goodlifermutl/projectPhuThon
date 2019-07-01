@@ -107,27 +107,6 @@ window.location.href = "index.html";
     </div>
   <div class="beforfooter">
       <br>
-      <h1 class="text-center">คดีที่รับผิดชอบ</h1>
-      <table class="table">
-
-      <?php 
-       $sql_res = mysqli_query($con,"SELECT cn.case_id,cn.case_name,cn.case_type,cn.case_savetime FROM case_name as cn INNER JOIN responsible_person as rp ON rp.case_id = cn.case_id WHERE rp.card_id ='$_SESSION[id_card]'")or die("select sql responsible_person error".mysqli_error($con));
-
-       while(list($case_id,$case_name,$case_type)=mysqli_fetch_row($sql_res)){
-        if($case_type==1){
-          $case_typeName="คดีเพ่ง";
-        }else{
-          $case_typeName="คดีอาญา";
-        }
-            echo"
-            <tr>
-              <td><a href='view_data.php?datacase=$case_id'>$case_id</a></td>
-              <td>$case_name</td>
-              <td>$case_typeName</td>
-          </tr>";
-        }
-      ?>
-       </table>
       <form>
 
       <?php 
@@ -242,7 +221,7 @@ window.location.href = "index.html";
                       }
                           echo"
                           <tr>
-                            <td><a href='view_data.php?datacase=$case_id'>$case_id</a></td>
+                            <td><a href='?datacase=$case_id'>$case_id</a></td>
                             <td>$case_name</td>
                             <td>$case_typeName</td>
                         </tr>";

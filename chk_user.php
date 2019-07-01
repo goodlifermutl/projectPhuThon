@@ -14,10 +14,11 @@ $con = connect_db();
 
 $pass=md5($_POST['pw']);
 
-$sql_user = mysqli_query($con,"SELECT permiss_id,user_id,pass_id FROM user WHERE user_id = '$_POST[username]' AND pass_id = '$pass'")or die("SQL chk_user.php ERROR".mysqli_error($con));
-list($permiss_id,$user_name,$password)=mysqli_fetch_row($sql_user);
+$sql_user = mysqli_query($con,"SELECT permiss_id,user_id,pass_id,card_id FROM user WHERE user_id = '$_POST[username]' AND pass_id = '$pass'")or die("SQL chk_user.php ERROR".mysqli_error($con));
+list($permiss_id,$user_name,$password,$card_id)=mysqli_fetch_row($sql_user);
 
 $_SESSION['user_name']=$user_name;
+$_SESSION['id_card']=$card_id;
 
 if($user_name==$_POST['username'] && $password==$pass){
     ?>
