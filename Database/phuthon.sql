@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 26, 2019 at 11:04 AM
+-- Generation Time: Jul 01, 2019 at 11:20 AM
 -- Server version: 10.3.15-MariaDB
 -- PHP Version: 7.3.6
 
@@ -31,16 +31,18 @@ SET time_zone = "+00:00";
 CREATE TABLE `case_name` (
   `case_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `case_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `case_type` varchar(255) COLLATE utf8_unicode_ci NOT NULL
+  `case_type` tinyint(2) NOT NULL,
+  `case_savetime` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `case_name`
 --
 
-INSERT INTO `case_name` (`case_id`, `case_name`, `case_type`) VALUES
-('ค.001', 'แมวดำ', '1'),
-('ง.12/52', 'ตีโปร่ง', '2');
+INSERT INTO `case_name` (`case_id`, `case_name`, `case_type`, `case_savetime`) VALUES
+('กบ/24.33', 'ไผ่สีทอง', 2, '2019-07-01 08:33:48'),
+('ค.001', 'แมวดำ', 1, '2019-07-01 08:32:23'),
+('ง.12/52', 'ตีโปร่ง', 2, '2019-07-01 08:32:23');
 
 -- --------------------------------------------------------
 
@@ -88,7 +90,8 @@ CREATE TABLE `police_person` (
 --
 
 INSERT INTO `police_person` (`card_id`, `rank_id`, `ps_name`, `ps_lastname`, `sex`, `address`, `ps_num`) VALUES
-('1234567890123', 1, 'เจริญใจ', 'บำรุงอยู่', 1, NULL, NULL);
+('1234567890123', 1, 'เจริญใจ', 'บำรุงอยู่', 1, NULL, NULL),
+('1509903426554', 5, 'ธีรภาพ', 'แดดดวงดี', 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -132,7 +135,8 @@ CREATE TABLE `responsible_person` (
 --
 
 INSERT INTO `responsible_person` (`case_id`, `card_id`) VALUES
-('ค.001', '1234567890123');
+('ค.001', '1234567890123'),
+('ง.12/52', '1509903426554');
 
 -- --------------------------------------------------------
 
@@ -152,7 +156,8 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`permiss_id`, `user_id`, `pass_id`, `card_id`) VALUES
-(3, 'admin01', 'c93ccd78b2076528346216b3b2f701e6', '1234567890123');
+(3, 'admin01', 'c93ccd78b2076528346216b3b2f701e6', '1234567890123'),
+(3, 'user02', 'b5b73fae0d87d8b4e2573105f8fbe7bc', '1509903426554');
 
 -- --------------------------------------------------------
 
@@ -162,21 +167,24 @@ INSERT INTO `user` (`permiss_id`, `user_id`, `pass_id`, `card_id`) VALUES
 
 CREATE TABLE `victim` (
   `case_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `title_id` tinyint(2) NOT NULL,
+  `title_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `victim_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `victim_lastname` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `victim_sex` tinyint(2) NOT NULL,
   `victim_idcard` char(13) COLLATE utf8_unicode_ci NOT NULL,
   `victim_address` text COLLATE utf8_unicode_ci DEFAULT NULL,
-  `victim_education` tinyint(2) NOT NULL
+  `victim_education` tinyint(2) NOT NULL,
+  `victim_image` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `victim`
 --
 
-INSERT INTO `victim` (`case_id`, `title_id`, `victim_name`, `victim_lastname`, `victim_sex`, `victim_idcard`, `victim_address`, `victim_education`) VALUES
-('ค.001', 1, 'ทองคำดี', 'เคยมีสุข', 1, '1509901658485', NULL, 4);
+INSERT INTO `victim` (`case_id`, `title_name`, `victim_name`, `victim_lastname`, `victim_sex`, `victim_idcard`, `victim_address`, `victim_education`, `victim_image`) VALUES
+('ง.12/52', 'นาย', 'จันทร์ดี', 'โอกาสเดิม', 1, '1508890723431', '23 หมู่ 4 บ้าน ดง ต.ก่อไผ่ อ.ดอกไม้ จ.เชียงใหม่ 54334', 6, 'icon_data_usermale'),
+('ค.001', 'นางสาว', 'พะยอง', 'จังเลย', 2, '150964345671', '22 หมู่ 7 ต.ดอกไม้ อ.ต้นไม้ จ.เชียงใหม่ 54334', 5, 'icon_data_userfemale'),
+('ค.001', 'นาย', 'ทองคำดี', 'เคยมีสุข', 1, '1509901658485', '78/4 ต.ป่าทอง อ.จัดการ จ.เชียงใหม่ 50990', 4, 'icon_data_usermale');
 
 --
 -- Indexes for dumped tables
@@ -224,8 +232,9 @@ ALTER TABLE `user`
 -- Indexes for table `victim`
 --
 ALTER TABLE `victim`
-  ADD PRIMARY KEY (`case_id`),
-  ADD KEY `victim_education` (`victim_education`);
+  ADD PRIMARY KEY (`victim_idcard`),
+  ADD KEY `victim_education` (`victim_education`),
+  ADD KEY `case_id` (`case_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
