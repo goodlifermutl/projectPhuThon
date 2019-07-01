@@ -107,28 +107,75 @@ window.location.href = "index.html";
     </div>
   <div class="beforfooter">
       <br>
+      <form>
+
       <?php 
       if(empty($_GET['datacase'])){
         $data = "";
       }else{
         $data=$_GET['datacase'];
-        $result_victim = mysqli_query($con,"SELECT * FROM victim WHERE case_id = '$data'")or die("resualt_victim sqli error".mysqli_error($con));
 
-        while(list($case_id,$title_id,$victim_name,$victim_lastname,$victim_sex,$victim_idcard,$victim_address,$victim_education)=mysqli_fetch_row($result_victim))
+        $sex_name;
+        $i=1;
+
+        $result_victim = mysqli_query($con,"SELECT vm.case_id, vm.title_name, vm.victim_name,vm.victim_lastname,vm.victim_sex,vm.victim_idcard,vm.victim_address,ed.edu_name,vm.victim_image FROM victim as vm  INNER JOIN education as ed ON vm.victim_education = ed.edu_id WHERE case_id = '$data'")or die("resualt_victim sqli error".mysqli_error($con));
+
+        while(list($case_id,$title_id,$victim_name,$victim_lastname,$victim_sex,$victim_idcard,$victim_address,$victim_education,$victim_image)=mysqli_fetch_row($result_victim)){
         
-        echo "
-        <tr>
-        <td>$case_id</td>
-        <td>$title_id</td>
-        <td>$victim_name</td>
-        <td>$victim_lastname</td>
-        <td>$victim_sex</td>
-        <td>$victim_idcard</td>
-        <td>$victim_address</td>
-        <td>$victim_education</td>
-        </tr>";
+          if($victim_sex == 1){
+            $sex_name = "ชาย";
+          }else{
+            $sex_name = "หญิง";
+          }
+        ?>
+         <div class="col-md">
+          <label for="formGroupExampleInput">ผู้เสียหาย คนที่ <?php echo $i; $i++?></label>
+          <p><img src="image/<?php echo $victim_image; ?>.png" class="img-fluid mx-auto d-block" alt="Responsive image"></p>
+          <div class="form-row">
+          <div class="col-2">
+              <input type="text" class="form-control" placeholder="รหัสคดี <?php echo $case_id; ?>" value="<?php echo $case_id; ?>" readonly>
+            </div>
+            <div class="col-2">
+              <input type="text" class="form-control" placeholder="คำนำหน้าชื่อ" value="<?php echo $title_id; ?>" readonly>
+            </div>
+            <div class="col-4">
+              <input type="text" class="form-control" placeholder="ชื่อ" value="<?php echo $victim_name; ?>" readonly>
+            </div>
+            <div class="col-4">
+              <input type="text" class="form-control" placeholder="นามสกุล" value="<?php echo $victim_lastname; ?>" readonly>
+            </div>
+            </div>
+          </div>
+          
+          <p></p>
+        <div class="col-md">
+          <div class="form-row">
+            <div class="col">
+              <input type="text" class="form-control" placeholder="เลขบัตรประจำตัวประชาชน" value="<?php echo $victim_idcard; ?>" readonly>
+            </div>
+            <div class="col">
+              <input type="text" class="form-control" placeholder="ระดับการศึกษา" value="<?php echo $victim_education; ?>" readonly>
+            </div>
+            <div class="col">
+              <input type="text" class="form-control" placeholder="เพศ" value="<?php echo $sex_name; ?>" readonly>
+            </div>
+          </div>
+        </div>
+
+        <p></p>
+        <div class="col-md">
+          <div class="form-row">
+            <div class="col">
+              <input type="text" class="form-control" placeholder="ที่อยู่" value="<?php echo $victim_address; ?>" readonly>
+            </div>
+          </div>
+        </div>
+        <hr>
+      <?php
       }
+    }
       ?>
+      </form>
       <br>
       <br>
       <br>
