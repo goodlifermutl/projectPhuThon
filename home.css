@@ -54,3 +54,6 @@ td.details-control {
 tr.shown td.details-control {
   background: url('image/close.png') no-repeat center center;
 }
+.victim{
+  border: 1px solid #caae11;
+}

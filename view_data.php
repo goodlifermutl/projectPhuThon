@@ -21,7 +21,7 @@
  <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.18/datatables.min.js"></script>
  
 
-  <link rel="stylesheet" href="home.css">
+  <link rel="stylesheet" href="view_data.css">
   <?php //validate ?>
 		<script src="js/validate/jquery.validate.min.js" ></script>
 		<script src="js/validate/additional-methods.min.js" ></script>
@@ -106,6 +106,8 @@ window.location.href = "index.html";
     </div>
     </div>
   <div class="beforfooter">
+    <div class="victim">
+      <p><h1 class="text-center">ผู้เสียหาย</h1></p>
       <br>
       <form>
 
@@ -120,7 +122,7 @@ window.location.href = "index.html";
 
         $result_victim = mysqli_query($con,"SELECT vm.case_id, vm.title_name, vm.victim_name,vm.victim_lastname,vm.victim_sex,vm.victim_idcard,vm.victim_address,ed.edu_name,vm.victim_image FROM victim as vm  INNER JOIN education as ed ON vm.victim_education = ed.edu_id WHERE case_id = '$data'")or die("resualt_victim sqli error".mysqli_error($con));
 
-        while(list($case_id,$title_id,$victim_name,$victim_lastname,$victim_sex,$victim_idcard,$victim_address,$victim_education,$victim_image)=mysqli_fetch_row($result_victim)){
+        while(list($case_id,$title_name,$victim_name,$victim_lastname,$victim_sex,$victim_idcard,$victim_address,$victim_education,$victim_image)=mysqli_fetch_row($result_victim)){
         
           if($victim_sex == 1){
             $sex_name = "ชาย";
@@ -129,14 +131,14 @@ window.location.href = "index.html";
           }
         ?>
          <div class="col-md">
-          <label for="formGroupExampleInput">ผู้เสียหาย คนที่ <?php echo $i; $i++?></label>
+          <b><label for="formGroupExampleInput">ผู้เสียหาย คนที่ <?php echo $i; $i++?></label></b>
           <p><img src="image/<?php echo $victim_image; ?>.png" class="img-fluid mx-auto d-block" alt="Responsive image"></p>
           <div class="form-row">
           <div class="col-2">
               <input type="text" class="form-control" placeholder="รหัสคดี <?php echo $case_id; ?>" value="<?php echo $case_id; ?>" readonly>
             </div>
             <div class="col-2">
-              <input type="text" class="form-control" placeholder="คำนำหน้าชื่อ" value="<?php echo $title_id; ?>" readonly>
+              <input type="text" class="form-control" placeholder="คำนำหน้าชื่อ" value="<?php echo $title_name; ?>" readonly>
             </div>
             <div class="col-4">
               <input type="text" class="form-control" placeholder="ชื่อ" value="<?php echo $victim_name; ?>" readonly>
@@ -176,7 +178,83 @@ window.location.href = "index.html";
     }
       ?>
       </form>
-      <br>
+     </div>
+     <div class="villain">
+     <p><h1 class="text-center">ผู้ต้องหา</h1></p>
+     <form>
+
+      <?php 
+      if(empty($_GET['datacase'])){
+        $data = "";
+      }else{
+        $data=$_GET['datacase'];
+
+        $sex_name;
+        $i=1;
+
+        $result_victim = mysqli_query($con,"SELECT vl.case_id,vl.title_name,vl.villain_name,vl.villain_lastname,vl.villain_sex,vl.villain_idcard,vl.villain_address,ed.edu_name,vl.villain_image FROM villain as vl INNER JOIN education as ed ON vl.villain_education = ed.edu_id WHERE case_id = '$data'")or die("resualt_villain sqli error".mysqli_error($con));
+
+        while(list($case_id,$title_name,$villain_name,$villain_lastname,$villain_sex,$villain_idcard,$villain_address,$villain_education,$villain_image)=mysqli_fetch_row($result_victim)){
+        
+          if($villain_sex == 1){
+            $sex_name = "ชาย";
+          }else{
+            $sex_name = "หญิง";
+          }
+        ?>
+         <div class="col-md">
+          <b><label for="formGroupExampleInput">ผู้ต้องหา คนที่ <?php echo $i; $i++?></label></b>
+          <p><img src="image/<?php echo $villain_image; ?>.png" class="img-fluid mx-auto d-block" alt="Responsive image"></p>
+          <div class="form-row">
+          <div class="col-2">
+              <input type="text" class="form-control" placeholder="รหัสคดี <?php echo $case_id; ?>" value="<?php echo $case_id; ?>" readonly>
+            </div>
+            <div class="col-2">
+              <input type="text" class="form-control" placeholder="คำนำหน้าชื่อ" value="<?php echo $title_name; ?>" readonly>
+            </div>
+            <div class="col-4">
+              <input type="text" class="form-control" placeholder="ชื่อ" value="<?php echo $villain_name; ?>" readonly>
+            </div>
+            <div class="col-4">
+              <input type="text" class="form-control" placeholder="นามสกุล" value="<?php echo $villain_lastname; ?>" readonly>
+            </div>
+            </div>
+          </div>
+          
+          <p></p>
+        <div class="col-md">
+          <div class="form-row">
+            <div class="col">
+              <input type="text" class="form-control" placeholder="เลขบัตรประจำตัวประชาชน" value="<?php echo $villain_idcard; ?>" readonly>
+            </div>
+            <div class="col">
+              <input type="text" class="form-control" placeholder="ระดับการศึกษา" value="<?php echo $villain_education; ?>" readonly>
+            </div>
+            <div class="col">
+              <input type="text" class="form-control" placeholder="เพศ" value="<?php echo $sex_name; ?>" readonly>
+            </div>
+          </div>
+        </div>
+
+        <p></p>
+        <div class="col-md">
+          <div class="form-row">
+            <div class="col">
+              <input type="text" class="form-control" placeholder="ที่อยู่" value="<?php echo $villain_address; ?>" readonly>
+            </div>
+          </div>
+        </div>
+        <hr>
+      <?php
+      }
+    }
+      ?>
+      </form>
+     <br>
+     <br>
+     <br>
+     </div>
+     <br>
       <br>
       <br>
       <br>

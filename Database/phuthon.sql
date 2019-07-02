@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 01, 2019 at 11:20 AM
+-- Generation Time: Jul 02, 2019 at 08:56 AM
 -- Server version: 10.3.15-MariaDB
 -- PHP Version: 7.3.6
 
@@ -21,6 +21,22 @@ SET time_zone = "+00:00";
 --
 -- Database: `phuthon`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `arrest_record`
+--
+
+CREATE TABLE `arrest_record` (
+  `case_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `ar_date_arrest` datetime NOT NULL,
+  `ar_date_record` datetime NOT NULL,
+  `court_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `num_arrest` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `location_record` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `location_arrest` varchar(255) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -68,6 +84,21 @@ INSERT INTO `education` (`edu_id`, `edu_name`) VALUES
 (6, 'ปริญญาตรี'),
 (7, 'ปริญญาโท'),
 (8, 'ปริญญาเอก');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `exhibit`
+--
+
+CREATE TABLE `exhibit` (
+  `case_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `exhibit_status` tinyint(2) NOT NULL,
+  `exhibit_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `exhibit_size` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `exhibit_look` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `exhibit_image` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -186,6 +217,32 @@ INSERT INTO `victim` (`case_id`, `title_name`, `victim_name`, `victim_lastname`,
 ('ค.001', 'นางสาว', 'พะยอง', 'จังเลย', 2, '150964345671', '22 หมู่ 7 ต.ดอกไม้ อ.ต้นไม้ จ.เชียงใหม่ 54334', 5, 'icon_data_userfemale'),
 ('ค.001', 'นาย', 'ทองคำดี', 'เคยมีสุข', 1, '1509901658485', '78/4 ต.ป่าทอง อ.จัดการ จ.เชียงใหม่ 50990', 4, 'icon_data_usermale');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `villain`
+--
+
+CREATE TABLE `villain` (
+  `case_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `title_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `villain_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `villain_lastname` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `villain_sex` tinyint(2) NOT NULL,
+  `villain_idcard` char(13) COLLATE utf8_unicode_ci NOT NULL,
+  `villain_address` text COLLATE utf8_unicode_ci DEFAULT NULL,
+  `villain_education` tinyint(2) DEFAULT NULL,
+  `villain_image` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `villain`
+--
+
+INSERT INTO `villain` (`case_id`, `title_name`, `villain_name`, `villain_lastname`, `villain_sex`, `villain_idcard`, `villain_address`, `villain_education`, `villain_image`) VALUES
+('ค.001', 'นาย', 'แดงเดือด', 'เลือดสาด', 1, '1402251685492', '85/2 หมู่ 8 ต.ห้วยหล่อ อ.ดอกเด็ด จ.เชียงใหม่ 50992', 4, 'icon_data_usermale'),
+('ง.12/52', 'นาย', 'ดึกดำดึ๋ย', 'เลียนแบบหนัง', 1, '1564821532238', '77/2 หมู่ 1 ต.แดดออก อ.ฝนตก จ.เชียงใหม่ 50287', 8, 'icon_data_usermale');
+
 --
 -- Indexes for dumped tables
 --
@@ -237,6 +294,14 @@ ALTER TABLE `victim`
   ADD KEY `case_id` (`case_id`);
 
 --
+-- Indexes for table `villain`
+--
+ALTER TABLE `villain`
+  ADD PRIMARY KEY (`villain_idcard`),
+  ADD KEY `case_id` (`case_id`),
+  ADD KEY `villain_education` (`villain_education`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -275,6 +340,13 @@ ALTER TABLE `responsible_person`
 ALTER TABLE `victim`
   ADD CONSTRAINT `victim_ibfk_1` FOREIGN KEY (`victim_education`) REFERENCES `education` (`edu_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `victim_ibfk_2` FOREIGN KEY (`case_id`) REFERENCES `case_name` (`case_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `villain`
+--
+ALTER TABLE `villain`
+  ADD CONSTRAINT `villain_ibfk_1` FOREIGN KEY (`case_id`) REFERENCES `case_name` (`case_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `villain_ibfk_2` FOREIGN KEY (`villain_education`) REFERENCES `education` (`edu_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

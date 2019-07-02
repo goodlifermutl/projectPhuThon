@@ -128,6 +128,7 @@ window.location.href = "index.html";
         }
       ?>
        </table>
+       <hr>
       <form>
 
       <?php 
