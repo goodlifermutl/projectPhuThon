@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 02, 2019 at 08:56 AM
+-- Generation Time: Jul 03, 2019 at 11:15 AM
 -- Server version: 10.3.15-MariaDB
 -- PHP Version: 7.3.6
 
@@ -37,6 +37,13 @@ CREATE TABLE `arrest_record` (
   `location_record` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `location_arrest` varchar(255) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `arrest_record`
+--
+
+INSERT INTO `arrest_record` (`case_id`, `ar_date_arrest`, `ar_date_record`, `court_name`, `num_arrest`, `location_record`, `location_arrest`) VALUES
+('ค.001', '2019-07-03 00:00:00', '2019-07-03 00:00:00', 'ศาลจังหวัดเชียงใหม่', 'จ.123/62', 'สถานีตำรวจ', 'สถานีตำรวจ');
 
 -- --------------------------------------------------------
 
@@ -92,6 +99,7 @@ INSERT INTO `education` (`edu_id`, `edu_name`) VALUES
 --
 
 CREATE TABLE `exhibit` (
+  `id_exhibit` int(11) NOT NULL,
   `case_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `exhibit_status` tinyint(2) NOT NULL,
   `exhibit_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -99,6 +107,13 @@ CREATE TABLE `exhibit` (
   `exhibit_look` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `exhibit_image` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `exhibit`
+--
+
+INSERT INTO `exhibit` (`id_exhibit`, `case_id`, `exhibit_status`, `exhibit_name`, `exhibit_size`, `exhibit_look`, `exhibit_image`) VALUES
+(0, 'ค.001', 1, 'ไม้ไผ่', '20*60', 'ลำต้นสีเขียว', 'icon_data_exi');
 
 -- --------------------------------------------------------
 
@@ -188,6 +203,7 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`permiss_id`, `user_id`, `pass_id`, `card_id`) VALUES
 (3, 'admin01', 'c93ccd78b2076528346216b3b2f701e6', '1234567890123'),
+(3, 'user03', 'b5b73fae0d87d8b4e2573105f8fbe7bc', '1402807627453'),
 (3, 'user02', 'b5b73fae0d87d8b4e2573105f8fbe7bc', '1509903426554');
 
 -- --------------------------------------------------------
@@ -248,6 +264,12 @@ INSERT INTO `villain` (`case_id`, `title_name`, `villain_name`, `villain_lastnam
 --
 
 --
+-- Indexes for table `arrest_record`
+--
+ALTER TABLE `arrest_record`
+  ADD PRIMARY KEY (`case_id`);
+
+--
 -- Indexes for table `case_name`
 --
 ALTER TABLE `case_name`
@@ -258,6 +280,12 @@ ALTER TABLE `case_name`
 --
 ALTER TABLE `education`
   ADD PRIMARY KEY (`edu_id`);
+
+--
+-- Indexes for table `exhibit`
+--
+ALTER TABLE `exhibit`
+  ADD PRIMARY KEY (`id_exhibit`);
 
 --
 -- Indexes for table `police_person`

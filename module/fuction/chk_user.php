@@ -28,7 +28,7 @@ if($user_name==$_POST['username'] && $password==$pass){
                 text: "คุณ <?php echo $_POST['username']; ?>",
                 icon: "success",
             }).then((value) => {
-        window.location.href = "home.php";
+        window.location.href = "../main/home.php";
         });
     </script>
     <?php
@@ -39,7 +39,7 @@ if($user_name==$_POST['username'] && $password==$pass){
                 title: "ตรวจสอบผู้ใช้และรหัสผ่าน",
                 icon: "error",
             }).then((value) => {
-        window.location.href = "index.html";
+        window.location.href = "../../index.html";
         });
     </script>
     <?php

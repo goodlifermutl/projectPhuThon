@@ -1,0 +1,127 @@
+
+
+<div  class="topbigbody">
+    <div class="subbigbody">
+      <br>
+    <div class="row">
+    <div class="col-sm-4">
+    <p class="text-center"><b>ค้นหาข้อมูล</b></p>
+      <a href="#" id="myBtnSc">
+      <p class="text-center"><i class="fas fa-search-plus" style="font-size: 80px"></i></i></p>
+      </a>
+    </div>
+    <div class="col-sm-4">
+      <p class="text-center"><b>แก้ไขข้อมูล</b></p>
+      <a href="#">
+      <p class="text-center"><i class="fas fa-edit" style="font-size: 80px"></i></p>
+      </a>
+    </div>
+    <div class="col-sm-4">
+      <p class="text-center"><b>เพิ่มข้อมูล</b></p>
+      <a href="#">
+      <p class="text-center"><i class="fas fa-plus-circle" style="font-size: 80px"></i></i></p>
+      </a>
+    </div>
+    </div>
+    </div>
+    </div>
+  <div class="beforfooter">
+      <br>
+      <h1 class="text-center">คดีที่รับผิดชอบ</h1>
+      <table class="table">
+
+      <?php 
+       
+        $con = connect_db();
+
+       $sql_res = mysqli_query($con,"SELECT cn.case_id,cn.case_name,cn.case_type,cn.case_savetime FROM case_name as cn INNER JOIN responsible_person as rp ON rp.case_id = cn.case_id WHERE rp.card_id ='$_SESSION[id_card]'")or die("select sql responsible_person error".mysqli_error($con));
+
+       while(list($case_id,$case_name,$case_type)=mysqli_fetch_row($sql_res)){
+        if($case_type==1){
+          $case_typeName="คดีเพ่ง";
+        }else{
+          $case_typeName="คดีอาญา";
+        }
+            echo"
+            <tr>
+              <td><a href='?datacase=$case_id&module=1&action=1'>$case_id</a></td>
+              <td>$case_name</td>
+              <td>$case_typeName</td>
+          </tr>";
+        }
+      ?>
+       </table>
+       <hr>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+</div>
+<div class="footer">1</div>
+
+<div class="modal fade" id="SC" role="dialog">
+  <div class="modal-dialog modal-xl  role="document"">
+    <div class="modal-content">
+      <div class="modal-header" style="padding:35px 50px;">
+          <h4 style=" justify-content: center"><i class="fas fa-search"></i> ค้นหาข้อมูล</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          
+       </div>
+      <?php
+       $select = mysqli_query($con,"SELECT case_id,case_name,case_type FROM case_name")or die("select sql error".mysqli_error($con));
+        ?>
+        <div class="modal-body" style="padding:40px 50px;">
+
+        <div class="row">
+              <div class="col-md">
+                <form method="get">
+              <table id="table_id" class="display table">
+                    <thead>
+                      <tr>
+                        <th>เลขคดี</th>
+                        <th>ชื่อคดี</th>
+                        <th>ประเภทคดี</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <?php
+                      while(list($case_id,$case_name,$case_type)=mysqli_fetch_row($select)){
+                      if($case_type==1){
+                        $case_typeName="คดีเพ่ง";
+                      }else{
+                        $case_typeName="คดีอาญา";
+                      }
+                          echo"
+                          <tr>
+                            <td><a href='?datacase=$case_id&module=1&action=1'>$case_id</a></td>
+                            <td>$case_name</td>
+                            <td>$case_typeName</td>
+                        </tr>";
+                      }
+                      ?>
+                  </tbody>
+                </table>
+                </form>
+              </div>
+            </div>
+           </div>
+           <div class="footer">
+            <div style="float: left;">
+              <button type="submit" class="btn btn-danger btn-default" data-dismiss="modal"> Cancel</button>
+            </div>
+            <div style="float: right">  
+              <a href="#">ลืมรหัสผ่าน</a>
+            </div>
+          </div>
+      </div>
+      <div class="footer">1</div>
+      <script>
+        $(document).ready(function(){
+        $('#table_id').DataTable();
+        $("#myBtnSc").click(function(){
+            $("#SC").modal();
+        });
+        })
+
+        </script>

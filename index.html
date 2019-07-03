@@ -67,7 +67,7 @@
           
         </div>
         <div class="modal-body" style="padding:40px 50px;">
-          <form role="form" method="post" action="chk_user.php" id="matchlogin">
+          <form role="form" method="post" action="module/fuction/chk_user.php" id="matchlogin">
             <div class="form-group">
               <label for="usrname"><span class="glyphicon glyphicon-user"></span> ชื่อผู้ใช้</label>
               <input type="text" class="form-control" id="usrname" name="username" placeholder="กรอกชื่อผู้ใช้งาน" required>
@@ -120,7 +120,8 @@
             </div>
             <div class="form-group">
               <label for="psw"><i class="fas fa-address-card"></i> เลขบัตรประจำตัวประชาชน</label>
-              <input type="number" min="0" class="form-control" id="idcard" name="idcard" placeholder="กรอกเลขประจำตัวประชาชน" required>
+              <input type="number" min="0" class="form-control chk_idcard" id="idcard" name="idcard" placeholder="กรอกเลขประจำตัวประชาชน" required>
+              <span id='showtxtidcard' style="color:red"></span>
             </div>
             
               <button type="submit" class="btn btn-success btn-block" id="submit"> สมัครสมาชิก</button>
@@ -156,7 +157,7 @@ $(document).ready(function(){
 				var text = $(this).val();
        //alert(text)
 				if(text!=""){
-				$.getJSON( "check_username.php", function( data ) {
+				$.getJSON( "module/fuction/check_username.php", function( data ) {
 				  var items = [];
           //alert(data)
 				  $.each( data, function( key, val ) {
@@ -174,7 +175,30 @@ $(document).ready(function(){
 				}
 			});
 
+      $('.chk_idcard').blur(function() {
+				var text = $(this).val();
+       //alert(text)
+				if(text!=""){
+				$.getJSON( "module/fuction/check_idcard.php", function( data ) {
+				  var items = [];
+          //alert(data)
+				  $.each( data, function( key, val ) {
+				    if(val == text ){
+				    	$('#showtxtidcard').html("<b>เลขบัตรประชาชนนี้มีผู้ใช้งานแล้ว !!!!</b>");
+              $(".chk_idcard").val("");
+				    	 return false;
+
+				    }else{
+				    	$('#showtxtidcard').html("");
+				    }
+				  });
+
+				});
+				}
+			});
+
 });
+
 $('#matchpass').validate({ 
 								
           rules: {
@@ -203,11 +227,11 @@ $('#matchpass').validate({
 				var formData = new FormData(this);
 
 					    $.ajax({
-					        url: "add_user.php",
+					        url: "module/fuction/add_user.php",
 					        type: 'POST',
 					        data: formData,
 					        success: function (data) {
-                   //alert(data)  
+                   alert(data)  
               $('#signup').modal("hide")
 
 $('#signup').on('hidden.bs.modal', function (e) {

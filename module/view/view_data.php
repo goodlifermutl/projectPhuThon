@@ -1,38 +1,8 @@
 
-<html lang="en">
-<head>
-  <title>PhuThon</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-  <script
-  src="https://code.jquery.com/jquery-3.4.1.js"
-  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
-  crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-  <script src="https://kit.fontawesome.com/af7942016f.js"></script>
-  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  
-  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.18/datatables.min.css"/>
- 
- <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.18/datatables.min.js"></script>
- 
-
-  <link rel="stylesheet" href="view_data.css">
-  <?php //validate ?>
-		<script src="js/validate/jquery.validate.min.js" ></script>
-		<script src="js/validate/additional-methods.min.js" ></script>
-		<script src="js/validate/localization/messages_th.min.js" ></script>
-		<script src="js/validateSetdef.js" ></script> 
-		<?php //END validate ?>
-</head>
-<body>
 <?php
-session_start();
-include ("connect_db.php");
+// session_start();
+// include ("../fuction/connect_db.php");
 $con = connect_db();
 
 $select = mysqli_query($con,"SELECT case_id,case_name,case_type FROM case_name")or die("select sql error".mysqli_error($con));
@@ -56,23 +26,6 @@ window.location.href = "index.html";
 }
 ?>
 <?php echo $com_s ?>
- <nav class="navbar navbar-expand-lg navbar-light bg-light"> 
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <a class="navbar-brand" href="home.php"><i style="font-size: 36px" class="fas fa-h-square"></i> PhuThon pak5</a>  
-
-  <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-     
-    </ul>
-    <form class="form-inline my-2 my-lg-0">
-    <a class="navbar-brand"><i class="far fa-id-badge"></i> <?php echo $_SESSION['user_name']; ?></a>
-    <a href="destroy_session.php"><button class="btn btn-outline-warning my-2 my-sm-0" type="button">ออกจากระบบ</button></a>
-    </form>
-  </div>
-</nav>
-
 
 <div class="container bigbody">
   <div  class="topbigbody">
@@ -132,7 +85,7 @@ window.location.href = "index.html";
         ?>
          <div class="col-md">
           <b><label for="formGroupExampleInput">ผู้เสียหาย คนที่ <?php echo $i; $i++?></label></b>
-          <p><img src="image/<?php echo $victim_image; ?>.png" class="img-fluid mx-auto d-block" alt="Responsive image"></p>
+          <p><img src="../../image/<?php echo $victim_image; ?>.png" class="img-fluid mx-auto d-block" alt="Responsive image"></p>
           <div class="form-row">
           <div class="col-2">
               <input type="text" class="form-control" placeholder="รหัสคดี <?php echo $case_id; ?>" value="<?php echo $case_id; ?>" readonly>
@@ -204,7 +157,7 @@ window.location.href = "index.html";
         ?>
          <div class="col-md">
           <b><label for="formGroupExampleInput">ผู้ต้องหา คนที่ <?php echo $i; $i++?></label></b>
-          <p><img src="image/<?php echo $villain_image; ?>.png" class="img-fluid mx-auto d-block" alt="Responsive image"></p>
+          <p><img src="../../image/<?php echo $villain_image; ?>.png" class="img-fluid mx-auto d-block" alt="Responsive image"></p>
           <div class="form-row">
           <div class="col-2">
               <input type="text" class="form-control" placeholder="รหัสคดี <?php echo $case_id; ?>" value="<?php echo $case_id; ?>" readonly>
@@ -265,7 +218,6 @@ window.location.href = "index.html";
       <br>
       <br>
 </div>
-
 <div class="footer">1</div>
 
 <div class="modal fade" id="SC" role="dialog">
@@ -299,7 +251,7 @@ window.location.href = "index.html";
                       }
                           echo"
                           <tr>
-                            <td><a href='?datacase=$case_id'>$case_id</a></td>
+                            <td><a href='?datacase=$case_id&module=1&action=1'>$case_id</a></td>
                             <td>$case_name</td>
                             <td>$case_typeName</td>
                         </tr>";
@@ -333,5 +285,3 @@ $(document).ready(function(){
 </script>
 </div>
 <?php echo $com_s?>
-</body>
-</html>
