@@ -35,7 +35,6 @@ window.location.href = "index.html";
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form> -->
     <div class="subbigbody">
-      <br>
     <div class="row">
     <div class="col-sm-4">
     <p class="text-center"><b>ค้นหาข้อมูล</b></p>
@@ -58,8 +57,10 @@ window.location.href = "index.html";
     </div>
     </div>
     </div>
-  <div class="beforfooter">
+    <div class="col-md">
+  <div class="bf-footer">
     <div class="victim">
+    <a name="ผู้เสียหาย"></a>
       <p><h1 class="text-center">ผู้เสียหาย</h1></p>
       <br>
       <form>
@@ -133,6 +134,7 @@ window.location.href = "index.html";
       </form>
      </div>
      <div class="villain">
+     <a name="ผู้ต้องหา"></a>
      <p><h1 class="text-center">ผู้ต้องหา</h1></p>
      <form>
 
@@ -218,7 +220,17 @@ window.location.href = "index.html";
       <br>
       <br>
 </div>
-<div class="footer">1</div>
+<div class="menu">
+    <ul style="list-style-type: none;margin:0;padding:0;">
+      <li style="margin:0px 0px 5px 0px;"><a href="#ผู้เสียหาย"><button type="button" class="btn btn-outline-primary">ผู้เสียหาย</button></a></li>
+      <li style="margin:0px 0px 5px 0px;"><a href="#ผู้ต้องหาย"><button type="button" class="btn btn-outline-primary">ผู้ต้องหา</button></a></li>
+    </ul>
+</div>
+<div class="clearfloat"></div>
+<div class="footer-view"></div>
+</div>
+
+
 
 <div class="modal fade" id="SC" role="dialog">
   <div class="modal-dialog modal-xl  role="document"">

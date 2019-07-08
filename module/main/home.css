@@ -21,7 +21,7 @@
   /* border:1px solid #ee780a; */
 }
 .subbigbody{
-  /* border: 1px solid #f31d76; */
+  padding-top: 10%;
 }
 .iconcenter{
   font-size: 34px;
@@ -35,6 +35,22 @@ a:hover{
 }
 .beforfooter{
   border: 1px solid #f31d76;
+}
+.bf-footer{
+  border: 1px solid #f31d76;
+  float: left;
+  width: 105%;
+}
+.menu{
+  display: flex;
+}
+.clearfloat{
+  clear: both;
+}
+.footer-view{
+  background-color: #d9cad3;
+  padding: 2rem;
+  width: 105%;
 }
 .footer {
   background-color: #d9cad3;

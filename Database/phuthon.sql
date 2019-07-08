@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 03, 2019 at 11:15 AM
+-- Generation Time: Jul 08, 2019 at 09:38 AM
 -- Server version: 10.3.15-MariaDB
 -- PHP Version: 7.3.6
 
@@ -118,6 +118,27 @@ INSERT INTO `exhibit` (`id_exhibit`, `case_id`, `exhibit_status`, `exhibit_name`
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `inquiry_official`
+--
+
+CREATE TABLE `inquiry_official` (
+  `case_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `rank_id` tinyint(2) NOT NULL,
+  `io_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `io_lastname` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `card_id` char(13) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `inquiry_official`
+--
+
+INSERT INTO `inquiry_official` (`case_id`, `rank_id`, `io_name`, `io_lastname`, `card_id`) VALUES
+('ค.001', 6, 'สืบสวน', 'สอบสวน', '1409908274561');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `police_person`
 --
 
@@ -183,6 +204,23 @@ CREATE TABLE `responsible_person` (
 INSERT INTO `responsible_person` (`case_id`, `card_id`) VALUES
 ('ค.001', '1234567890123'),
 ('ง.12/52', '1509903426554');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `subpoena`
+--
+
+CREATE TABLE `subpoena` (
+  `case_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `subject` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `num_black` int(11) NOT NULL,
+  `num_red` int(11) NOT NULL,
+  `arrest_warrant` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `search warrant` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `date_num_red` date NOT NULL,
+  `date_sue` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -288,6 +326,14 @@ ALTER TABLE `exhibit`
   ADD PRIMARY KEY (`id_exhibit`);
 
 --
+-- Indexes for table `inquiry_official`
+--
+ALTER TABLE `inquiry_official`
+  ADD PRIMARY KEY (`card_id`),
+  ADD KEY `case_id` (`case_id`),
+  ADD KEY `rank_id` (`rank_id`);
+
+--
 -- Indexes for table `police_person`
 --
 ALTER TABLE `police_person`
@@ -306,6 +352,12 @@ ALTER TABLE `rank_police`
 ALTER TABLE `responsible_person`
   ADD PRIMARY KEY (`case_id`),
   ADD KEY `card_id` (`card_id`);
+
+--
+-- Indexes for table `subpoena`
+--
+ALTER TABLE `subpoena`
+  ADD PRIMARY KEY (`case_id`);
 
 --
 -- Indexes for table `user`
@@ -348,6 +400,13 @@ ALTER TABLE `rank_police`
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `inquiry_official`
+--
+ALTER TABLE `inquiry_official`
+  ADD CONSTRAINT `inquiry_official_ibfk_1` FOREIGN KEY (`case_id`) REFERENCES `case_name` (`case_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `inquiry_official_ibfk_2` FOREIGN KEY (`rank_id`) REFERENCES `rank_police` (`rank_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `police_person`
