@@ -58,13 +58,12 @@ window.location.href = "index.html";
     </div>
     </div>
     <div class="col-md">
-  <div class="bf-footer">
-    <div class="victim">
+    <section class="bf-footer">
     <a name="ผู้เสียหาย"></a>
+    <div class="victim">
       <p><h1 class="text-center">ผู้เสียหาย</h1></p>
       <br>
       <form>
-
       <?php 
       if(empty($_GET['datacase'])){
         $data = "";
@@ -74,10 +73,16 @@ window.location.href = "index.html";
         $sex_name;
         $i=1;
 
-        $result_victim = mysqli_query($con,"SELECT vm.case_id, vm.title_name, vm.victim_name,vm.victim_lastname,vm.victim_sex,vm.victim_idcard,vm.victim_address,ed.edu_name,vm.victim_image FROM victim as vm  INNER JOIN education as ed ON vm.victim_education = ed.edu_id WHERE case_id = '$data'")or die("resualt_victim sqli error".mysqli_error($con));
-
-        while(list($case_id,$title_name,$victim_name,$victim_lastname,$victim_sex,$victim_idcard,$victim_address,$victim_education,$victim_image)=mysqli_fetch_row($result_victim)){
+        $result_chk_victim = mysqli_query($con,"SELECT case_id FROM victim  WHERE case_id = '$data'")or die("resualt_chk_victim sqli error".mysqli_error($con));
+        $result_victim = mysqli_query($con,"SELECT vm.title_name, vm.victim_name,vm.victim_lastname,vm.victim_sex,vm.victim_idcard,vm.victim_address,ed.edu_name,vm.victim_image FROM victim as vm  INNER JOIN education as ed ON vm.victim_education = ed.edu_id WHERE case_id = '$data'")or die("resualt_victim sqli error".mysqli_error($con));
+        list($case_id)=mysqli_fetch_row($result_chk_victim);
+        if(empty($case_id)){
+          ?><script>swal("sorry!", "ไม่พบข้อมูลบางส่วน!", "error")</script><?php
+          echo "<h5 class='text-center'>----ไม่พบข้อมูล----</h5>";
+        }else {
         
+        while(list($title_name,$victim_name,$victim_lastname,$victim_sex,$victim_idcard,$victim_address,$victim_education,$victim_image)=mysqli_fetch_row($result_victim)){
+    
           if($victim_sex == 1){
             $sex_name = "ชาย";
           }else{
@@ -130,11 +135,12 @@ window.location.href = "index.html";
       <?php
       }
     }
+  }
       ?>
       </form>
      </div>
-     <div class="villain">
      <a name="ผู้ต้องหา"></a>
+     <div class="villain">
      <p><h1 class="text-center">ผู้ต้องหา</h1></p>
      <form>
 
@@ -147,10 +153,16 @@ window.location.href = "index.html";
         $sex_name;
         $i=1;
 
-        $result_victim = mysqli_query($con,"SELECT vl.case_id,vl.title_name,vl.villain_name,vl.villain_lastname,vl.villain_sex,vl.villain_idcard,vl.villain_address,ed.edu_name,vl.villain_image FROM villain as vl INNER JOIN education as ed ON vl.villain_education = ed.edu_id WHERE case_id = '$data'")or die("resualt_villain sqli error".mysqli_error($con));
+        $result_chk_villain = mysqli_query($con,"SELECT case_id FROM villain WHERE case_id = '$data'")or die("resualt_villain sqli error".mysqli_error($con));
+        $result_villain = mysqli_query($con,"SELECT vl.title_name,vl.villain_name,vl.villain_lastname,vl.villain_sex,vl.villain_idcard,vl.villain_address,ed.edu_name,vl.villain_image FROM villain as vl INNER JOIN education as ed ON vl.villain_education = ed.edu_id WHERE case_id = '$data'")or die("resualt_villain sqli error".mysqli_error($con));
 
-        while(list($case_id,$title_name,$villain_name,$villain_lastname,$villain_sex,$villain_idcard,$villain_address,$villain_education,$villain_image)=mysqli_fetch_row($result_victim)){
-        
+        list($case_id)=mysqli_fetch_row($result_chk_villain);
+        if(empty($case_id)){
+          ?><script>swal("sorry!", "ไม่พบข้อมูลบางส่วน!", "error")</script><?php
+          echo "<h5 class='text-center'>----ไม่พบข้อมูล----</h5>";
+        }else{
+        while(list($title_name,$villain_name,$villain_lastname,$villain_sex,$villain_idcard,$villain_address,$villain_education,$villain_image)=mysqli_fetch_row($result_villain)){
+
           if($villain_sex == 1){
             $sex_name = "ชาย";
           }else{
@@ -158,7 +170,7 @@ window.location.href = "index.html";
           }
         ?>
          <div class="col-md">
-          <b><label for="formGroupExampleInput">ผู้ต้องหา คนที่ <?php echo $i; $i++?></label></b>
+          <b><label for="formGroupExampleInput">ผู้ต้องหา คนที่ <?php echo $i; ?></label></b>
           <p><img src="../../image/<?php echo $villain_image; ?>.png" class="img-fluid mx-auto d-block" alt="Responsive image"></p>
           <div class="form-row">
           <div class="col-2">
@@ -173,12 +185,9 @@ window.location.href = "index.html";
             <div class="col-4">
               <input type="text" class="form-control" placeholder="นามสกุล" value="<?php echo $villain_lastname; ?>" readonly>
             </div>
-            </div>
-          </div>
-          
-          <p></p>
-        <div class="col-md">
-          <div class="form-row">
+            </div>      
+            <p></p>
+            <div class="form-row">
             <div class="col">
               <input type="text" class="form-control" placeholder="เลขบัตรประจำตัวประชาชน" value="<?php echo $villain_idcard; ?>" readonly>
             </div>
@@ -188,22 +197,81 @@ window.location.href = "index.html";
             <div class="col">
               <input type="text" class="form-control" placeholder="เพศ" value="<?php echo $sex_name; ?>" readonly>
             </div>
-          </div>
-        </div>
-
-        <p></p>
-        <div class="col-md">
-          <div class="form-row">
+            </div>
+            <p></p>
+            <div class="form-row">
             <div class="col">
               <input type="text" class="form-control" placeholder="ที่อยู่" value="<?php echo $villain_address; ?>" readonly>
             </div>
           </div>
         </div>
         <hr>
+        <div class="col-md">
+        <b><label for="formGroupExampleInput">รูปพรรณผู้ต้องหา คนที่ <?php echo $i; ?></label></b>
       <?php
+          $result_villain_iden=mysqli_query($con,"SELECT vb.body_name,vc.chin_name,vea.ears_name,vey.eyes_name,vf.face_name,vfo.forehead_name,vh.hair_name,vm.mouth_name,vn.nose_name 
+          FROM villain_identities as vi INNER JOIN villain_body as vb on vi.body_villain = vb.body_id 
+          INNER JOIN villain_chin as vc ON vi.chin_villain = vc.chin_id INNER JOIN villain_ears as vea ON vi.eyes_villain = vea.ears_id 
+          INNER JOIN villain_eyes as vey ON vi.eyes_villain = vey.eyes_id INNER JOIN villain_face as vf ON vi.face_villain = vf.face_id 
+          INNER JOIN villain_forehead as vfo ON vi.forehead_villain = vfo.forehead_id INNER JOIN villain_hair as vh ON vi.hair_style_villain = vh.hair_style_id 
+          INNER JOIN villain_mouth as vm ON vi.mouth_villain = vm.mouth_id INNER JOIN villain_nose as vn ON vi.nose_villain = vn.nose_id WHERE vi.villain_idcard = '$villain_idcard'")or die("sql selete error form result_vilain_iden".mysqli_error($con));
+          while(list($body_name,$chin_name,$ears_name,$eyes_name,$face_name,$forehead_name,$hair_name,$mouth_name,$nose_name)=mysqli_fetch_row($result_villain_iden)){
+        ?>
+
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">รูปร่าง : </span>
+        </div>
+        <input type="text" class="form-control" value="<?php echo $body_name; ?>" readonly>
+        <div class="input-group-prepend">
+          <span class="input-group-text">ใบหน้า : </span>
+        </div>
+        <input type="text" class="form-control" value="<?php echo $face_name; ?>" readonly>
+        <div class="input-group-prepend">
+          <span class="input-group-text">ศรีษะ : </span>
+        </div>
+        <input type="text" class="form-control" value="<?php echo $hair_name; ?>" readonly>
+      </div>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">จมูก : </span>
+        </div>
+        <input type="text" class="form-control" value="<?php echo $nose_name; ?>" readonly>
+        <div class="input-group-prepend">
+          <span class="input-group-text">ปาก : </span>
+        </div>
+        <input type="text" class="form-control" value="<?php echo $mouth_name; ?>" readonly>
+        <div class="input-group-prepend">
+          <span class="input-group-text">คาง : </span>
+        </div>
+        <input type="text" class="form-control" value="<?php echo $chin_name; ?>" readonly>
+      </div>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">หู : </span>
+        </div>
+        <input type="text" class="form-control" value="<?php echo $ears_name; ?>" readonly>
+        <div class="input-group-prepend">
+          <span class="input-group-text">หน้าผาก : </span>
+        </div>
+        <input type="text" class="form-control" value="<?php echo $forehead_name; ?>" readonly>
+        <div class="input-group-prepend">
+          <span class="input-group-text">ตา : </span>
+        </div>
+        <input type="text" class="form-control" value="<?php echo $eyes_name; ?>" readonly>
+      </div>
+        
+
+
+
+        <?php
+        $i++;
+        }
       }
     }
+  }
       ?>
+      </div>
       </form>
      <br>
      <br>
@@ -213,24 +281,17 @@ window.location.href = "index.html";
       <br>
       <br>
       <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-</div>
-<div class="menu">
+
+</section>
+<aside class="menu">
     <ul style="list-style-type: none;margin:0;padding:0;">
       <li style="margin:0px 0px 5px 0px;"><a href="#ผู้เสียหาย"><button type="button" class="btn btn-outline-primary">ผู้เสียหาย</button></a></li>
-      <li style="margin:0px 0px 5px 0px;"><a href="#ผู้ต้องหาย"><button type="button" class="btn btn-outline-primary">ผู้ต้องหา</button></a></li>
+      <li style="margin:0px 0px 5px 0px;"><a href="#ผู้ต้องหา"><button type="button" class="btn btn-outline-primary">ผู้ต้องหา</button></a></li>
     </ul>
-</div>
+</aside>
 <div class="clearfloat"></div>
 <div class="footer-view"></div>
 </div>
-
-
 
 <div class="modal fade" id="SC" role="dialog">
   <div class="modal-dialog modal-xl  role="document"">

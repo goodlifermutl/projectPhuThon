@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 08, 2019 at 09:38 AM
+-- Generation Time: Jul 10, 2019 at 07:17 AM
 -- Server version: 10.3.15-MariaDB
 -- PHP Version: 7.3.6
 
@@ -297,6 +297,251 @@ INSERT INTO `villain` (`case_id`, `title_name`, `villain_name`, `villain_lastnam
 ('ค.001', 'นาย', 'แดงเดือด', 'เลือดสาด', 1, '1402251685492', '85/2 หมู่ 8 ต.ห้วยหล่อ อ.ดอกเด็ด จ.เชียงใหม่ 50992', 4, 'icon_data_usermale'),
 ('ง.12/52', 'นาย', 'ดึกดำดึ๋ย', 'เลียนแบบหนัง', 1, '1564821532238', '77/2 หมู่ 1 ต.แดดออก อ.ฝนตก จ.เชียงใหม่ 50287', 8, 'icon_data_usermale');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `villain_body`
+--
+
+CREATE TABLE `villain_body` (
+  `body_id` tinyint(2) NOT NULL,
+  `body_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `villain_body`
+--
+
+INSERT INTO `villain_body` (`body_id`, `body_name`) VALUES
+(1, 'สูง'),
+(2, 'สันทัด'),
+(3, 'เตี้ย');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `villain_chin`
+--
+
+CREATE TABLE `villain_chin` (
+  `chin_id` tinyint(2) NOT NULL,
+  `chin_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `villain_chin`
+--
+
+INSERT INTO `villain_chin` (`chin_id`, `chin_name`) VALUES
+(1, 'คางตรง'),
+(2, 'คางราบ'),
+(3, 'คางยื่น'),
+(4, 'คางป้าน'),
+(5, 'คางสั้น'),
+(6, 'คางยาน');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `villain_ears`
+--
+
+CREATE TABLE `villain_ears` (
+  `ears_id` tinyint(2) NOT NULL,
+  `ears_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `villain_ears`
+--
+
+INSERT INTO `villain_ears` (`ears_id`, `ears_name`) VALUES
+(1, 'หูสามเหลี่ยม'),
+(2, 'หูสี่เหลี่ยม'),
+(3, 'หูกลม'),
+(4, 'หูกระหล่ำปลี'),
+(5, 'หูกาง'),
+(6, 'หูลีบ'),
+(7, 'ติ่งย้อย'),
+(8, 'ติ่งราบ');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `villain_eyes`
+--
+
+CREATE TABLE `villain_eyes` (
+  `eyes_id` tinyint(2) NOT NULL,
+  `eyes_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `villain_eyes`
+--
+
+INSERT INTO `villain_eyes` (`eyes_id`, `eyes_name`) VALUES
+(1, 'ตาสองชั้น'),
+(2, 'ตาชั้นเดียว'),
+(3, 'ตากลม'),
+(4, 'ตาพองโต'),
+(5, 'ตาลึก'),
+(6, 'ตาถั่ว'),
+(7, 'ตาเข'),
+(8, 'ตาเหล่'),
+(9, 'ตาเอก');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `villain_face`
+--
+
+CREATE TABLE `villain_face` (
+  `face_id` tinyint(2) NOT NULL,
+  `face_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `villain_face`
+--
+
+INSERT INTO `villain_face` (`face_id`, `face_name`) VALUES
+(1, 'กลม'),
+(2, 'รูปไข่'),
+(3, 'สี่เหลี่ยม'),
+(4, 'สี่เหลี่ยมยาว'),
+(5, 'สามเหลี่ยม'),
+(6, 'สามเหลี่ยมยาว'),
+(7, 'แหลมหลิม');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `villain_forehead`
+--
+
+CREATE TABLE `villain_forehead` (
+  `forehead_id` tinyint(2) NOT NULL,
+  `forehead_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `villain_forehead`
+--
+
+INSERT INTO `villain_forehead` (`forehead_id`, `forehead_name`) VALUES
+(1, 'หน้าผากโหนง'),
+(2, 'หน้าผากลาด'),
+(3, 'หน้าผากแคบ'),
+(4, 'หน้าผากสั้น'),
+(5, 'หน้าผากสูง'),
+(6, 'หน้าผากกว้าง');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `villain_hair`
+--
+
+CREATE TABLE `villain_hair` (
+  `hair_style_id` tinyint(2) NOT NULL,
+  `hair_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `villain_hair`
+--
+
+INSERT INTO `villain_hair` (`hair_style_id`, `hair_name`) VALUES
+(1, 'ทุ่งหมาหลง'),
+(2, 'ดงช้างข้าม'),
+(3, 'ง่ามเทโพ'),
+(4, 'ชะโดตีแปลง'),
+(5, 'แร้งกระพือปีก'),
+(6, 'ฉีกหางฟาด'),
+(7, 'ราชคลึงเครา'),
+(8, 'รองทรง');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `villain_identities`
+--
+
+CREATE TABLE `villain_identities` (
+  `villain_idcard` char(13) COLLATE utf8_unicode_ci NOT NULL,
+  `face_villain` tinyint(2) DEFAULT NULL,
+  `hair_style_villain` tinyint(2) DEFAULT NULL,
+  `ears_villain` tinyint(2) DEFAULT NULL,
+  `forehead_villain` tinyint(2) DEFAULT NULL,
+  `eyes_villain` tinyint(2) DEFAULT NULL,
+  `nose_villain` tinyint(2) DEFAULT NULL,
+  `mouth_villain` tinyint(2) DEFAULT NULL,
+  `chin_villain` tinyint(2) DEFAULT NULL,
+  `body_villain` tinyint(2) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `villain_identities`
+--
+
+INSERT INTO `villain_identities` (`villain_idcard`, `face_villain`, `hair_style_villain`, `ears_villain`, `forehead_villain`, `eyes_villain`, `nose_villain`, `mouth_villain`, `chin_villain`, `body_villain`) VALUES
+('1402251685492', 5, 8, 8, 5, 2, 2, 5, 2, 2);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `villain_mouth`
+--
+
+CREATE TABLE `villain_mouth` (
+  `mouth_id` tinyint(2) NOT NULL,
+  `mouth_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `villain_mouth`
+--
+
+INSERT INTO `villain_mouth` (`mouth_id`, `mouth_name`) VALUES
+(1, 'ปากกระจับ'),
+(2, 'ปากหนา'),
+(3, 'ปากล่างห้อย'),
+(4, 'ปากเชิด'),
+(5, 'ปากกว้าง'),
+(6, 'ปากแคบ'),
+(7, 'ปากเสมอ'),
+(8, 'ปากล่างยื่น'),
+(9, 'ปากบนยื่น');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `villain_nose`
+--
+
+CREATE TABLE `villain_nose` (
+  `nose_id` tinyint(2) NOT NULL,
+  `nose_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `villain_nose`
+--
+
+INSERT INTO `villain_nose` (`nose_id`, `nose_name`) VALUES
+(1, 'จมูกแคบ'),
+(2, 'จมูกกว้าง'),
+(3, 'จมูกชมพู่'),
+(4, 'สันจมูกสั้น'),
+(5, 'สันจมูกโค้งเหลี่ยม'),
+(6, 'สันจมูกโค้งกลม'),
+(7, 'สันจมูกงอน'),
+(8, 'ฐานจมูกงุ้ม'),
+(9, 'ฐานจมูกราบ'),
+(10, 'ฐานจมูกเชิด');
+
 --
 -- Indexes for dumped tables
 --
@@ -382,6 +627,75 @@ ALTER TABLE `villain`
   ADD KEY `villain_education` (`villain_education`);
 
 --
+-- Indexes for table `villain_body`
+--
+ALTER TABLE `villain_body`
+  ADD PRIMARY KEY (`body_id`);
+
+--
+-- Indexes for table `villain_chin`
+--
+ALTER TABLE `villain_chin`
+  ADD PRIMARY KEY (`chin_id`);
+
+--
+-- Indexes for table `villain_ears`
+--
+ALTER TABLE `villain_ears`
+  ADD PRIMARY KEY (`ears_id`);
+
+--
+-- Indexes for table `villain_eyes`
+--
+ALTER TABLE `villain_eyes`
+  ADD PRIMARY KEY (`eyes_id`);
+
+--
+-- Indexes for table `villain_face`
+--
+ALTER TABLE `villain_face`
+  ADD PRIMARY KEY (`face_id`);
+
+--
+-- Indexes for table `villain_forehead`
+--
+ALTER TABLE `villain_forehead`
+  ADD PRIMARY KEY (`forehead_id`);
+
+--
+-- Indexes for table `villain_hair`
+--
+ALTER TABLE `villain_hair`
+  ADD PRIMARY KEY (`hair_style_id`);
+
+--
+-- Indexes for table `villain_identities`
+--
+ALTER TABLE `villain_identities`
+  ADD PRIMARY KEY (`villain_idcard`),
+  ADD KEY `body_villain` (`body_villain`),
+  ADD KEY `chin_villain` (`chin_villain`),
+  ADD KEY `ears_villain` (`ears_villain`),
+  ADD KEY `eyes_villain` (`eyes_villain`),
+  ADD KEY `face_villain` (`face_villain`),
+  ADD KEY `forehead_villain` (`forehead_villain`),
+  ADD KEY `hair_style_villain` (`hair_style_villain`),
+  ADD KEY `mouth_villain` (`mouth_villain`),
+  ADD KEY `nose_villain` (`nose_villain`);
+
+--
+-- Indexes for table `villain_mouth`
+--
+ALTER TABLE `villain_mouth`
+  ADD PRIMARY KEY (`mouth_id`);
+
+--
+-- Indexes for table `villain_nose`
+--
+ALTER TABLE `villain_nose`
+  ADD PRIMARY KEY (`nose_id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -396,6 +710,60 @@ ALTER TABLE `education`
 --
 ALTER TABLE `rank_police`
   MODIFY `rank_id` tinyint(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `villain_body`
+--
+ALTER TABLE `villain_body`
+  MODIFY `body_id` tinyint(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `villain_chin`
+--
+ALTER TABLE `villain_chin`
+  MODIFY `chin_id` tinyint(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `villain_ears`
+--
+ALTER TABLE `villain_ears`
+  MODIFY `ears_id` tinyint(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `villain_eyes`
+--
+ALTER TABLE `villain_eyes`
+  MODIFY `eyes_id` tinyint(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `villain_face`
+--
+ALTER TABLE `villain_face`
+  MODIFY `face_id` tinyint(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `villain_forehead`
+--
+ALTER TABLE `villain_forehead`
+  MODIFY `forehead_id` tinyint(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `villain_hair`
+--
+ALTER TABLE `villain_hair`
+  MODIFY `hair_style_id` tinyint(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `villain_mouth`
+--
+ALTER TABLE `villain_mouth`
+  MODIFY `mouth_id` tinyint(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `villain_nose`
+--
+ALTER TABLE `villain_nose`
+  MODIFY `nose_id` tinyint(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- Constraints for dumped tables
@@ -434,6 +802,21 @@ ALTER TABLE `victim`
 ALTER TABLE `villain`
   ADD CONSTRAINT `villain_ibfk_1` FOREIGN KEY (`case_id`) REFERENCES `case_name` (`case_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `villain_ibfk_2` FOREIGN KEY (`villain_education`) REFERENCES `education` (`edu_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `villain_identities`
+--
+ALTER TABLE `villain_identities`
+  ADD CONSTRAINT `villain_identities_ibfk_1` FOREIGN KEY (`villain_idcard`) REFERENCES `villain` (`villain_idcard`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `villain_identities_ibfk_10` FOREIGN KEY (`nose_villain`) REFERENCES `villain_nose` (`nose_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `villain_identities_ibfk_2` FOREIGN KEY (`body_villain`) REFERENCES `villain_body` (`body_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `villain_identities_ibfk_3` FOREIGN KEY (`chin_villain`) REFERENCES `villain_chin` (`chin_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `villain_identities_ibfk_4` FOREIGN KEY (`ears_villain`) REFERENCES `villain_ears` (`ears_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `villain_identities_ibfk_5` FOREIGN KEY (`eyes_villain`) REFERENCES `villain_eyes` (`eyes_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `villain_identities_ibfk_6` FOREIGN KEY (`face_villain`) REFERENCES `villain_face` (`face_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `villain_identities_ibfk_7` FOREIGN KEY (`forehead_villain`) REFERENCES `villain_forehead` (`forehead_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `villain_identities_ibfk_8` FOREIGN KEY (`hair_style_villain`) REFERENCES `villain_hair` (`hair_style_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `villain_identities_ibfk_9` FOREIGN KEY (`mouth_villain`) REFERENCES `villain_mouth` (`mouth_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
