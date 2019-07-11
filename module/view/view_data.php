@@ -74,14 +74,14 @@ window.location.href = "index.html";
         $i=1;
 
         $result_chk_victim = mysqli_query($con,"SELECT case_id FROM victim  WHERE case_id = '$data'")or die("resualt_chk_victim sqli error".mysqli_error($con));
-        $result_victim = mysqli_query($con,"SELECT vm.title_name, vm.victim_name,vm.victim_lastname,vm.victim_sex,vm.victim_idcard,vm.victim_address,ed.edu_name,vm.victim_image FROM victim as vm  INNER JOIN education as ed ON vm.victim_education = ed.edu_id WHERE case_id = '$data'")or die("resualt_victim sqli error".mysqli_error($con));
+        $result_victim = mysqli_query($con,"SELECT vm.title_name, vm.victim_name,vm.victim_lastname,vm.victim_sex,vm.victim_idcard,vm.victim_address,ed.edu_name,vm.victim_image,vm.victim_race,vm.victim_nationality,vm.victim_career FROM victim as vm  INNER JOIN education as ed ON vm.victim_education = ed.edu_id WHERE case_id = '$data'")or die("resualt_victim sqli error".mysqli_error($con));
         list($case_id)=mysqli_fetch_row($result_chk_victim);
         if(empty($case_id)){
           ?><script>swal("sorry!", "ไม่พบข้อมูลบางส่วน!", "error")</script><?php
           echo "<h5 class='text-center'>----ไม่พบข้อมูล----</h5>";
         }else {
         
-        while(list($title_name,$victim_name,$victim_lastname,$victim_sex,$victim_idcard,$victim_address,$victim_education,$victim_image)=mysqli_fetch_row($result_victim)){
+        while(list($title_name,$victim_name,$victim_lastname,$victim_sex,$victim_idcard,$victim_address,$victim_education,$victim_image,$victim_race,$victim_nationality,$victim_careen)=mysqli_fetch_row($result_victim)){
     
           if($victim_sex == 1){
             $sex_name = "ชาย";
@@ -93,44 +93,90 @@ window.location.href = "index.html";
           <b><label for="formGroupExampleInput">ผู้เสียหาย คนที่ <?php echo $i; $i++?></label></b>
           <p><img src="../../image/<?php echo $victim_image; ?>.png" class="img-fluid mx-auto d-block" alt="Responsive image"></p>
           <div class="form-row">
+          <div>
+              <label class="col-sm col-form-label">รหัสคดี : </label>
+          </div>
           <div class="col-2">
               <input type="text" class="form-control" placeholder="รหัสคดี <?php echo $case_id; ?>" value="<?php echo $case_id; ?>" readonly>
             </div>
-            <div class="col-2">
+            <div>
+              <label class="col-sm col-form-label">ชื่อ : </label>
+            </div>
+            <div class="col-1">
               <input type="text" class="form-control" placeholder="คำนำหน้าชื่อ" value="<?php echo $title_name; ?>" readonly>
             </div>
-            <div class="col-4">
+            <div class="col-md">
               <input type="text" class="form-control" placeholder="ชื่อ" value="<?php echo $victim_name; ?>" readonly>
             </div>
-            <div class="col-4">
+            <div>
+              <label class="col-sm col-form-label">นามสกุล : </label>
+            </div>
+            <div class="col-md">
               <input type="text" class="form-control" placeholder="นามสกุล" value="<?php echo $victim_lastname; ?>" readonly>
             </div>
             </div>
           </div>
           
           <p></p>
+          <div class="col-md">
+          <div class="form-row">
+            <div>
+              <label class="col-sm col-form-label">เชื้อชาติ : </label>
+            </div>
+            <div class="col-md">
+              <input type="text" class="form-control" placeholder="เชื้อชาติ" value="<?php echo $victim_race; ?>" readonly>
+            </div>
+            <div>
+              <label class="col-sm col-form-label">สัญชาติ : </label>
+            </div>
+            <div class="col-md">
+              <input type="text" class="form-control" placeholder="สัญชาติ" value="<?php echo $victim_nationality; ?>" readonly>
+            </div>
+            <div>
+              <label class="col-sm col-form-label">อาชีพ : </label>
+            </div>
+            <div class="col-md">
+            <input type="text" class="form-control" placeholder="อาชีพ" value="<?php echo $victim_careen; ?>" readonly>
+            </div>
+          </div>
+          </div>
+          
+        <p></p>
+
         <div class="col-md">
           <div class="form-row">
-            <div class="col">
+          <div>
+              <label class="col-sm col-form-label">เลขบัตรประจำตัวประชาชน : </label>
+            </div>
+            <div class="col-md">
               <input type="text" class="form-control" placeholder="เลขบัตรประจำตัวประชาชน" value="<?php echo $victim_idcard; ?>" readonly>
             </div>
-            <div class="col">
+            <div>
+              <label class="col-sm col-form-label">ระดับการศึกษา : </label>
+            </div>
+            <div class="col-md">
               <input type="text" class="form-control" placeholder="ระดับการศึกษา" value="<?php echo $victim_education; ?>" readonly>
             </div>
-            <div class="col">
+            <div>
+              <label class="col-sm col-form-label">เพศ : </label>
+            </div>
+            <div class="col-md">
               <input type="text" class="form-control" placeholder="เพศ" value="<?php echo $sex_name; ?>" readonly>
             </div>
           </div>
         </div>
 
-        <p></p>
-        <div class="col-md">
-          <div class="form-row">
-            <div class="col">
-              <input type="text" class="form-control" placeholder="ที่อยู่" value="<?php echo $victim_address; ?>" readonly>
+            <p></p>
+            <div class="col-md">
+            <div class="form-row">
+            <div>
+              <label class="col-sm col-form-label">ที่อยู่ : </label>
+            </div>
+            <div class="col-md">
+            <input type="text" class="form-control" placeholder="ที่อยู่" value="<?php echo $victim_address; ?>" readonly>
+            </div>
             </div>
           </div>
-        </div>
         <hr>
       <?php
       }
@@ -154,14 +200,14 @@ window.location.href = "index.html";
         $i=1;
 
         $result_chk_villain = mysqli_query($con,"SELECT case_id FROM villain WHERE case_id = '$data'")or die("resualt_villain sqli error".mysqli_error($con));
-        $result_villain = mysqli_query($con,"SELECT vl.title_name,vl.villain_name,vl.villain_lastname,vl.villain_sex,vl.villain_idcard,vl.villain_address,ed.edu_name,vl.villain_image FROM villain as vl INNER JOIN education as ed ON vl.villain_education = ed.edu_id WHERE case_id = '$data'")or die("resualt_villain sqli error".mysqli_error($con));
+        $result_villain = mysqli_query($con,"SELECT vl.title_name,vl.villain_name,vl.villain_lastname,vl.villain_sex,vl.villain_idcard,vl.villain_address,ed.edu_name,vl.villain_image,vl.villain_race,vl.villain_nationality,vl.villain_career FROM villain as vl INNER JOIN education as ed ON vl.villain_education = ed.edu_id WHERE case_id = '$data'")or die("resualt_villain sqli error".mysqli_error($con));
 
         list($case_id)=mysqli_fetch_row($result_chk_villain);
         if(empty($case_id)){
           ?><script>swal("sorry!", "ไม่พบข้อมูลบางส่วน!", "error")</script><?php
           echo "<h5 class='text-center'>----ไม่พบข้อมูล----</h5>";
         }else{
-        while(list($title_name,$villain_name,$villain_lastname,$villain_sex,$villain_idcard,$villain_address,$villain_education,$villain_image)=mysqli_fetch_row($result_villain)){
+        while(list($title_name,$villain_name,$villain_lastname,$villain_sex,$villain_idcard,$villain_address,$villain_education,$villain_image,$villain_race,$villain_nationality,$villain_career)=mysqli_fetch_row($result_villain)){
 
           if($villain_sex == 1){
             $sex_name = "ชาย";
@@ -173,35 +219,83 @@ window.location.href = "index.html";
           <b><label for="formGroupExampleInput">ผู้ต้องหา คนที่ <?php echo $i; ?></label></b>
           <p><img src="../../image/<?php echo $villain_image; ?>.png" class="img-fluid mx-auto d-block" alt="Responsive image"></p>
           <div class="form-row">
+          <div>
+              <label class="col-sm col-form-label">รหัสคดี : </label>
+          </div>
           <div class="col-2">
               <input type="text" class="form-control" placeholder="รหัสคดี <?php echo $case_id; ?>" value="<?php echo $case_id; ?>" readonly>
             </div>
-            <div class="col-2">
+            <div>
+              <label class="col-sm col-form-label">ชื่อ : </label>
+            </div>
+            <div class="col-1">
               <input type="text" class="form-control" placeholder="คำนำหน้าชื่อ" value="<?php echo $title_name; ?>" readonly>
             </div>
-            <div class="col-4">
+            <div class="col-md">
               <input type="text" class="form-control" placeholder="ชื่อ" value="<?php echo $villain_name; ?>" readonly>
             </div>
-            <div class="col-4">
+            <div>
+              <label class="col-sm col-form-label">นามสกุล : </label>
+            </div>
+            <div class="col-md">
               <input type="text" class="form-control" placeholder="นามสกุล" value="<?php echo $villain_lastname; ?>" readonly>
             </div>
-            </div>      
+            </div> 
             <p></p>
-            <div class="form-row">
-            <div class="col">
-              <input type="text" class="form-control" placeholder="เลขบัตรประจำตัวประชาชน" value="<?php echo $villain_idcard; ?>" readonly>
+          <div class="col-md">
+          <div class="form-row">
+            <div>
+              <label class="col-sm col-form-label">เชื้อชาติ : </label>
             </div>
-            <div class="col">
-              <input type="text" class="form-control" placeholder="ระดับการศึกษา" value="<?php echo $villain_education; ?>" readonly>
+            <div class="col-md">
+              <input type="text" class="form-control" placeholder="เชื้อชาติ" value="<?php echo $villain_race; ?>" readonly>
             </div>
-            <div class="col">
-              <input type="text" class="form-control" placeholder="เพศ" value="<?php echo $sex_name; ?>" readonly>
+            <div>
+              <label class="col-sm col-form-label">สัญชาติ : </label>
             </div>
+            <div class="col-md">
+              <input type="text" class="form-control" placeholder="สัญชาติ" value="<?php echo $villain_nationality; ?>" readonly>
+            </div>
+            <div>
+              <label class="col-sm col-form-label">อาชีพ : </label>
+            </div>
+            <div class="col-md">
+            <input type="text" class="form-control" placeholder="อาชีพ" value="<?php echo $villain_career; ?>" readonly>
+            </div>
+          </div>
+          </div>     
+            <p></p>
+            <div class="col-md">
+              <div class="form-row">
+              <div>
+                  <label class="col-sm col-form-label">เลขบัตรประจำตัวประชาชน : </label>
+                </div>
+                <div class="col-md">
+                  <input type="text" class="form-control" placeholder="เลขบัตรประจำตัวประชาชน" value="<?php echo $villain_idcard; ?>" readonly>
+                </div>
+                <div>
+                  <label class="col-sm col-form-label">ระดับการศึกษา : </label>
+                </div>
+                <div class="col-md">
+                  <input type="text" class="form-control" placeholder="ระดับการศึกษา" value="<?php echo $villain_education; ?>" readonly>
+                </div>
+                <div>
+                  <label class="col-sm col-form-label">เพศ : </label>
+                </div>
+                <div class="col-md">
+                  <input type="text" class="form-control" placeholder="เพศ" value="<?php echo $sex_name; ?>" readonly>
+                </div>
+              </div>
             </div>
             <p></p>
+            <div class="col-md">
             <div class="form-row">
-            <div class="col">
-              <input type="text" class="form-control" placeholder="ที่อยู่" value="<?php echo $villain_address; ?>" readonly>
+            <div>
+              <label class="col-sm col-form-label">ที่อยู่ : </label>
+            </div>
+            <div class="col-md">
+            <input type="text" class="form-control" placeholder="ที่อยู่" value="<?php echo $villain_address; ?>" readonly>
+            </div>
             </div>
           </div>
         </div>

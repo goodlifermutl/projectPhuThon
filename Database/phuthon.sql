@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 10, 2019 at 07:17 AM
+-- Generation Time: Jul 11, 2019 at 11:22 AM
 -- Server version: 10.3.15-MariaDB
 -- PHP Version: 7.3.6
 
@@ -242,6 +242,7 @@ CREATE TABLE `user` (
 INSERT INTO `user` (`permiss_id`, `user_id`, `pass_id`, `card_id`) VALUES
 (3, 'admin01', 'c93ccd78b2076528346216b3b2f701e6', '1234567890123'),
 (3, 'user03', 'b5b73fae0d87d8b4e2573105f8fbe7bc', '1402807627453'),
+(3, 'user05', 'b5b73fae0d87d8b4e2573105f8fbe7bc', '1502456375634'),
 (3, 'user02', 'b5b73fae0d87d8b4e2573105f8fbe7bc', '1509903426554');
 
 -- --------------------------------------------------------
@@ -259,17 +260,20 @@ CREATE TABLE `victim` (
   `victim_idcard` char(13) COLLATE utf8_unicode_ci NOT NULL,
   `victim_address` text COLLATE utf8_unicode_ci DEFAULT NULL,
   `victim_education` tinyint(2) NOT NULL,
-  `victim_image` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL
+  `victim_image` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `victim_race` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `victim_nationality` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `victim_career` varchar(255) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `victim`
 --
 
-INSERT INTO `victim` (`case_id`, `title_name`, `victim_name`, `victim_lastname`, `victim_sex`, `victim_idcard`, `victim_address`, `victim_education`, `victim_image`) VALUES
-('ง.12/52', 'นาย', 'จันทร์ดี', 'โอกาสเดิม', 1, '1508890723431', '23 หมู่ 4 บ้าน ดง ต.ก่อไผ่ อ.ดอกไม้ จ.เชียงใหม่ 54334', 6, 'icon_data_usermale'),
-('ค.001', 'นางสาว', 'พะยอง', 'จังเลย', 2, '150964345671', '22 หมู่ 7 ต.ดอกไม้ อ.ต้นไม้ จ.เชียงใหม่ 54334', 5, 'icon_data_userfemale'),
-('ค.001', 'นาย', 'ทองคำดี', 'เคยมีสุข', 1, '1509901658485', '78/4 ต.ป่าทอง อ.จัดการ จ.เชียงใหม่ 50990', 4, 'icon_data_usermale');
+INSERT INTO `victim` (`case_id`, `title_name`, `victim_name`, `victim_lastname`, `victim_sex`, `victim_idcard`, `victim_address`, `victim_education`, `victim_image`, `victim_race`, `victim_nationality`, `victim_career`) VALUES
+('ง.12/52', 'นาย', 'จันทร์ดี', 'โอกาสเดิม', 1, '1508890723431', '23 หมู่ 4 บ้าน ดง ต.ก่อไผ่ อ.ดอกไม้ จ.เชียงใหม่ 54334', 6, 'icon_data_usermale', 'ไทย', 'ไทย', 'ธุรกิจส่วนตัว'),
+('ค.001', 'นางสาว', 'พะยอง', 'จังเลย', 2, '150964345671', '22 หมู่ 7 ต.ดอกไม้ อ.ต้นไม้ จ.เชียงใหม่ 54334', 5, 'icon_data_userfemale', 'ไทย', 'ไทย', 'ธรุกิจส่วนตัว'),
+('ค.001', 'นาย', 'ทองคำดี', 'เคยมีสุข', 1, '1509901658485', '78/4 ต.ป่าทอง อ.จัดการ จ.เชียงใหม่ 50990', 4, 'icon_data_usermale', 'ไทย', 'ไทย', 'ธุรกิจส่วนตัว');
 
 -- --------------------------------------------------------
 
@@ -286,16 +290,19 @@ CREATE TABLE `villain` (
   `villain_idcard` char(13) COLLATE utf8_unicode_ci NOT NULL,
   `villain_address` text COLLATE utf8_unicode_ci DEFAULT NULL,
   `villain_education` tinyint(2) DEFAULT NULL,
-  `villain_image` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL
+  `villain_image` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `villain_race` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `villain_nationality` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `villain_career` varchar(255) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `villain`
 --
 
-INSERT INTO `villain` (`case_id`, `title_name`, `villain_name`, `villain_lastname`, `villain_sex`, `villain_idcard`, `villain_address`, `villain_education`, `villain_image`) VALUES
-('ค.001', 'นาย', 'แดงเดือด', 'เลือดสาด', 1, '1402251685492', '85/2 หมู่ 8 ต.ห้วยหล่อ อ.ดอกเด็ด จ.เชียงใหม่ 50992', 4, 'icon_data_usermale'),
-('ง.12/52', 'นาย', 'ดึกดำดึ๋ย', 'เลียนแบบหนัง', 1, '1564821532238', '77/2 หมู่ 1 ต.แดดออก อ.ฝนตก จ.เชียงใหม่ 50287', 8, 'icon_data_usermale');
+INSERT INTO `villain` (`case_id`, `title_name`, `villain_name`, `villain_lastname`, `villain_sex`, `villain_idcard`, `villain_address`, `villain_education`, `villain_image`, `villain_race`, `villain_nationality`, `villain_career`) VALUES
+('ค.001', 'นาย', 'แดงเดือด', 'เลือดสาด', 1, '1402251685492', '85/2 หมู่ 8 ต.ห้วยหล่อ อ.ดอกเด็ด จ.เชียงใหม่ 50992', 4, 'icon_data_usermale', 'ไทย', 'ไทย', 'พ่อค้า'),
+('ง.12/52', 'นาย', 'ดึกดำดึ๋ย', 'เลียนแบบหนัง', 1, '1564821532238', '77/2 หมู่ 1 ต.แดดออก อ.ฝนตก จ.เชียงใหม่ 50287', 8, 'icon_data_usermale', 'ไทย', 'ไทย', 'นักตกปลา');
 
 -- --------------------------------------------------------
 
