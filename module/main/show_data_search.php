@@ -11,7 +11,7 @@ $con = connect_db();
                     if($_POST['type']==1){
                         $sql="SELECT * FROM case_name WHERE case_id LIKE '$_POST[search]%'";
                     }else if($_POST['type']==2){
-                        $sql="SELECT cn.case_id,cn.case_name,cn.case_type,cn.case_savetime FROM case_name as cn INNER JOIN victim as vt ON cn.case_id = vt.case_id INNER JOIN villain as vl ON cn.case_id = vl.case_id WHERE vt.victim_idcard='$_POST[search]' OR vt.victim_idcard ='$_POST[search]'";
+                        $sql="SELECT cn.case_id,cn.case_name,cn.case_type,cn.case_savetime FROM case_name as cn INNER JOIN victim as vt ON cn.case_id = vt.case_id INNER JOIN villain as vl ON cn.case_id = vl.case_id WHERE vt.victim_idcard='$_POST[search]' OR vl.villain_idcard ='$_POST[search]'";
                         $chk_id_card = $_POST['search'];
                       }
                   echo "bbbbbbbbb";

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 11, 2019 at 11:22 AM
+-- Generation Time: Jul 14, 2019 at 07:26 AM
 -- Server version: 10.3.15-MariaDB
 -- PHP Version: 7.3.6
 
@@ -272,8 +272,9 @@ CREATE TABLE `victim` (
 
 INSERT INTO `victim` (`case_id`, `title_name`, `victim_name`, `victim_lastname`, `victim_sex`, `victim_idcard`, `victim_address`, `victim_education`, `victim_image`, `victim_race`, `victim_nationality`, `victim_career`) VALUES
 ('ง.12/52', 'นาย', 'จันทร์ดี', 'โอกาสเดิม', 1, '1508890723431', '23 หมู่ 4 บ้าน ดง ต.ก่อไผ่ อ.ดอกไม้ จ.เชียงใหม่ 54334', 6, 'icon_data_usermale', 'ไทย', 'ไทย', 'ธุรกิจส่วนตัว'),
-('ค.001', 'นางสาว', 'พะยอง', 'จังเลย', 2, '150964345671', '22 หมู่ 7 ต.ดอกไม้ อ.ต้นไม้ จ.เชียงใหม่ 54334', 5, 'icon_data_userfemale', 'ไทย', 'ไทย', 'ธรุกิจส่วนตัว'),
-('ค.001', 'นาย', 'ทองคำดี', 'เคยมีสุข', 1, '1509901658485', '78/4 ต.ป่าทอง อ.จัดการ จ.เชียงใหม่ 50990', 4, 'icon_data_usermale', 'ไทย', 'ไทย', 'ธุรกิจส่วนตัว');
+('ค.001', 'นางสาว', 'พะยอง', 'จังเลย', 2, '1509643456712', '22 หมู่ 7 ต.ดอกไม้ อ.ต้นไม้ จ.เชียงใหม่ 54334', 5, 'icon_data_userfemale', 'ไทย', 'ไทย', 'ธรุกิจส่วนตัว'),
+('ค.001', 'นาย', 'ทองคำดี', 'เคยมีสุข', 1, '1509901658485', '78/4 ต.ป่าทอง อ.จัดการ จ.เชียงใหม่ 50990', 4, 'icon_data_usermale', 'ไทย', 'ไทย', 'ธุรกิจส่วนตัว'),
+('ง.12/52', 'นาย', 'ลึงลง', 'ใต้น้ำ', 1, '1607782455677', '123 หมู่ 9 ต.เชิงบน อ.เชิงล่าง จ.เชียงใหม่ 49668', 6, 'icon_data_usermale', 'ไทย', 'ไทย', 'นักศึกษา');
 
 -- --------------------------------------------------------
 
@@ -301,7 +302,8 @@ CREATE TABLE `villain` (
 --
 
 INSERT INTO `villain` (`case_id`, `title_name`, `villain_name`, `villain_lastname`, `villain_sex`, `villain_idcard`, `villain_address`, `villain_education`, `villain_image`, `villain_race`, `villain_nationality`, `villain_career`) VALUES
-('ค.001', 'นาย', 'แดงเดือด', 'เลือดสาด', 1, '1402251685492', '85/2 หมู่ 8 ต.ห้วยหล่อ อ.ดอกเด็ด จ.เชียงใหม่ 50992', 4, 'icon_data_usermale', 'ไทย', 'ไทย', 'พ่อค้า'),
+('ค.001', 'นาย', 'แดงเดือด', 'เลือดสาด', 1, '1203302367893', '55/2 จ.เชียงใหม่ 67445', 1, 'icon_data_usermale', 'ไทย', 'ไทย', 'พ่อค้า'),
+('ค.001', 'นางสาว', 'ละออง', 'เหมือนสวย', 2, '1308602346782', '34 ต.ดอกจิก อ.ดอย จ.เชียงใหม่ 50330', 6, 'icon_data_userfemale', 'ไทย', 'ไทย', 'แม่ค้า'),
 ('ง.12/52', 'นาย', 'ดึกดำดึ๋ย', 'เลียนแบบหนัง', 1, '1564821532238', '77/2 หมู่ 1 ต.แดดออก อ.ฝนตก จ.เชียงใหม่ 50287', 8, 'icon_data_usermale', 'ไทย', 'ไทย', 'นักตกปลา');
 
 -- --------------------------------------------------------
@@ -494,7 +496,8 @@ CREATE TABLE `villain_identities` (
 --
 
 INSERT INTO `villain_identities` (`villain_idcard`, `face_villain`, `hair_style_villain`, `ears_villain`, `forehead_villain`, `eyes_villain`, `nose_villain`, `mouth_villain`, `chin_villain`, `body_villain`) VALUES
-('1402251685492', 5, 8, 8, 5, 2, 2, 5, 2, 2);
+('1203302367893', 6, 8, 5, 5, 7, 7, 8, 5, 1),
+('1308602346782', 2, 6, 4, 2, 5, 6, 8, 5, 2);
 
 -- --------------------------------------------------------
 

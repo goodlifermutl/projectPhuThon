@@ -69,6 +69,7 @@ window.location.href = "index.html";
         $data = "";
       }else{
         $data=$_GET['datacase'];
+        $search=$_GET['search'];
 
         $sex_name;
         $i=1;
@@ -89,9 +90,11 @@ window.location.href = "index.html";
             $sex_name = "หญิง";
           }
         ?>
+        <a name="<?php echo $victim_idcard ?>"></a>
          <div class="col-md">
           <b><label for="formGroupExampleInput">ผู้เสียหาย คนที่ <?php echo $i; $i++?></label></b>
           <p><img src="../../image/<?php echo $victim_image; ?>.png" class="img-fluid mx-auto d-block" alt="Responsive image"></p>
+          <div class="col-md">
           <div class="form-row">
           <div>
               <label class="col-sm col-form-label">รหัสคดี : </label>
@@ -177,6 +180,7 @@ window.location.href = "index.html";
             </div>
             </div>
           </div>
+        </div>
         <hr>
       <?php
       }
@@ -218,6 +222,7 @@ window.location.href = "index.html";
          <div class="col-md">
           <b><label for="formGroupExampleInput">ผู้ต้องหา คนที่ <?php echo $i; ?></label></b>
           <p><img src="../../image/<?php echo $villain_image; ?>.png" class="img-fluid mx-auto d-block" alt="Responsive image"></p>
+          <div class="col-md">
           <div class="form-row">
           <div>
               <label class="col-sm col-form-label">รหัสคดี : </label>
@@ -239,6 +244,7 @@ window.location.href = "index.html";
             </div>
             <div class="col-md">
               <input type="text" class="form-control" placeholder="นามสกุล" value="<?php echo $villain_lastname; ?>" readonly>
+            </div>
             </div>
             </div> 
             <p></p>
@@ -298,89 +304,108 @@ window.location.href = "index.html";
             </div>
             </div>
           </div>
+          <br>
+          
+              <b><label for="formGroupExampleInput">รูปพรรณผู้ต้องหา คนที่ <?php echo $i;?></label></b>
+            <?php
+                $result_villain_iden=mysqli_query($con,"SELECT vb.body_name,vc.chin_name,vea.ears_name,vey.eyes_name,vf.face_name,vfo.forehead_name,vh.hair_name,vm.mouth_name,vn.nose_name 
+                FROM villain_identities as vi INNER JOIN villain_body as vb on vi.body_villain = vb.body_id 
+                INNER JOIN villain_chin as vc ON vi.chin_villain = vc.chin_id INNER JOIN villain_ears as vea ON vi.eyes_villain = vea.ears_id 
+                INNER JOIN villain_eyes as vey ON vi.eyes_villain = vey.eyes_id INNER JOIN villain_face as vf ON vi.face_villain = vf.face_id 
+                INNER JOIN villain_forehead as vfo ON vi.forehead_villain = vfo.forehead_id INNER JOIN villain_hair as vh ON vi.hair_style_villain = vh.hair_style_id 
+                INNER JOIN villain_mouth as vm ON vi.mouth_villain = vm.mouth_id INNER JOIN villain_nose as vn ON vi.nose_villain = vn.nose_id WHERE vi.villain_idcard = '$villain_idcard'")or die("sql selete error form result_vilain_iden".mysqli_error($con));
+                while(list($body_name,$chin_name,$ears_name,$eyes_name,$face_name,$forehead_name,$hair_name,$mouth_name,$nose_name)=mysqli_fetch_row($result_villain_iden)){
+              ?>
+            <div class="col-md">
+            <div class="form-row">
+              <div>
+                <label class="col-sm col-form-label">รูปร่าง : </label>
+              </div>
+              <div class="col-md">
+                <input type="text" class="form-control" value="<?php echo $body_name ?>" readonly>
+              </div>
+              <div>
+                <label class="col-sm col-form-label">ใบหน้า : </label>
+              </div>
+              <div class="col-md">
+                <input type="text" class="form-control" value="<?php echo $face_name ?>" readonly>
+              </div>
+              <div>
+                <label class="col-sm col-form-label">ทรงผม : </label>
+              </div>
+              <div class="col-md">
+                <input type="text" class="form-control" value="<?php echo $hair_name ?>" readonly>
+              </div>
+                </div>
+                </div>     
+          <p></p>
+            <div class="col-md">
+            <div class="form-row">
+              <div>
+                <label class="col-sm col-form-label">จมูก : </label>
+              </div>
+              <div class="col-md">
+                <input type="text" class="form-control" value="<?php echo $nose_name ?>" readonly>
+              </div>
+              <div>
+                <label class="col-sm col-form-label">ปาก : </label>
+              </div>
+              <div class="col-md">
+                <input type="text" class="form-control" value="<?php echo $mouth_name ?>" readonly>
+              </div>
+              <div>
+                <label class="col-sm col-form-label">คาง : </label>
+              </div>
+              <div class="col-md">
+                <input type="text" class="form-control" value="<?php echo $chin_name ?>" readonly>
+              </div>
+          </div>
+          </div>
+          <p></p>
+            <div class="col-md">
+            <div class="form-row">
+                <div>
+                  <label class="col-sm col-form-label">หู : </label>
+                </div>
+                <div class="col-md">
+                  <input type="text" class="form-control" value="<?php echo $ears_name ?>" readonly>
+                </div>
+                <div>
+                  <label class="col-sm col-form-label">หน้าผาก : </label>
+                </div>
+                <div class="col-md">
+                  <input type="text" class="form-control" value="<?php echo $forehead_name?>" readonly>
+                </div>
+                <div>
+                  <label class="col-sm col-form-label">ตา : </label>
+                </div>
+                <div class="col-md">
+                  <input type="text" class="form-control" value="<?php echo $eyes_name ?>" readonly>
+                </div>
+          </div>
+          </div>
+          <?php } ?>
         </div>
         <hr>
-        <div class="col-md">
-        <b><label for="formGroupExampleInput">รูปพรรณผู้ต้องหา คนที่ <?php echo $i; ?></label></b>
-      <?php
-          $result_villain_iden=mysqli_query($con,"SELECT vb.body_name,vc.chin_name,vea.ears_name,vey.eyes_name,vf.face_name,vfo.forehead_name,vh.hair_name,vm.mouth_name,vn.nose_name 
-          FROM villain_identities as vi INNER JOIN villain_body as vb on vi.body_villain = vb.body_id 
-          INNER JOIN villain_chin as vc ON vi.chin_villain = vc.chin_id INNER JOIN villain_ears as vea ON vi.eyes_villain = vea.ears_id 
-          INNER JOIN villain_eyes as vey ON vi.eyes_villain = vey.eyes_id INNER JOIN villain_face as vf ON vi.face_villain = vf.face_id 
-          INNER JOIN villain_forehead as vfo ON vi.forehead_villain = vfo.forehead_id INNER JOIN villain_hair as vh ON vi.hair_style_villain = vh.hair_style_id 
-          INNER JOIN villain_mouth as vm ON vi.mouth_villain = vm.mouth_id INNER JOIN villain_nose as vn ON vi.nose_villain = vn.nose_id WHERE vi.villain_idcard = '$villain_idcard'")or die("sql selete error form result_vilain_iden".mysqli_error($con));
-          while(list($body_name,$chin_name,$ears_name,$eyes_name,$face_name,$forehead_name,$hair_name,$mouth_name,$nose_name)=mysqli_fetch_row($result_villain_iden)){
-        ?>
-
-      <div class="input-group mb-3">
-        <div class="input-group-prepend">
-          <span class="input-group-text">รูปร่าง : </span>
-        </div>
-        <input type="text" class="form-control" value="<?php echo $body_name; ?>" readonly>
-        <div class="input-group-prepend">
-          <span class="input-group-text">ใบหน้า : </span>
-        </div>
-        <input type="text" class="form-control" value="<?php echo $face_name; ?>" readonly>
-        <div class="input-group-prepend">
-          <span class="input-group-text">ศรีษะ : </span>
-        </div>
-        <input type="text" class="form-control" value="<?php echo $hair_name; ?>" readonly>
-      </div>
-      <div class="input-group mb-3">
-        <div class="input-group-prepend">
-          <span class="input-group-text">จมูก : </span>
-        </div>
-        <input type="text" class="form-control" value="<?php echo $nose_name; ?>" readonly>
-        <div class="input-group-prepend">
-          <span class="input-group-text">ปาก : </span>
-        </div>
-        <input type="text" class="form-control" value="<?php echo $mouth_name; ?>" readonly>
-        <div class="input-group-prepend">
-          <span class="input-group-text">คาง : </span>
-        </div>
-        <input type="text" class="form-control" value="<?php echo $chin_name; ?>" readonly>
-      </div>
-      <div class="input-group mb-3">
-        <div class="input-group-prepend">
-          <span class="input-group-text">หู : </span>
-        </div>
-        <input type="text" class="form-control" value="<?php echo $ears_name; ?>" readonly>
-        <div class="input-group-prepend">
-          <span class="input-group-text">หน้าผาก : </span>
-        </div>
-        <input type="text" class="form-control" value="<?php echo $forehead_name; ?>" readonly>
-        <div class="input-group-prepend">
-          <span class="input-group-text">ตา : </span>
-        </div>
-        <input type="text" class="form-control" value="<?php echo $eyes_name; ?>" readonly>
-      </div>
-        
-
-
 
         <?php
         $i++;
         }
       }
     }
-  }
       ?>
       </div>
       </form>
      <br>
      <br>
      <br>
-     </div>
-     <br>
-      <br>
-      <br>
-      <br>
 
 </section>
 <aside class="menu">
     <ul style="list-style-type: none;margin:0;padding:0;">
       <li style="margin:0px 0px 5px 0px;"><a href="#ผู้เสียหาย"><button type="button" class="btn btn-outline-primary">ผู้เสียหาย</button></a></li>
       <li style="margin:0px 0px 5px 0px;"><a href="#ผู้ต้องหา"><button type="button" class="btn btn-outline-primary">ผู้ต้องหา</button></a></li>
+      <li style="margin:0px 0px 5px 0px;"><a href="#<?php echo $search ?>"><button type="button" class="btn btn-outline-primary">ทดลอง</button></a></li>
     </ul>
 </aside>
 <div class="clearfloat"></div>
