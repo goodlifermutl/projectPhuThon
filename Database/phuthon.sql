@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 14, 2019 at 07:26 AM
+-- Generation Time: Jul 15, 2019 at 11:17 AM
 -- Server version: 10.3.15-MariaDB
 -- PHP Version: 7.3.6
 
@@ -302,9 +302,9 @@ CREATE TABLE `villain` (
 --
 
 INSERT INTO `villain` (`case_id`, `title_name`, `villain_name`, `villain_lastname`, `villain_sex`, `villain_idcard`, `villain_address`, `villain_education`, `villain_image`, `villain_race`, `villain_nationality`, `villain_career`) VALUES
-('ค.001', 'นาย', 'แดงเดือด', 'เลือดสาด', 1, '1203302367893', '55/2 จ.เชียงใหม่ 67445', 1, 'icon_data_usermale', 'ไทย', 'ไทย', 'พ่อค้า'),
-('ค.001', 'นางสาว', 'ละออง', 'เหมือนสวย', 2, '1308602346782', '34 ต.ดอกจิก อ.ดอย จ.เชียงใหม่ 50330', 6, 'icon_data_userfemale', 'ไทย', 'ไทย', 'แม่ค้า'),
-('ง.12/52', 'นาย', 'ดึกดำดึ๋ย', 'เลียนแบบหนัง', 1, '1564821532238', '77/2 หมู่ 1 ต.แดดออก อ.ฝนตก จ.เชียงใหม่ 50287', 8, 'icon_data_usermale', 'ไทย', 'ไทย', 'นักตกปลา');
+('ค.001', 'นาย', 'สุดจัด', 'ปลัดบอก', 1, '1408809678543', '23 หมู่ 8', 6, 'icon_data_usermale', 'ไทย', 'ไทย', 'พ่อค้า'),
+('ค.001', 'นางสาว', 'เจิดจลัด', 'จุงเบย', 2, '1507705467822', NULL, 6, 'icon_data_userfemale', 'ไทย', 'ไทย', 'แม่ค้า'),
+('ง.12/52', 'นาย', 'แดง', 'สีแดง', 1, '1508509823421', NULL, 1, 'icon_data_usermale', 'ไทย', 'ไทย', 'พ่อค้า');
 
 -- --------------------------------------------------------
 
@@ -490,14 +490,6 @@ CREATE TABLE `villain_identities` (
   `chin_villain` tinyint(2) DEFAULT NULL,
   `body_villain` tinyint(2) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Dumping data for table `villain_identities`
---
-
-INSERT INTO `villain_identities` (`villain_idcard`, `face_villain`, `hair_style_villain`, `ears_villain`, `forehead_villain`, `eyes_villain`, `nose_villain`, `mouth_villain`, `chin_villain`, `body_villain`) VALUES
-('1203302367893', 6, 8, 5, 5, 7, 7, 8, 5, 1),
-('1308602346782', 2, 6, 4, 2, 5, 6, 8, 5, 2);
 
 -- --------------------------------------------------------
 

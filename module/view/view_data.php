@@ -69,8 +69,14 @@ window.location.href = "index.html";
         $data = "";
       }else{
         $data=$_GET['datacase'];
-        $search=$_GET['search'];
-
+    
+        if(empty($_GET['search'])){
+          $search = "";
+          $l=0;
+        }else{
+          $search="#".$_GET['search'];
+          $l=1;
+        }
         $sex_name;
         $i=1;
 
@@ -90,7 +96,10 @@ window.location.href = "index.html";
             $sex_name = "หญิง";
           }
         ?>
+        <input type="hidden" id="chk_link" value="<?php echo $l  ?>">
         <a name="<?php echo $victim_idcard ?>"></a>
+        <a name="<?php echo $victim_name ?>"></a> 
+        <a name="<?php echo $victim_lastname ?>"></a> 
          <div class="col-md">
           <b><label for="formGroupExampleInput">ผู้เสียหาย คนที่ <?php echo $i; $i++?></label></b>
           <p><img src="../../image/<?php echo $victim_image; ?>.png" class="img-fluid mx-auto d-block" alt="Responsive image"></p>
@@ -405,7 +414,6 @@ window.location.href = "index.html";
     <ul style="list-style-type: none;margin:0;padding:0;">
       <li style="margin:0px 0px 5px 0px;"><a href="#ผู้เสียหาย"><button type="button" class="btn btn-outline-primary">ผู้เสียหาย</button></a></li>
       <li style="margin:0px 0px 5px 0px;"><a href="#ผู้ต้องหา"><button type="button" class="btn btn-outline-primary">ผู้ต้องหา</button></a></li>
-      <li style="margin:0px 0px 5px 0px;"><a href="#<?php echo $search ?>"><button type="button" class="btn btn-outline-primary">ทดลอง</button></a></li>
     </ul>
 </aside>
 <div class="clearfloat"></div>
@@ -473,6 +481,17 @@ $(document).ready(function(){
     $("#SC").modal();
   });
 })
+
+search_idcard()
+
+function search_idcard(){
+  var i=$("#chk_link").val();
+   if(i==1){
+    window.location = "<?php echo $search; ?>";
+    alert(i+"<?php echo $search; ?>")
+   }
+  
+}
 
 </script>
 </div>
