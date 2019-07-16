@@ -100,6 +100,7 @@
             </div>
           </div>
       </div>
+      </div>
       <script>
         $(document).ready(function(){
         // $('#table_id').DataTable();

@@ -59,6 +59,20 @@ window.location.href = "index.html";
     </div>
     <div class="col-md">
     <section class="bf-footer">
+    <div class="namecase">
+      <form>
+      <?php 
+      if(empty($_GET['datacase'])){
+        $data = "";
+      }else{
+        $data=$_GET['datacase'];
+      }
+      $show_case = mysqli_query($con,"SELECT case_name FROM case_name WHERE case_id = '$data'")or die("case error".mysqli_error($con));
+      list($case_name)=mysqli_fetch_row($show_case);
+      ?>
+      <p><h1 class="text-center">คดี : <?php echo $case_name ?></h1></p>
+      </form>
+    </div>
     <a name="ผู้เสียหาย"></a>
     <div class="victim">
       <p><h1 class="text-center">ผู้เสียหาย</h1></p>
@@ -428,38 +442,27 @@ window.location.href = "index.html";
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           
        </div>
+      <?php
+      //  $select = mysqli_query($con,"SELECT case_id,case_name,case_type FROM case_name")or die("select sql error".mysqli_error($con));
+        ?>
         <div class="modal-body" style="padding:40px 50px;">
-
-        <div class="row">
-              <div class="col-md">
-                <form method="get">
-              <table id="table_id" class="display table">
-                    <thead>
-                      <tr>
-                        <th>เลขคดี</th>
-                        <th>ชื่อคดี</th>
-                        <th>ประเภทคดี</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <?php
-                      while(list($case_id,$case_name,$case_type)=mysqli_fetch_row($select)){
-                      if($case_type==1){
-                        $case_typeName="คดีเพ่ง";
-                      }else{
-                        $case_typeName="คดีอาญา";
-                      }
-                          echo"
-                          <tr>
-                            <td><a href='?datacase=$case_id&module=1&action=1'>$case_id</a></td>
-                            <td>$case_name</td>
-                            <td>$case_typeName</td>
-                        </tr>";
-                      }
-                      ?>
-                  </tbody>
-                </table>
-                </form>
+              <div class="input-group mb-3">
+                <div class="col-3">
+                <select class="custom-select" id="inputGroupSelect02" name="type">
+                    <option value="1">เลขคดี</option>
+                    <option value="2">เลขบัตรประจำตัวประชาชน</option>
+                    <option value="3">ชื่อนามสกุล</option>
+                </select>
+                </div>
+                <div class="col-5">
+                <input type="text" class="form-control" placeholder="ค้นหาข้อมูล" name="search" id="textsearch">
+                </div>
+                <div class="col-3">
+                <button type="button" class="btn btn-success" id="btnsearch">ค้นหา</button>
+                </div>
+                
+              </div>
+              <div class="col-auto" id="loadid">
               </div>
             </div>
            </div>
@@ -472,7 +475,7 @@ window.location.href = "index.html";
             </div>
           </div>
       </div>
-  </div>
+      </div>
        
 <script>
 $(document).ready(function(){
@@ -492,6 +495,36 @@ function search_idcard(){
    }
   
 }
+
+function loadsunass(){
+      var id1= $("#inputGroupSelect02").val();
+      var id2 = $("#textsearch").val();
+
+      $("#loadid").html("")
+    //   $("#loadging").css('display','')
+      $.ajax({
+        url: "show_data_search.php",
+        data:{type:id1,search:id2},
+        type: "POST"
+      }).done(function(data){
+        $("#loadid").html(data)
+      })
+    }  
+$(document).ready(function() {
+    loadsunass()
+    $("#btnsearch").click(function(){
+        var id1= $("#inputGroupSelect02").val();
+        var id2 = $("#textsearch").val();
+    //alert(id1+id2)
+   $.post("show_data_search.php",{type:id1,search:id2},
+    function (data, textStatus, jqXHR) {
+    //alert(data)
+     $("#loadid").html(data)
+     loadsunass()
+    }
+   );
+  })
+ });
 
 </script>
 </div>

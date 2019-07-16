@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 15, 2019 at 11:17 AM
+-- Generation Time: Jul 16, 2019 at 11:11 AM
 -- Server version: 10.3.15-MariaDB
 -- PHP Version: 7.3.6
 
@@ -21,6 +21,26 @@ SET time_zone = "+00:00";
 --
 -- Database: `phuthon`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `arrestor`
+--
+
+CREATE TABLE `arrestor` (
+  `arrt_id` int(11) NOT NULL,
+  `case_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `card_id` char(13) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `arrestor`
+--
+
+INSERT INTO `arrestor` (`arrt_id`, `case_id`, `card_id`) VALUES
+(1, 'ค.001', '1509903426554'),
+(2, 'ค.001', '1234567890123');
 
 -- --------------------------------------------------------
 
@@ -113,7 +133,7 @@ CREATE TABLE `exhibit` (
 --
 
 INSERT INTO `exhibit` (`id_exhibit`, `case_id`, `exhibit_status`, `exhibit_name`, `exhibit_size`, `exhibit_look`, `exhibit_image`) VALUES
-(0, 'ค.001', 1, 'ไม้ไผ่', '20*60', 'ลำต้นสีเขียว', 'icon_data_exi');
+(1, 'ค.001', 1, 'ไม้ไผ่', '60*20', 'ไม่ไผ่สีเขียวเรียวยาว', 'icon_data_exi');
 
 -- --------------------------------------------------------
 
@@ -122,10 +142,8 @@ INSERT INTO `exhibit` (`id_exhibit`, `case_id`, `exhibit_status`, `exhibit_name`
 --
 
 CREATE TABLE `inquiry_official` (
+  `in_of_id` int(11) NOT NULL,
   `case_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `rank_id` tinyint(2) NOT NULL,
-  `io_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `io_lastname` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `card_id` char(13) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -133,8 +151,8 @@ CREATE TABLE `inquiry_official` (
 -- Dumping data for table `inquiry_official`
 --
 
-INSERT INTO `inquiry_official` (`case_id`, `rank_id`, `io_name`, `io_lastname`, `card_id`) VALUES
-('ค.001', 6, 'สืบสวน', 'สอบสวน', '1409908274561');
+INSERT INTO `inquiry_official` (`in_of_id`, `case_id`, `card_id`) VALUES
+(1, 'ค.001', '1509903426554');
 
 -- --------------------------------------------------------
 
@@ -214,13 +232,20 @@ INSERT INTO `responsible_person` (`case_id`, `card_id`) VALUES
 CREATE TABLE `subpoena` (
   `case_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `subject` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `num_black` int(11) NOT NULL,
-  `num_red` int(11) NOT NULL,
+  `num_black` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `num_red` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `arrest_warrant` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `search warrant` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `date_num_red` date NOT NULL,
   `date_sue` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `subpoena`
+--
+
+INSERT INTO `subpoena` (`case_id`, `subject`, `num_black`, `num_red`, `arrest_warrant`, `search warrant`, `date_num_red`, `date_sue`) VALUES
+('ค.001', 'ทำร้ายร่างกาย', 'พบ/1234', 'พบ/ค.1234', 'จ.16/7/2562', 'ค.16/7/2562', '2019-07-16', '2019-07-16');
 
 -- --------------------------------------------------------
 
@@ -549,6 +574,14 @@ INSERT INTO `villain_nose` (`nose_id`, `nose_name`) VALUES
 --
 
 --
+-- Indexes for table `arrestor`
+--
+ALTER TABLE `arrestor`
+  ADD PRIMARY KEY (`arrt_id`),
+  ADD KEY `case_id` (`case_id`),
+  ADD KEY `card_id` (`card_id`);
+
+--
 -- Indexes for table `arrest_record`
 --
 ALTER TABLE `arrest_record`
@@ -570,15 +603,16 @@ ALTER TABLE `education`
 -- Indexes for table `exhibit`
 --
 ALTER TABLE `exhibit`
-  ADD PRIMARY KEY (`id_exhibit`);
+  ADD PRIMARY KEY (`id_exhibit`),
+  ADD KEY `case_id` (`case_id`);
 
 --
 -- Indexes for table `inquiry_official`
 --
 ALTER TABLE `inquiry_official`
-  ADD PRIMARY KEY (`card_id`),
+  ADD PRIMARY KEY (`in_of_id`),
   ADD KEY `case_id` (`case_id`),
-  ADD KEY `rank_id` (`rank_id`);
+  ADD KEY `card_id` (`card_id`);
 
 --
 -- Indexes for table `police_person`
@@ -702,10 +736,28 @@ ALTER TABLE `villain_nose`
 --
 
 --
+-- AUTO_INCREMENT for table `arrestor`
+--
+ALTER TABLE `arrestor`
+  MODIFY `arrt_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `education`
 --
 ALTER TABLE `education`
   MODIFY `edu_id` tinyint(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `exhibit`
+--
+ALTER TABLE `exhibit`
+  MODIFY `id_exhibit` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `inquiry_official`
+--
+ALTER TABLE `inquiry_official`
+  MODIFY `in_of_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `rank_police`
@@ -772,11 +824,30 @@ ALTER TABLE `villain_nose`
 --
 
 --
+-- Constraints for table `arrestor`
+--
+ALTER TABLE `arrestor`
+  ADD CONSTRAINT `arrestor_ibfk_1` FOREIGN KEY (`case_id`) REFERENCES `case_name` (`case_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `arrestor_ibfk_2` FOREIGN KEY (`card_id`) REFERENCES `police_person` (`card_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `arrest_record`
+--
+ALTER TABLE `arrest_record`
+  ADD CONSTRAINT `arrest_record_ibfk_1` FOREIGN KEY (`case_id`) REFERENCES `case_name` (`case_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `exhibit`
+--
+ALTER TABLE `exhibit`
+  ADD CONSTRAINT `exhibit_ibfk_1` FOREIGN KEY (`case_id`) REFERENCES `case_name` (`case_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
 -- Constraints for table `inquiry_official`
 --
 ALTER TABLE `inquiry_official`
   ADD CONSTRAINT `inquiry_official_ibfk_1` FOREIGN KEY (`case_id`) REFERENCES `case_name` (`case_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `inquiry_official_ibfk_2` FOREIGN KEY (`rank_id`) REFERENCES `rank_police` (`rank_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `inquiry_official_ibfk_3` FOREIGN KEY (`card_id`) REFERENCES `police_person` (`card_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `police_person`
@@ -790,6 +861,12 @@ ALTER TABLE `police_person`
 ALTER TABLE `responsible_person`
   ADD CONSTRAINT `responsible_person_ibfk_1` FOREIGN KEY (`case_id`) REFERENCES `case_name` (`case_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `responsible_person_ibfk_2` FOREIGN KEY (`card_id`) REFERENCES `police_person` (`card_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `subpoena`
+--
+ALTER TABLE `subpoena`
+  ADD CONSTRAINT `subpoena_ibfk_1` FOREIGN KEY (`case_id`) REFERENCES `case_name` (`case_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `victim`
