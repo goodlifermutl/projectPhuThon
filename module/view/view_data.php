@@ -44,7 +44,7 @@ window.location.href = "index.html";
     </div>
     <div class="col-sm-4">
       <p class="text-center"><b>แก้ไขข้อมูล</b></p>
-      <a href="#">
+      <a href="#" id="myBtnEdit">
       <p class="text-center"><i class="fas fa-edit" style="font-size: 80px"></i></p>
       </a>
     </div>
@@ -73,6 +73,18 @@ window.location.href = "index.html";
       <p><h1 class="text-center">คดี : <?php echo $case_name ?></h1></p>
       </form>
     </div>
+    <div class="arr_record">
+      <form>
+        <?php
+        if(empty($_GET['datacase'])){
+          $data = "";
+        }else{
+          $data=$_GET['datacase'];
+        }
+        $i=1;
+        ?>
+      </form>
+    </div>
     <a name="ผู้เสียหาย"></a>
     <div class="victim">
       <p><h1 class="text-center">ผู้เสียหาย</h1></p>
@@ -97,6 +109,7 @@ window.location.href = "index.html";
         $result_chk_victim = mysqli_query($con,"SELECT case_id FROM victim  WHERE case_id = '$data'")or die("resualt_chk_victim sqli error".mysqli_error($con));
         $result_victim = mysqli_query($con,"SELECT vm.title_name, vm.victim_name,vm.victim_lastname,vm.victim_sex,vm.victim_idcard,vm.victim_address,ed.edu_name,vm.victim_image,vm.victim_race,vm.victim_nationality,vm.victim_career FROM victim as vm  INNER JOIN education as ed ON vm.victim_education = ed.edu_id WHERE case_id = '$data'")or die("resualt_victim sqli error".mysqli_error($con));
         list($case_id)=mysqli_fetch_row($result_chk_victim);
+        $num_loop=mysqli_num_rows($result_victim);
         if(empty($case_id)){
           ?><script>swal("sorry!", "ไม่พบข้อมูลบางส่วน!", "error")</script><?php
           echo "<h5 class='text-center'>----ไม่พบข้อมูล----</h5>";
@@ -115,8 +128,8 @@ window.location.href = "index.html";
         <a name="<?php echo $victim_name ?>"></a> 
         <a name="<?php echo $victim_lastname ?>"></a> 
          <div class="col-md">
-          <b><label for="formGroupExampleInput">ผู้เสียหาย คนที่ <?php echo $i; $i++?></label></b>
-          <p><img src="../../image/<?php echo $victim_image; ?>.png" class="img-fluid mx-auto d-block" alt="Responsive image"></p>
+         <b><label for="formGroupExampleInput">ผู้เสียหาย คนที่ <?php echo $i; ?></label></b><button type="button" id="victim_test"><i class="fas fa-edit" style="font-size: 10px"></i></button>
+         <p><img src="../../image/<?php echo $victim_image; ?>.png" class="img-fluid mx-auto d-block" alt="Responsive image"></p>
           <div class="col-md">
           <div class="form-row">
           <div>
@@ -175,7 +188,7 @@ window.location.href = "index.html";
               <label class="col-sm col-form-label">เลขบัตรประจำตัวประชาชน : </label>
             </div>
             <div class="col-md">
-              <input type="text" class="form-control" placeholder="เลขบัตรประจำตัวประชาชน" value="<?php echo $victim_idcard; ?>" readonly>
+              <input type="text" class="form-control" placeholder="เลขบัตรประจำตัวประชาชน" id="id<?php echo $i; ?>" value="<?php echo $victim_idcard; ?>" readonly>
             </div>
             <div>
               <label class="col-sm col-form-label">ระดับการศึกษา : </label>
@@ -206,6 +219,7 @@ window.location.href = "index.html";
         </div>
         <hr>
       <?php
+      $i++;
       }
     }
   }
@@ -463,21 +477,29 @@ window.location.href = "index.html";
                 
               </div>
               <div class="col-auto" id="loadid">
+              
               </div>
+              
             </div>
            </div>
            <div class="footer">
-            <div style="float: left;">
+            <div style="float: right;">
               <button type="submit" class="btn btn-danger btn-default" data-dismiss="modal"> Cancel</button>
             </div>
-            <div style="float: right">  
-              <a href="#">ลืมรหัสผ่าน</a>
-            </div>
+            <div class="clearfloat"></div>
           </div>
       </div>
-      </div>
-       
+      </div>    
 <script>
+<?php  
+  for($i=1;$i<=$num_loop;$i++){
+
+?>
+var id = $("#id<?php echo $i; ?>").vall()
+$("#victim_test").click(function(){
+    alert(id)
+})
+<?php  } ?>
 $(document).ready(function(){
   $('#table_id').DataTable();
   $("#myBtnSc").click(function(){
