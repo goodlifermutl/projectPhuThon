@@ -89,7 +89,7 @@ window.location.href = "index.html";
     <div class="victim">
       <p><h1 class="text-center">ผู้เสียหาย</h1></p>
       <br>
-      <form id="victim" method="post">
+   
       <?php 
       if(empty($_GET['datacase'])){
         $data = "";
@@ -127,6 +127,7 @@ window.location.href = "index.html";
             $sex2="selected";
           }
         ?>
+        <form class="victim<?php echo$i ?>" method="post" enctype="multipart/form-data">
         <input type="hidden" id="chk_link" value="<?php echo $l  ?>">
         <a name="<?php echo $victim_idcard ?>"></a>
         <a name="<?php echo $victim_name ?>"></a> 
@@ -140,23 +141,24 @@ window.location.href = "index.html";
               <label class="col-sm col-form-label">รหัสคดี : </label>
           </div>
           <div class="col-2">
-              <input type="text" class="form-control" placeholder="รหัสคดี <?php echo $case_id; ?>" value="<?php echo $case_id; ?>" disabled>
+              <input type="hidden" value="<?php echo$i; ?>" name="victim_i[]?>">
+              <input type="text" class="form-control" placeholder="เลขคดี" value="<?php echo $case_id; ?>"  name="victim_case[]" readonly required>
             </div>
             <div>
               <label class="col-sm col-form-label>ชื่อ : </label>
             </div>
             <div class="col-1">
-              <input type="text" class="form-control edit<?php echo $i; ?>" placeholder="คำนำหน้าชื่อ" value="<?php echo $title_name; ?>" id="focus<?php echo $i?>" disabled required>
+              <input type="text" class="form-control edit<?php echo $i; ?>" placeholder="คำนำหน้าชื่อ" value="<?php echo $title_name; ?>" id="focus<?php echo $i?>" name="victim_titlename[]" disabled required>
               
             </div>
             <div class="col-md">
-              <input type="text" class="form-control edit<?php echo $i; ?>" placeholder="ชื่อ" value="<?php echo $victim_name; ?>" disabled required>
+              <input type="text" class="form-control edit<?php echo $i; ?>" placeholder="ชื่อ" value="<?php echo $victim_name; ?>" name="victim_name[]"disabled required>
             </div>
             <div>
               <label class="col-sm col-form-label">นามสกุล : </label>
             </div>
             <div class="col-md">
-              <input type="text" class="form-control edit<?php echo $i; ?>" placeholder="นามสกุล" value="<?php echo $victim_lastname; ?>" disabled required>
+              <input type="text" class="form-control edit<?php echo $i; ?>" placeholder="นามสกุล" value="<?php echo $victim_lastname; ?>" name="victim_lastname[]" disabled required>
             </div>
             </div>
           </div>
@@ -168,19 +170,19 @@ window.location.href = "index.html";
               <label class="col-sm col-form-label">เชื้อชาติ : </label>
             </div>
             <div class="col-md">
-              <input type="text" class="form-control edit<?php echo $i; ?>" placeholder="เชื้อชาติ" value="<?php echo $victim_race; ?>" disabled required>
+              <input type="text" class="form-control" placeholder="เชื้อชาติ" value="<?php echo $victim_race; ?>" name="victim_race[]" disabled required>
             </div>
             <div>
               <label class="col-sm col-form-label">สัญชาติ : </label>
             </div>
             <div class="col-md">
-              <input type="text" class="form-control edit<?php echo $i; ?>" placeholder="สัญชาติ" value="<?php echo $victim_nationality; ?>" disabled required>
+              <input type="text" class="form-control edit<?php echo $i; ?>" placeholder="สัญชาติ" value="<?php echo $victim_nationality; ?>" name="victim_nationality[]" disabled required>
             </div>
             <div>
               <label class="col-sm col-form-label">อาชีพ : </label>
             </div>
             <div class="col-md">
-            <input type="text" class="form-control edit<?php echo $i; ?>" placeholder="อาชีพ" value="<?php echo $victim_careen; ?>" disabled required>
+            <input type="text" class="form-control edit<?php echo $i; ?>" placeholder="อาชีพ" value="<?php echo $victim_careen; ?>" name="victim_careen[]" disabled required>
             </div>
           </div>
           </div>
@@ -193,13 +195,13 @@ window.location.href = "index.html";
               <label class="col-sm col-form-label">เลขบัตรประจำตัวประชาชน : </label>
             </div>
             <div class="col-md">
-              <input type="text" class="form-control edit<?php echo $i; ?>" placeholder="เลขบัตรประจำตัวประชาชน" id="id<?php echo $i; ?>" name="id<?php echo $i; ?>" data-idcard="<?php echo $victim_idcard ?>"  value="<?php echo $victim_idcard; ?>" disabled required>
+              <input type="text" class="form-control" placeholder="เลขบัตรประจำตัวประชาชน" id="victim_idcard<?php echo $i; ?>" name="victim_idcard[]" data-idcard="<?php echo $victim_idcard ?>"  value="<?php echo $victim_idcard; ?>" readonly required>
             </div>
             <div>
               <label class="col-sm col-form-label" >ระดับการศึกษา : </label>
             </div>
             <div class="col-3">
-              <select class="custom-select edit<?php echo $i; ?>" id="" name="edu<?php echo $i; ?>" disabled required>
+              <select class="custom-select edit<?php echo $i; ?>" id="" name="victim_edu[]" disabled required>
                    < <?php $result_edu = mysqli_query($con,"SELECT * FROM education")or die("select education error".mysqli_error($con));
                         while(list($edu_id,$edu_name)=mysqli_fetch_row($result_edu)){
                           $selected=$edu_name==$victim_education?"selected":"";
@@ -214,7 +216,7 @@ window.location.href = "index.html";
               
             </div>
             <div class="col-md">
-              <select class="custom-select edit<?php echo $i; ?>" id="" name="sex<?php echo $i; ?>" disabled required>
+              <select class="custom-select edit<?php echo $i; ?>" id="" name="victim_sex[]" disabled required>
                     <option value="1" <?php echo$sex1 ?>>ชาย</option>
                     <option value="2" <?php echo$sex2 ?>>หญิง</option>
                 </select>
@@ -229,24 +231,26 @@ window.location.href = "index.html";
               <label class="col-sm col-form-label">ที่อยู่ : </label>
             </div>
             <div class="col-md">
-            <input type="text" class="form-control edit<?php echo $i; ?>" placeholder="ที่อยู่" value="<?php echo $victim_address; ?>" disabled required>
+            <input type="text" class="form-control edit<?php echo $i; ?>" placeholder="ที่อยู่" value="<?php echo $victim_address; ?>" name="victim_address[]" disabled required>
             </div>
             </div>
           </div>
           <p></p>
           <div class="col-md">
-            <p class="text-center"><button type="submit" class="btn btn-outline-success save" id="save<?php echo $i; ?>">บันทึก</button>
+            <p class="text-center"><button type="submit" class="btn btn-outline-success save" id="save<?php echo $i; ?>" data-idcard="<?php echo $victim_idcard ?>">บันทึก</button>
             <button type="button" class="btn btn-outline-danger" id="cancle<?php echo $i; ?>">ยกเลิก</button></p>
             </div>
         </div>
         <hr>
+                      </form>
       <?php
       $i++;
+      
       }
     }
   }
       ?>
-      </form>
+     
      </div>
      <a name="ผู้ต้องหา"></a>
      <div class="villain">
@@ -533,7 +537,7 @@ $("#save<?php echo $md ?>").hide();
 $("#cancle<?php echo $md ?>").hide();
 
 $("#victim_test<?php echo $md; ?>").click(function(){
-    alert(id<?php echo $md;?>)
+    //alert(victim_idcard<?php echo $md;?>)
     $(".edit<?php echo $md; ?>").prop("disabled", false);
     $( "#focus<?php echo $md ?>" ).focus();
     $("#save<?php echo $md ?>").show();
@@ -546,10 +550,65 @@ $("#cancle<?php echo $md;  ?>").click(function(){
   $("#cancle<?php echo $md ?>").hide();
   window.location.href="../main/home.php?datacase=<?php echo $case_id; ?>&module=1&action=1";
 })
-
-
+$(".victim<?php echo$md; ?>").submit(function(){
+  alert("ggggggg")
+  var formData = new FormData(this);
+  $.ajax({
+					        url: "../fuction/update_data.php",
+					        type: 'POST',
+					        data: formData,
+					        success: function (data) {
+								alert(data);
+								//swal("บันทึกสำเร็จแล้ว!", "", "success")
+								swal("บันทึกสำเร็จ!", {
+									icon: "success",
+									buttons: false,
+									timer: 1000,
+								});   
+                
+                
+                window.location.href="../main/home.php?datacase=<?php echo $case_id; ?>&module=1&action=1";
+					        },
+					        cache: false,
+					        contentType: false,
+					        processData: false
+					    })
+})
 
 <?php $md++; } ?>
+
+//$("#victim").on('submit','.save',function(){
+ //e.preventDefault();
+ //alert("gg")
+  // $check = $("#victim").valid();
+  // if($check == true){
+
+  // var formData = new FormData(this);
+  // var idc = $(this).data("idcard");
+    
+//         $.ajax({
+//             url: "../fuction/update_data.php",
+//             type: 'POST',
+//             data: formData,
+//             success: function (data) {
+//              alert(data)  
+        
+//       swal({
+//       title: "สมัครสมาชิกสำเร็จ",
+//       icon: "success",
+//       button: "ตกลง",
+//     }).then((value) => {
+      
+//       //window.location.href="../main/home.php?datacase=<?php echo $case_id; ?>&module=1&action=1&#";
+// });
+
+// },
+//             cache: false,
+//             contentType: false,
+//             processData: false
+// });	
+// }
+//});
 
 
 $(document).ready(function(){
@@ -557,38 +616,6 @@ $(document).ready(function(){
   $("#myBtnSc").click(function(){
     $("#SC").modal();
   });
-  $("#victim").on('submit','.save',function(e){
-  
- e.preventDefault();
-  $check = $("#victim").valid();
-
-  if($check == true){
-  var formData = new FormData(this);
-  var idc = $(this).data("idcard");
-    alert(idc)
-        $.ajax({
-            url: "../fuction/update_data.php",
-            type: 'POST',
-            data: formData,
-            success: function (data) {
-             alert(data)  
-        
-      swal({
-      title: "สมัครสมาชิกสำเร็จ",
-      icon: "success",
-      button: "ตกลง",
-    }).then((value) => {
-      
-      //window.location.href="../main/home.php?datacase=<?php echo $case_id; ?>&module=1&action=1&#";
-});
-
-},
-            cache: false,
-            contentType: false,
-            processData: false
-});	
-}
-});
 })
 
 search_idcard()

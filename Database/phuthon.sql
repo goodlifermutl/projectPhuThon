@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 16, 2019 at 11:11 AM
+-- Generation Time: Jul 22, 2019 at 11:02 AM
 -- Server version: 10.3.15-MariaDB
 -- PHP Version: 7.3.6
 
@@ -297,8 +297,8 @@ CREATE TABLE `victim` (
 
 INSERT INTO `victim` (`case_id`, `title_name`, `victim_name`, `victim_lastname`, `victim_sex`, `victim_idcard`, `victim_address`, `victim_education`, `victim_image`, `victim_race`, `victim_nationality`, `victim_career`) VALUES
 ('ง.12/52', 'นาย', 'จันทร์ดี', 'โอกาสเดิม', 1, '1508890723431', '23 หมู่ 4 บ้าน ดง ต.ก่อไผ่ อ.ดอกไม้ จ.เชียงใหม่ 54334', 6, 'icon_data_usermale', 'ไทย', 'ไทย', 'ธุรกิจส่วนตัว'),
-('ค.001', 'นางสาว', 'พะยอง', 'จังเลย', 2, '1509643456712', '22 หมู่ 7 ต.ดอกไม้ อ.ต้นไม้ จ.เชียงใหม่ 54334', 5, 'icon_data_userfemale', 'ไทย', 'ไทย', 'ธรุกิจส่วนตัว'),
-('ค.001', 'นาย', 'ทองคำดี', 'เคยมีสุข', 1, '1509901658485', '78/4 ต.ป่าทอง อ.จัดการ จ.เชียงใหม่ 50990', 4, 'icon_data_usermale', 'ไทย', 'ไทย', 'ธุรกิจส่วนตัว'),
+('ค.001', 'นางสาว', 'พะยอง', 'จังเลย', 2, '1509643456712', '25 หมู่ 7 ต.ดอกไม้ อ.ต้นไม้ จ.เชียงใหม่ 54334', 7, 'icon_data_userfemale', 'ไทย', 'ไทย', 'ธรุกิจส่วนตัว'),
+('ค.001', 'นาย', 'ช้าง', 'โต', 1, '1509901658485', '68 หมู่ 8 บ้าน นอก ต.ใน อ.นอก จ.ใน 45667', 8, 'icon_data_usermale', 'ไทย', 'ไทย', 'ธรุกิจส่วนตัว'),
 ('ง.12/52', 'นาย', 'ลึงลง', 'ใต้น้ำ', 1, '1607782455677', '123 หมู่ 9 ต.เชิงบน อ.เชิงล่าง จ.เชียงใหม่ 49668', 6, 'icon_data_usermale', 'ไทย', 'ไทย', 'นักศึกษา');
 
 -- --------------------------------------------------------
@@ -515,6 +515,14 @@ CREATE TABLE `villain_identities` (
   `chin_villain` tinyint(2) DEFAULT NULL,
   `body_villain` tinyint(2) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `villain_identities`
+--
+
+INSERT INTO `villain_identities` (`villain_idcard`, `face_villain`, `hair_style_villain`, `ears_villain`, `forehead_villain`, `eyes_villain`, `nose_villain`, `mouth_villain`, `chin_villain`, `body_villain`) VALUES
+('1408809678543', 2, 8, 3, 4, 5, 4, 7, 5, 1),
+('1507705467822', 1, 6, 8, 3, 4, 5, 2, 3, 2);
 
 -- --------------------------------------------------------
 
