@@ -10,7 +10,7 @@
         }
         switch($action){
             case 0 : $a="data_firstpage.php"; break;
-            case 1 : $a="view_data.php"; break;
+            case 1 : $a="view_data_victim.php"; break;
             default : $a="404.php";
         }
         if($m=="404"||$a=="404.php"){

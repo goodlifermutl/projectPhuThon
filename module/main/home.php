@@ -62,16 +62,37 @@ window.location.href = "../../index.html";
   </button>
   <a class="navbar-brand" href="home.php"><i style="font-size: 36px" class="fas fa-h-square"></i> PhuThon pak5</a>  
 
+   <!-- <div class="row">
+    <div class="col-md">
+    <button type="button" class="btn btn-outline-dark"><i class="fas fa-search-plus" style="font-size: 50px"></i></i></button>
+    </div>
+    <div class="col-md">
+    <button type="button" class="btn btn-outline-dark"><i class="fas fa-edit" style="font-size: 50px"></i></button>
+    </div>
+    <div class="col-md">
+     <button type="button" class="btn btn-outline-dark"><i class="fas fa-plus-circle" style="font-size: 50px"></i></i></button>
+    </div>
+  </div> -->
   <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-     
     </ul>
+    
     <form class="form-inline my-2 my-lg-0">
     <a class="navbar-brand"><i class="far fa-id-badge"></i> <?php echo $_SESSION['user_name']; ?></a>
     <a href="../fuction/destroy_session.php"><button class="btn btn-outline-warning my-2 my-sm-0" type="button">ออกจากระบบ</button></a>
     </form>
   </div>
 </nav>
+<!-- <ul class="nav justify-content-center">
+  <li class="nav-item" style="margin-right:20px;">
+  <a href="#" id="myBtnSc">
+      <p class="text-center"><i class="fas fa-search-plus" style="font-size: 80px"></i></i></p>
+      </a>
+  </li>
+  <li class="nav-item">
+  <button type="button" class="btn btn-outline-dark"><i class="fas fa-plus-circle" style="font-size: 50px"></i></i></button>
+  </li>
+</ul> -->
 
 
 <div class="container bigbody">

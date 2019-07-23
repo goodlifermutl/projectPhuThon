@@ -26,9 +26,7 @@ window.location.href = "index.html";
 }
 ?>
 <?php echo $com_s ?>
-
-<div class="container bigbody">
-  <div  class="topbigbody">
+<div  class="topbigbody">
   <!-- <br>
     <form class="form-inline my-2 my-lg-0 menusearch">
       <input class="form-control mr-sm-2" type="search" placeholder="Search">
@@ -57,6 +55,9 @@ window.location.href = "index.html";
     </div>
     </div>
     </div>
+
+<div class="container bigbody">
+  
     <div class="col-md">
     <section class="bf-footer">
     <div class="namecase">
@@ -464,7 +465,7 @@ window.location.href = "index.html";
      <br>
 
 </section>
-<aside class="menu">
+<aside class="menu  sticky-top">
     <ul style="list-style-type: none;margin:0;padding:0;">
       <li style="margin:0px 0px 5px 0px;"><a href="#ผู้เสียหาย"><button type="button" class="btn btn-outline-primary">ผู้เสียหาย</button></a></li>
       <li style="margin:0px 0px 5px 0px;"><a href="#ผู้ต้องหา"><button type="button" class="btn btn-outline-primary">ผู้ต้องหา</button></a></li>
@@ -537,11 +538,26 @@ $("#save<?php echo $md ?>").hide();
 $("#cancle<?php echo $md ?>").hide();
 
 $("#victim_test<?php echo $md; ?>").click(function(){
-    //alert(victim_idcard<?php echo $md;?>)
     $(".edit<?php echo $md; ?>").prop("disabled", false);
-    $( "#focus<?php echo $md ?>" ).focus();
     $("#save<?php echo $md ?>").show();
     $("#cancle<?php echo $md ?>").show();
+    swal({
+  title: "การแก้ไขข้อมูล",
+  text: "ต้องการแก้ไขข้อมูลใช่หรือไม่!",
+  icon: "warning",
+  buttons: true,
+  dangerMode: true,
+  buttons: ["ยกเลิก","ตกลง"]
+})
+.then((willDelete) => {
+  if (willDelete) {
+    $( "#focus<?php echo $md ?>" ).focus();
+    
+  } else {
+    
+    window.location.href="../main/home.php?datacase=<?php echo $case_id; ?>&module=1&action=1";
+  }
+});
 })
 $("#cancle<?php echo $md;  ?>").click(function(){
  // alert("ggg")
@@ -609,7 +625,6 @@ $(".victim<?php echo$md; ?>").submit(function(){
 // });	
 // }
 //});
-
 
 $(document).ready(function(){
   $('#table_id').DataTable();
