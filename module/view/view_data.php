@@ -146,7 +146,7 @@ window.location.href = "index.html";
               <input type="text" class="form-control" placeholder="เลขคดี" value="<?php echo $case_id; ?>"  name="victim_case[]" readonly required>
             </div>
             <div>
-              <label class="col-sm col-form-label>ชื่อ : </label>
+              <label class="col-sm col-form-label">ชื่อ : </label>
             </div>
             <div class="col-1">
               <input type="text" class="form-control edit<?php echo $i; ?>" placeholder="คำนำหน้าชื่อ" value="<?php echo $title_name; ?>" id="focus<?php echo $i?>" name="victim_titlename[]" disabled required>
@@ -196,7 +196,7 @@ window.location.href = "index.html";
               <label class="col-sm col-form-label">เลขบัตรประจำตัวประชาชน : </label>
             </div>
             <div class="col-md">
-              <input type="text" class="form-control" placeholder="เลขบัตรประจำตัวประชาชน" id="victim_idcard<?php echo $i; ?>" name="victim_idcard[]" data-idcard="<?php echo $victim_idcard ?>"  value="<?php echo $victim_idcard; ?>" readonly required>
+              <input type="text" class="form-control" placeholder="เลขบัตรประจำตัวประชาชน" id="victim_idcard<?php echo $i; ?>" name="victim_idcard[]" data-idcard="<?php echo $victim_idcard ?>"  value="<?php echo $victim_idcard; ?>"readonly required>
             </div>
             <div>
               <label class="col-sm col-form-label" >ระดับการศึกษา : </label>
@@ -525,14 +525,24 @@ $md=1;
     
 ?>
 var id<?php echo $md;?> = $("#id<?php echo $md; ?>").val()
-$('#victim').validate({ 
+$('.victim<?php echo$md; ?>').validate({ 
 								
-                rules: {
-                id<?php echo $md?>: {
-                minlength:13,
-                maxlength:13
-             }
-          }
+  rules: {
+    usrname:{
+    minlength:6
+    },
+    psw: { 
+    minlength:8
+    },
+    psw2: {
+    minlength:8,
+    equalTo: ".password"
+    },
+    idcard: {
+    minlength:13,
+    maxlength:13
+            }
+        }
         });
 $("#save<?php echo $md ?>").hide();
 $("#cancle<?php echo $md ?>").hide();
@@ -568,6 +578,9 @@ $("#cancle<?php echo $md;  ?>").click(function(){
 })
 $(".victim<?php echo$md; ?>").submit(function(){
   alert("ggggggg")
+  $check = $(".victim<?php echo$md; ?>").valid();
+
+		if($check == true){
   var formData = new FormData(this);
   $.ajax({
 					        url: "../fuction/update_data.php",
@@ -589,6 +602,7 @@ $(".victim<?php echo$md; ?>").submit(function(){
 					        contentType: false,
 					        processData: false
 					    })
+}
 })
 
 <?php $md++; } ?>

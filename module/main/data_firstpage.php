@@ -18,7 +18,7 @@
     </div>
     <div class="col-sm-4">
       <p class="text-center"><b>เพิ่มข้อมูล</b></p>
-      <a href="#">
+      <a href="#" id="myBtnNs">
       <p class="text-center"><i class="fas fa-plus-circle" style="font-size: 80px"></i></i></p>
       </a>
     </div>
@@ -106,6 +106,9 @@
         // $('#table_id').DataTable();
         $("#myBtnSc").click(function(){
             $("#SC").modal();
+        });
+        $("#myBtnNs").click(function(){
+          window.location.href="../main/home.php?&module=2&action=2";
         });
         })
         </script>
