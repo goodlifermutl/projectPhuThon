@@ -113,11 +113,11 @@ a:hover{
             })
             .then((willDelete) => {
             if (willDelete) {
-                window.location.href="../main/home.php?&module=2&action=3";
+                window.location.href="../main/home.php?&module=2&action=4";
                 
             } else {
                 
-                window.location.href="../main/home.php?&module=2&action=2";
+                window.location.href="../main/home.php?&module=2&action=3";
             }
             });
         });

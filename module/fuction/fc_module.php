@@ -12,8 +12,9 @@
         switch($action){
             case 0 : $a="data_firstpage.php"; break;
             case 1 : $a="view_data.php"; break;
-            case 2 : $a="insert_form.php"; break;
-            case 3 : $a="insert_victim.php"; break;
+            case 2 : $a="idcase_insert.php"; break;
+            case 3 : $a="insert_form.php"; break;
+            case 4 : $a="insert_victim.php"; break;
             default : $a="404.php";
         }
         if($m=="404"||$a=="404.php"){
