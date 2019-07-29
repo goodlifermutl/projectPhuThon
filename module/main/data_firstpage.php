@@ -52,15 +52,10 @@
       ?>
        </table>
        <hr>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
 </div>
 <div class="footer">1</div>
 <div class="modal fade" id="SC" role="dialog">
-  <div class="modal-dialog modal-xl  role="document"">
+  <div class="modal-dialog modal-xl"  role="document">
     <div class="modal-content">
       <div class="modal-header" style="padding:35px 50px;">
           <h4 style=" justify-content: center"><i class="fas fa-search"></i> ค้นหาข้อมูล</h4>
@@ -70,7 +65,7 @@
       <?php
       //  $select = mysqli_query($con,"SELECT case_id,case_name,case_type FROM case_name")or die("select sql error".mysqli_error($con));
         ?>
-        <div class="modal-body" style="padding:40px 50px;">
+        <div class="modal-body" style="padding:10px 50px;">
               <div class="input-group mb-3">
                 <div class="col-3">
                 <select class="custom-select" id="inputGroupSelect02" name="type">
@@ -92,24 +87,24 @@
             </div>
            </div>
            <div class="footer">
-            <div style="float: left;">
-              <button type="submit" class="btn btn-danger btn-default" data-dismiss="modal"> Cancel</button>
+            <div style="float: right;">
+              <button type="button" class="btn btn-danger btn-default" data-dismiss="modal"> Cancel</button>
             </div>
-            <div style="float: right">  
-              <a href="#">ลืมรหัสผ่าน</a>
-            </div>
+            <div class="clearfloat"></div>
           </div>
       </div>
       </div>
       <script>
         $(document).ready(function(){
-        // $('#table_id').DataTable();
+       // $('.table').DataTable();
         $("#myBtnSc").click(function(){
             $("#SC").modal();
         });
         $("#myBtnNs").click(function(){
           window.location.href="../main/home.php?&module=2&action=2";
         });
+       
+       
         })
         </script>
         <script>

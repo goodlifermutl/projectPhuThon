@@ -48,7 +48,7 @@ window.location.href = "index.html";
     </div>
     <div class="col-sm-4">
       <p class="text-center"><b>เพิ่มข้อมูล</b></p>
-      <a href="#">
+      <a href="#" id="myBtnNs">
       <p class="text-center"><i class="fas fa-plus-circle" style="font-size: 80px"></i></i></p>
       </a>
     </div>
@@ -135,7 +135,7 @@ window.location.href = "index.html";
         <a name="<?php echo $victim_lastname ?>"></a> 
          <div class="col-md">
          <b><label for="formGroupExampleInput">ผู้เสียหาย คนที่ <?php echo $i; ?></label></b><button type="button" id="victim_test<?php echo $i ?>"><i class="fas fa-edit" style="font-size: 10px"></i></button>
-         <p><img src="../../image/<?php echo $victim_image; ?>.png" class="img-fluid mx-auto d-block" alt="Responsive image"></p>
+         <p><img src="../../image/<?php echo $victim_image; ?>" class="img-fluid mx-auto d-block rounded-circle victimpic" alt="Responsive image" width="128";height="128"; id="victimpic<?php echo $i; ?>"></p>
           <div class="col-md">
           <div class="form-row">
           <div>
@@ -245,8 +245,18 @@ window.location.href = "index.html";
         <hr>
                       </form>
       <?php
-      $i++;
-      
+    
+      ?>
+      <div class="modal fade" id="victim_pic<?php echo $i; ?>" role="dialog">
+        <div class="modal-dialog modal-auto"  role="document">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <div class="modal-content">
+          <img src="../../image/<?php echo $victim_image; ?>" class="img-fluid mx-auto d-block" ></p>
+          </div>
+        </div>
+      </div>
+      <?php
+        $i++;
       }
     }
   }
@@ -476,7 +486,7 @@ window.location.href = "index.html";
 </div>
 
 <div class="modal fade" id="SC" role="dialog">
-  <div class="modal-dialog modal-xl  role="document"">
+  <div class="modal-dialog modal-xl"  role="document">
     <div class="modal-content">
       <div class="modal-header" style="padding:35px 50px;">
           <h4 style=" justify-content: center"><i class="fas fa-search"></i> ค้นหาข้อมูล</h4>
@@ -524,6 +534,9 @@ $md=1;
   for($y=1;$y<=$num_loop;$y++){
     
 ?>
+$("#victimpic<?php echo $md ?>").click(function(){
+    $("#victim_pic<?php echo $md ?>").modal();
+  });
 var id<?php echo $md;?> = $("#id<?php echo $md; ?>").val()
 $('.victim<?php echo$md; ?>').validate({ 
 								
@@ -644,6 +657,9 @@ $(document).ready(function(){
   $('#table_id').DataTable();
   $("#myBtnSc").click(function(){
     $("#SC").modal();
+  });
+  $("#myBtnNs").click(function(){
+    window.location.href="../main/home.php?&module=2&action=2";
   });
 })
 

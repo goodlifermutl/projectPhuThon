@@ -110,7 +110,7 @@
     </div>
     <p></p>
     <div>
-    <button type="submit" class="btn btn-success btn-lg btn-block">บันทึกข้อมูล</button>
+    <button type="submit" class="btn btn-success btn-lg btn-block" id="save">บันทึกข้อมูล</button>
     </div>
     </form>
 </div>
@@ -148,18 +148,14 @@ $("#insertvictim").submit(function(e){
 		type: 'POST',
 		data: formData,
 			success: function (data) {
-                alert(data)  
-$('#signup').modal("hide")
-
-$('#signup').on('hidden.bs.modal', function (e) {
+            alert(data) 
             swal({
             title: "สมัครสมาชิกสำเร็จ",
             icon: "success",
             button: "ตกลง",
           }).then((value) => {
-    window.location.href = "index.html";
-});
-      })
+            window.location.href="../main/home.php?&module=2&action=3"
+})
 		},
 			cache: false,
 			contentType: false,

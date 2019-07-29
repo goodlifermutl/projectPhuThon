@@ -2,13 +2,18 @@
 include ("../fuction/connect_db.php");
 $con = connect_db();
 ?>
+<style>
+.dataTables_filter {
+display: none; 
+}
+</style>
 <form method="get">
         <?php
                 if(empty($_POST['search'])){
                   $sql="SELECT case_id,case_name,case_type FROM case_name";
                   $select = mysqli_query($con,"$sql")or die("select sql error".mysqli_error($con));
                   list($chk_case_id)=mysqli_fetch_row($select);
-                  echo "gggg";
+                  //echo "gggg";
                   $chk_id_card = "";
                   $chk_name_lastname = "";
                 }else{
@@ -22,12 +27,12 @@ $con = connect_db();
                         $select = mysqli_query($con,"$sql")or die("select sql error".mysqli_error($con));
                         list($chk_case_id)=mysqli_fetch_row($select);
                         echo $chk_case_id;
-                        echo "pass";
+                        //echo "pass";
                         if(empty($chk_case_id)){
                           $sql = "SELECT * FROM case_name WHERE case_id IN (SELECT case_id FROM victim WHERE victim_idcard = '$_POST[search]')";
                           $select = mysqli_query($con,"$sql")or die("select sql error".mysqli_error($con));
                           list($chk_case_id)=mysqli_fetch_row($select);
-                          echo"ggg";
+                          // echo"ggg";
                         }
                         $chk_id_card = $_POST['search'];
                       
@@ -35,23 +40,23 @@ $con = connect_db();
                         $sql="SELECT * FROM case_name WHERE case_id IN (SELECT case_id FROM villain WHERE villain_name LIKE '$_POST[search]%'OR villain_lastname LIKE '$_POST[search]%')";
                         $select = mysqli_query($con,"$sql")or die("select sql error".mysqli_error($con));
                         list($chk_case_id)=mysqli_fetch_row($select);
-                        echo"villainPass";
+                        //echo"villainPass";
                         if(empty($chk_case_id)){
                         $sql="SELECT * FROM case_name WHERE case_id IN (SELECT case_id FROM victim WHERE victim_name LIKE '$_POST[search]%'OR victim_lastname LIKE '$_POST[search]%')";
                         $select = mysqli_query($con,"$sql")or die("select sql error".mysqli_error($con));
                         list($chk_case_id)=mysqli_fetch_row($select);
-                        echo"victimPass";
+                        //echo"victimPass";
                         }
                         $chk_name_lastname = $_POST['search'];
                       }
-                  echo "bbbbbbbbb";
+                  //echo "bbbbbbbbb";
                 }
                 $select = mysqli_query($con,"$sql")or die("select sql error".mysqli_error($con));
                 ?>
               </div>
           <div class="row">
               <div class="col-md">
-              <table id="table_id" class="display table">
+              <table id="myTable" class="display table">
                     <thead>
                       <tr>
                         <th>เลขคดี</th>
@@ -101,3 +106,16 @@ $con = connect_db();
                   </tbody>
                 </table>
                 </form>
+        
+<script>
+ $(document).ready( function () {
+    $('#myTable').DataTable({
+      "aLengthMenu": [[5, 10, -1], [5, 10,"All"]]
+
+    });
+
+} );
+</script>
+
+
+             

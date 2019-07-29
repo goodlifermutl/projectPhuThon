@@ -3,6 +3,7 @@ session_start();
 include ("../fuction/connect_db.php");
 $con = connect_db();
 
+$victim_case=$_SESSION['case_id'];
 $victim_title=$_POST['victim_titlename'];
 $victim_name=$_POST['victim_name'];
 $victim_lastname=$_POST['victim_lastname'];
@@ -60,7 +61,8 @@ if(!empty($_FILES['victim_file']['name'])){
     }
 }
 
-$sql_insert_victim="INSERT INTO victim VALUES('')"
+$sql_insert_victim="INSERT INTO victim VALUES('$victim_case','$victim_title','$victim_name','$victim_lastname','$victim_sex','$victim_idcard','$victim_address','$victim_edu','$imgname','$victim_race','$victim_nationality','$victim_careen')";
 
+mysqli_query($con,$sql_insert_victim)or die("sql insert victim error!!!!!!!".mysqli_error($con));
 // echo $victim_title,$victim_name,$victim_lastname,$victim_nationality,$victim_race,$victim_careen,$victim_idcard,$victim_edu,$victim_sex,$victim_address,$victim_file;
 ?>

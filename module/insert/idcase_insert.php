@@ -1,6 +1,6 @@
 
 <h1 class="text-center">เลือกเพิ่มคดี</h1>
-<table class="table">
+<table class="table" id="myTable">
 <thead>
     <tr>
       <th scope="col">โปรดเลือก</th>
@@ -30,11 +30,12 @@ $sql_res = mysqli_query($con,"SELECT cn.case_id,cn.case_name,cn.case_type,cn.cas
           </tr>";
         }
 ?>
-<tr>
-        <td class="text-center" colspan=4><button type="button" class="btn btn-outline-success btn_add" id="btn_add">เพิ่มคดี</button></td>
-</tr>
+
 </table>
-<form id="add_case">
+  <hr style="border: solid 5px;">
+  <p class="text-center"><td class="text-center" colspan=4><button type="button" class="btn btn-outline-success btn_add btn-lg" id="btn_add">เพิ่มคดี</button></p>
+
+<form id="add_case" method="post">
 <div >
 <div class="row" id="add">
     <div class="col-md">
@@ -47,10 +48,16 @@ $sql_res = mysqli_query($con,"SELECT cn.case_id,cn.case_name,cn.case_type,cn.cas
     </div>
     <div class="col-md">
     <label for="">ประเภทคดี</label>
-      <input type="text" class="form-control" placeholder="ประเภทคดี" name="case_type"required>
+      <!-- <input type="text" class="form-control" placeholder="ประเภทคดี" name="case_type"required> -->
+      <select class="custom-select " id="" name="case_type" required>
+                <option selected value="0">ประเภทคดี</option>
+                <option value="1" >คดีเพ่ง</option>
+                <option value="2" >คดีอาญา</option>
+            </select>
     </div>
     
-       <button type="submit" class="btn btn-outline-primary" id="save">บันทึก</button>
+       <button type="submit" class="btn btn-outline-primary" id="save">บันทึก</button>&nbsp;
+       <button type="button" class="btn btn-outline-danger" id="cancle">ยกเลิก</button>
    
 </div>
 
@@ -68,6 +75,9 @@ $sql_res = mysqli_query($con,"SELECT cn.case_id,cn.case_name,cn.case_type,cn.cas
         $(".btn_add").hide();
         $("#name").focus();
    })
+   $("#cancle").click(function(){
+    window.location.href="home.php?&module=2&action=2";
+   })
    $("#add_case").submit(function(e){
     e.preventDefault();
 	// $check = $("#insertvictim").valid();
@@ -76,7 +86,7 @@ $sql_res = mysqli_query($con,"SELECT cn.case_id,cn.case_name,cn.case_type,cn.cas
 		var formData = new FormData(this);
 
 		$.ajax({
-		url: "../fuction/insert_data_victim.php",
+		url: "../fuction/insert_case.php",
 		type: 'POST',
 		data: formData,
 			success: function (data) {
@@ -102,5 +112,14 @@ $('#signup').on('hidden.bs.modal', function (e) {
       window.location.href="home.php?&module=2&action=2";
         
 });
+
+ $(document).ready( function () {
+    $('#myTable').DataTable({
+      "aLengthMenu": [[5, 10, -1], [5, 10,"All"]]
+
+    });
+
+} );
+
 
 </script>

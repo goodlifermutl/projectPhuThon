@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 22, 2019 at 11:02 AM
+-- Generation Time: Jul 29, 2019 at 11:55 AM
 -- Server version: 10.3.15-MariaDB
 -- PHP Version: 7.3.6
 
@@ -75,17 +75,21 @@ CREATE TABLE `case_name` (
   `case_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `case_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `case_type` tinyint(2) NOT NULL,
-  `case_savetime` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `case_savetime` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `case_status` tinyint(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `case_name`
 --
 
-INSERT INTO `case_name` (`case_id`, `case_name`, `case_type`, `case_savetime`) VALUES
-('กบ/24.33', 'ไผ่สีทอง', 2, '2019-07-01 08:33:48'),
-('ค.001', 'แมวดำ', 1, '2019-07-01 08:32:23'),
-('ง.12/52', 'ตีโปร่ง', 2, '2019-07-01 08:32:23');
+INSERT INTO `case_name` (`case_id`, `case_name`, `case_type`, `case_savetime`, `case_status`) VALUES
+('123a', 'a123', 1, '2019-07-29 06:32:20', 0),
+('123b', '123b', 2, '2019-07-29 06:32:30', 0),
+('กบ/24.33', 'ไผ่สีทอง', 2, '2019-07-01 08:33:48', 0),
+('ค.001', 'แมวดำ', 1, '2019-07-01 08:32:23', 0),
+('ง.12/52', 'ตีโปร่ง', 2, '2019-07-01 08:32:23', 0),
+('ฮ.0324', 'ทดแอตสอบ', 2, '2019-07-29 05:39:26', 0);
 
 -- --------------------------------------------------------
 
@@ -226,6 +230,17 @@ INSERT INTO `responsible_person` (`case_id`, `card_id`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `status_case`
+--
+
+CREATE TABLE `status_case` (
+  `status_num` tinyint(2) NOT NULL,
+  `status_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `subpoena`
 --
 
@@ -296,10 +311,12 @@ CREATE TABLE `victim` (
 --
 
 INSERT INTO `victim` (`case_id`, `title_name`, `victim_name`, `victim_lastname`, `victim_sex`, `victim_idcard`, `victim_address`, `victim_education`, `victim_image`, `victim_race`, `victim_nationality`, `victim_career`) VALUES
+('ฮ.0324', 'นาย', 'กี้', 'แปปนึง', 1, '1306607845367', '123/2 หมู่ 6 ต.ป่าไผ่ อ.ดอกจัน จ.เชียงใหม่ 50089', 6, 'BV99D7SL9M.jpeg', 'ไทย', 'ไทย', 'พ่อค้าเร่'),
 ('ง.12/52', 'นาย', 'จันทร์ดี', 'โอกาสเดิม', 1, '1508890723431', '23 หมู่ 4 บ้าน ดง ต.ก่อไผ่ อ.ดอกไม้ จ.เชียงใหม่ 54334', 6, 'icon_data_usermale', 'ไทย', 'ไทย', 'ธุรกิจส่วนตัว'),
-('ค.001', 'นางสาว', 'พะยอง', 'จังเลย', 2, '1509643456712', '25 หมู่ 7 ต.ดอกไม้ อ.ต้นไม้ จ.เชียงใหม่ 54334', 7, 'icon_data_userfemale', 'ไทย', 'ไทย', 'ธรุกิจส่วนตัว'),
-('ค.001', 'นาย', 'ช้าง', 'โต', 1, '1509901658485', '68 หมู่ 8 บ้าน นอก ต.ใน อ.นอก จ.ใน 45667', 8, 'icon_data_usermale', 'ไทย', 'ไทย', 'ธรุกิจส่วนตัว'),
-('ง.12/52', 'นาย', 'ลึงลง', 'ใต้น้ำ', 1, '1607782455677', '123 หมู่ 9 ต.เชิงบน อ.เชิงล่าง จ.เชียงใหม่ 49668', 6, 'icon_data_usermale', 'ไทย', 'ไทย', 'นักศึกษา');
+('ค.001', 'นางสาว', 'พะยอง', 'จังเลย', 2, '1509643456712', '25 หมู่ 7 ต.ดอกไม้ อ.ต้นไม้ จ.เชียงใหม่ 54334', 7, 'icon_data_userfemale.png', 'ไทย', 'ไทย', 'ธรุกิจส่วนตัว'),
+('ค.001', 'นาย', 'ช้าง', 'โต', 1, '1509901658485', '68 หมู่ 8 บ้าน นอก ต.ใน อ.นอก จ.ใน 45667', 8, 'icon_data_usermale.png', 'ไทย', 'ไทย', 'ธรุกิจส่วนตัว'),
+('ฮ.0324', 'นางสาว', 'ยู', 'ไอ', 2, '1569908977456', '123/2 หมู่ 6 ต.ป่าไผ่ อ.ดอกจัน จ.เชียงใหม่ 50089', 6, '00LB7NVDKS.jpeg', 'ไทย', 'ไทย', 'นักแสดง'),
+('ง.12/52', 'นาย', 'ลึงลง', 'ใต้น้ำ', 1, '1607782455677', '123 หมู่ 9 ต.เชิงบน อ.เชิงล่าง จ.เชียงใหม่ 49668', 6, 'icon_data_usermale.png', 'ไทย', 'ไทย', 'นักศึกษา');
 
 -- --------------------------------------------------------
 
@@ -643,6 +660,12 @@ ALTER TABLE `responsible_person`
   ADD KEY `card_id` (`card_id`);
 
 --
+-- Indexes for table `status_case`
+--
+ALTER TABLE `status_case`
+  ADD PRIMARY KEY (`status_num`);
+
+--
 -- Indexes for table `subpoena`
 --
 ALTER TABLE `subpoena`
@@ -772,6 +795,12 @@ ALTER TABLE `inquiry_official`
 --
 ALTER TABLE `rank_police`
   MODIFY `rank_id` tinyint(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `status_case`
+--
+ALTER TABLE `status_case`
+  MODIFY `status_num` tinyint(2) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `villain_body`

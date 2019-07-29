@@ -19,7 +19,7 @@
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.18/datatables.min.css"/>
  
  <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.18/datatables.min.js"></script>
- 
+
 
   <link rel="stylesheet" href="home.css">
   <?php //validate ?>
@@ -27,6 +27,7 @@
 		<script src="../../js/validate/additional-methods.min.js" ></script>
 		<script src="../../js/validate/localization/messages_th.min.js" ></script>
 		<script src="../../js/validateSetdef.js" ></script> 
+    
 		<?php //END validate ?>
 </head>
 <body>

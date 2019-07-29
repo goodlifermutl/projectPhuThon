@@ -1,3 +1,7 @@
+<?php
+  $_SESSION['case_id']=$_GET['datacase'];
+?>
+
 <style>
 a{
   color: black;
