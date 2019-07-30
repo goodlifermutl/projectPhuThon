@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 29, 2019 at 11:55 AM
+-- Generation Time: Jul 30, 2019 at 11:19 AM
 -- Server version: 10.3.15-MariaDB
 -- PHP Version: 7.3.6
 
@@ -272,18 +272,19 @@ CREATE TABLE `user` (
   `permiss_id` tinyint(2) NOT NULL,
   `user_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `pass_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `card_id` char(13) COLLATE utf8_unicode_ci NOT NULL
+  `card_id` char(13) COLLATE utf8_unicode_ci NOT NULL,
+  `user_email` varchar(255) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`permiss_id`, `user_id`, `pass_id`, `card_id`) VALUES
-(3, 'admin01', 'c93ccd78b2076528346216b3b2f701e6', '1234567890123'),
-(3, 'user03', 'b5b73fae0d87d8b4e2573105f8fbe7bc', '1402807627453'),
-(3, 'user05', 'b5b73fae0d87d8b4e2573105f8fbe7bc', '1502456375634'),
-(3, 'user02', 'b5b73fae0d87d8b4e2573105f8fbe7bc', '1509903426554');
+INSERT INTO `user` (`permiss_id`, `user_id`, `pass_id`, `card_id`, `user_email`) VALUES
+(3, 'admin01', 'c93ccd78b2076528346216b3b2f701e6', '1234567890123', ''),
+(3, 'user03', 'b5b73fae0d87d8b4e2573105f8fbe7bc', '1402807627453', ''),
+(3, 'user05', 'b5b73fae0d87d8b4e2573105f8fbe7bc', '1502456375634', ''),
+(3, 'user02', 'b5b73fae0d87d8b4e2573105f8fbe7bc', '1509903426554', '');
 
 -- --------------------------------------------------------
 

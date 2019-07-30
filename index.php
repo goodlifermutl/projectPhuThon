@@ -123,7 +123,11 @@
               <input type="number" min="0" class="form-control chk_idcard" id="idcard" name="idcard" placeholder="กรอกเลขประจำตัวประชาชน" required>
               <span id='showtxtidcard' style="color:red"></span>
             </div>
-            
+            <div class="form-group">
+              <label for="psw"><i class="fas fa-address-card"></i> E-mail</label>
+              <input type="email" min="0" class="form-control chk_idcard" id="email" name="email" placeholder="E-mail" required>
+              <span id='showtxtidcard' style="color:red"></span>
+            </div>           
               <button type="submit" class="btn btn-success btn-block" id="submit"> สมัครสมาชิก</button>
           </form>
         </div>
@@ -141,6 +145,7 @@
   </div> 
 
 </div>
+
  
 <script>
 $(document).ready(function(){
@@ -215,7 +220,7 @@ $('#matchpass').validate({
           idcard: {
           minlength:13,
           maxlength:13
-       }
+          }
     }
   });
 
@@ -236,11 +241,11 @@ $('#matchpass').validate({
 
 $('#signup').on('hidden.bs.modal', function (e) {
             swal({
-            title: "สมัครสมาชิกสำเร็จ",
+            title: "กรุณาตรวจสอบอีเมลของท่าน",
             icon: "success",
             button: "ตกลง",
           }).then((value) => {
-    window.location.href = "index.html";
+    window.location.href = "index.php";
 });
       })
 		},
