@@ -18,7 +18,7 @@ mysqli_query($con,"INSERT INTO user (permiss_id,user_id,pass_id,card_id,user_ema
 
 mysqli_close($con);       
 
-
+$user_mail= $_POST['email'];
 $mail = new PHPMailer;
 $mail->CharSet = "utf-8";
 $mail->isSMTP();
@@ -29,7 +29,7 @@ $mail->SMTPAuth = true;
 $mail->Username = 'phuthon.test01@gmail.com';
 $mail->Password = 'phuthon01';
 $mail->setFrom('phuthon.test01@gmail.com','Amagetdon');
-$mail->addAddress('goodloveone1@gmail.com','test');
+$mail->addAddress($user_mail,'test');
 $mail->isHTML(true);
 $mail->Subject = 'test';
 $mail->Body = 'ยืนยันการสมัครสมาชิก';

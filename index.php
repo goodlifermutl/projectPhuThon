@@ -38,7 +38,6 @@
   <div>
     <br>
     <p><img src="image/Logo.png" class="img-fluid mx-auto d-block" alt="Responsive image"></p>
-    
 
   </div>
   
@@ -125,8 +124,7 @@
             </div>
             <div class="form-group">
               <label for="psw"><i class="fas fa-address-card"></i> E-mail</label>
-              <input type="email" min="0" class="form-control chk_idcard" id="email" name="email" placeholder="E-mail" required>
-              <span id='showtxtidcard' style="color:red"></span>
+              <input type="email" min="0" class="form-control" id="email" name="email" placeholder="E-mail" required>
             </div>           
               <button type="submit" class="btn btn-success btn-block" id="submit"> สมัครสมาชิก</button>
           </form>
@@ -166,6 +164,7 @@ $(document).ready(function(){
 				  var items = [];
           //alert(data)
 				  $.each( data, function( key, val ) {
+            //alert(val)
 				    if(val == text ){
 				    	$('#showtxtuser').html("<b>ชื่อผู้ใช้ถูกใช้แล้ว !!!!</b>");
               $("input:text").val("");
@@ -181,15 +180,17 @@ $(document).ready(function(){
 			});
 
       $('.chk_idcard').blur(function() {
-				var text = $(this).val();
+				var idcard = $(this).val();
        //alert(text)
-				if(text!=""){
+				if(idcard!=""){
 				$.getJSON( "module/fuction/check_idcard.php", function( data ) {
 				  var items = [];
           //alert(data)
 				  $.each( data, function( key, val ) {
-				    if(val == text ){
-				    	$('#showtxtidcard').html("<b>เลขบัตรประชาชนนี้มีผู้ใช้งานแล้ว !!!!</b>");
+            //alert(val)
+            //alert(idcard)
+				    if(idcard === val ){
+				    	$('#showtxtidcard').html("<b>ชื่อผู้ใช้ถูกใช้แล้ว !!!!</b>");
               $(".chk_idcard").val("");
 				    	 return false;
 
