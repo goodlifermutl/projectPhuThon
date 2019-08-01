@@ -41,7 +41,7 @@ if($user_name==$_POST['username'] && $password==$pass){
                 text: "คุณ <?php echo $_POST['username']; ?>",
                 icon: "success",
             }).then((value) => {
-        window.location.href = "../main/home.php";
+        window.location.href = "../../home.php";
         });
     </script>
     <?php

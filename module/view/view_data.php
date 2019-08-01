@@ -16,7 +16,7 @@ if(empty($_SESSION['user_name'])){
       title: "กรุณาเข้าสู่ระบบ",
       icon: "warning",
   }).then((value) => {
-window.location.href = "index.html";
+window.location.href = "index.php";
   });
 </script>
 <?php
@@ -135,7 +135,7 @@ window.location.href = "index.html";
         <a name="<?php echo $victim_lastname ?>"></a> 
          <div class="col-md">
          <b><label for="formGroupExampleInput">ผู้เสียหาย คนที่ <?php echo $i; ?></label></b><button type="button" id="victim_test<?php echo $i ?>"><i class="fas fa-edit" style="font-size: 10px"></i></button>
-         <p><img src="../../image/<?php echo $victim_image; ?>" class="img-fluid mx-auto d-block rounded-circle victimpic" alt="Responsive image" width="128";height="128"; id="victimpic<?php echo $i; ?>"></p>
+         <p><img src="image/<?php echo $victim_image; ?>" class="img-fluid mx-auto d-block rounded-circle victimpic" alt="Responsive image" width="128";height="128"; id="victimpic<?php echo $i; ?>"></p>
           <div class="col-md">
           <div class="form-row">
           <div>
@@ -251,7 +251,7 @@ window.location.href = "index.html";
         <div class="modal-dialog modal-auto"  role="document">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
           <div class="modal-content">
-          <img src="../../image/<?php echo $victim_image; ?>" class="img-fluid mx-auto d-block" ></p>
+          <img src="image/<?php echo $victim_image; ?>" class="img-fluid mx-auto d-block" ></p>
           </div>
         </div>
       </div>
@@ -295,7 +295,7 @@ window.location.href = "index.html";
         ?>
          <div class="col-md">
           <b><label for="formGroupExampleInput">ผู้ต้องหา คนที่ <?php echo $i; ?></label></b>
-          <p><img src="../../image/<?php echo $villain_image; ?>.png" class="img-fluid mx-auto d-block" alt="Responsive image"></p>
+          <p><img src="image/<?php echo $villain_image; ?>.png" class="img-fluid mx-auto d-block" alt="Responsive image"></p>
           <div class="col-md">
           <div class="form-row">
           <div>
@@ -578,7 +578,7 @@ $("#victim_test<?php echo $md; ?>").click(function(){
     
   } else {
     
-    window.location.href="../main/home.php?datacase=<?php echo $case_id; ?>&module=1&action=1";
+    window.location.href="home.php?datacase=<?php echo $case_id; ?>&module=1&action=1";
   }
 });
 })
@@ -587,7 +587,7 @@ $("#cancle<?php echo $md;  ?>").click(function(){
  $(".edit<?php echo $md; ?>").prop("disabled", true);
  $("#save<?php echo $md ?>").hide();
   $("#cancle<?php echo $md ?>").hide();
-  window.location.href="../main/home.php?datacase=<?php echo $case_id; ?>&module=1&action=1";
+  window.location.href="home.php?datacase=<?php echo $case_id; ?>&module=1&action=1";
 })
 $(".victim<?php echo$md; ?>").submit(function(){
   alert("ggggggg")
@@ -596,7 +596,7 @@ $(".victim<?php echo$md; ?>").submit(function(){
 		if($check == true){
   var formData = new FormData(this);
   $.ajax({
-					        url: "../fuction/update_data.php",
+					        url: "module/fuction/update_data_victim.php",
 					        type: 'POST',
 					        data: formData,
 					        success: function (data) {
@@ -609,7 +609,7 @@ $(".victim<?php echo$md; ?>").submit(function(){
 								});   
                 
                 
-                window.location.href="../main/home.php?datacase=<?php echo $case_id; ?>&module=1&action=1";
+                window.location.href="home.php?datacase=<?php echo $case_id; ?>&module=1&action=1";
 					        },
 					        cache: false,
 					        contentType: false,
@@ -659,7 +659,7 @@ $(document).ready(function(){
     $("#SC").modal();
   });
   $("#myBtnNs").click(function(){
-    window.location.href="../main/home.php?&module=2&action=2";
+    window.location.href="home.php?&module=2&action=2";
   });
 })
 
@@ -681,7 +681,7 @@ function loadsunass(){
       $("#loadid").html("")
     //   $("#loadging").css('display','')
       $.ajax({
-        url: "show_data_search.php",
+        url: "module/main/show_data_search.php",
         data:{type:id1,search:id2},
         type: "POST"
       }).done(function(data){

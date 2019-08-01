@@ -109,7 +109,7 @@ $('#signup').on('hidden.bs.modal', function (e) {
 	  });	
       $("#add").hide();
       $(".btn_add").show();
-      window.location.href="home.php?&module=2&action=2";
+      window.location.href="home.php?&module=2&action=3";
         
 });
 

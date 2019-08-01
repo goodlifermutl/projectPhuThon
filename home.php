@@ -23,17 +23,17 @@
 
   <link rel="stylesheet" href="home.css">
   <?php //validate ?>
-		<script src="../../js/validate/jquery.validate.min.js" ></script>
-		<script src="../../js/validate/additional-methods.min.js" ></script>
-		<script src="../../js/validate/localization/messages_th.min.js" ></script>
-		<script src="../../js/validateSetdef.js" ></script> 
+		<script src="js/validate/jquery.validate.min.js" ></script>
+		<script src="js/validate/additional-methods.min.js" ></script>
+		<script src="js/validate/localization/messages_th.min.js" ></script>
+		<script src="js/validateSetdef.js" ></script> 
     
 		<?php //END validate ?>
 </head>
 <body>
 <?php
 session_start();
-include ("../fuction/connect_db.php");
+include ("module/fuction/connect_db.php");
 $con = connect_db();
 
 $select = mysqli_query($con,"SELECT case_id,case_name,case_type FROM case_name")or die("select sql error".mysqli_error($con));
@@ -47,7 +47,7 @@ if(empty($_SESSION['user_name'])){
       title: "กรุณาเข้าสู่ระบบ",
       icon: "warning",
   }).then((value) => {
-window.location.href = "../../index.html";
+window.location.href = "index.html";
   });
 </script>
 <?php
@@ -79,8 +79,8 @@ window.location.href = "../../index.html";
     </ul>
     
     <form class="form-inline my-2 my-lg-0">
-    <a class="navbar-brand"><i class="far fa-id-badge"></i> <?php echo $_SESSION['user_name']; ?></a>
-    <a href="../fuction/destroy_session.php"><button class="btn btn-outline-warning my-2 my-sm-0" type="button">ออกจากระบบ</button></a>
+    <a class="navbar-brand"  href="home.php?module=1&action=5"><i class="far fa-id-badge"></i> <?php echo $_SESSION['user_name']; ?></a>
+    <a href="module/fuction/destroy_session.php"><button class="btn btn-outline-warning my-2 my-sm-0" type="button">ออกจากระบบ</button></a>
     </form>
   </div>
 </nav>
@@ -100,7 +100,7 @@ window.location.href = "../../index.html";
 
 <?php 
 
-include("../fuction/fc_module.php");
+include("module/fuction/fc_module.php");
 if(empty($_GET['module'])||empty($_GET['action'])){
   module(0,0);
 }else{

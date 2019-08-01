@@ -101,7 +101,7 @@
             $("#SC").modal();
         });
         $("#myBtnNs").click(function(){
-          window.location.href="../main/home.php?&module=2&action=2";
+          window.location.href="home.php?&module=2&action=2";
         });
        
        
@@ -115,7 +115,7 @@
       $("#loadid").html("")
     //   $("#loadging").css('display','')
       $.ajax({
-        url: "show_data_search.php",
+        url: "module/main/show_data_search.php",
         data:{type:id1,search:id2},
         type: "POST"
       }).done(function(data){

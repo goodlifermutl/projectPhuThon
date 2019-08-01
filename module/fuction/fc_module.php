@@ -15,12 +15,13 @@
             case 2 : $a="idcase_insert.php"; break;
             case 3 : $a="insert_form.php"; break;
             case 4 : $a="insert_victim.php"; break;
+            case 5 : $a="profile.php"; break;
             default : $a="404.php";
         }
         if($m=="404"||$a=="404.php"){
-            include("../404/404.php");
+            include("module/404/404.php");
         }else{
-            include("../$m/$a");
+            include("module/$m/$a");
         }
     }
 
