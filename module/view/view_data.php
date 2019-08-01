@@ -243,7 +243,7 @@ window.location.href = "index.php";
             </div>
         </div>
         <hr>
-                      </form>
+      </form>
       <?php
     
       ?>

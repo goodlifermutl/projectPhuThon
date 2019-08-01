@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 31, 2019 at 11:15 AM
+-- Generation Time: Aug 01, 2019 at 02:20 PM
 -- Server version: 10.3.15-MariaDB
 -- PHP Version: 7.3.6
 
@@ -33,14 +33,6 @@ CREATE TABLE `arrestor` (
   `case_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `card_id` char(13) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Dumping data for table `arrestor`
---
-
-INSERT INTO `arrestor` (`arrt_id`, `case_id`, `card_id`) VALUES
-(1, 'ค.001', '1509903426554'),
-(2, 'ค.001', '1234567890123');
 
 -- --------------------------------------------------------
 
@@ -151,13 +143,6 @@ CREATE TABLE `inquiry_official` (
   `card_id` char(13) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
---
--- Dumping data for table `inquiry_official`
---
-
-INSERT INTO `inquiry_official` (`in_of_id`, `case_id`, `card_id`) VALUES
-(1, 'ค.001', '1509903426554');
-
 -- --------------------------------------------------------
 
 --
@@ -179,8 +164,7 @@ CREATE TABLE `police_person` (
 --
 
 INSERT INTO `police_person` (`card_id`, `rank_id`, `ps_name`, `ps_lastname`, `sex`, `address`, `ps_num`) VALUES
-('1234567890123', 1, 'เจริญใจ', 'บำรุงอยู่', 1, NULL, NULL),
-('1509903426554', 5, 'ธีรภาพ', 'แดดดวงดี', 1, NULL, NULL);
+('1509908798090', 9, 'ลูกจ๊อก', 'อ่อนด๊อย', 1, 'หมู่ 8 บ้าน 78', '0977865786');
 
 -- --------------------------------------------------------
 
@@ -218,14 +202,6 @@ CREATE TABLE `responsible_person` (
   `case_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `card_id` char(13) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Dumping data for table `responsible_person`
---
-
-INSERT INTO `responsible_person` (`case_id`, `card_id`) VALUES
-('ค.001', '1234567890123'),
-('ง.12/52', '1509903426554');
 
 -- --------------------------------------------------------
 
@@ -283,16 +259,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`permiss_id`, `user_id`, `pass_id`, `card_id`, `user_email`, `verification_user`, `verification_type`) VALUES
-(3, 'user10', 'b5b73fae0d87d8b4e2573105f8fbe7bc', '1208807896543', 'goodloveone1@gmail.com', 'CK0137A19F', 1),
-(3, 'user12', 'b5b73fae0d87d8b4e2573105f8fbe7bc', '1286758739876', 'goodone1@gmail.com', '', 0),
-(3, 'user03', 'b5b73fae0d87d8b4e2573105f8fbe7bc', '1402807627453', '', '', 0),
-(3, 'admin02', 'c93ccd78b2076528346216b3b2f701e6', '1407808576832', 'nickqbe@gmail.com', 'B9K7199991', 1),
-(3, 'user13', 'b5b73fae0d87d8b4e2573105f8fbe7bc', '1407898763433', 'goodone1@gmail.com', '', 0),
-(3, 'usernn', '9264c747630ab487efb17ace0d3f09b0', '1429900186316', 'jjmail709@gmail.com', '711H631FC0', 1),
-(3, 'user05', 'b5b73fae0d87d8b4e2573105f8fbe7bc', '1502456375634', '', '', 0),
-(3, 'admin01', 'c93ccd78b2076528346216b3b2f701e6', '1508807652341', 'nickqbe@gmail.com', 'X791HGLF5N', 1),
-(3, 'user02', 'b5b73fae0d87d8b4e2573105f8fbe7bc', '1509903426554', '', '', 0),
-(3, 'user01', 'b5b73fae0d87d8b4e2573105f8fbe7bc', '1597709845367', 'goodone1@gmail.com', '', 0);
+(3, 'user01', 'b5b73fae0d87d8b4e2573105f8fbe7bc', '1509908798090', 'nickqbe@gmail.com', '0M19G919JF', 1);
 
 -- --------------------------------------------------------
 
