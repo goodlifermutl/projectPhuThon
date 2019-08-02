@@ -93,13 +93,15 @@
 							<button type="button" class="btn btn-outline-primary" id="editPro">แก้ไขประวัติส่วนตัว</button>
 							<?php
 								if(empty($card_id)){
+									$file = 'profile_insert.php'
 									?>
 									<button type="submit" class="btn btn-outline-primary" id="savePro">บันทึก</button>
 									<?php
 
 								}else{
+									$file = 'profile_update.php'
 									?>
-									<button type="button" class="btn btn-outline-primary" id="updatePro">บันทึกแก้ไข</button>
+									<button type="submit" class="btn btn-outline-primary" id="updatePro">บันทึกแก้ไข</button>
 									<?php
 								}
 							?>
@@ -131,7 +133,7 @@ $("#dataPro").submit(function(e){
 //   var idc = $(this).data("idcard");
     
         $.ajax({
-            url: "module/fuction/profile_insert.php",
+            url: "module/fuction/<?php echo $file; ?>",
             type: 'POST',
             data: formData,
             success: function (data) {

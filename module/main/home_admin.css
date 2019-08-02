@@ -1,0 +1,35 @@
+.modal-header, h4, .close {
+    background-color: #5cb85c;
+    color:white !important;
+    text-align: center;
+    font-size: 30px;
+  }
+  .footer {
+    background-color: #d9cad3;
+    display: -ms-flexbox;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: end;
+    padding: 1rem;
+    border-top: 1px solid #dee2e6;
+    border-bottom-right-radius: .3rem;
+    border-bottom-left-radius: .3rem;
+  }
+  li{
+      margin-left: 25px;
+      margin-right: 25px;
+  }
+  a{
+      color: black;
+  }
+  a:hover{
+      color: brown;
+  }
+  .box  
+  {  
+   width:800px;  
+   border:1px solid #ccc;  
+   background-color:#fff;  
+   border-radius:5px;
+   margin-top:36px;  
+  }

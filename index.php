@@ -38,6 +38,7 @@
   <div>
     <br>
     <p><img src="image/Logo.png" class="img-fluid mx-auto d-block" alt="Responsive image"></p>
+</div>
 
   </div>
   
@@ -100,7 +101,7 @@
       <div class="modal-content">
         <div class="modal-header" style="padding: 35px 50px">
             <h4 style="padding-left: 90px"><i class="fas fa-user-plus"></i> สมัครสมาชิก</h4>
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <button type="button" class="close" data-dismiss="modal" onclick="window.location.href = 'index.php';">&times;</button>
         </div>
         <div class="modal-body" style="padding:40px 50px;">
           <form role="form" method="post" action="" id="matchpass">
@@ -127,11 +128,15 @@
               <input type="email" min="0" class="form-control" id="email" name="email" placeholder="E-mail" required>
             </div>           
               <button type="submit" class="btn btn-success btn-block" id="submit"> สมัครสมาชิก</button>
+              <button class="btn btn-success btn-block" id="spingg" disabled>
+              <span class="spinner-border spinner-border-sm"></span>
+              Loading..
+              </button>
           </form>
         </div>
         <div class="footer">
           <div style="float: left;">
-            <button type="submit" class="btn btn-danger btn-default" data-dismiss="modal"> Cancel</button>
+            <button type="submit" class="btn btn-danger btn-default" data-dismiss="modal" onclick="window.location.href = 'index.php';"> Cancel</button>
           </div>
           <div style="float: right">  
             <a href="#">เข้าสู่ระบบ</a> | <a href="#">ลืมรหัสผ่าน</a>
@@ -150,10 +155,14 @@ $(document).ready(function(){
   $("#myBtnlogin").click(function(){
     $("#login").modal();
   });
+ $("#spingg").hide();
+ 
+
+ 
 });
 $(document).ready(function(){
   $("#myBtnsignup").click(function(){
-    $("#signup").modal();
+    $("#signup").modal({backdrop: 'static', keyboard: false}); 
   }); 
 
   $('.chk_user').blur(function() {
@@ -231,13 +240,14 @@ $('#matchpass').validate({
 
 				if($check == true){
 				var formData = new FormData(this);
-
+              $("#spingg").show();
+              $("#submit").hide();
 					    $.ajax({
 					        url: "module/fuction/add_user.php",
 					        type: 'POST',
 					        data: formData,
 					        success: function (data) {
-                   alert(data)  
+                   //alert(data)  
               $('#signup').modal("hide")
 
 $('#signup').on('hidden.bs.modal', function (e) {

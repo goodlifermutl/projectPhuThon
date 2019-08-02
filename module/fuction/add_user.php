@@ -33,9 +33,9 @@ $mail->SMTPAuth = true;
 $mail->Username = 'phuthon.test01@gmail.com';
 $mail->Password = 'phuthon01';
 $mail->setFrom('phuthon.test01@gmail.com','ยืนยันการสมัครสมาชิกPHUTHONPAK5');
-$mail->addAddress($user_mail,'test');
+$mail->addAddress($user_mail,'ยืนยันการสมัครสมาชิก');
 $mail->isHTML(true);
-$mail->Subject = 'test';
+$mail->Subject = 'ยืนยันการสมัครสมาชิก';
 $mail->Body = 'ขอบคุณสำหรับการสมัครสมาชิก คุณ :'.$user_name.'รหัสยืนยัน :'.$code_name;
 if(!$mail->send()){
     echo 'Mailler Error'.$mail->ErrorInfo;
