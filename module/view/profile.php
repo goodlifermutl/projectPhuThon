@@ -3,10 +3,10 @@
     // include("fc/db_fc.php");
     $con=connect_db();
     $re_user=mysqli_query($con,
-    "SELECT rank_id,ps_name,ps_lastname,card_id,sex,address,ps_num
+    "SELECT rank_id,ps_name,ps_lastname,card_id,sex,address,ps_num,police_pic
     FROM  police_person
     WHERE card_id='$_SESSION[id_card]'")or die("SQL.error>>user".mysqli_error($conh));
-	list($id_rank,$ps_name,$ps_lastname,$card_id,$sex,$address,$ps_tel)=mysqli_fetch_row($re_user);
+	list($id_rank,$ps_name,$ps_lastname,$card_id,$sex,$address,$ps_tel,$name_pic)=mysqli_fetch_row($re_user);
 	echo $card_id,$ps_name;
 	echo "gggg";
 	if(empty($card_id)){
@@ -22,19 +22,32 @@
 </div>
 <div class="row">   
     <div class="col-lg-4">
-	<form id="imgPro" method="post">
+	<form id="dataPro" method="post">
+	<!-- <form id="imgPro" method="post"> -->
 		<div class="card">
-			<img class="card-img-top img-thumbnail" src="image/icon_user_pic.png" alt="Card image cap">
-			<div class="card-body text-center">
+			<?php 
+				if(empty($name_pic)){
+					$name_pic="icon_user_pic.png";
+				}
+			?>
+			<img class="card-img-top img-thumbnail" src="image/<?php echo $name_pic; ?>" alt="Card image cap">
+			<!-- <div class="card-body text-center">
 				<div class="form-group row-md">
 					<button type="button" class="btn btn-outline-primary">อัพโหลดภาพ</button>
 				</div>
+			</div> -->
+
+			<div class="input-group mb-3">
+			<div class="custom-file">
+            <input type="file" class="custom-file-input edit_rs" id="customFile" name="profile_pic" disabled>
+            <label class="custom-file-label" for="customFile">Choose file</label>
+        	</div>
 			</div>
 		</div>
-	</form>
+	<!-- </form> -->
 	</div>
 
-	<form id="dataPro" method="post">
+	<!-- <form id="dataPro" method="post"> -->
     <div class="col-lg" style='padding-top:20px;'>
 			<div class="form-group row">
 				<label for="inputPassword" class="col-sm-2 label col-form-label ">ชื่อ</label>
@@ -74,8 +87,12 @@
 			</div>
 			<div class="form-group row">
 				<label for="inputPassword" class="col-sm-2 col-form-label ">เพศ</label>
-				<div class="col-sm-10">
-					<input type="text" style="border:none; background:#fff;" class="form-control edit_rs"  placeholder="เพศ"  name="pro_sex" value="<?php echo $sex; ?>"disabled required>
+				<div class="col-sm-3">
+				<select class="custom-select edit_rs" id="focus" name="pro_sex" style="" disabled required>
+						<option value=0 disabled selected>เพศ</option>
+						<option value=1>ชาย</option>
+						<option value=2>หญิง</option>
+                </select>
 				</div>
 			</div>
             <div class="form-group row">
