@@ -34,7 +34,7 @@ $con = connect_db();
       <button type="submit" class="btn btn-info dropdown-toggle" data-toggle="dropdown" id="btnEDITstatus<?php echo $num ?>" aria-haspopup="true" aria-expanded="false">
           เปลี่ยนสถานะ
         </button>
-        <div class="dropdown-menu" id="drop<?php echo $num; ?>">
+        <div class="dropdown-menu drop<?php echo $num; ?>">
         <a class="dropdown-item" id="per4user<?php echo $num; ?>" href="module/fuction/upstatus_user.php?per=4&user=<?php echo $user_id; ?>">ผู้ดูแล</a>
         <a class="dropdown-item" id="per3user<?php echo $num; ?>" href="module/fuction/upstatus_user.php?per=3&user=<?php echo $user_id; ?>">เจ้าหน้าที่กรอกข้อมูล</a>
         <a class="dropdown-item" id="per2user<?php echo $num; ?>" href="module/fuction/upstatus_user.php?per=2&user=<?php echo $user_id; ?>">เจ้าหน้าที่ปัฎิบัติงาน</a>
@@ -57,7 +57,7 @@ $con = connect_db();
 <?php
   for($md=1;$md<=$loop;$md++){
 ?>
-$("#btnEDITstatus<?php echo $md; ?>").click(function(){
+$("#btnEDITstatus<?php echo $md ?>").click(function(){
     swal({
   title: "การแก้ไขข้อมูล",
   text: "ต้องการแก้ไขข้อมูลใช่หรือไม่!",
@@ -68,7 +68,7 @@ $("#btnEDITstatus<?php echo $md; ?>").click(function(){
 })
 .then((willDelete) => {
   if (willDelete) {
-    $("#drop<?php echo $md; ?> ").show();
+    $(".dropdown-menu ").show();
   } else {
     
     window.location.href="home_admin.php?&module=1&action=6";

@@ -1,3 +1,4 @@
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <?php
 include ("connect_db.php");
  echo "ggg";
@@ -9,5 +10,5 @@ include ("connect_db.php");
 // mysqli_close($con);
 ?>
 <script>
-// window.location.href = "../../home_admin.php";
+//window.location.href = "../../home_admin.php";
 </script>
