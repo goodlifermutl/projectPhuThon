@@ -16,6 +16,7 @@
             case 3 : $a="insert_form.php"; break;
             case 4 : $a="insert_victim.php"; break;
             case 5 : $a="profile.php"; break;
+            case 6 : $a="admin_datauser.php"; break;
             default : $a="404.php";
         }
         if($m=="404"||$a=="404.php"){

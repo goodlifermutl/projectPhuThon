@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 01, 2019 at 02:20 PM
+-- Generation Time: Aug 06, 2019 at 01:49 PM
 -- Server version: 10.3.15-MariaDB
 -- PHP Version: 7.3.6
 
@@ -156,15 +156,16 @@ CREATE TABLE `police_person` (
   `ps_lastname` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `sex` tinyint(2) NOT NULL,
   `address` text COLLATE utf8_unicode_ci DEFAULT NULL,
-  `ps_num` char(10) COLLATE utf8_unicode_ci DEFAULT NULL
+  `ps_num` char(10) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `police_pic` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `police_person`
 --
 
-INSERT INTO `police_person` (`card_id`, `rank_id`, `ps_name`, `ps_lastname`, `sex`, `address`, `ps_num`) VALUES
-('1509908798090', 9, 'ลูกจ๊อก', 'อ่อนด๊อย', 1, 'หมู่ 8 บ้าน 78', '0977865786');
+INSERT INTO `police_person` (`card_id`, `rank_id`, `ps_name`, `ps_lastname`, `sex`, `address`, `ps_num`, `police_pic`) VALUES
+('1509908798090', 9, 'ลูกจ๊อก', 'อ่อนด๊อย', 1, 'หมู่ 8 บ้าน 78', '0977865786', NULL);
 
 -- --------------------------------------------------------
 
@@ -259,7 +260,8 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`permiss_id`, `user_id`, `pass_id`, `card_id`, `user_email`, `verification_user`, `verification_type`) VALUES
-(3, 'user01', 'b5b73fae0d87d8b4e2573105f8fbe7bc', '1509908798090', 'nickqbe@gmail.com', '0M19G919JF', 1);
+(1, 'user01', 'b5b73fae0d87d8b4e2573105f8fbe7bc', '1509908798090', 'nickqbe@gmail.com', '0M19G919JF', 1),
+(4, 'admin01', 'c93ccd78b2076528346216b3b2f701e6', '1569789090974', 'nickqbe@gmail.com', '1469026SVJ', 1);
 
 -- --------------------------------------------------------
 

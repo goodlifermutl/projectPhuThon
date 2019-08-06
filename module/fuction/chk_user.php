@@ -21,6 +21,7 @@ $_SESSION['user_name']=$user_name;
 $_SESSION['id_card']=$card_id;
 
 if($user_name==$_POST['username'] && $password==$pass){
+
     if($verification_type==0){
         ?>
     <script>
@@ -34,6 +35,7 @@ if($user_name==$_POST['username'] && $password==$pass){
     </script>
     <?php
     }else{
+        if($permiss_id==1){
     ?>
     <script>
             swal({
@@ -41,10 +43,23 @@ if($user_name==$_POST['username'] && $password==$pass){
                 text: "คุณ <?php echo $_POST['username']; ?>",
                 icon: "success",
             }).then((value) => {
-        window.location.href = "../../home.php";
+        window.location.href = "../../home_admin.php";
         });
     </script>
     <?php
+        }else{
+            ?>
+             <script>
+                swal({
+                title: "ยินดีตอนรับ",
+                text: "คุณ <?php echo $_POST['username']; ?>",
+                icon: "success",
+                    }).then((value) => {
+                window.location.href = "../../home.php";
+                });
+            </script>
+        <?php
+        }
     }
 }else{
     ?>

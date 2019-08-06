@@ -47,7 +47,7 @@ if(empty($_SESSION['user_name'])){
       title: "กรุณาเข้าสู่ระบบ",
       icon: "warning",
   }).then((value) => {
-window.location.href = "index.html";
+window.location.href = "index.php";
   });
 </script>
 <?php

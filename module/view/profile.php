@@ -1,11 +1,10 @@
 <?php
 	//session_start();
     // include("fc/db_fc.php");
-    $con=connect_db();
+	$con=connect_db();
     $re_user=mysqli_query($con,
     "SELECT rank_id,ps_name,ps_lastname,card_id,sex,address,ps_num,police_pic
-    FROM  police_person
-    WHERE card_id='$_SESSION[id_card]'")or die("SQL.error>>user".mysqli_error($conh));
+    FROM  police_person WHERE card_id ='$_SESSION[id_card]'")or die("SQL.error>>user".mysqli_error($conh));
 	list($id_rank,$ps_name,$ps_lastname,$card_id,$sex,$address,$ps_tel,$name_pic)=mysqli_fetch_row($re_user);
 	echo $card_id,$ps_name;
 	echo "gggg";

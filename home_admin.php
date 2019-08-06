@@ -32,7 +32,7 @@
 <body>
 <?php
 session_start();
-include ("../fuction/connect_db.php");
+include ("module/fuction/connect_db.php");
 $con = connect_db();
 
 $select = mysqli_query($con,"SELECT case_id,case_name,case_type FROM case_name")or die("select sql error".mysqli_error($con));
@@ -102,12 +102,13 @@ window.location.href = "index.html";
 </div>
 
 <main role="main" class="container">
-  <div class="d-flex align-items-center p-3 my-3 text-white-50 bg-purple rounded shadow-sm">
+  <!-- <div class="d-flex align-items-center p-3 my-3 text-black-50 bg-purple rounded shadow-sm"> -->
+  <div>
   <?php 
 
   include("module/fuction/fc_module.php");
   if(empty($_GET['module'])||empty($_GET['action'])){
-  module(0,0);
+  module(1,6);
   }else{
   module($_GET['module'],$_GET['action']);
   }

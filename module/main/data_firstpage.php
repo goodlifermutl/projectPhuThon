@@ -3,20 +3,20 @@
     <div class="subbigbody">
       <br>
     <div class="row">
-    <div class="col-sm-4">
+    <div class="col-sm-6">
       
     <p class="text-center"><b>ค้นหาข้อมูล</b></p>
       <a href="#" id="myBtnSc">
       <p class="text-center"><i class="fas fa-search-plus" style="font-size: 80px"></i></i></p>
       </a>
     </div>
-    <div class="col-sm-4">
+    <!-- <div class="col-sm-4">
       <p class="text-center"><b>แก้ไขข้อมูล</b></p>
       <a href="#">
       <p class="text-center"><i class="fas fa-edit" style="font-size: 80px"></i></p>
       </a>
-    </div>
-    <div class="col-sm-4">
+    </div> -->
+    <div class="col-sm-6">
       <p class="text-center"><b>เพิ่มข้อมูล</b></p>
       <a href="#" id="myBtnNs">
       <p class="text-center"><i class="fas fa-plus-circle" style="font-size: 80px"></i></i></p>
