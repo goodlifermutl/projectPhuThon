@@ -46,7 +46,7 @@ if(empty($_SESSION['user_name'])){
       title: "กรุณาเข้าสู่ระบบ",
       icon: "warning",
   }).then((value) => {
-window.location.href = "index.html";
+window.location.href = "index.php";
   });
 </script>
 <?php
@@ -56,23 +56,17 @@ window.location.href = "index.html";
 }
 ?>
 <?php echo $com_s ?>
+<?php
+$con = connect_db();
+ $select = mysqli_query($con,"SELECT permiss_id,user_id FROM user WHERE permiss_id='5'")or die("select sql error!!!!".mysqli_error($con));     
+ $loop=mysqli_num_rows($select);
+?>
  <nav class="navbar navbar-expand-lg navbar-light bg-light"> <!--fixed-top-->
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <a class="navbar-brand" href="home.php"><i style="font-size: 36px" class="fas fa-h-square"></i> PhuThon pak5</a>  
+  <a class="navbar-brand" href="home_admin.php"><i style="font-size: 36px" class="fas fa-h-square"></i> PhuThon pak5</a>  
 
-   <!-- <div class="row">
-    <div class="col-md">
-    <button type="button" class="btn btn-outline-dark"><i class="fas fa-search-plus" style="font-size: 50px"></i></i></button>
-    </div>
-    <div class="col-md">
-    <button type="button" class="btn btn-outline-dark"><i class="fas fa-edit" style="font-size: 50px"></i></button>
-    </div>
-    <div class="col-md">
-     <button type="button" class="btn btn-outline-dark"><i class="fas fa-plus-circle" style="font-size: 50px"></i></i></button>
-    </div>
-  </div> -->
   <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
     </ul>
@@ -83,21 +77,15 @@ window.location.href = "index.html";
     </form>
   </div>
 </nav>
-
 <div class="nav-scroller bg-white shadow-sm">
   <nav class="nav nav-underline">
-    <a class="nav-link active" href="home_admin.php?module=1&action=6">ข้อมูลผู้ใช้ระบบ</a>
-    <a class="nav-link" href="#">
-      Friends
-      <span class="badge badge-pill bg-light align-text-bottom">27</span>
-    </a>
-    <a class="nav-link" href="#">Explore</a>
-    <a class="nav-link" href="#">Suggestions</a>
-    <a class="nav-link" href="#">Link</a>
-    <a class="nav-link" href="#">Link</a>
-    <a class="nav-link" href="#">Link</a>
-    <a class="nav-link" href="#">Link</a>
-    <a class="nav-link" href="#">Link</a>
+    <!-- <a class="nav-link active" href="home_admin.php?module=1&action=6">ข้อมูลผู้ใช้ระบบ</a> -->
+    <button type="button" class="btn btn-warning" id="btnMGU" data-see="5">
+    ผู้ใช้งานที่ไม่มีสถานะ <span class="badge badge-light"><?php echo $loop ?></span>
+    <span class="sr-only">unread messages</span>
+    </button>
+    
+ 
   </nav>
 </div>
 
@@ -108,7 +96,7 @@ window.location.href = "index.html";
 
   include("module/fuction/fc_module.php");
   if(empty($_GET['module'])||empty($_GET['action'])){
-  module(1,6);
+  module(1,8);
   }else{
   module($_GET['module'],$_GET['action']);
   }
@@ -119,3 +107,15 @@ window.location.href = "index.html";
 </main>
 </body>
 </html>
+<script>
+$("#btnMGU").click(function(){
+    var see = "5";
+    window.location.href="home_admin.php?see=5&module=1&action=8";
+  //   $.post("module/view/manage_permiss.php",{see:see}).done(function(data,txtstuta){
+  //     alert(see);
+  //     alert(data)
+  //     window.location.href="home_admin.php?&module=1&action=8";
+  //   }
+  //  );
+})
+</script>

@@ -16,7 +16,7 @@ $code = date("yyyymmdd")."ASDFGHJKLZXCVBNM1234567890";
 $code_name = substr(str_shuffle($code),0,10);
 $pass=md5($_POST['psw']);
 
-mysqli_query($con,"INSERT INTO user (permiss_id,user_id,pass_id,card_id,user_email,verification_user,verification_type) VALUES ('3', '$_POST[usrname]', '$pass', '$_POST[idcard]','$_POST[email]','$code_name','0')")or die("add_user/ insert error".mysqli_error($con));
+mysqli_query($con,"INSERT INTO user (permiss_id,user_id,pass_id,card_id,user_email,verification_user,verification_type) VALUES ('5', '$_POST[usrname]', '$pass', '$_POST[idcard]','$_POST[email]','$code_name','0')")or die("add_user/ insert error".mysqli_error($con));
 
 mysqli_close($con);       
 

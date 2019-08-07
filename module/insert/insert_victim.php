@@ -144,7 +144,7 @@ $("#insertvictim").submit(function(e){
 		var formData = new FormData(this);
 
 		$.ajax({
-		url: "../fuction/insert_data_victim.php",
+		url: "module/fuction/insert_data_victim.php",
 		type: 'POST',
 		data: formData,
 			success: function (data) {
@@ -154,7 +154,7 @@ $("#insertvictim").submit(function(e){
             icon: "success",
             button: "ตกลง",
           }).then((value) => {
-            window.location.href="../main/home.php?&module=2&action=3"
+            window.location.href="home.php?&module=2&action=3"
 })
 		},
 			cache: false,

@@ -1,5 +1,12 @@
 <?php
+if(empty($_GET['datacase'])){
+  $case_id = $_SESSION['case_id'];
+}else{
   $_SESSION['case_id']=$_GET['datacase'];
+  $case_id = $_GET['datacase'];
+}
+echo $_SESSION['case_id'];
+echo $case_id;
 ?>
 
 <style>
@@ -117,11 +124,11 @@ a:hover{
             })
             .then((willDelete) => {
             if (willDelete) {
-                window.location.href="home.php?&module=2&action=4";
+                window.location.href="home.php?module=2&action=4";
                 
             } else {
                 
-                window.location.href="home.php?&module=2&action=3";
+                window.location.href="home.php?module=2&action=3";
             }
             });
         });

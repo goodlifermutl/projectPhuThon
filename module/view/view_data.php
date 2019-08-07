@@ -695,7 +695,7 @@ $(document).ready(function() {
         var id1= $("#inputGroupSelect02").val();
         var id2 = $("#textsearch").val();
     //alert(id1+id2)
-   $.post("show_data_search.php",{type:id1,search:id2},
+   $.post("module/main/show_data_search.php",{type:id1,search:id2},
     function (data, textStatus, jqXHR) {
     //alert(data)
      $("#loadid").html(data)
