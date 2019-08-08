@@ -47,7 +47,7 @@ if($user_name==$_POST['username'] && $password==$pass){
         });
     </script>
     <?php
-        }else{
+        }else if($permiss_id==2){
             ?>
              <script>
                 swal({
@@ -56,6 +56,18 @@ if($user_name==$_POST['username'] && $password==$pass){
                 icon: "success",
                     }).then((value) => {
                 window.location.href = "../../home.php";
+                });
+            </script>
+        <?php
+        }else if($permiss_id==3){
+            ?>
+             <script>
+                swal({
+                title: "ยินดีตอนรับ",
+                text: "คุณ <?php echo $_POST['username']; ?>",
+                icon: "success",
+                    }).then((value) => {
+                window.location.href = "../../home.php?&module=2&action=2";
                 });
             </script>
         <?php

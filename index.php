@@ -26,7 +26,7 @@
  <nav class="navbar navbar-expand-sm bg-dark navbar-dark"> 
   <div class="container-fluid">
    
-      <a class="navbar-brand" href="index.html"><i style="font-size: 36px" class="fas fa-h-square"></i> PhuThon pak5</a>
+      <a class="navbar-brand" href="index.php"><i style="font-size: 36px" class="fas fa-h-square"></i> PhuThon pak5</a>
     
     <ul class="navbar-nav">
       <li class="nav-item"><a class="nav-link" href="#" id="myBtnlogin"><i class="fas fa-sign-in-alt"></i> เข้าสู่ระบบ</a></li>
@@ -50,7 +50,7 @@
       <a class="nav-link" href="#" id="myBtnsignup"><i style="font-size: 64px" class="fas fa-user-plus"></i><br><b>สมัครสมาชิก</b></a>
     </li>
     <li class="nav-item">
-        <a class="nav-link active" href="index.html"><i style="font-size: 64px" class="far fa-question-circle"></i><br><b>คู่มือการใช้งาน</b></a>
+        <a class="nav-link active" href="index.php"><i style="font-size: 64px" class="far fa-question-circle"></i><br><b>คู่มือการใช้งาน</b></a>
       </li>
   </ul>
 </div>

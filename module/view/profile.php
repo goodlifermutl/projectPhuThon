@@ -112,12 +112,14 @@
 									$file = 'profile_insert.php'
 									?>
 									<button type="submit" class="btn btn-outline-primary" id="savePro">บันทึก</button>
+									<button type="button" class="btn btn-outline-danger" id="canclePro">ยกเลิก</button>
 									<?php
 
 								}else{
 									$file = 'profile_update.php'
 									?>
 									<button type="submit" class="btn btn-outline-primary" id="updatePro">บันทึกแก้ไข</button>
+									<button type="button" class="btn btn-outline-danger" id="canclePro">ยกเลิก</button>
 									<?php
 								}
 							?>
@@ -127,6 +129,7 @@
 </form>
 </div>
 <script>
+$("#canclePro").hide();
 $("#savePro").hide();
 $("#updatePro").hide();
 $("#editPro").click(function(){
@@ -135,6 +138,7 @@ $("#editPro").click(function(){
 	$( "#focus" ).focus();
 	$("#savePro").show();
 	$("#updatePro").show();
+	$("#canclePro").show();
 	$("#editPro").hide();
 });
 $("#dataPro").submit(function(e){
@@ -174,5 +178,8 @@ $("#dataPro").submit(function(e){
 
 
 })
-
+$("#canclePro").click(function(){
+	window.location.href="home.php?module=1&action=5";
+	
+});
 </script>

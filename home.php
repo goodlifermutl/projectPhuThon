@@ -36,7 +36,14 @@ session_start();
 include ("module/fuction/connect_db.php");
 $con = connect_db();
 
-$select = mysqli_query($con,"SELECT case_id,case_name,case_type FROM case_name")or die("select sql error".mysqli_error($con));
+$select = mysqli_query($con,"SELECT permiss_id FROM user WHERE user_id='$_SESSION[user_name]'")or die("select sql error".mysqli_error($con));
+list($permiss)=mysqli_fetch_row($select);
+$html_l;
+if($permiss==2){
+  $html_l="home.php";
+}else if($permiss==3){
+  $html_l="home.php?&module=2&action=2";
+}
 
 if(empty($_SESSION['user_name'])){
   $com_s="<!--";
@@ -55,14 +62,14 @@ window.location.href = "index.php";
   $com_s="";
   $com_e="";
 }
+
 ?>
 <?php echo $com_s ?>
  <nav class="navbar navbar-expand-lg navbar-light bg-light"> <!--fixed-top-->
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <a class="navbar-brand" href="home.php"><i style="font-size: 36px" class="fas fa-h-square"></i> PhuThon pak5</a>  
-
+  <a class="navbar-brand" href="<?php echo $html_l ?>"><i style="font-size: 36px" class="fas fa-h-square"></i> PhuThon pak5</a>  
    <!-- <div class="row">
     <div class="col-md">
     <button type="button" class="btn btn-outline-dark"><i class="fas fa-search-plus" style="font-size: 50px"></i></i></button>

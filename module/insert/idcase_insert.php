@@ -76,7 +76,9 @@ $sql_res = mysqli_query($con,"SELECT cn.case_id,cn.case_name,cn.case_type,cn.cas
         $("#name").focus();
    })
    $("#cancle").click(function(){
-    window.location.href="home.php?&module=2&action=2";
+    // window.location.href="home.php?&module=2&action=2";
+    $("#add").hide();
+    $(".btn_add").show();
    })
    $("#add_case").submit(function(e){
     e.preventDefault();
@@ -86,31 +88,26 @@ $sql_res = mysqli_query($con,"SELECT cn.case_id,cn.case_name,cn.case_type,cn.cas
 		var formData = new FormData(this);
 
 		$.ajax({
-		url: "../fuction/insert_case.php",
+		url: "module/fuction/insert_case.php",
 		type: 'POST',
 		data: formData,
 			success: function (data) {
-                alert(data)  
-$('#signup').modal("hide")
+      //alert(data) 
 
-$('#signup').on('hidden.bs.modal', function (e) {
             swal({
             title: "สมัครสมาชิกสำเร็จ",
             icon: "success",
             button: "ตกลง",
           }).then((value) => {
-    window.location.href = "index.html";
+    window.location.href = "home.php?&module=2&action=2";
 });
-      })
+
 		},
 			cache: false,
 			contentType: false,
 			processData: false
 	  });	
-      $("#add").hide();
-      $(".btn_add").show();
-      window.location.href="home.php?&module=2&action=3";
-        
+    
 });
 
  $(document).ready( function () {
