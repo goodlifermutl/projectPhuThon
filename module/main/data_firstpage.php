@@ -34,9 +34,9 @@
        
         $con = connect_db();
 
-       $sql_res = mysqli_query($con,"SELECT cn.case_id,cn.case_name,cn.case_type,cn.case_savetime FROM case_name as cn INNER JOIN responsible_person as rp ON rp.case_id = cn.case_id WHERE rp.card_id ='$_SESSION[id_card]'")or die("select sql responsible_person error".mysqli_error($con));
+       $sql_res = mysqli_query($con,"SELECT cn.case_id,cn.case_name,cn.case_type,cn.case_savetime,cn.case_status FROM case_name as cn INNER JOIN responsible_person as rp ON rp.case_id = cn.case_id WHERE rp.card_id ='$_SESSION[id_card]'")or die("select sql responsible_person error".mysqli_error($con));
 
-       while(list($case_id,$case_name,$case_type)=mysqli_fetch_row($sql_res)){
+       while(list($case_id,$case_name,$case_type,$case_date,$status_case)=mysqli_fetch_row($sql_res)){
         if($case_type==1){
           $case_typeName="คดีเพ่ง";
         }else{
@@ -47,6 +47,8 @@
               <td><a href='?datacase=$case_id&module=1&action=1'>$case_id</a></td>
               <td>$case_name</td>
               <td>$case_typeName</td>
+              <td>$case_date</td>
+              <td>$status_case</td>
           </tr>";
         }
       ?>
@@ -127,10 +129,10 @@ $(document).ready(function() {
     $("#btnsearch").click(function(){
         var id1= $("#inputGroupSelect02").val();
         var id2 = $("#textsearch").val();
-    alert(id1+id2)
+    //alert(id1+id2)
    $.post("module/main/show_data_search.php",{type:id1,search:id2},
     function (data, textStatus, jqXHR) {
-    alert(data)
+    //alert(data)
      $("#loadid").html(data)
      loadsunass()
     }

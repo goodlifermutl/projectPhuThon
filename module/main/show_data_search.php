@@ -10,7 +10,7 @@ display: none;
 <form method="get">
         <?php
                 if(empty($_POST['search'])){
-                  $sql="SELECT case_id,case_name,case_type FROM case_name";
+                  $sql="SELECT case_id,case_name,case_type,case_savetime,case_status FROM case_name";
                   $select = mysqli_query($con,"$sql")or die("select sql error".mysqli_error($con));
                   list($chk_case_id)=mysqli_fetch_row($select);
                   //echo "gggg";
@@ -62,6 +62,8 @@ display: none;
                         <th>เลขคดี</th>
                         <th>ชื่อคดี</th>
                         <th>ประเภทคดี</th>
+                        <th>วันเดือนปี</th>
+                        <th>สถานะคดี</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -72,7 +74,7 @@ display: none;
                         <td colspan='3'>ไม่พบข้อมูล</td>
                         </tr>";
                       }
-                      while(list($case_id,$case_name,$case_type)=mysqli_fetch_row($select)){
+                      while(list($case_id,$case_name,$case_type,$case_date,$status_case)=mysqli_fetch_row($select)){
                       if($case_type==1){
                         $case_typeName="คดีเพ่ง";
                       }else{
@@ -84,6 +86,8 @@ display: none;
                             <td><a href='?datacase=$case_id&search=$chk_id_card&module=1&action=1'>$case_id</a></td>
                             <td>$case_name</td>
                             <td>$case_typeName</td>
+                            <td>$case_date</td>
+                            <td>$status_case</td>
                         </tr>";
                       }else if($_POST['type']==3){
                         echo"
@@ -91,6 +95,8 @@ display: none;
                             <td><a href='?datacase=$case_id&search=$chk_name_lastname&module=1&action=1'>$case_id</a></td>
                             <td>$case_name</td>
                             <td>$case_typeName</td>
+                            <td>$case_date</td>
+                            <td>$status_case</td>
                         </tr>";
                       }
                       else{
@@ -99,6 +105,8 @@ display: none;
                             <td><a href='?datacase=$case_id&module=1&action=1'>$case_id</a></td>
                             <td>$case_name</td>
                             <td>$case_typeName</td>
+                            <td>$case_date</td>
+                            <td>$status_case</td>
                         </tr>";
                       }
                       }

@@ -66,11 +66,14 @@ $con = connect_db();
     <span class="navbar-toggler-icon"></span>
   </button>
   <a class="navbar-brand" href="home_admin.php"><i style="font-size: 36px" class="fas fa-h-square"></i> PhuThon pak5</a>  
-
+ 
   <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+    <button type="button" class="btn btn-warning" id="btnMGU" data-see="5"><i class="far fa-bell"></i>
+    ผู้ใช้งานที่ไม่มีสถานะ <span class="badge badge-light"><?php echo $loop ?></span>
+    <span class="sr-only">unread messages</span>
+    </button>
     </ul>
-    
     <form class="form-inline my-2 my-lg-0">
     <a class="navbar-brand"  href="home.php?module=1&action=5"><i class="far fa-id-badge"></i> <?php echo $_SESSION['user_name']; ?></a>
     <a href="module/fuction/destroy_session.php"><button class="btn btn-outline-warning my-2 my-sm-0" type="button">ออกจากระบบ</button></a>
@@ -79,11 +82,13 @@ $con = connect_db();
 </nav>
 <div class="nav-scroller bg-white shadow-sm">
   <nav class="nav nav-underline">
-    <!-- <a class="nav-link active" href="home_admin.php?module=1&action=6">ข้อมูลผู้ใช้ระบบ</a> -->
-    <button type="button" class="btn btn-warning" id="btnMGU" data-see="5">
+    <a class="nav-link active" href="home_admin.php?module=1&action=8">ข้อมูลผู้ใช้ระบบ</a>
+    <!-- <button type="button" class="btn btn-warning" id="btnMGU" data-see="5"><i class="far fa-bell"></i>
     ผู้ใช้งานที่ไม่มีสถานะ <span class="badge badge-light"><?php echo $loop ?></span>
     <span class="sr-only">unread messages</span>
-    </button>
+    </button> -->
+    <a class="nav-link" href="home_admin.php?module=1&action=9">เจ้าหน้าที่ในหน่วยงาน</a>
+    <a class="nav-link" href="#">ข้อมูลตำแหน่ง</a>
     
  
   </nav>
