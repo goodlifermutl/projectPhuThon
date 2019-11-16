@@ -70,5 +70,5 @@ $(document).ready(function() {
    );
    
   })
-    });
+});
 </script>

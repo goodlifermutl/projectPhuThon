@@ -20,6 +20,7 @@
             case 7 : $a="test_message.php"; break;
             case 8 : $a="manage_permiss.php"; break;
             case 9 : $a="manage_police.php"; break;
+            case 10 : $a="insert_villain.php"; break;
             default : $a="404.php";
         }
         if($m=="404"||$a=="404.php"){
