@@ -60,7 +60,7 @@
         </div>
         <div class="col-md">
             <select class="custom-select " id="" name="victim_edu"  required>
-                <option selected value="0">ระดับการศึกษา</option>
+                <option disabled selected value="0">ระดับการศึกษา</option>
                 <?php $result_edu = mysqli_query($con,"SELECT * FROM education")or die("select education error".mysqli_error($con));
                     while(list($edu_id,$edu_name)=mysqli_fetch_row($result_edu)){
                      echo"<option value='$edu_id'>$edu_name</option>";
@@ -75,7 +75,7 @@
         </div>
         <div class="col-md">
             <select class="custom-select " id="" name="victim_sex" required>
-                <option selected value="0">เพศ</option>
+                <option disabled selected value="0">เพศ</option>
                 <option value="1" >ชาย</option>
                 <option value="2" >หญิง</option>
             </select>
@@ -150,11 +150,12 @@ $("#insertvictim").submit(function(e){
 			success: function (data) {
             alert(data) 
             swal({
-            title: "สมัครสมาชิกสำเร็จ",
+            title: "บันทึกผู้เสียหายสำเร็จ",
             icon: "success",
             button: "ตกลง",
           }).then((value) => {
             window.location.href="home.php?&module=2&action=3"
+ 
 })
 		},
 			cache: false,

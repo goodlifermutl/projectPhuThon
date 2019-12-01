@@ -15,6 +15,8 @@ $victim_edu=$_POST['victim_edu'];
 $victim_sex=$_POST['victim_sex'];
 $victim_address=$_POST['victim_address'];
 
+echo "$victim_name";
+
 $victim_file=$_FILES['victim_file']['name'];
 
 if(!empty($_FILES['victim_file']['name'])){
@@ -64,5 +66,5 @@ if(!empty($_FILES['victim_file']['name'])){
 $sql_insert_victim="INSERT INTO victim VALUES('$victim_case','$victim_title','$victim_name','$victim_lastname','$victim_sex','$victim_idcard','$victim_address','$victim_edu','$imgname','$victim_race','$victim_nationality','$victim_careen')";
 
 mysqli_query($con,$sql_insert_victim)or die("sql insert victim error!!!!!!!".mysqli_error($con));
-// echo $victim_title,$victim_name,$victim_lastname,$victim_nationality,$victim_race,$victim_careen,$victim_idcard,$victim_edu,$victim_sex,$victim_address,$victim_file;
+echo $victim_title,$victim_name,$victim_lastname,$victim_nationality,$victim_race,$victim_careen,$victim_idcard,$victim_edu,$victim_sex,$victim_address,$victim_file;
 ?>

@@ -295,7 +295,7 @@ window.location.href = "index.php";
         ?>
          <div class="col-md">
           <b><label for="formGroupExampleInput">ผู้ต้องหา คนที่ <?php echo $i; ?></label></b>
-          <p><img src="image/<?php echo $villain_image; ?>.png" class="img-fluid mx-auto d-block" alt="Responsive image"></p>
+          <p><img src="image/<?php echo $villain_image; ?>" class="img-fluid mx-auto d-block" alt="Responsive image"></p>
           <div class="col-md">
           <div class="form-row">
           <div>
