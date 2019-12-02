@@ -1,40 +1,3 @@
-<?php
-$con = connect_db();
-
-$select = mysqli_query($con,"SELECT case_id,case_name,case_type FROM case_name")or die("select sql error".mysqli_error($con));
-
-if(empty($_SESSION['user_name'])){
-  $com_s="<!--";
-  $com_e="-->"
-  ?>
-  <script>
-  swal({
-      title: "กรุณาเข้าสู่ระบบ",
-      icon: "warning",
-  }).then((value) => {
-window.location.href = "index.html";
-  });
-</script>
-<?php
-}else{
-  $com_s="";
-  $com_e="";
-}
-?>
-<?php echo $com_s ?>
-
-<div class="row" style="border: 1px solid #000000;">
-<div class="col-1 c1" style="border: 1px solid #00FFFF;">
-<a href="#" id="myBtnSc">
-<p class="text-center"><i class="fas fa-search-plus" style="font-size: 35px"></i></i></p>
-</a>
-
-<a href="#">
-<p class="text-center"><i class="fas fa-plus-circle" style="font-size: 35px"></i></i></p>
-</a>
-</div>
-<div class="col-md c2" style="border: 1px solid #00FF00;">
-
 <a name="ผู้เสียหาย"></a>
     <div class="victim">
       <p><h1 class="text-center">ผู้เสียหาย</h1></p>
@@ -45,7 +8,7 @@ window.location.href = "index.html";
         $data = "";
       }else{
         $data=$_GET['datacase'];
-    
+        
         if(empty($_GET['search'])){
           $search = "";
           $l=0;
@@ -84,7 +47,7 @@ window.location.href = "index.html";
         <a name="<?php echo $victim_lastname ?>"></a> 
          <div class="col-md">
          <b><label for="formGroupExampleInput">ผู้เสียหาย คนที่ <?php echo $i; ?></label></b><button type="button" id="victim_test<?php echo $i ?>"><i class="fas fa-edit" style="font-size: 10px"></i></button>
-         <p><img src="../../image/<?php echo $victim_image; ?>.png" class="img-fluid mx-auto d-block" alt="Responsive image"></p>
+         <p><img src="image/<?php echo $victim_image; ?>" class="img-fluid mx-auto d-block rounded-circle victimpic" alt="Responsive image" width="128";height="128"; id="victimpic<?php echo $i; ?>"></p>
           <div class="col-md">
           <div class="form-row">
           <div>
@@ -95,7 +58,7 @@ window.location.href = "index.html";
               <input type="text" class="form-control" placeholder="เลขคดี" value="<?php echo $case_id; ?>"  name="victim_case[]" readonly required>
             </div>
             <div>
-              <label class="col-sm col-form-label>ชื่อ : </label>
+              <label class="col-sm col-form-label">ชื่อ : </label>
             </div>
             <div class="col-1">
               <input type="text" class="form-control edit<?php echo $i; ?>" placeholder="คำนำหน้าชื่อ" value="<?php echo $title_name; ?>" id="focus<?php echo $i?>" name="victim_titlename[]" disabled required>
@@ -145,7 +108,7 @@ window.location.href = "index.html";
               <label class="col-sm col-form-label">เลขบัตรประจำตัวประชาชน : </label>
             </div>
             <div class="col-md">
-              <input type="text" class="form-control" placeholder="เลขบัตรประจำตัวประชาชน" id="victim_idcard<?php echo $i; ?>" name="victim_idcard[]" data-idcard="<?php echo $victim_idcard ?>"  value="<?php echo $victim_idcard; ?>" readonly required>
+              <input type="text" class="form-control" placeholder="เลขบัตรประจำตัวประชาชน" id="victim_idcard<?php echo $i; ?>" name="victim_idcard[]" data-idcard="<?php echo $victim_idcard ?>"  value="<?php echo $victim_idcard; ?>"readonly required>
             </div>
             <div>
               <label class="col-sm col-form-label" >ระดับการศึกษา : </label>
@@ -192,19 +155,23 @@ window.location.href = "index.html";
             </div>
         </div>
         <hr>
-                      </form>
+      </form>
       <?php
-      $i++;
-      
+    
+      ?>
+      <div class="modal fade" id="victim_pic<?php echo $i; ?>" role="dialog">
+        <div class="modal-dialog modal-auto"  role="document">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <div class="modal-content">
+          <img src="image/<?php echo $victim_image; ?>" class="img-fluid mx-auto d-block" ></p>
+          </div>
+        </div>
+      </div>
+      <?php
+        $i++;
       }
     }
   }
       ?>
      
      </div>
-
-</div>
-<div class="col-1 c3" style="border: 1px solid #FF0000;">
-
-</div>
-</div>
