@@ -72,6 +72,19 @@ if($user_name==$_POST['username'] && $password==$pass){
             </script>
         <?php
         }
+        else if($permiss_id==5){
+            ?>
+             <script>
+                swal({
+                title: "กรุณารอการยืนยันสิทธิ์",
+                text: "คุณ <?php echo $_POST['username']; ?>",
+                icon: "warning",
+                    }).then((value) => {
+                window.location.href = "../../index.php";
+                });
+            </script>
+            <?php
+        }
     }
 }else{
     ?>
