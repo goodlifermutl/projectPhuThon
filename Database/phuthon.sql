@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 06, 2019 at 01:49 PM
+-- Generation Time: Dec 03, 2019 at 09:04 AM
 -- Server version: 10.3.15-MariaDB
 -- PHP Version: 7.3.6
 
@@ -78,9 +78,11 @@ CREATE TABLE `case_name` (
 INSERT INTO `case_name` (`case_id`, `case_name`, `case_type`, `case_savetime`, `case_status`) VALUES
 ('123a', 'a123', 1, '2019-07-29 06:32:20', 0),
 ('123b', '123b', 2, '2019-07-29 06:32:30', 0),
+('ad234', 'ggggggg', 1, '2019-08-08 05:05:58', 0),
 ('กบ/24.33', 'ไผ่สีทอง', 2, '2019-07-01 08:33:48', 0),
 ('ค.001', 'แมวดำ', 1, '2019-07-01 08:32:23', 0),
 ('ง.12/52', 'ตีโปร่ง', 2, '2019-07-01 08:32:23', 0),
+('ทท.45/62', 'ว่าฉันคิดอะไร', 1, '2019-08-08 05:07:03', 0),
 ('ฮ.0324', 'ทดแอตสอบ', 2, '2019-07-29 05:39:26', 0);
 
 -- --------------------------------------------------------
@@ -157,15 +159,17 @@ CREATE TABLE `police_person` (
   `sex` tinyint(2) NOT NULL,
   `address` text COLLATE utf8_unicode_ci DEFAULT NULL,
   `ps_num` char(10) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `police_pic` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL
+  `police_pic` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `sta_per_police` tinyint(1) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `police_person`
 --
 
-INSERT INTO `police_person` (`card_id`, `rank_id`, `ps_name`, `ps_lastname`, `sex`, `address`, `ps_num`, `police_pic`) VALUES
-('1509908798090', 9, 'ลูกจ๊อก', 'อ่อนด๊อย', 1, 'หมู่ 8 บ้าน 78', '0977865786', NULL);
+INSERT INTO `police_person` (`card_id`, `rank_id`, `ps_name`, `ps_lastname`, `sex`, `address`, `ps_num`, `police_pic`, `sta_per_police`) VALUES
+('1509908798090', 8, 'ลูกจ๊อก', 'อ่อนด๊อย', 1, 'หมู่ 8 บ้าน 78', '0977865786', '', 1),
+('1568867987693', 9, 'คนที่สอง', 'ลองดู', 2, '77/5 หมู 8 บ้าน ค่ำ', '085786553', '', 1);
 
 -- --------------------------------------------------------
 
@@ -203,6 +207,13 @@ CREATE TABLE `responsible_person` (
   `case_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `card_id` char(13) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `responsible_person`
+--
+
+INSERT INTO `responsible_person` (`case_id`, `card_id`) VALUES
+('ค.001', '1509908798090');
 
 -- --------------------------------------------------------
 
@@ -260,8 +271,13 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`permiss_id`, `user_id`, `pass_id`, `card_id`, `user_email`, `verification_user`, `verification_type`) VALUES
-(1, 'user01', 'b5b73fae0d87d8b4e2573105f8fbe7bc', '1509908798090', 'nickqbe@gmail.com', '0M19G919JF', 1),
-(4, 'admin01', 'c93ccd78b2076528346216b3b2f701e6', '1569789090974', 'nickqbe@gmail.com', '1469026SVJ', 1);
+(3, 'user03', 'a64dbbe3ad85a69ba6496e198fd5b561', '1235676875674', 'nickqbe@gmail.com', '071X4G53D1', 1),
+(3, 'user04', '2f3a2d395225867d72da4bbc8c2bff29', '1266787598746', 'nickqbe@gmail.com', 'S06809CF08', 0),
+(2, 'user01', 'b5b73fae0d87d8b4e2573105f8fbe7bc', '1509908798090', 'nickqbe@gmail.com', '0M19G919JF', 1),
+(3, 'user02', 'b5b73fae0d87d8b4e2573105f8fbe7bc', '1568867987693', 'nickqbe@gmail.com', '07XHB95Z1N', 1),
+(4, 'admin01', 'c93ccd78b2076528346216b3b2f701e6', '1569789090974', 'nickqbe@gmail.com', '1469026SVJ', 1),
+(5, 'user05', 'db18a5a285edc9858c99e85e855d76c6', '1578667687593', 'nickqbe@gmail.com', 'H7908ZBMXV', 0),
+(5, 'user06', 'b5b73fae0d87d8b4e2573105f8fbe7bc', '1687987953233', 'nickqbe@gmail.com', 'SG07799AXV', 0);
 
 -- --------------------------------------------------------
 
@@ -290,11 +306,12 @@ CREATE TABLE `victim` (
 
 INSERT INTO `victim` (`case_id`, `title_name`, `victim_name`, `victim_lastname`, `victim_sex`, `victim_idcard`, `victim_address`, `victim_education`, `victim_image`, `victim_race`, `victim_nationality`, `victim_career`) VALUES
 ('ฮ.0324', 'นาย', 'กี้', 'แปปนึง', 1, '1306607845367', '123/2 หมู่ 6 ต.ป่าไผ่ อ.ดอกจัน จ.เชียงใหม่ 50089', 6, 'BV99D7SL9M.jpeg', 'ไทย', 'ไทย', 'พ่อค้าเร่'),
-('ง.12/52', 'นาย', 'จันทร์ดี', 'โอกาสเดิม', 1, '1508890723431', '23 หมู่ 4 บ้าน ดง ต.ก่อไผ่ อ.ดอกไม้ จ.เชียงใหม่ 54334', 6, 'icon_data_usermale', 'ไทย', 'ไทย', 'ธุรกิจส่วนตัว'),
-('ค.001', 'นางสาว', 'พะยอง', 'จังเลย', 2, '1509643456712', '25 หมู่ 7 ต.ดอกไม้ อ.ต้นไม้ จ.เชียงใหม่ 54334', 7, 'icon_data_userfemale.png', 'ไทย', 'ไทย', 'ธรุกิจส่วนตัว'),
-('ค.001', 'นาย', 'ช้าง', 'โต', 1, '1509901658485', '68 หมู่ 8 บ้าน นอก ต.ใน อ.นอก จ.ใน 45667', 8, 'icon_data_usermale.png', 'ไทย', 'ไทย', 'ธรุกิจส่วนตัว'),
+('ง.12/52', 'นาย', 'จันทร์ดี', 'โอโออา', 1, '1508890723431', '23 หมู่ 4 บ้าน ดง ต.ก่อไผ่ อ.ดอกไม้ จ.เชียงใหม่ 54334', 5, 'icon_data_usermale.png', 'ไทย', 'ไทย', 'ธุรกิจส่วนตัว'),
+('ค.001', 'นางสาว', 'พะยองจ้าเอ่ย', 'จังเลยงาว', 2, '1509643456712', '25 หมู่ 7 ต.ดอกไม้ อ.ต้นไม้ จ.เชียงใหม่ 54334', 6, 'icon_data_userfemale.png', 'ไทย', 'ไทย/ญีปุ่น', 'ธรุกิจส่วนตัว'),
+('ค.001', 'นาย', 'ช้าง', 'โตที่สุด', 1, '1509901658485', '68 หมู่ 8 บ้าน นอก ต.ใน อ.นอก จ.ใน 45667', 8, 'icon_data_usermale.png', 'ไทย', 'ไทย', 'ธรุกิจส่วนตัว'),
 ('ฮ.0324', 'นางสาว', 'ยู', 'ไอ', 2, '1569908977456', '123/2 หมู่ 6 ต.ป่าไผ่ อ.ดอกจัน จ.เชียงใหม่ 50089', 6, '00LB7NVDKS.jpeg', 'ไทย', 'ไทย', 'นักแสดง'),
-('ง.12/52', 'นาย', 'ลึงลง', 'ใต้น้ำ', 1, '1607782455677', '123 หมู่ 9 ต.เชิงบน อ.เชิงล่าง จ.เชียงใหม่ 49668', 6, 'icon_data_usermale.png', 'ไทย', 'ไทย', 'นักศึกษา');
+('ค.001', 'นาย', 'ทด', 'ลอง', 1, '1586677898675', '123/2 หมู่ 6 ต.ป่าไผ่ อ.ดอกจัน จ.เชียงใหม่ 50089', 6, 'icon_data_usermale.png', 'ไทย', 'ไทย ', 'การค้า'),
+('ง.12/52', 'นาย', 'ลึงลง', 'ใต้น้ำใหญ่', 1, '1607782455677', '123 หมู่ 9 ต.เชิงบน อ.เชิงล่าง จ.เชียงใหม่ 49668', 6, 'icon_data_usermale.png', 'ไทย', 'อังกฤษ', 'นักศึกษา');
 
 -- --------------------------------------------------------
 
@@ -322,9 +339,10 @@ CREATE TABLE `villain` (
 --
 
 INSERT INTO `villain` (`case_id`, `title_name`, `villain_name`, `villain_lastname`, `villain_sex`, `villain_idcard`, `villain_address`, `villain_education`, `villain_image`, `villain_race`, `villain_nationality`, `villain_career`) VALUES
-('ค.001', 'นาย', 'สุดจัด', 'ปลัดบอก', 1, '1408809678543', '23 หมู่ 8', 6, 'icon_data_usermale', 'ไทย', 'ไทย', 'พ่อค้า'),
-('ค.001', 'นางสาว', 'เจิดจลัด', 'จุงเบย', 2, '1507705467822', NULL, 6, 'icon_data_userfemale', 'ไทย', 'ไทย', 'แม่ค้า'),
-('ง.12/52', 'นาย', 'แดง', 'สีแดง', 1, '1508509823421', NULL, 1, 'icon_data_usermale', 'ไทย', 'ไทย', 'พ่อค้า');
+('ค.001', 'นาย', 'ทดสอบ', 'ทดลอง', 1, '1158497685123', '154/552 บ้านจัดไป หมู่ 8 ', 6, 'icon_data_usermale.png', 'ไทย', 'ไทย', 'นักพากษ์'),
+('ค.001', 'นาย', 'สุดจัด', 'ปลัดบอก', 1, '1408809678543', '23 หมู่ 8', 6, 'icon_data_usermale.png', 'ไทย', 'ไทย', 'พ่อค้า'),
+('ค.001', 'นางสาว', 'เจิดจลัด', 'จุงเบย', 2, '1507705467822', NULL, 6, 'icon_data_userfemale.png', 'ไทย', 'ไทย', 'แม่ค้า'),
+('ง.12/52', 'นาย', 'แดง', 'สีแดง', 1, '1508509823421', NULL, 1, 'icon_data_usermale.png', 'ไทย', 'ไทย', 'พ่อค้า');
 
 -- --------------------------------------------------------
 
@@ -516,6 +534,7 @@ CREATE TABLE `villain_identities` (
 --
 
 INSERT INTO `villain_identities` (`villain_idcard`, `face_villain`, `hair_style_villain`, `ears_villain`, `forehead_villain`, `eyes_villain`, `nose_villain`, `mouth_villain`, `chin_villain`, `body_villain`) VALUES
+('1158497685123', 1, 8, 4, 6, 2, 3, 9, 1, 2),
 ('1408809678543', 2, 8, 3, 4, 5, 4, 7, 5, 1),
 ('1507705467822', 1, 6, 8, 3, 4, 5, 2, 3, 2);
 
