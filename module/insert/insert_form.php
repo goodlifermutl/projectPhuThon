@@ -25,7 +25,7 @@ a:hover{
       <br>
     <div class="row">
     <div class="col-sm-4">
-      
+
     <p class="text-center"><b>เพิ่มข้อมูลผู้เสียหาย</b></p>
       <a href="#>" id="myBtnNsVT0">
       <p class="text-center"><i class="far fa-user" style="font-size: 80px"></i></p>
@@ -39,7 +39,7 @@ a:hover{
     </div>
     <div class="col-sm-4">
       <p class="text-center"><b>เพิ่มข้อมูลของกลาง</b></p>
-      <a href="#" id="myBtnNs">
+      <a href="#" id="myBtnNsVT2">
       <p class="text-center"><i class="fas fa-shoe-prints" style="font-size: 80px"></i></p>
       </a>
     </div>
@@ -51,7 +51,7 @@ a:hover{
       <br>
     <div class="row">
     <div class="col-sm-4">
-      
+
     <p class="text-center"><b>เพิ่มบันทึกการจับกุม</b></p>
       <a href="#" id="myBtnSc">
       <p class="text-center"><i class="fas fa-sticky-note" style="font-size: 80px"></i></p>
@@ -77,7 +77,7 @@ a:hover{
       <br>
     <div class="row">
     <div class="col-sm-4">
-      
+
     <p class="text-center"><b>เพิ่มรายงานการสอบสวน</b></p>
       <a href="#" id="myBtnSc">
       <p class="text-center"><i class="fas fa-sticky-note" style="font-size: 80px"></i></p>
@@ -103,7 +103,7 @@ a:hover{
       <br>
     <div class="row">
     <div class="col-sm-12">
-      
+
     <p class="text-center"><b>เพิ่มหมายค้น</b></p>
       <a href="#" id="myBtnSc">
       <p class="text-center"><i class="fas fa-sticky-note" style="font-size: 80px"></i></p>
@@ -113,10 +113,10 @@ a:hover{
     </div>
     </div>
 <div class="footer">1</div>
-<?php 
+<?php
  $link = array("4", "10", "11", "12", "13", "14", "15", "16", "17");
  $n=count($link);
-  for($j=0;$j<$n;$j++){ 
+  for($j=0;$j<$n;$j++){
 ?>
 <script>
         $(document).ready(function(){
@@ -132,9 +132,9 @@ a:hover{
             .then((willDelete) => {
             if (willDelete) {
                 window.location.href="home.php?module=2&action=<?php echo $link[$j]; ?>";
-                
+
             } else {
-                
+
                 window.location.href="home.php?module=2&action=3";
             }
             });
