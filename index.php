@@ -87,7 +87,7 @@
               <button type="submit" class="btn btn-danger btn-default" data-dismiss="modal"> Cancel</button>
             </div>
             <div style="float: right">  
-              <a href="#">ลืมรหัสผ่าน</a>
+              <a href="reset_pass.php">ลืมรหัสผ่าน</a>
             </div>
           </div>
       </div>
@@ -139,7 +139,7 @@
             <button type="submit" class="btn btn-danger btn-default" data-dismiss="modal" onclick="window.location.href = 'index.php';"> Cancel</button>
           </div>
           <div style="float: right">  
-            <a href="#">เข้าสู่ระบบ</a> | <a href="#">ลืมรหัสผ่าน</a>
+            <a href="#">เข้าสู่ระบบ</a> | <a href="reset_pass.php">ลืมรหัสผ่าน</a>
           </div>
         </div>
       </div>
