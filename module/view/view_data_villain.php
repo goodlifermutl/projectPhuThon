@@ -64,7 +64,7 @@
               <label class="col-sm col-form-label">เชื้อชาติ : </label>
             </div>
             <div class="col-md">
-              <input type="text" class="form-control" placeholder="เชื้อชาติ" value="<?php echo $villain_race; ?>" name="villain_race[]" disabled required>
+              <input type="text" class="form-control" placeholder="เชื้อชาติ" value="<?php echo $villain_race; ?>" name="villain_race[]" readonly required>
             </div>
             <div>
               <label class="col-sm col-form-label">สัญชาติ : </label>
@@ -87,7 +87,7 @@
                   <label class="col-sm col-form-label">เลขบัตรประจำตัวประชาชน : </label>
                 </div>
                 <div class="col-md">
-                  <input type="text" class="form-control" placeholder="เลขบัตรประจำตัวประชาชน" value="<?php echo $villain_idcard; ?>" name="villain_idcard[]" disabled required>
+                  <input type="text" class="form-control" placeholder="เลขบัตรประจำตัวประชาชน" value="<?php echo $villain_idcard; ?>" name="villain_idcard[]" readonly required>
                 </div>
                 <div>
                   <label class="col-sm col-form-label">ระดับการศึกษา : </label>
@@ -245,12 +245,12 @@
                   <label class="col-sm col-form-label">หู : </label>
                 </div>
                 <div class="col-md">
-                <select class="custom-select edit_vill<?php echo $i; ?>" id="" name="villain_eyes[]"disabled required>
+                <select class="custom-select edit_vill<?php echo $i; ?>" id="" name="villain_ears[]"disabled required>
                 <option disabled selected value="0">หู</option>
                 <?php
                 include("module/fuction/fuction_bady_section.php");
-                while(list($eares_id,$ears_name)=mysqli_fetch_row($ears_villain)){
-                  $selected=$eares_id==$iden_ears?"selected":"";
+                while(list($ears_id,$ears_name)=mysqli_fetch_row($ears_villain)){
+                  $selected=$ears_id==$iden_ears?"selected":"";
                         echo"<option value='$ears_id'$selected>$ears_name</option>";
                         }
                       ?>
@@ -275,7 +275,7 @@
                   <label class="col-sm col-form-label">ตา : </label>
                 </div>
                 <div class="col-md">
-                <select class="custom-select edit_vill<?php echo $i; ?>" id="" name="villain_ears[]"disabled required>
+                <select class="custom-select edit_vill<?php echo $i; ?>" id="" name="villain_eyes[]"disabled required>
                 <option disabled selected value="0">ตา</option>
                 <?php
                 include("module/fuction/fuction_bady_section.php");
