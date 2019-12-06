@@ -156,9 +156,7 @@
         </div>
         <hr>
       </form>
-      <?php
-    
-      ?>
+
       <div class="modal fade" id="victim_pic<?php echo $i; ?>" role="dialog">
         <div class="modal-dialog modal-auto"  role="document">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -175,3 +173,95 @@
       ?>
      
      </div>
+
+<?php  
+$md=1;
+  for($y=1;$y<=$num_loop;$y++){
+    
+?>
+<script>
+$("#victimpic<?php echo $md ?>").click(function(){
+    $("#victim_pic<?php echo $md ?>").modal();
+  });
+var id<?php echo $md;?> = $("#id<?php echo $md; ?>").val()
+$('.victim<?php echo$md; ?>').validate({ 
+								
+  rules: {
+    usrname:{
+    minlength:6
+    },
+    psw: { 
+    minlength:8
+    },
+    psw2: {
+    minlength:8,
+    equalTo: ".password"
+    },
+    idcard: {
+    minlength:13,
+    maxlength:13
+            }
+        }
+        });
+$("#save<?php echo $md ?>").hide();
+$("#cancle<?php echo $md ?>").hide();
+
+$("#victim_test<?php echo $md; ?>").click(function(){
+    $(".edit<?php echo $md; ?>").prop("disabled", false);
+    $("#save<?php echo $md ?>").show();
+    $("#cancle<?php echo $md ?>").show();
+    swal({
+  title: "การแก้ไขข้อมูล",
+  text: "ต้องการแก้ไขข้อมูลใช่หรือไม่!",
+  icon: "warning",
+  buttons: true,
+  dangerMode: true,
+  buttons: ["ยกเลิก","ตกลง"]
+})
+.then((willDelete) => {
+  if (willDelete) {
+    $( "#focus<?php echo $md ?>" ).focus();
+    
+  } else {
+    
+    window.location.href="home.php?datacase=<?php echo $case_id; ?>&module=1&action=1";
+  }
+});
+})
+$("#cancle<?php echo $md;  ?>").click(function(){
+ // alert("ggg")
+ $(".edit<?php echo $md; ?>").prop("disabled", true);
+ $("#save<?php echo $md ?>").hide();
+  $("#cancle<?php echo $md ?>").hide();
+  window.location.href="home.php?datacase=<?php echo $case_id; ?>&module=1&action=1";
+})
+$(".victim<?php echo$md; ?>").submit(function(){
+  alert("ggggggg")
+  $check = $(".victim<?php echo$md; ?>").valid();
+
+		if($check == true){
+  var formData = new FormData(this);
+  $.ajax({
+					        url: "module/fuction/update_data_victim.php",
+					        type: 'POST',
+					        data: formData,
+					        success: function (data) {
+								alert(data);
+								//swal("บันทึกสำเร็จแล้ว!", "", "success")
+								swal("บันทึกสำเร็จ!", {
+									icon: "success",
+									buttons: false,
+									timer: 1000,
+								});   
+                
+                
+                window.location.href="home.php?datacase=<?php echo $case_id; ?>&module=1&action=1";
+					        },
+					        cache: false,
+					        contentType: false,
+					        processData: false
+					    })
+}
+})
+</script>
+<?php $md++; } ?>
