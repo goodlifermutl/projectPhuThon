@@ -47,13 +47,13 @@
               <input type="text" class="form-control edit_vill<?php echo $i; ?>" placeholder="คำนำหน้าชื่อ" value="<?php echo $title_name; ?>" name="villain_title[]" disabled required>
             </div>
             <div class="col-md">
-              <input type="text" class="form-control edit_vill<?php echo $i; ?>" placeholder="ชื่อ" value="<?php echo $villain_name; ?>" disabled>
+              <input type="text" class="form-control edit_vill<?php echo $i; ?>" placeholder="ชื่อ" value="<?php echo $villain_name; ?>" name="villain_name[]" disabled required>
             </div>
             <div>
               <label class="col-sm col-form-label">นามสกุล : </label>
             </div>
             <div class="col-md">
-              <input type="text" class="form-control edit_vill<?php echo $i; ?>" placeholder="นามสกุล" value="<?php echo $villain_lastname; ?>" disabled>
+              <input type="text" class="form-control edit_vill<?php echo $i; ?>" placeholder="นามสกุล" value="<?php echo $villain_lastname; ?>" name="villain_lastname[]" disabled required>
             </div>
             </div>
             </div> 
@@ -64,19 +64,19 @@
               <label class="col-sm col-form-label">เชื้อชาติ : </label>
             </div>
             <div class="col-md">
-              <input type="text" class="form-control" placeholder="เชื้อชาติ" value="<?php echo $villain_race; ?>" disabled>
+              <input type="text" class="form-control" placeholder="เชื้อชาติ" value="<?php echo $villain_race; ?>" name="villain_race[]" disabled required>
             </div>
             <div>
               <label class="col-sm col-form-label">สัญชาติ : </label>
             </div>
             <div class="col-md">
-              <input type="text" class="form-control edit_vill<?php echo $i; ?>" placeholder="สัญชาติ" value="<?php echo $villain_nationality; ?>" disabled>
+              <input type="text" class="form-control edit_vill<?php echo $i; ?>" placeholder="สัญชาติ" value="<?php echo $villain_nationality; ?>" name="villain_nationality[]" disabled required>
             </div>
             <div>
               <label class="col-sm col-form-label">อาชีพ : </label>
             </div>
             <div class="col-md">
-            <input type="text" class="form-control edit_vill<?php echo $i; ?>" placeholder="อาชีพ" value="<?php echo $villain_career; ?>" disabled>
+            <input type="text" class="form-control edit_vill<?php echo $i; ?>" placeholder="อาชีพ" value="<?php echo $villain_career; ?>" name="villain_career[]" disabled required>
             </div>
           </div>
           </div>     
@@ -87,7 +87,7 @@
                   <label class="col-sm col-form-label">เลขบัตรประจำตัวประชาชน : </label>
                 </div>
                 <div class="col-md">
-                  <input type="text" class="form-control" placeholder="เลขบัตรประจำตัวประชาชน" value="<?php echo $villain_idcard; ?>" disabled>
+                  <input type="text" class="form-control" placeholder="เลขบัตรประจำตัวประชาชน" value="<?php echo $villain_idcard; ?>" name="villain_idcard[]" disabled required>
                 </div>
                 <div>
                   <label class="col-sm col-form-label">ระดับการศึกษา : </label>
@@ -107,7 +107,7 @@
                   <label class="col-sm col-form-label">เพศ : </label>
                 </div>
                 <div class="col-md">
-                <select class="custom-select edit_vill<?php echo $i; ?>" id="" name="victim_sex[]" disabled required>
+                <select class="custom-select edit_vill<?php echo $i; ?>" id="" name="villain_sex[]" disabled required>
                     <option value="1" <?php echo$sex1 ?>>ชาย</option>
                     <option value="2" <?php echo$sex2 ?>>หญิง</option>
                 </select>
@@ -121,7 +121,7 @@
               <label class="col-sm col-form-label">ที่อยู่ : </label>
             </div>
             <div class="col-md">
-            <input type="text" class="form-control edit_vill<?php echo $i; ?>" placeholder="ที่อยู่" value="<?php echo $villain_address; ?>" disabled>
+            <input type="text" class="form-control edit_vill<?php echo $i; ?>" placeholder="ที่อยู่" value="<?php echo $villain_address; ?>" name="villain_address[]" disabled required>
             </div>
             </div>
           </div>
@@ -145,7 +145,7 @@
                 <label class="col-sm col-form-label">รูปร่าง : </label>
               </div>
               <div class="col-md">
-              <select class="custom-select edit_vill<?php echo $i; ?>" id="" name="villain_body"disabled required>
+              <select class="custom-select edit_vill<?php echo $i; ?>" id="" name="villain_body[]" disabled required>
               <option disabled selected value="0">รูปร่าง</option>
               <?php
               include("module/fuction/fuction_bady_section.php");
@@ -160,7 +160,7 @@
                 <label class="col-sm col-form-label">ใบหน้า : </label>
               </div>
               <div class="col-md">
-              <select class="custom-select edit_vill<?php echo $i; ?>" id="" name="villain_body"disabled required>
+              <select class="custom-select edit_vill<?php echo $i; ?>" id="" name="villain_face[]"disabled required>
               <option disabled selected value="0">ใบหน้า</option>
               <?php
               include("module/fuction/fuction_bady_section.php");
@@ -175,7 +175,7 @@
                 <label class="col-sm col-form-label">ทรงผม : </label>
               </div>
               <div class="col-md">
-              <select class="custom-select edit_vill<?php echo $i; ?>" id="" name="villain_body"disabled required>
+              <select class="custom-select edit_vill<?php echo $i; ?>" id="" name="villain_hair[]"disabled required>
               <option disabled selected value="0">ทรงผม</option>
               <?php
               include("module/fuction/fuction_bady_section.php");
@@ -195,7 +195,7 @@
                 <label class="col-sm col-form-label">จมูก : </label>
               </div>
               <div class="col-md">
-              <select class="custom-select edit_vill<?php echo $i; ?>" id="" name="villain_body"disabled required>
+              <select class="custom-select edit_vill<?php echo $i; ?>" id="" name="villain_nose[]"disabled required>
               <option disabled selected value="0">จมูก</option>
               <?php
               include("module/fuction/fuction_bady_section.php");
@@ -210,7 +210,7 @@
                 <label class="col-sm col-form-label">ปาก : </label>
               </div>
               <div class="col-md">
-              <select class="custom-select edit_vill<?php echo $i; ?>" id="" name="villain_body"disabled required>
+              <select class="custom-select edit_vill<?php echo $i; ?>" id="" name="villain_mouth[]"disabled required>
               <option disabled selected value="0">ปาก</option>
               <?php
               include("module/fuction/fuction_bady_section.php");
@@ -225,7 +225,7 @@
                 <label class="col-sm col-form-label">คาง : </label>
               </div>
               <div class="col-md">
-              <select class="custom-select edit_vill<?php echo $i; ?>" id="" name="villain_body"disabled required>
+              <select class="custom-select edit_vill<?php echo $i; ?>" id="" name="villain_chin[]"disabled required>
               <option disabled selected value="0">คาง</option>
               <?php
               include("module/fuction/fuction_bady_section.php");
@@ -245,7 +245,7 @@
                   <label class="col-sm col-form-label">หู : </label>
                 </div>
                 <div class="col-md">
-                <select class="custom-select edit_vill<?php echo $i; ?>" id="" name="villain_body"disabled required>
+                <select class="custom-select edit_vill<?php echo $i; ?>" id="" name="villain_eyes[]"disabled required>
                 <option disabled selected value="0">หู</option>
                 <?php
                 include("module/fuction/fuction_bady_section.php");
@@ -260,7 +260,7 @@
                   <label class="col-sm col-form-label">หน้าผาก : </label>
                 </div>
                 <div class="col-md">
-                <select class="custom-select edit_vill<?php echo $i; ?>" id="" name="villain_body"disabled required>
+                <select class="custom-select edit_vill<?php echo $i; ?>" id="" name="villain_forehead[]"disabled required>
                 <option disabled selected value="0">หน้าผาก</option>
                 <?php
                 include("module/fuction/fuction_bady_section.php");
@@ -275,7 +275,7 @@
                   <label class="col-sm col-form-label">ตา : </label>
                 </div>
                 <div class="col-md">
-                <select class="custom-select edit_vill<?php echo $i; ?>" id="" name="villain_body"disabled required>
+                <select class="custom-select edit_vill<?php echo $i; ?>" id="" name="villain_ears[]"disabled required>
                 <option disabled selected value="0">ตา</option>
                 <?php
                 include("module/fuction/fuction_bady_section.php");
