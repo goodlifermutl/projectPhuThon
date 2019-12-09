@@ -74,3 +74,5 @@
                            <input type="file" class="form-control" id="showimg" name="showimg" accept="image/png, image/jpeg, image/gif " onchange="preview_image(event)">
                        </div>
                    </div>
+
+                   <input class="btn btn-primary btn-lg" type="submit" value="Submit">
