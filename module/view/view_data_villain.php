@@ -44,7 +44,7 @@
               <label class="col-sm col-form-label">ชื่อ : </label>
             </div>
             <div class="col-1">
-              <input type="text" class="form-control edit_vill<?php echo $i; ?>" placeholder="คำนำหน้าชื่อ" value="<?php echo $title_name; ?>" name="villain_title[]" disabled required>
+              <input type="text" class="form-control edit_vill<?php echo $i; ?>" placeholder="คำนำหน้าชื่อ" value="<?php echo $title_name; ?>" id="focus<?php echo $i?>" name="villain_title[]" disabled required>
             </div>
             <div class="col-md">
               <input type="text" class="form-control edit_vill<?php echo $i; ?>" placeholder="ชื่อ" value="<?php echo $villain_name; ?>" name="villain_name[]" disabled required>
@@ -280,7 +280,7 @@
                 <?php
                 include("module/fuction/fuction_bady_section.php");
                 while(list($eyes_id,$eyes_name)=mysqli_fetch_row($eyes_villain)){
-                  $selected=$eyes_id==$iden_ears?"selected":"";
+                  $selected=$eyes_id==$iden_eyes?"selected":"";
                         echo"<option value='$eyes_id'$selected>$eyes_name</option>";
                         }
                       ?>
