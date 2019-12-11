@@ -90,10 +90,57 @@ if($p_sta_per==1){
             </div>   
 
             <p><h3 class="mb-0 text-center">สถานะการทำงาน : <?php echo $per; ?></h3></p>
-            <a href="#" class="stretched-link">Continue reading</a>
+            <!-- <a href="#" id="btn_edit" id="policedata" class="stretched-link">แก้ไขข้อมูล<?php echo $num_peson; ?></a> -->
+            <button type="button" id="policedata<?php echo $num_peson; ?>">แก้ไขข้อมูล</button>
+            <br>
+            <p class="text-center"><button type="submit" class="btn btn-outline-success save" id="save<?php echo $num_peson; ?>" data-idcard="<?php echo $victim_idcard ?>">บันทึก</button>
+            <button type="button" class="btn btn-outline-danger" id="cancle<?php echo $num_peson; ?>">ยกเลิก</button></p>
         </div>
           
       </div>
     </div>
 </div>
 <?php $num_peson++; } ?>
+
+<?php 
+$num_p_sc=1;
+for($i=1;$i<=$num_loop_sql;$i++){
+?>
+<script>
+$("#save<?php echo $num_p_sc; ?>").hide();
+$("#cancle<?php echo $num_p_sc; ?>").hide();
+
+$("#policedata<?php echo $num_p_sc; ?>").click(function(){
+    // $(".edit<?php //echo $md; ?>").prop("disabled", false);
+    $("#save<?php echo $num_p_sc; ?>").show();
+    $("#cancle<?php echo $num_p_sc; ?>").show();
+    swal({
+  title: "การแก้ไขข้อมูล",
+  text: "ต้องการแก้ไขข้อมูลใช่หรือไม่!",
+  icon: "warning",
+  buttons: true,
+  dangerMode: true,
+  buttons: ["ยกเลิก","ตกลง"]
+
+        }).then((willDelete) => {
+            if (willDelete) {
+                // $( "#focus<?php //echo $md ?>" ).focus();
+                
+            } else {
+                
+                window.location.href="home_admin.php?module=1&action=9";
+            }
+    });
+})
+$("#cancle<?php echo $num_p_sc;  ?>").click(function(){
+ // alert("ggg")
+ $(".edit<?php echo $num_p_sc; ?>").prop("disabled", true);
+ $("#save<?php echo $num_p_sc; ?>").hide();
+  $("#cancle<?php echo $num_p_sc; ?>").hide();
+  window.location.href="home_admin.php?module=1&action=9";
+})
+</script>
+<?php 
+    $num_p_sc++; 
+        }
+?>
