@@ -1,15 +1,20 @@
 <?php
 include("../fuction/connect_db.php");
 echo "testpolice";
-
 $con = connect_db();
-$sql="SELECT card_id,rp.rank_name,ps_name,ps_lastname,sex,address,ps_num,police_pic,sta_per_police FROM police_person as pp INNER JOIN rank_police as rp WHERE rp.rank_id=pp.rank_id";
+
+$sql="SELECT card_id,rp.rank_name,ps_name,ps_lastname,sex,address,ps_num,police_pic,sta_per_police FROM police_person as pp INNER JOIN rank_police as rp ON pp.rank_id = rp.rank_id";
+$sql2="SELECT user_id FROM user as ur INNER JOIN police_person as pp ON pp.card_id = ur.card_id";
+
 $result=mysqli_query($con,$sql)or die("sql error!!!!!!!".mysqli_error($con));
+$result2=mysqli_query($con,$sql2)or die("sql2 error!!!!!!!".mysqli_error($con));
+
 $num_loop_sql=mysqli_num_rows($result);
 $num_peson=1;
 $sex;
 $per;
 while(list($p_cardid,$p_rk,$p_name,$p_lastname,$p_sex,$p_address,$p_tel,$p_pic,$p_sta_per)=mysqli_fetch_row($result)){
+    list($id_user)=mysqli_fetch_row($result2);
 if($p_sex==1){
     $sex="ชาย";
 }else{
@@ -18,14 +23,17 @@ if($p_sex==1){
 
 if($p_sta_per==1){
     $per="ปฎิบัติงาน";
+}else{
+    $per="ออกจากราชการ";
 }
 ?>
 <div class="row mb-2">
     <div class="col-md-12">
+    <form class="police_form<?php echo$num_peson ?>" method="post" enctype="multipart/form-data">
       <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
 
       <img src="image/logo.png" class="mx-auto d-block rounded-circle" width="30%">
-      
+        
         <div class="col p-4 d-flex flex-column position-static">
             <strong class="d-inline-block mb-2 text-primary">คนที่ <?php echo $num_peson ?></strong>
 
@@ -36,7 +44,7 @@ if($p_sta_per==1){
                 <label class="col-sm col-form-label">ชื่อ : </label>
                 </div>
                 <div class="col-md">
-                <select class="custom-select edit<?php echo $num_peson; ?>" id="" name="rank_police" disabled required>
+                <select class="custom-select edit<?php echo $num_peson; ?>" id="" name="rank_police[]" disabled required>
                    < <?php $result_rank = mysqli_query($con,"SELECT * FROM rank_police")or die("select rank_police error".mysqli_error($con));
                         while(list($rank_id,$rank_name)=mysqli_fetch_row($result_rank)){
                           $selected=$rank_name==$p_rk?"selected":"";
@@ -46,13 +54,13 @@ if($p_sta_per==1){
                 </select>
                 </div>
                 <div class="col-md">
-                <input type="text" class="form-control edit<?php echo $num_peson; ?>" placeholder="ชื่อ" value="<?php echo $p_name ?>" disabled required>
+                <input type="text" class="form-control edit<?php echo $num_peson; ?>" placeholder="ชื่อ" value="<?php echo $p_name ?>" name="name_police[]" disabled required>
                 </div>
                 <div>
                 <label class="col-sm col-form-label">นามสกุล : </label>
                 </div>
                 <div class="col-md">
-                <input type="text" class="form-control edit<?php echo $num_peson; ?>" placeholder="นามสกุล" value="<?php echo $p_lastname ?>" disabled required>
+                <input type="text" class="form-control edit<?php echo $num_peson; ?>" placeholder="นามสกุล" value="<?php echo $p_lastname ?>" name="lastname_police[]" disabled required>
                 </div>
             </div>
             </div>
@@ -63,7 +71,7 @@ if($p_sta_per==1){
                 <label class="col-sm col-form-label">เลขบัตรประจำตัวประชาชน : </label>
             </div>
             <div class="col-md">
-                <input type="text" class="form-control edit<?php echo $num_peson; ?>" placeholder="เลขบัตร" value="<?php echo $p_cardid ?>"  disabled required>
+                <input type="text" class="form-control edit<?php echo $num_peson; ?>" placeholder="เลขบัตร" value="<?php echo $p_cardid ?>" name="idcard_police[]" readonly required>
             </div>
             </div>
             </div> 
@@ -74,13 +82,13 @@ if($p_sta_per==1){
                 <label class="col-sm col-form-label">เบอร์โทรศัพท์มือถือ : </label>
             </div>
             <div class="col-md">
-                <input type="text" class="form-control edit<?php echo $num_peson; ?>" placeholder="เบอร์โทรศัพท์" value="<?php echo $p_tel ?>"  disabled required>
+                <input type="text" class="form-control edit<?php echo $num_peson; ?>" placeholder="เบอร์โทรศัพท์" value="<?php echo $p_tel ?>" name="phone_police[]" disabled required>
             </div>
             <div>
                 <label class="col-sm col-form-label">เพศ : </label>
             </div>
             <div class="col-md">
-                <input type="text" class="form-control edit<?php echo $num_peson; ?>" placeholder="เพศ" value="<?php echo $sex ?>"  disabled required>
+                <input type="text" class="form-control edit<?php echo $num_peson; ?>" placeholder="เพศ" value="<?php echo $sex ?>" name="sex_police[]" disabled required>
             </div>
             </div>
             </div>  
@@ -91,7 +99,7 @@ if($p_sta_per==1){
                 <label class="col-sm col-form-label">ที่อยู่ : </label>
             </div>
             <div class="col-md">
-                <input type="text" class="form-control edit<?php echo $num_peson; ?>" placeholder="ที่อยู่" value="<?php echo $p_address ?>"  disabled required>
+                <input type="text" class="form-control edit<?php echo $num_peson; ?>" placeholder="ที่อยู่" value="<?php echo $p_address ?>" name="address_police[]" disabled required>
             </div> 
             </div>
             </div>
@@ -102,14 +110,14 @@ if($p_sta_per==1){
                 <label class="col-sm col-form-label" id="label_choice_per<?php echo $num_peson; ?>">สถานะการทำงาน : </label>
             </div>
             <div class="col-md">
-                <select class="custom-select edit<?php echo $num_peson; ?>" id="choice_per<?php echo $num_peson; ?>" name="per_police" disabled required>
+                <select class="custom-select edit<?php echo $num_peson; ?>" id="choice_per<?php echo $num_peson; ?>" name="per_police[]" disabled required>
                     <option value="1">ปฎิบัติงาน</option>
                     <option value="2">ออกจากข้าราชการ</option> 
                 </select>
             </div>
             </div>
             </div>         
-
+            <p><h3 class="mb-0 text-center">ชื่อผู้ใช้งาน : <?php echo $id_user; ?></h3></p>
             <p><h3 class="mb-0 text-center">สถานะการทำงาน : <?php echo $per; ?></h3></p>
             <!-- <a href="#" id="btn_edit" id="policedata" class="stretched-link">แก้ไขข้อมูล<?php echo $num_peson; ?></a> -->
             <button type="button" id="policedata<?php echo $num_peson; ?>">แก้ไขข้อมูล</button>
@@ -117,8 +125,8 @@ if($p_sta_per==1){
             <p class="text-center"><button type="submit" class="btn btn-outline-success save" id="save<?php echo $num_peson; ?>" data-idcard="<?php echo $victim_idcard ?>">บันทึก</button>
             <button type="button" class="btn btn-outline-danger" id="cancle<?php echo $num_peson; ?>">ยกเลิก</button></p>
         </div>
-          
-      </div>
+       </div>
+       </form>
     </div>
 </div>
 <?php $num_peson++; } ?>
@@ -162,6 +170,35 @@ $("#cancle<?php echo $num_p_sc;  ?>").click(function(){
  $("#save<?php echo $num_p_sc; ?>").hide();
   $("#cancle<?php echo $num_p_sc; ?>").hide();
   window.location.href="home_admin.php?module=1&action=9";
+})
+
+$(".police_form<?php echo $num_p_sc; ?>").submit(function(){
+  alert("ggggggg")
+  $check = $(".police_form<?php echo $num_p_sc; ?>").valid();
+
+		if($check == true){
+  var formData = new FormData(this);
+  $.ajax({
+					        url: "module/fuction/update_data_police.php",
+					        type: 'POST',
+					        data: formData,
+					        success: function (data) {
+								alert(data);
+								//swal("บันทึกสำเร็จแล้ว!", "", "success")
+								swal("บันทึกสำเร็จ!", {
+									icon: "success",
+									buttons: false,
+									timer: 1000,
+								});   
+                
+                
+                window.location.href="home_admin.php?module=1&action=9";
+					        },
+					        cache: false,
+					        contentType: false,
+					        processData: false
+					    })
+}
 })
 </script>
 <?php 
