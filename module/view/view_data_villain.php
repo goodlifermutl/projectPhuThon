@@ -8,6 +8,14 @@
         $data = "";
       }else{
         $data=$_GET['datacase'];
+        
+        if(empty($_GET['search'])){
+          $search = "";
+          $l=0;
+        }else{
+          $search="#".$_GET['search'];
+          $l=1;
+        }
 
         $sex_name;
         $i=1;
@@ -28,6 +36,10 @@
             $sex_name = "หญิง";
           }
         ?>
+        <input type="hidden" id="chk_link" value="<?php echo $l  ?>">
+        <a name="<?php echo $villain_idcard_idcard ?>"></a>
+        <a name="<?php echo $villain_name ?>"></a> 
+        <a name="<?php echo $villain_lastname ?>"></a> 
         <form class="villain<?php echo$i ?>" method="post" enctype="multipart/form-data">
          <div class="col-md">
           <b><label for="formGroupExampleInput">ผู้ต้องหา คนที่ <?php echo $i; ?></label></b><button type="button" id="villain_test<?php echo $i ?>"><i class="fas fa-edit" style="font-size: 10px"></i></button>

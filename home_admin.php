@@ -75,7 +75,7 @@ $con = connect_db();
     </button>
     </ul>
     <form class="form-inline my-2 my-lg-0">
-    <a class="navbar-brand"  href="home.php?module=1&action=5"><i class="far fa-id-badge"></i> <?php echo $_SESSION['user_name']; ?></a>
+    <a class="navbar-brand"  href="home_admin.php?module=1&action=5"><i class="far fa-id-badge"></i> <?php echo $_SESSION['user_name']; ?></a>
     <a href="module/fuction/destroy_session.php"><button class="btn btn-outline-warning my-2 my-sm-0" type="button">ออกจากระบบ</button></a>
     </form>
   </div>
@@ -98,7 +98,6 @@ $con = connect_db();
   <!-- <div class="d-flex align-items-center p-3 my-3 text-black-50 bg-purple rounded shadow-sm"> -->
   <div>
   <?php 
-
   include("module/fuction/fc_module.php");
   if(empty($_GET['module'])||empty($_GET['action'])){
   module(1,8);

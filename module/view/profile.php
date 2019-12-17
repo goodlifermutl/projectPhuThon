@@ -2,6 +2,16 @@
 	//session_start();
     // include("fc/db_fc.php");
 	$con=connect_db();
+
+	$html_l="";
+	$select = mysqli_query($con,"SELECT permiss_id FROM user WHERE user_id='$_SESSION[user_name]'")or die("select sql error".mysqli_error($con));
+	list($permiss)=mysqli_fetch_row($select);
+	if($permiss==2||$permiss==3){
+		$html_l="window.location.href='home.php?module=1&action=5';";
+	}else{
+		$html_l="window.location.href='home_admin.php?module=1&action=5';";
+	}
+
     $re_user=mysqli_query($con,
     "SELECT rank_id,ps_name,ps_lastname,card_id,sex,address,ps_num,police_pic
     FROM  police_person WHERE card_id ='$_SESSION[id_card]'")or die("SQL.error>>user".mysqli_error($conh));
@@ -123,8 +133,53 @@
 									<?php
 								}
 							?>
+							<a class="btn btn-secondary" id="myBtnChangePass" href="#" role="button">เปลี่ยนรหัสผ่าน</a>
 						</div>
+				</div>
+
+				<div class="modal fade" id="changeup" role="dialog">
+					<div class="modal-dialog">
+					
+
+					<div class="modal-content">
+						<div class="modal-header" style="padding: 35px 50px">
+							<h4 style="padding-left: 90px"><i class="fas fa-lock"></i> เปลี่ยนรหัสผ่าน</h4>
+						<button type="button" class="close" data-dismiss="modal" onclick="window.location.href = '?module=1&action=5';">&times;</button>
+						</div>
+						<div class="modal-body" style="padding:40px 50px;">
+						<form role="form" method="post" action="" id="matchpass">
+							<div class="form-group">
+							<label for="oldPass"><i class="fas fa-key"></i> รหัสผ่านเก่า</label>
+							<input type="text" class="form-control chk_user" id="oldPass" name="oldPass" placeholder="รหัสผ่านเก่า" required>
+							<span id='showtxtuser' style="color:red"></span>
+							</div>
+							<div class="form-group">
+							<label for="newPass1"><i class="fas fa-key"></i> รหัสผ่านใหม่</label>
+							<input type="password" class="form-control password" id="newPass1" name="newPass1" placeholder="กรอกรหัสผ่านใหม่" required>
+							</div>
+							<div class="form-group">
+							<label for="newPass2"><i class="fas fa-lock"></i> ยืนยันรหัสผ่านใหม่</label>
+							<input type="password" class="form-control confpass" id="newPass2" name="newPass2" placeholder="ยืนยันรหัสผ่านใหม่" required>
+							</div>
+				     
+							<button type="submit" class="btn btn-success btn-block" id="submit"> ตกลง</button>
+							<button class="btn btn-success btn-block" id="spingg" disabled>
+							<span class="spinner-border spinner-border-sm"></span>
+							Loading..
+							</button>
+						</form>
+						</div>
+						<div class="footer">
+						<div style="float: right;">
+							<button type="submit" class="btn btn-danger btn-default" data-dismiss="modal" onclick="window.location.href = '?module=1&action=5';"> Cancel</button>
+						
+						
+						</div>
+						</div>
+					
+					</div>
 				</div> 
+
     </div>
 </form>
 </div>
@@ -166,7 +221,8 @@ $("#dataPro").submit(function(e){
       button: "ตกลง",
     }).then((value) => {
       
-      window.location.href="home.php?module=1&action=5";
+    //   window.location.href="home.php?module=1&action=5";
+	<?php echo $html_l; ?>
 });
 
 },
@@ -175,11 +231,16 @@ $("#dataPro").submit(function(e){
             processData: false
 });	
 // }
-
-
 })
 $("#canclePro").click(function(){
-	window.location.href="home.php?module=1&action=5";
-	
+	// window.location.href="home.php?module=1&action=5";
+	<?php echo $html_l; ?>
+});
+
+
+$(document).ready(function(){
+  $("#myBtnChangePass").click(function(){
+    $("#changeup").modal({backdrop: 'static', keyboard: false}); 
+  });
 });
 </script>

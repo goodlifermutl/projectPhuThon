@@ -41,8 +41,18 @@ list($permiss)=mysqli_fetch_row($select);
 $html_l;
 if($permiss==2){
   $html_l="home.php";
-}else if($permiss==3){
+}if($permiss==3){
   $html_l="home.php?&module=2&action=2";
+}if($permiss==4){ ?>
+  <script>
+  swal({
+      title: "กรุณาเข้าสู่ระบบ",
+      icon: "warning",
+  }).then((value) => {
+window.location.href = "index.php";
+  });
+</script>
+<?php
 }
 
 if(empty($_SESSION['user_name'])){

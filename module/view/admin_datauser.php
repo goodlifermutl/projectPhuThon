@@ -3,18 +3,19 @@ include("../fuction/connect_db.php");
 $con = connect_db();
 echo $_POST['no'];
 if($_POST['no']==6){
-  $select = mysqli_query($con,"SELECT permiss_id,user_id FROM user")or die("select sql error!!!!".mysqli_error($con));     
+  $select = mysqli_query($con,"SELECT permiss_id,user_id,card_id FROM user")or die("select sql error!!!!".mysqli_error($con));     
 }else if($_POST['no']==5){
-  $select = mysqli_query($con,"SELECT permiss_id,user_id FROM user WHERE permiss_id='$_POST[no]'")or die("select sql error!!!!".mysqli_error($con));     
+  $select = mysqli_query($con,"SELECT permiss_id,user_id,card_id FROM user WHERE permiss_id='$_POST[no]'")or die("select sql error!!!!".mysqli_error($con));     
 }else if($_POST['no']==4){
-  $select = mysqli_query($con,"SELECT permiss_id,user_id FROM user WHERE permiss_id='$_POST[no]'")or die("select sql error!!!!".mysqli_error($con));     
+  $select = mysqli_query($con,"SELECT permiss_id,user_id,card_id FROM user WHERE permiss_id='$_POST[no]'")or die("select sql error!!!!".mysqli_error($con));     
 }else if($_POST['no']==3){
-  $select = mysqli_query($con,"SELECT permiss_id,user_id FROM user WHERE permiss_id='$_POST[no]'")or die("select sql error!!!!".mysqli_error($con));     
+  $select = mysqli_query($con,"SELECT permiss_id,user_id,card_id FROM user WHERE permiss_id='$_POST[no]'")or die("select sql error!!!!".mysqli_error($con));     
 }else if($_POST['no']==2){
-  $select = mysqli_query($con,"SELECT permiss_id,user_id FROM user WHERE permiss_id='$_POST[no]'")or die("select sql error!!!!".mysqli_error($con));
+  $select = mysqli_query($con,"SELECT permiss_id,user_id,card_id FROM user WHERE permiss_id='$_POST[no]'")or die("select sql error!!!!".mysqli_error($con));
 }else if($_POST['no']==1){
-  $select = mysqli_query($con,"SELECT permiss_id,user_id FROM user WHERE permiss_id='$_POST[no]'")or die("select sql error!!!!".mysqli_error($con));
+  $select = mysqli_query($con,"SELECT permiss_id,user_id,card_id FROM user WHERE permiss_id='$_POST[no]'")or die("select sql error!!!!".mysqli_error($con));
 }
+
 ?>
 <div class="text-center">
 <h2>อนุมัติสิทธิ์ผู้ใช้งาน</h2>
@@ -22,13 +23,16 @@ if($_POST['no']==6){
 
 <div class="container">
     <!-- Example row of columns -->
-    <form method="post">
+    <form method="post" enctype="multipart/form-data">
     <div class="row">
       <?php 
         // $select = mysqli_query($con,"SELECT permiss_id,user_id FROM user")or die("select sql error!!!!".mysqli_error($con));     
         $loop=mysqli_num_rows($select);
         $num=1; 
-        while(list($permiss_id,$user_id)=mysqli_fetch_row($select)){  
+        while(list($permiss_id,$user_id,$user_cardid)=mysqli_fetch_row($select)){  
+          $sql="SELECT card_id,rp.rank_name,ps_name,ps_lastname FROM police_person as pp INNER JOIN rank_police as rp ON pp.rank_id = rp.rank_id WHERE card_id=$user_cardid";
+          $result=mysqli_query($con,$sql)or die("sql police error!!!!!!!".mysqli_error($con));
+          list($p_cardid,$p_rk,$p_name,$p_lastname)=mysqli_fetch_row($result);
         if($permiss_id==5){
           $status_text="ไม่มีสถานะ";
         }else if($permiss_id==4){
@@ -39,10 +43,14 @@ if($_POST['no']==6){
           $status_text="เจ้าหน้าที่ปัฎิบัติงาน";
         }else{
           $status_text="เจ้าหน้าที่ชั้นสูง";
-        }?>
+        }
+
+        ?>
       <div class="col-md-5" style="border:solid green 2px; border-radius:70px; margin:4%;">
-        <h4><?php echo $status_text; ?></h4>
-        <p>ชื่อผู้ใช้งาน : <?php echo $user_id; ?></p>
+        <h4><b><?php echo $status_text; ?></b></h4>
+        <p><b>ชื่อผู้ใช้งาน : </b><?php echo $user_id; ?></p>
+        <input type="hidden" value="<?php echo $p_cardid ?>" id="p_cardid<?php echo $num ?>">
+        <p><b>ตำแหน่ง : </b><a id="linkID<?php echo $num ?>" href="?module=1&action=9&cardid=<?php echo $p_cardid ?>"><?php echo $p_rk;?> &nbsp; <?php echo $p_name;?> <?php echo $p_lastname; ?></a></p>
         <p>
         <input type="hidden" value="<?php echo $user_id ?>" id="user<?php echo $num ?>">
         <div class="form-group">
@@ -61,7 +69,8 @@ if($_POST['no']==6){
               </button>
         </p>
       </div>
-      <?php $num++; } 
+      <?php $num++; 
+      } 
       mysqli_close($con);?>
     </div>
     </form>
@@ -79,6 +88,13 @@ $("#btnRE<?php echo $md ?>").click(function(){
   $("#btnRE<?php echo $md ?>").hide();
   $("#spingg<?php echo $md ?>").show();
 })
+// $("#linkID<?php //echo $md ?>").click(function(){
+//   var cardid= $("#p_cardid<?php //echo $md ?>").val()
+//   $.post("module/view/admin_policedata.php",{cardid:cardid}).done(function(data,txtstuta){
+//       alert(cardid);
+//       window.location.href="home_admin.php?&module=1&action=9";
+//     })
+// })
 })
 $("#sel1<?php echo $md; ?>").change(function(){
     swal({

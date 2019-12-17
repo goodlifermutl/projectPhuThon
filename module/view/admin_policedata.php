@@ -1,6 +1,5 @@
 <?php
 include("../fuction/connect_db.php");
-echo "testpolice";
 $con = connect_db();
 
 $sql="SELECT card_id,rp.rank_name,ps_name,ps_lastname,sex,address,ps_num,police_pic,sta_per_police FROM police_person as pp INNER JOIN rank_police as rp ON pp.rank_id = rp.rank_id";
@@ -13,6 +12,9 @@ $num_loop_sql=mysqli_num_rows($result);
 $num_peson=1;
 $sex;
 $per;
+
+echo $_GET['cardid'];
+
 while(list($p_cardid,$p_rk,$p_name,$p_lastname,$p_sex,$p_address,$p_tel,$p_pic,$p_sta_per)=mysqli_fetch_row($result)){
     list($id_user)=mysqli_fetch_row($result2);
 if($p_sex==1){
@@ -33,7 +35,7 @@ if($p_sta_per==1){
       <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
 
       <img src="image/logo.png" class="mx-auto d-block rounded-circle" width="30%">
-        
+        <a name="<?php echo $p_cardid; ?>"></a>
         <div class="col p-4 d-flex flex-column position-static">
             <strong class="d-inline-block mb-2 text-primary">คนที่ <?php echo $num_peson ?></strong>
 
