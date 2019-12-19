@@ -1,45 +1,6 @@
 <?php $con = connect_db(); ?>
-<div class="container">
-    <div class="col-md">
-    <h1 class="text-center">เพิ่มข้อมูลกลาง</h1>
-    </div>
-    <form id="insert_villain" method="post">
-      <div class="text-center">
-      <div class="col-md">
-          <div class="form-row">
-          <div>
-              <label class="col-sm col-form-label">ชื่อของกลาง: </label>
-          </div>
-          <div class="col-md-3">
-              <input type="text" class="form-control " placeholder="" value="" id="focus<?php echo $i?>" name="villain_titlename" required>
-          </div>
-          <div class="col-sm-0" align=""> วันที่รับของกลาง </div>
-                   <div class="col-sm-3" align="">
-                     <input  name="dates " type="date" required class="form-control" id="dates" />
-                   </div>
-      </div>
-      </div>
-    </div>
-      <p></P>
-      <div class="col-md">
-          <div class="form-row">
-          <div>
-              <label class="col-sm col-form-label">ลักษณะของกลาง: </label>
-          </div>
-          <div class="col-md-3">
-              <input type="text" class="form-control " placeholder="" value="" id="focus<?php echo $i?>" name="villain_titlename" required>
-          </div>
-          <div>
-              <label class="col-sm col-form-label">ขนาดของกลาง: </label>
-          </div>
-          <div class="col-md-3">
-              <input type="text" class="form-control " placeholder="" value="" id="focus<?php echo $i?>" name="villain_titlename" required>
-          </div>
 
-      </div>
-      </div>
-<p></P>
-  <script type='text/javascript'>
+<script type='text/javascript'>
      function preview_image(event)
      {
           var reader = new FileReader();
@@ -51,28 +12,58 @@
           reader.readAsDataURL(event.target.files[0]);
      }
      </script>
-</head>
-<body>
+
 <div class="container">
-<div class="row">
- <div class="col-md-2"></div>
- <div class="col-md-7">
-  <h4> รูปภาพของกลาง</h4>
-   <form action="http://devbanban.com/" method="get" enctype="multipart/form-data" class="form-horizontal">
+        <h1 class="text-center">เพิ่มข้อมูลกลาง</h1>
+        <p></p>
+        <form>
+        <div class="form-group row">
+          <label class="col-form-label">ชื่อของกลาง : </label>
+          <div class="col">
+          <input type="" class="form-control" id="">
+          </div>
+          <label class="col-form-label">วันที่รับของกลาง : </label>
+          <div class="col">
+          <input  name="dates " type="date" required class="form-control" id="dates" />
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-form-label">ขนาดของกลาง : </label>
+          <div class="col">
+          <input type="" class="form-control" id="">
+          </div>
+          <label class="col-form-label">ลักษณะของกลาง : </label>
+          <div class="col">
+          <input type="" class="form-control" id="">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-form-label" style="">สถานะของกลาง : </label>
+          <div class="col">
+            <select id="inputState" class="form-control">
+          <option selected>ยึด</option>
+          <option>คืน</option>
+        </select>
+          </div>
+        </div>
 
-   <div class="form-group">
-                       <div class="col-md-3"></div>
-                       <div class="col-md-7">
-                        preview <br>
+        <h4> รูปภาพของกลาง </h4>
 
-                        <img  id="showimg" alt="" width="300" height="300">
-                       </div>
-                   </div>
-     <div class="form-group">
-                       <label class="control-label col-md-3"  >เลือกภาพ :</label>
-                       <div class="col-md-6">
-                           <input type="file" class="form-control" id="showimg" name="showimg" accept="image/png, image/jpeg, image/gif " onchange="preview_image(event)">
-                       </div>
-                   </div>
 
-                   <input class="btn btn-primary btn-lg" type="submit" value="Submit">
+        			<div class="form-group">
+        			  <img  id="showimg" alt="" width="300" height="300">
+
+
+        			  <div class="form-group row">
+                  <div class="col">
+        			                    <label class="control-label"  >เลือกภาพ :</label>
+                                </div>
+
+        			                        <input type="file" class="form-control" id="showimg" name="showimg" accept="image/png, image/jpeg, image/gif " onchange="preview_image(event)">
+
+        			                </div>
+
+
+
+<button type="button" class="btn btn-primary btn-lg btn-block">บันทึกข้อมูล</button>
+      </form>
