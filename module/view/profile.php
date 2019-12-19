@@ -137,7 +137,10 @@
 						</div>
 				</div>
 
-				<div class="modal fade" id="changeup" role="dialog">
+
+</form>
+
+<div class="modal fade" id="changeup" role="dialog">
 					<div class="modal-dialog">
 					
 
@@ -150,7 +153,7 @@
 						<form role="form" method="post" action="" id="matchpass">
 							<div class="form-group">
 							<label for="oldPass"><i class="fas fa-key"></i> รหัสผ่านเก่า</label>
-							<input type="text" class="form-control chk_user" id="oldPass" name="oldPass" placeholder="รหัสผ่านเก่า" required>
+							<input type="password" class="form-control chk_old_pass" id="oldPass" name="oldPass" placeholder="รหัสผ่านเก่า" required>
 							<span id='showtxtuser' style="color:red"></span>
 							</div>
 							<div class="form-group">
@@ -181,9 +184,16 @@
 				</div> 
 
     </div>
-</form>
+
 </div>
-<script>
+
+<?php 
+$re=mysqli_query($con,"SELECT  pass_id FROM user WHERE user_id='$_SESSION[user_name]'" ) or  die ("mysql error=>>".mysql_error($con));
+list($u_psw)=mysqli_fetch_row($re);
+ ?>
+
+<script> 
+$("#spingg").hide();
 $("#canclePro").hide();
 $("#savePro").hide();
 $("#updatePro").hide();
@@ -195,6 +205,7 @@ $("#editPro").click(function(){
 	$("#updatePro").show();
 	$("#canclePro").show();
 	$("#editPro").hide();
+	$("#myBtnChangePass").hide();
 });
 $("#dataPro").submit(function(e){
 
@@ -238,9 +249,70 @@ $("#canclePro").click(function(){
 });
 
 
-$(document).ready(function(){
+// $(document).ready(function(){
   $("#myBtnChangePass").click(function(){
     $("#changeup").modal({backdrop: 'static', keyboard: false}); 
   });
+// });
+
+$('.chk_old_pass').blur(function(){
+	var text = $(this).val();
+	alert(text);
+	if(val == text ){
+		$('#showtxtuser').html("<b>รหัสถูกต้อง !!!!</b>");
+            $("input:text").val("");
+				return false;
+
+		}
+});
+
+
+$('#matchpass').validate({ 
+								
+	rules: {
+		oldPass:{
+          minlength:8
+          },
+          newPass1: { 
+           minlength:8
+           },
+           newPass2: {
+            minlength:8,
+          equalTo: ".password"
+           }
+		}
+});
+
+$("#matchpass").submit(function(e){
+				e.preventDefault();
+				$check = $("#matchpass").valid();
+
+				if($check == true){
+				var formData = new FormData(this);
+              $("#spingg").show();
+              $("#submit").hide();
+					    $.ajax({
+					        url: "module/fuction/chang_pass.php",
+					        type: 'POST',
+					        data: formData,
+					        success: function (data) {
+                   alert(data)  
+              $('#changeup').modal("hide")
+
+// $('#changeup').on('hidden.bs.modal', function (e) {
+//             swal({
+//             title: "กรุณาตรวจสอบอีเมลของท่าน",
+//             icon: "success",
+//             button: "ตกลง",
+//           }).then((value) => {
+//     window.location.href = "index.php";
+// });
+//       })
+		},
+					        cache: false,
+					        contentType: false,
+					        processData: false
+	  });	
+	}
 });
 </script>

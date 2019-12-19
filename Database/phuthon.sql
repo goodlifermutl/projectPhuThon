@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 10, 2019 at 07:58 AM
+-- Generation Time: Dec 19, 2019 at 12:18 PM
 -- Server version: 10.3.15-MariaDB
 -- PHP Version: 7.3.6
 
@@ -169,9 +169,10 @@ CREATE TABLE `police_person` (
 --
 
 INSERT INTO `police_person` (`card_id`, `rank_id`, `ps_name`, `ps_lastname`, `sex`, `address`, `ps_num`, `police_pic`, `sta_per_police`) VALUES
-('1458867563768', 6, 'ศูนย์เก้า', 'เทสเทส', 1, '12/534 หมู่ 78 บ้าน สัน', '0824563321', '', 1),
+('1458867563768', 6, 'ศูนย์เก้า', 'รักษ์ยม', 0, '12/534 หมู่ 78 บ้าน สันป่าไผ่ อ.ไผ่งาม จ.เชียงราย 50448', '0924563321', '', 1),
 ('1509908798090', 8, 'ลูกจ๊อก', 'อ่อนด๊อย', 1, 'หมู่ 8 บ้าน 78', '0977865786', '', 1),
-('1568867987693', 9, 'คนที่สอง', 'ลองดู', 2, '77/5 หมู 8 บ้าน ค่ำ', '085786553', '', 1);
+('1568867987693', 9, 'คนที่สอง', 'ลองดู', 2, '77/5 หมู 8 บ้าน ค่ำ', '085786553', '', 1),
+('1569789090974', 9, 'แอดดี้', 'แอตตี้กัส', 0, 'บ้านโคก หมู่ 9 ต.เฮือก อ.อะเจียง จ.พิษณุโลก 40570', '0828894625', '', 1);
 
 -- --------------------------------------------------------
 
@@ -273,13 +274,10 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`permiss_id`, `user_id`, `pass_id`, `card_id`, `user_email`, `verification_user`, `verification_type`) VALUES
-(3, 'user03', 'a64dbbe3ad85a69ba6496e198fd5b561', '1235676875674', 'nickqbe@gmail.com', '071X4G53D1', 1),
-(3, 'user04', '2f3a2d395225867d72da4bbc8c2bff29', '1266787598746', 'nickqbe@gmail.com', 'S06809CF08', 0),
 (2, 'user009', 'b5b73fae0d87d8b4e2573105f8fbe7bc', '1458867563768', 'nickqbe@gmail.com', '529GDC9M1Z', 1),
-(2, 'user01', 'b5b73fae0d87d8b4e2573105f8fbe7bc', '1509908798090', 'nickqbe@gmail.com', '0M19G919JF', 1),
+(2, 'user01', '7099632ea01c9c72a07627529304b95d', '1509908798090', 'nickqbe@gmail.com', '0M19G919JF', 1),
 (3, 'user02', 'b5b73fae0d87d8b4e2573105f8fbe7bc', '1568867987693', 'nickqbe@gmail.com', '07XHB95Z1N', 1),
-(4, 'admin01', 'c93ccd78b2076528346216b3b2f701e6', '1569789090974', 'nickqbe@gmail.com', '1469026SVJ', 1),
-(2, 'user05', 'db18a5a285edc9858c99e85e855d76c6', '1578667687593', 'nickqbe@gmail.com', 'H7908ZBMXV', 0);
+(4, 'admin01', 'a39e8fe7a53f62edf2c5b8feb0e8c6d4', '1569789090974', 'nickqbe@gmail.com', '1469026SVJ', 1);
 
 -- --------------------------------------------------------
 
