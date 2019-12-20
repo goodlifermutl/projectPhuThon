@@ -14,13 +14,18 @@
     display: flex;
     /* border: 1px solid #29ecdc; */
 }
-.bigbody{
-  /* border: 1px solid  #cfec29; */
+.dodyview{
+  border: 1px solid  #29eca1;
 }
 .topbigbody{
-  /* border:1px solid #ee780a; */
+  border: 1px solid #693a56;
+  float: right;
+  width: 85%;
 }
 .subbigbody{
+  padding-left: 20%;
+}
+.subbigbody2{
   padding-top: 3%;
 }
 .iconcenter{
@@ -33,15 +38,21 @@ a{
 a:hover{
   color: greenyellow;
 }
+.left-beforfooter{
+  border:1px solid #186849;
+  float:left;
+  width:15%;
+  height: auto;
+  text-align: center;
+}
 .beforfooter{
   border: 1px solid #f31d76;
-}
-.bf-footer{
-  border: 1px solid #f31d76;
-  float: left;
-  width: 105%;
+  float: right;
+  width: 85%;
+  height:auto;
 }
 .menu{
+  border:1px solid #0be7dc;
   display: flex;
 }
 .clearfloat{
@@ -70,6 +81,6 @@ td.details-control {
 tr.shown td.details-control {
   background: url('image/close.png') no-repeat center center;
 }
-.victim{
-  border: 1px solid #caae11;
+.dataview{
+  border: 1px solid #eb451c;
 }

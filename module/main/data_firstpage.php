@@ -3,7 +3,7 @@
     <div class="subbigbody">
       <br>
     <div class="row">
-    <div class="col-sm-6">
+    <div class="col-sm-5">
       
     <p class="text-center"><b>ค้นหาข้อมูล</b></p>
       <a href="#" id="myBtnSc">
@@ -16,7 +16,7 @@
       <p class="text-center"><i class="fas fa-edit" style="font-size: 80px"></i></p>
       </a>
     </div> -->
-    <div class="col-sm-6">
+    <div class="col-sm-5">
       <p class="text-center"><b>เพิ่มข้อมูล</b></p>
       <a href="#" id="myBtnNs">
       <p class="text-center"><i class="fas fa-plus-circle" style="font-size: 80px"></i></i></p>
@@ -25,6 +25,34 @@
     </div>
     </div>
     </div>
+  <div class="left-beforfooter">
+    <h3>คดีปักหมุด</h3>
+    <hr>
+    <?php
+     $con = connect_db();
+      $i="1";
+     $sql_res = mysqli_query($con,"SELECT cn.case_id,cn.case_name,cn.case_type,cn.case_savetime,cn.case_status FROM case_name as cn INNER JOIN responsible_person as rp ON rp.case_id = cn.case_id WHERE rp.card_id ='$_SESSION[id_card]'")or die("select sql responsible_person error".mysqli_error($con));
+
+     while(list($case_id,$case_name,$case_type,$case_date,$status_case)=mysqli_fetch_row($sql_res)){
+      if($case_type==1){
+        $case_typeName="คดีเพ่ง";
+      }else{
+        $case_typeName="คดีอาญา";
+      }
+      ?><button type="button" class="btn btn-danger" id="deletelist<?php echo $i ?>"><i class="far fa-trash-alt" style="font-size: 10px"></i></button><?php
+          echo"
+          <tr>
+            <td><a href='?datacase=$case_id&module=1&action=1'>$case_name</td>
+            <td>$case_id</td>
+            <td>$case_typeName</a></td>
+          </tr>";
+
+          $i++;
+      }
+
+    ?>
+    
+  </div>
   <div class="beforfooter">
       <br>
       <h1 class="text-center">คดีที่รับผิดชอบ</h1>
@@ -55,7 +83,11 @@
        </table>
        <hr>
 </div>
-<div class="footer">1</div>
+<div class="clearfloat"></div>
+
+
+<!-- <div class="footer">1</div> -->
+
 <div class="modal fade" id="SC" role="dialog">
   <div class="modal-dialog modal-xl"  role="document">
     <div class="modal-content">

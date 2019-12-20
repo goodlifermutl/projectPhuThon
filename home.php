@@ -75,6 +75,7 @@ window.location.href = "index.php";
 
 ?>
 <?php echo $com_s ?>
+<div class=""> <!-- sticky-top -->
  <nav class="navbar navbar-expand-lg navbar-light bg-light"> <!--fixed-top-->
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -101,6 +102,7 @@ window.location.href = "index.php";
     </form>
   </div>
 </nav>
+</div>
 <!-- <ul class="nav justify-content-center">
   <li class="nav-item" style="margin-right:20px;">
   <a href="#" id="myBtnSc">
@@ -113,7 +115,7 @@ window.location.href = "index.php";
 </ul> -->
 
 
-<div class="container bigbody">
+<div class="container-fluid">
 
 <?php 
 
@@ -127,10 +129,8 @@ if(empty($_GET['module'])||empty($_GET['action'])){
 ?>
 
   </div>
+  <div class="footer">1</div>
        
-
-
-</div>
 <?php echo $com_s?>
 </body>
 </html>

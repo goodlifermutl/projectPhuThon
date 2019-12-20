@@ -61,6 +61,7 @@ $con = connect_db();
  $select = mysqli_query($con,"SELECT permiss_id,user_id FROM user WHERE permiss_id='5'")or die("select sql error!!!!".mysqli_error($con));     
  $loop=mysqli_num_rows($select);
 ?>
+<div class="sticky-top">
  <nav class="navbar navbar-expand-lg navbar-light bg-light"> <!--fixed-top-->
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -92,6 +93,7 @@ $con = connect_db();
     
  
   </nav>
+</div>
 </div>
 
 <main role="main" class="container">

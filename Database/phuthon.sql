@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 19, 2019 at 12:18 PM
+-- Generation Time: Dec 20, 2019 at 01:00 PM
 -- Server version: 10.3.15-MariaDB
 -- PHP Version: 7.3.6
 
@@ -149,6 +149,17 @@ CREATE TABLE `inquiry_official` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `pin_case`
+--
+
+CREATE TABLE `pin_case` (
+  `case_id` text COLLATE utf8_unicode_ci DEFAULT NULL,
+  `user_id` text COLLATE utf8_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `police_person`
 --
 
@@ -275,9 +286,9 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`permiss_id`, `user_id`, `pass_id`, `card_id`, `user_email`, `verification_user`, `verification_type`) VALUES
 (2, 'user009', 'b5b73fae0d87d8b4e2573105f8fbe7bc', '1458867563768', 'nickqbe@gmail.com', '529GDC9M1Z', 1),
-(2, 'user01', '7099632ea01c9c72a07627529304b95d', '1509908798090', 'nickqbe@gmail.com', '0M19G919JF', 1),
+(2, 'user01', '2c9341ca4cf3d87b9e4eb905d6a3ec45', '1509908798090', 'nickqbe@gmail.com', '0M19G919JF', 1),
 (3, 'user02', 'b5b73fae0d87d8b4e2573105f8fbe7bc', '1568867987693', 'nickqbe@gmail.com', '07XHB95Z1N', 1),
-(4, 'admin01', 'a39e8fe7a53f62edf2c5b8feb0e8c6d4', '1569789090974', 'nickqbe@gmail.com', '1469026SVJ', 1);
+(4, 'admin01', 'c93ccd78b2076528346216b3b2f701e6', '1569789090974', 'nickqbe@gmail.com', '1469026SVJ', 1);
 
 -- --------------------------------------------------------
 

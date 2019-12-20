@@ -1,5 +1,7 @@
 <a name="ผู้เสียหาย"></a>
-    <div class="victim">
+<br>
+<br>
+    <div class="dataview">
       <p><h1 class="text-center">ผู้เสียหาย</h1></p>
       <br>
    

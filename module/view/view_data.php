@@ -1,5 +1,4 @@
 
-
 <?php
 // session_start();
 // include ("../fuction/connect_db.php");
@@ -26,13 +25,20 @@ window.location.href = "index.php";
 }
 ?>
 <?php echo $com_s ?>
-<div  class="topbigbody">
+<div class="sticky-top" style="padding-top:3px;background:white;">
+
+<button type="button" id="btnPinG" class="btn btn-warning"><b>ปักหมุดคดี</b></button>
+<button type="button" id="btnPinN" class="btn btn-danger"><b>ยกเลิกปักหมุด</b></button>
+<a href="#ผู้เสียหาย"><button type="button" class="btn btn-outline-info">ผู้เสียหาย</button></a>
+<a href="#ผู้ต้องหา"><button type="button" class="btn btn-outline-info">ผู้ต้องหา</button></a>
+</div>
+<div  class="topbigbody2">
   <!-- <br>
     <form class="form-inline my-2 my-lg-0 menusearch">
       <input class="form-control mr-sm-2" type="search" placeholder="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form> -->
-    <div class="subbigbody">
+    <div class="subbigbody2">
     <div class="row">
     <div class="col-sm-6">
     <p class="text-center"><b>ค้นหาข้อมูล</b></p>
@@ -56,7 +62,7 @@ window.location.href = "index.php";
     </div>
     </div>
 
-<div class="container bigbody">
+<div class="dodyview">
   
     <div class="col-md">
     <section class="bf-footer">
@@ -86,25 +92,24 @@ window.location.href = "index.php";
         ?>
       </form>
     </div>
-
        <?php 
        include("module/view/view_data_victim.php");
        include("module/view/view_data_villain.php");
        ?> 
-
+      
      <br>
      <br>
      <br>
 
 </section>
-<aside class="menu  sticky-top">
+<!-- <aside class="menu  sticky-top">
     <ul style="list-style-type: none;margin:0;padding:0;">
       <li style="margin:0px 0px 5px 0px;"><a href="#ผู้เสียหาย"><button type="button" class="btn btn-outline-primary">ผู้เสียหาย</button></a></li>
       <li style="margin:0px 0px 5px 0px;"><a href="#ผู้ต้องหา"><button type="button" class="btn btn-outline-primary">ผู้ต้องหา</button></a></li>
     </ul>
 </aside>
-<div class="clearfloat"></div>
-<div class="footer-view"></div>
+<div class="clearfloat"></div> -->
+<!-- <div class="footer-view"></div> -->
 </div>
 
 <div class="modal fade" id="SC" role="dialog">
@@ -148,45 +153,13 @@ window.location.href = "index.php";
             <div class="clearfloat"></div>
           </div>
       </div>
-      </div>    
-<script>
-  
-
-
-//$("#victim").on('submit','.save',function(){
- //e.preventDefault();
- //alert("gg")
-  // $check = $("#victim").valid();
-  // if($check == true){
-
-  // var formData = new FormData(this);
-  // var idc = $(this).data("idcard");
-    
-//         $.ajax({
-//             url: "../fuction/update_data.php",
-//             type: 'POST',
-//             data: formData,
-//             success: function (data) {
-//              alert(data)  
-        
-//       swal({
-//       title: "สมัครสมาชิกสำเร็จ",
-//       icon: "success",
-//       button: "ตกลง",
-//     }).then((value) => {
+      </div> 
+    </div> 
       
-//       //window.location.href="../main/home.php?datacase=<?php echo $case_id; ?>&module=1&action=1&#";
-// });
-
-// },
-//             cache: false,
-//             contentType: false,
-//             processData: false
-// });	
-// }
-//});
+<script>
 
 $(document).ready(function(){
+  $("#btnPinN").hide();
   $('#table_id').DataTable();
   $("#myBtnSc").click(function(){
     $("#SC").modal();
@@ -195,6 +168,35 @@ $(document).ready(function(){
     window.location.href="home.php?&module=2&action=2";
   });
 })
+
+$("#btnPinG").click(function(){
+  alert("ggggggg")
+  $("#btnPinG").hide();
+  $("#btnPinN").show();
+});
+
+$("#btnPinN").click(function(){
+  alert("ggggggg")
+  
+  swal({
+  title: "การปักหมุด",
+  text: "ต้องการยกเลิกใช่หรือไม่!",
+  icon: "warning",
+  buttons: true,
+  dangerMode: true,
+  buttons: ["ยกเลิก","ตกลง"]
+})
+.then((willDelete) => {
+  if (willDelete) {
+    $("#btnPinN").hide();
+    $("#btnPinG").show();
+    
+  } else {
+    
+
+  }
+});
+});
 
 search_idcard()
 
@@ -239,5 +241,4 @@ $(document).ready(function() {
  });
 
 </script>
-</div>
 <?php echo $com_s?>
