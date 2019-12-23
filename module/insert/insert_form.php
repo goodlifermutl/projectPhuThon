@@ -20,8 +20,8 @@ a:hover{
   color: yellow;
 }
 </style>
-<div  class="topbigbody">
-    <div class="subbigbody">
+<!-- <div  class="topbigbody3">
+    <div class="subbigbody"> -->
       <br>
     <div class="row">
     <div class="col-sm-4">
@@ -44,10 +44,10 @@ a:hover{
       </a>
     </div>
     </div>
-    </div>
-    </div>
-    <div  class="topbigbody">
-    <div class="subbigbody">
+    <!-- </div>
+    </div> -->
+    <!-- <div  class="topbigbody3">
+    <div class="subbigbody"> -->
       <br>
     <div class="row">
     <div class="col-sm-4">
@@ -70,10 +70,10 @@ a:hover{
       </a>
     </div>
     </div>
-    </div>
-    </div>
-    <div  class="topbigbody">
-    <div class="subbigbody">
+    <!-- </div>
+    </div> -->
+    <!-- <div  class="topbigbody3">
+    <div class="subbigbody"> -->
       <br>
     <div class="row">
     <div class="col-sm-4">
@@ -96,10 +96,10 @@ a:hover{
       </a>
     </div>
     </div>
+    <!-- </div>
     </div>
-    </div>
-    <div  class="topbigbody">
-    <div class="subbigbody">
+    <div  class="topbigbody3">
+    <div class="subbigbody"> -->
       <br>
     <div class="row">
     <div class="col-sm-12">
@@ -110,9 +110,9 @@ a:hover{
       </a>
     </div>
     </div>
-    </div>
-    </div>
-<div class="footer">1</div>
+    <!-- </div>
+    </div> -->
+
 <?php
  $link = array("4", "10", "11", "12", "13", "14", "15", "16", "17");
  $n=count($link);

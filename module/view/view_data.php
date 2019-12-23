@@ -67,7 +67,7 @@ window.location.href = "index.php";
     <div class="col-md">
     <section class="bf-footer">
     <div class="namecase">
-      <form>
+      <form method="post" enctype="multipart/form-data">
       <?php 
       if(empty($_GET['datacase'])){
         $data = "";
@@ -173,6 +173,26 @@ $("#btnPinG").click(function(){
   alert("ggggggg")
   $("#btnPinG").hide();
   $("#btnPinN").show();
+
+    var idcase = "<?php echo $data ?>";
+  
+    $.post("module/fuction/add_pin.php",{idcase:idcase}).done(function(data,txtstuta){
+      alert(data)
+      
+        
+      swal({
+      title: "ลอง",
+      icon: "success",
+      button: "ตกลง",
+    }).then((value) => {
+      
+   window.location.href="";
+
+});
+
+});
+
+
 });
 
 $("#btnPinN").click(function(){

@@ -31,7 +31,7 @@
     <?php
      $con = connect_db();
       $i="1";
-     $sql_res = mysqli_query($con,"SELECT cn.case_id,cn.case_name,cn.case_type,cn.case_savetime,cn.case_status FROM case_name as cn INNER JOIN responsible_person as rp ON rp.case_id = cn.case_id WHERE rp.card_id ='$_SESSION[id_card]'")or die("select sql responsible_person error".mysqli_error($con));
+     $sql_res = mysqli_query($con,"SELECT cn.case_id,cn.case_name,cn.case_type,cn.case_savetime,cn.case_status FROM case_name as cn INNER JOIN pin_case as rp ON rp.case_id = cn.case_id WHERE rp.user_id ='$_SESSION[user_name]'")or die("select sql responsible_person error".mysqli_error($con));
 
      while(list($case_id,$case_name,$case_type,$case_date,$status_case)=mysqli_fetch_row($sql_res)){
       if($case_type==1){
