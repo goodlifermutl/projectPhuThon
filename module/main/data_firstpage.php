@@ -28,24 +28,24 @@
   <div class="left-beforfooter">
     <h3>คดีปักหมุด</h3>
     <hr>
+    
     <?php
      $con = connect_db();
-      $i="1";
+      $i=0;
+      $case_id_pin=array();
      $sql_res = mysqli_query($con,"SELECT cn.case_id,cn.case_name,cn.case_type,cn.case_savetime,cn.case_status FROM case_name as cn INNER JOIN pin_case as rp ON rp.case_id = cn.case_id WHERE rp.user_id ='$_SESSION[user_name]'")or die("select sql responsible_person error".mysqli_error($con));
-
-     while(list($case_id,$case_name,$case_type,$case_date,$status_case)=mysqli_fetch_row($sql_res)){
+     $num_loop=mysqli_num_rows($sql_res);
+     while(list($case_id_pin[],$case_name,$case_type,$case_date,$status_case)=mysqli_fetch_row($sql_res)){
       if($case_type==1){
         $case_typeName="คดีเพ่ง";
       }else{
         $case_typeName="คดีอาญา";
       }
-      ?><button type="button" class="btn btn-danger" id="deletelist<?php echo $i ?>"><i class="far fa-trash-alt" style="font-size: 10px"></i></button><?php
+      ?><?php
           echo"
-          <tr>
-            <td><a href='?datacase=$case_id&module=1&action=1'>$case_name</td>
-            <td>$case_id</td>
-            <td>$case_typeName</a></td>
-          </tr>";
+          <ul class='list-group'>
+          <li class='list-group-item'><button type='button' class='btn btn-danger' id='deletelist$i'><i class='far fa-trash-alt' style='font-size: 10px'></i></button> <a href='?datacase=$case_id_pin[0]&module=1&action=1'>$case_name $case_typeName</a></li>
+        </ul>";
 
           $i++;
       }
@@ -171,4 +171,35 @@ $(document).ready(function() {
    );
   })
  });
+
+ <?php 
+ for($e=0;$e<=$num_loop;$e++){
+?>
+  $("#deletelist<?php echo $e ?>").click(function(){
+    var idcase = "<?Php echo $case_id_pin[$e] ?>";
+
+          swal({
+        title: "ลบการปักหมุด",
+        text: "ต้องการลบใช่หรือไม่!",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+        buttons: ["ยกเลิก","ตกลง"]
+      }).then((willDelete) => {
+        if (willDelete) {
+          $.post("module/fuction/delete_pin.php",{idcase:idcase}).done(function(data,txtstuta){
+            alert(data)
+            window.location.href="home.php";
+            });
+          
+        } else {
+          
+
+        }       
+    });
+  })
+<?php
+ }
+
+ ?>
 </script>

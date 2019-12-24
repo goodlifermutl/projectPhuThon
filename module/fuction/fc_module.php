@@ -22,6 +22,13 @@
             case 9 : $a="manage_police.php"; break;
             case 10 : $a="insert_villain.php"; break;
             case 11 : $a="insert_object.php"; break;
+            case 12 : $a="insert_arrest_record.php"; break;
+            case 13 : $a="insert_arrest_info.php"; break;
+            case 14 : $a="insert_request_warrant.php"; break;
+            case 15 : $a="insert_investigation_report.php"; break;
+            case 16 : $a="insert_summon_villain.php"; break;
+            case 17 : $a="insert_words_villain.php"; break;
+            case 18 : $a="insert_search_warrant.php"; break;
             default : $a="404.php";
         }
         if($m=="404"||$a=="404.php"){

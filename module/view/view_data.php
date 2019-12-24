@@ -76,6 +76,8 @@ window.location.href = "index.php";
       }
       $show_case = mysqli_query($con,"SELECT case_name FROM case_name WHERE case_id = '$data'")or die("case error".mysqli_error($con));
       list($case_name)=mysqli_fetch_row($show_case);
+      $show_pin = mysqli_query($con,"SELECT case_id,user_id FROM pin_case WHERE case_id = '$data' AND user_id='$_SESSION[user_name]'")or die("pin error".mysqli_error($con));
+      list($pin_id,$pin_user)=mysqli_fetch_row($show_pin);
       ?>
       <p><h1 class="text-center">คดี : <?php echo $case_name ?></h1></p>
       </form>
@@ -159,7 +161,19 @@ window.location.href = "index.php";
 <script>
 
 $(document).ready(function(){
-  $("#btnPinN").hide();
+  <?php 
+    if(empty($pin_id)&&empty($pin_user)){
+      ?>
+      $("#btnPinN").hide();
+      <?php
+    }else{
+      ?>
+      $("#btnPinG").hide();
+      $("#btnPinN").show();
+      <?php
+    }
+    ?>
+ 
   $('#table_id').DataTable();
   $("#myBtnSc").click(function(){
     $("#SC").modal();
@@ -181,7 +195,7 @@ $("#btnPinG").click(function(){
       
         
       swal({
-      title: "ลอง",
+      title: "ปักหมุดคดีเรียบร้อย",
       icon: "success",
       button: "ตกลง",
     }).then((value) => {
@@ -199,7 +213,7 @@ $("#btnPinN").click(function(){
   alert("ggggggg")
   
   swal({
-  title: "การปักหมุด",
+  title: "ยกเลิกการปักหมุด",
   text: "ต้องการยกเลิกใช่หรือไม่!",
   icon: "warning",
   buttons: true,
@@ -210,13 +224,19 @@ $("#btnPinN").click(function(){
   if (willDelete) {
     $("#btnPinN").hide();
     $("#btnPinG").show();
-    
+
+    var idcase = "<?php echo $pin_id ?>"
+
+    $.post("module/fuction/delete_pin.php",{idcase:idcase}).done(function(data,txtstuta){
+    alert(data)
+    window.location.href="home.php?datacase=<?php echo $pin_id ?>&module=1&action=1";
+  });
   } else {
     
 
   }
-});
-});
+})
+})
 
 search_idcard()
 
