@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 20, 2019 at 01:00 PM
+-- Generation Time: Dec 24, 2019 at 10:08 AM
 -- Server version: 10.3.15-MariaDB
 -- PHP Version: 7.3.6
 
@@ -153,9 +153,16 @@ CREATE TABLE `inquiry_official` (
 --
 
 CREATE TABLE `pin_case` (
-  `case_id` text COLLATE utf8_unicode_ci DEFAULT NULL,
-  `user_id` text COLLATE utf8_unicode_ci DEFAULT NULL
+  `case_id` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `user_id` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `pin_case`
+--
+
+INSERT INTO `pin_case` (`case_id`, `user_id`) VALUES
+('ค.001', 'user01');
 
 -- --------------------------------------------------------
 
@@ -648,6 +655,12 @@ ALTER TABLE `inquiry_official`
   ADD KEY `card_id` (`card_id`);
 
 --
+-- Indexes for table `pin_case`
+--
+ALTER TABLE `pin_case`
+  ADD KEY `case_id` (`case_id`);
+
+--
 -- Indexes for table `police_person`
 --
 ALTER TABLE `police_person`
@@ -893,6 +906,12 @@ ALTER TABLE `exhibit`
 ALTER TABLE `inquiry_official`
   ADD CONSTRAINT `inquiry_official_ibfk_1` FOREIGN KEY (`case_id`) REFERENCES `case_name` (`case_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `inquiry_official_ibfk_3` FOREIGN KEY (`card_id`) REFERENCES `police_person` (`card_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `pin_case`
+--
+ALTER TABLE `pin_case`
+  ADD CONSTRAINT `pin_case_ibfk_1` FOREIGN KEY (`case_id`) REFERENCES `case_name` (`case_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `police_person`
