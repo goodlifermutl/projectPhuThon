@@ -25,13 +25,13 @@ window.location.href = "index.php";
 }
 ?>
 <?php echo $com_s ?>
-<div class="sticky-top" style="padding-top:3px;background:white;">
+<!-- <div class="" style="padding-top:3px;background:white;">
 
 <button type="button" id="btnPinG" class="btn btn-warning"><b>ปักหมุดคดี</b></button>
 <button type="button" id="btnPinN" class="btn btn-danger"><b>ยกเลิกปักหมุด</b></button>
 <a href="#ผู้เสียหาย"><button type="button" class="btn btn-outline-info">ผู้เสียหาย</button></a>
 <a href="#ผู้ต้องหา"><button type="button" class="btn btn-outline-info">ผู้ต้องหา</button></a>
-</div>
+</div> -->
 <div  class="topbigbody2">
   <!-- <br>
     <form class="form-inline my-2 my-lg-0 menusearch">
@@ -281,4 +281,4 @@ $(document).ready(function() {
  });
 
 </script>
-<?php echo $com_s?>
+<?php echo $com_e?>

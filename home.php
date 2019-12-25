@@ -57,7 +57,7 @@ window.location.href = "index.php";
 
 if(empty($_SESSION['user_name'])){
   $com_s="<!--";
-  $com_e="-->"
+  $com_e="-->";
   ?>
   <script>
   swal({
@@ -72,10 +72,26 @@ window.location.href = "index.php";
   $com_s="";
   $com_e="";
 }
+if(empty($_GET['module'])||empty($_GET['action'])){
+  $md_chk="";
+  $ac_chk="";
+}else{
+  $md_chk=$_GET['module'];
+  $ac_chk=$_GET['action'];
+}
+
+if($md_chk=='1'&&$ac_chk=='1'){
+  $bar_t="";
+  $bar_n="";
+}
+else{
+  $bar_t="<!--";
+  $bar_n="-->";
+}
 
 ?>
 <?php echo $com_s ?>
-<div class=""> <!-- sticky-top -->
+<div class="sticky-top"> <!-- sticky-top -->
  <nav class="navbar navbar-expand-lg navbar-light bg-light"> <!--fixed-top-->
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -102,6 +118,15 @@ window.location.href = "index.php";
     </form>
   </div>
 </nav>
+<?php echo $bar_t ?>
+<div class="" style="padding-top:3px;background:white;">
+
+<button type="button" id="btnPinG" class="btn btn-warning"><b>ปักหมุดคดี</b></button>
+<button type="button" id="btnPinN" class="btn btn-danger"><b>ยกเลิกปักหมุด</b></button>
+<a href="#ผู้เสียหาย"><button type="button" class="btn btn-outline-info">ผู้เสียหาย</button></a>
+<a href="#ผู้ต้องหา"><button type="button" class="btn btn-outline-info">ผู้ต้องหา</button></a>
+</div>
+<?php echo $bar_n ?>
 </div>
 <!-- <ul class="nav justify-content-center">
   <li class="nav-item" style="margin-right:20px;">
@@ -131,6 +156,6 @@ if(empty($_GET['module'])||empty($_GET['action'])){
   </div>
   <div class="footer">1</div>
        
-<?php echo $com_s?>
+<?php echo $com_e?>
 </body>
 </html>
