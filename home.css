@@ -51,6 +51,12 @@ a:hover{
   width: 85%;
   height:auto;
 }
+.beforfooter2{
+  border: 1px solid #12a166;
+  float: right;
+  width: 85%;
+  height:auto;
+}
 .menu{
   border:1px solid #0be7dc;
   display: flex;

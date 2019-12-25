@@ -59,6 +59,7 @@ display: none;
               <table id="myTable" class="display table">
                     <thead>
                       <tr>
+                        <th>ดูข้อมูล</th>
                         <th>เลขคดี</th>
                         <th>ชื่อคดี</th>
                         <th>ประเภทคดี</th>
@@ -83,7 +84,8 @@ display: none;
                       if($_POST['type']==2){
                         echo"
                           <tr>
-                            <td><a href='?datacase=$case_id&search=$chk_id_card&module=1&action=1'>$case_id</a></td>
+                          <td><a href='?datacase=$case_id&search=$chk_id_card&module=1&action=1'><button type='button' class='btn btn-outline-secondary'>ดูข้อมูล</button></a></td>
+                            <td>$case_id</td>
                             <td>$case_name</td>
                             <td>$case_typeName</td>
                             <td>$case_date</td>
@@ -92,7 +94,8 @@ display: none;
                       }else if($_POST['type']==3){
                         echo"
                           <tr>
-                            <td><a href='?datacase=$case_id&search=$chk_name_lastname&module=1&action=1'>$case_id</a></td>
+                          <td><a href='?datacase=$case_id&search=$chk_name_lastname&module=1&action=1'><button type='button' class='btn btn-outline-secondary'>ดูข้อมูล</button></a></td>
+                            <td>$case_id</td>
                             <td>$case_name</td>
                             <td>$case_typeName</td>
                             <td>$case_date</td>
@@ -102,7 +105,8 @@ display: none;
                       else{
                           echo"
                           <tr>
-                            <td><a href='?datacase=$case_id&module=1&action=1'>$case_id</a></td>
+                            <td><a href='?datacase=$case_id&module=1&action=1'><button type='button' class='btn btn-outline-secondary'>ดูข้อมูล</button></a></td>
+                            <td>$case_id</td>
                             <td>$case_name</td>
                             <td>$case_typeName</td>
                             <td>$case_date</td>

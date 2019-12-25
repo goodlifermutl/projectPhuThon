@@ -55,33 +55,44 @@
   </div>
   <div class="beforfooter">
       <br>
-      <h1 class="text-center">คดีที่รับผิดชอบ</h1>
-      <table class="table">
+      <h1 class="text-center">สร้างโพสต์</h1>
+      <div class="container">
+        <div class="row">
+          <div class="col">
+          <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text">ข้อความ : </span>
+          </div>
+          <textarea class="form-control" id="clk_post" aria-label="With textarea"></textarea>
+          </div>
+          <hr>
+          <button type="button" class="btn btn-outline-secondary" id="btnTagKaD">แท็กคดี</button>
+          <button type="button" class="btn btn-outline-secondary">แท็กเพื่อน</button>
+          <hr>
+          <button type="button" class="btn btn-success btn-lg btn-block">โพสต์</button>
+          <br>
+          </div>
+        </div>
+      </div>
 
-      <?php 
-       
-        $con = connect_db();
+</div>
+<div class="beforfooter2">
+      <br>
+      <hr>
+      <div class="container">
+        <h5 class="text-center">Postอื่นๆ</h5>
+        <div class="row">
+          <div class="col">
+            PostBlock
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            PostComment
+          </div>
+        </div>
+      </div>
 
-       $sql_res = mysqli_query($con,"SELECT cn.case_id,cn.case_name,cn.case_type,cn.case_savetime,cn.case_status FROM case_name as cn INNER JOIN responsible_person as rp ON rp.case_id = cn.case_id WHERE rp.card_id ='$_SESSION[id_card]'")or die("select sql responsible_person error".mysqli_error($con));
-
-       while(list($case_id,$case_name,$case_type,$case_date,$status_case)=mysqli_fetch_row($sql_res)){
-        if($case_type==1){
-          $case_typeName="คดีเพ่ง";
-        }else{
-          $case_typeName="คดีอาญา";
-        }
-            echo"
-            <tr>
-              <td><a href='?datacase=$case_id&module=1&action=1'>$case_id</a></td>
-              <td>$case_name</td>
-              <td>$case_typeName</td>
-              <td>$case_date</td>
-              <td>$status_case</td>
-          </tr>";
-        }
-      ?>
-       </table>
-       <hr>
 </div>
 <div class="clearfloat"></div>
 
@@ -128,6 +139,51 @@
           </div>
       </div>
       </div>
+
+      <div class="modal fade" id="tag_case" role="dialog">
+      <div class="modal-dialog modal-xl"  role="document">
+        <div class="modal-content">
+          <div class="modal-header" style="padding:35px 50px;">
+              <h4 style=" justify-content: center"><i class="fas fa-search"></i> แท็กคดี</h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              
+          </div>
+          <?php
+          //  $select = mysqli_query($con,"SELECT case_id,case_name,case_type FROM case_name")or die("select sql error".mysqli_error($con));
+            ?>
+            <div class="modal-body" style="padding:10px 50px;">
+
+            <div class="input-group mb-3">
+                <div class="col-3">
+                <select class="custom-select" id="inputGroupSelectTag" name="type">
+                    <option value="1">เลขคดี</option>
+                    <option value="2">ชื่อคดี</option>
+                </select>
+                </div>
+                <div class="col-5">
+                <input type="text" class="form-control" placeholder="ค้นหาข้อมูล" name="search" id="textsearchTag">
+                </div>
+                <div class="col-3">
+                <button type="button" class="btn btn-success" id="btnsearchTag">ค้นหา</button>
+                </div>
+                
+              </div>
+              <div class="col-auto" id="loadtagCs">
+              </div>
+
+            
+                </div>
+              </div>
+              <div class="footer">
+                <div style="float: right;">
+                  <button type="button" class="btn btn-danger btn-default" data-dismiss="modal"> Cancel</button>
+                </div>
+                <div class="clearfloat"></div>
+              </div>
+      </div>
+      </div>
+
+
       <script>
         $(document).ready(function(){
        // $('.table').DataTable();
@@ -137,8 +193,10 @@
         $("#myBtnNs").click(function(){
           window.location.href="home.php?&module=2&action=2";
         });
-       
-       
+        $("#btnTagKaD").click(function(){
+          $("#tag_case").modal();
+        });
+        
         })
         </script>
         <script>
@@ -155,9 +213,24 @@
       }).done(function(data){
         $("#loadid").html(data)
       })
-    }  
+    }
+ function loadtagsc(){
+      var tg1= $("#inputGroupSelectTag").val();
+      var tg2 = $("#textsearchTag").val();
+
+      $("#loadtagCs").html("")
+    //   $("#loadging").css('display','')
+      $.ajax({
+        url: "module/fuction/show_data_sc_tag.php",
+        data:{type:tg1,search:tg2},
+        type: "POST"
+      }).done(function(data){
+        $("#loadtagCs").html(data)
+      })
+    }    
 $(document).ready(function() {
     loadsunass()
+    loadtagsc()
     $("#btnsearch").click(function(){
         var id1= $("#inputGroupSelect02").val();
         var id2 = $("#textsearch").val();
@@ -170,6 +243,8 @@ $(document).ready(function() {
     }
    );
   })
+
+
  });
 
  <?php 

@@ -115,7 +115,6 @@
     </form>
 </div>
 
-<div class="footer">1</div>
 <script>
 $('#insertvictim').validate({ 
 								

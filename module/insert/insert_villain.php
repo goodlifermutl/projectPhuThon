@@ -262,7 +262,7 @@
     </div>
     </form>               
 
-<div class="footer">1</div>
+
 <script>
 $('#insert_villain').validate({ 
 								
