@@ -66,8 +66,28 @@
           <textarea class="form-control" id="clk_post" aria-label="With textarea"></textarea>
           </div>
           <hr>
+          <?php 
+          $showT ="<!--";
+          $showN ="-->";
+          ?>
+          <div class="TagFriend">
+          <div class="dropdown">
+            <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1">แท็กเพื่อน</span>
+            </div>
+              <input class=" dropdown-toggle" type="text" id="txtdrop" name="sc_friend" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            
+            <div class="dropdown-menu" aria-labelledby="dropdownMenu2" id="loadDropPF">
+              
+            </div>
+          </div>  
+          </div>
+          <hr>
+          </div>
           <button type="button" class="btn btn-outline-secondary" id="btnTagKaD">แท็กคดี</button>
-          <button type="button" class="btn btn-outline-secondary">แท็กเพื่อน</button>
+          <button type="button" class="btn btn-outline-secondary" id="btnTagFri">แท็กเพื่อน</button>
+          
           <hr>
           <button type="button" class="btn btn-success btn-lg btn-block">โพสต์</button>
           <br>
@@ -196,6 +216,10 @@
         $("#btnTagKaD").click(function(){
           $("#tag_case").modal();
         });
+        $(".TagFriend").hide();
+        $("#btnTagFri").click(function(){
+          $(".TagFriend").show();
+        })
         
         })
         </script>
@@ -227,10 +251,25 @@
       }).done(function(data){
         $("#loadtagCs").html(data)
       })
-    }    
+    }
+  function loadDropPF(){
+    var dp1= $("#txtdrop").val();
+    
+    $("#loadDropPF").html("")
+    $.ajax({
+      url: "module/fuction/show_tag_friend.php",
+      data:{sc_friend:dp1},
+      type: "POST"
+      
+    }).done(function(data){
+      $("#loadDropPF").html(data)
+      alert(data)
+    })
+  }    
 $(document).ready(function() {
     loadsunass()
     loadtagsc()
+    
     $("#btnsearch").click(function(){
         var id1= $("#inputGroupSelect02").val();
         var id2 = $("#textsearch").val();
@@ -243,6 +282,10 @@ $(document).ready(function() {
     }
    );
   })
+
+    $("#txtdrop").change(function(){
+      loadDropPF()
+    })
 
 
  });

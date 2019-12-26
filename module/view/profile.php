@@ -98,9 +98,16 @@
 				<label for="inputPassword" class="col-sm-2 col-form-label ">เพศ</label>
 				<div class="col-sm-3">
 				<select class="custom-select edit_rs" id="focus" name="pro_sex" style="" disabled required>
-						<option value=0 disabled selected>เพศ</option>
-						<option value=1>ชาย</option>
-						<option value=2>หญิง</option>
+						<option value=0 disabled $selected>เพศ</option>
+						<?php 
+							for($a=1;$a<=2;$a++){
+								$nm_sex=$a==1?"ชาย":"หญิง";
+								$selected=$sex==$a?"selected":"";
+								echo"<option value='$a' $selected>$nm_sex</option>";
+							}
+						?>
+						
+						
                 </select>
 				</div>
 			</div>
