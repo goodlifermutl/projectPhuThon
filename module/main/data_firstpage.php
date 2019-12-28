@@ -76,8 +76,8 @@
             <div class="input-group-prepend">
               <span class="input-group-text" id="basic-addon1">แท็กเพื่อน</span>
             </div>
-              <input class=" dropdown-toggle" type="text" id="txtdrop" name="sc_friend" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            
+              <input class=" dropdown-toggle" type="text" id="txtdrop" value="<?php echo $tagF=''; ?>" name="sc_friend" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <button type="button" class="close" id="sc_friend_close" >&times;</button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenu2" id="loadDropPF">
               
             </div>
@@ -219,6 +219,9 @@
         $(".TagFriend").hide();
         $("#btnTagFri").click(function(){
           $(".TagFriend").show();
+        })
+        $("#sc_friend_close").click(function(){
+          $(".TagFriend").hide();
         })
         
         })
