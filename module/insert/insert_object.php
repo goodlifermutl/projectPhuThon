@@ -38,7 +38,7 @@
           </div>
         </div>
         <div class="form-group row">
-          <label class="col-form-label" style="">สถานะของกลาง : </label>
+          <label class="col-form-label" style="margin-left: 136px;">สถานะของกลาง : </label>
           <div class="col">
             <select id="inputState" class="form-control">
           <option selected>ยึด</option>
