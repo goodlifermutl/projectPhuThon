@@ -107,7 +107,7 @@ $('#insertOB').validate({
             icon: "success",
             button: "ตกลง",
           }).then((value) => {
-            //window.location.href="home.php?&module=2&action=3"
+            window.location.href="home.php?&module=2&action=3"
  
 })
 		},
