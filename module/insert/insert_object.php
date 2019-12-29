@@ -1,69 +1,126 @@
-<?php $con = connect_db(); ?>
-
-<script type='text/javascript'>
-     function preview_image(event)
-     {
-          var reader = new FileReader();
-          reader.onload = function()
-          {
-               var output = document.getElementById('showimg');
-               output.src = reader.result;
-          }
-          reader.readAsDataURL(event.target.files[0]);
-     }
-     </script>
-
 <div class="container">
-        <h1 class="text-center">เพิ่มข้อมูลกลาง</h1>
-        <p></p>
-        <form>
-        <div class="form-group row">
-          <label class="col-form-label">ชื่อของกลาง : </label>
-          <div class="col">
-          <input type="" class="form-control" id="">
-          </div>
-          <label class="col-form-label">วันที่รับของกลาง : </label>
-          <div class="col">
-          <input  name="dates " type="date" required class="form-control" id="dates" />
-          </div>
+    <div class="col-md">
+    <h1 class="text-center">ของกลาง</h1>
+    </div>
+    <form method="post" id="insertOB">
+    <div class="col-md">
+      <div class="form-row">
+        <div>
+            <label class="col-sm col-form-label">ID ของกลาง : </label>
         </div>
-        <div class="form-group row">
-          <label class="col-form-label">ขนาดของกลาง : </label>
-          <div class="col">
-          <input type="" class="form-control" id="">
-          </div>
-          <label class="col-form-label">ลักษณะของกลาง : </label>
-          <div class="col">
-          <input type="" class="form-control" id="">
-          </div>
+        <div class="col-md-2">
+            <input type="text" class="form-control " placeholder="ID" name="idob" required>     
         </div>
-        <div class="form-group row">
-          <label class="col-form-label" style="margin-left: 136px;">สถานะของกลาง : </label>
-          <div class="col">
-            <select id="inputState" class="form-control">
-          <option selected>ยึด</option>
-          <option>คืน</option>
-        </select>
-          </div>
+        <div>
+            <label class="col-sm col-form-label">ชื่อของกลาง : </label>
         </div>
+        <div class="col-md-2">
+            <input type="text" class="form-control " placeholder="ชื่อของกลาง" name="nameob" required>     
+        </div>
+        <div>
+            <label class="col-sm col-form-label">ขนาดของกลาง : </label>
+        </div>
+        <div class="col-md">
+            <input type="text" class="form-control " placeholder="ขนาดของกลาง" name="sizeob"  required>
+        </div>
+        </div>
+    </div>
+    <p></p>
+    <div class="col-md">
+      <div class="form-row">
+        <div>
+            <label class="col-sm col-form-label">ลักษณะของกลาง : </label>
+        </div>
+        <div class="input-group">
+        <textarea class="form-control" name="lookob" aria-label="With textarea"></textarea>
+        </div>
+        </div>
+    </div>
+    <p></p>
+    <div class="col-md">
+        <div class="form-row">
+        <div>
+            <label class="col-sm col-form-label">สถานะของกลาง : </label>
+        </div>
+        <div class="col-md-2">
+        <select class="custom-select " id="" name="staob"  required>
+                <option disabled selected value="0">สถานะ</option>
+                <option value="1">ยึด</option>
+                <option  value="2">คืน</option>
+                   
+        </select>   
+        </div>
+        <div>
+            <label class="col-sm col-form-label">รูปภาพ : </label>
+        </div>
+        <div class="col-md">
+        <div class="input-group mb-3">
+        <div class="custom-file">
+            <input type="file" class="custom-file-input" id="customFile" name="object_file">
+            <label class="custom-file-label" for="customFile">Choose file</label>
+        </div>
+        </div>
+        </div>
+        </div>
+    </div>
+    <p></p>
+    <div>
+    <button type="submit" class="btn btn-success btn-lg btn-block" id="save">บันทึกข้อมูล</button>
+    </div>
+    </form>
+</div>
 
-        <h4> รูปภาพของกลาง </h4>
+<script>
+$('#insertOB').validate({ 
+								
+                rules: {
+                nameob:{
+                
+                },
+                sizeob: { 
+                
+                },
+                lookob: {
+               
+                },
+                staob: {
+                
+                        }
+                    }
+});
+
+ $("#insertOB").submit(function(e){
+	e.preventDefault();
+	$check = $("#insertOB").valid();
+
+		if($check == true){
+		var formData = new FormData(this);
+
+		$.ajax({
+		url: "module/fuction/insert_data_object.php",
+		type: 'POST',
+		data: formData,
+			success: function (data) {
+            alert(data) 
+            swal({
+            title: "บันทึกของกลางสำเร็จ",
+            icon: "success",
+            button: "ตกลง",
+          }).then((value) => {
+            //window.location.href="home.php?&module=2&action=3"
+ 
+})
+		},
+			cache: false,
+			contentType: false,
+			processData: false
+	  });	
+	}
+});
 
 
-        			<div class="form-group">
-        			  <img  id="showimg" alt="" width="300" height="300">
-
-
-        			  <div class="form-group row">
-                  <div class="col">
-        			                    <label class="control-label"  >เลือกภาพ :</label>
-                                </div>
-
-        			                        <input type="file" class="form-control" id="showimg" name="showimg" accept="image/png, image/jpeg, image/gif " onchange="preview_image(event)">
-
-        			                </div>
-
-
-
-<button type="button" class="btn btn-primary btn-lg btn-block">บันทึกข้อมูล</button>
-      </form>
+ $(".custom-file-input").on("change", function() {
+  var fileName = $(this).val().split("\\").pop();
+  $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+});
+</script>
