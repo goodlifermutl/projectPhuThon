@@ -9,13 +9,13 @@
             <label class="col-sm col-form-label">หมายจับที่ : </label>
         </div>
         <div class="col-md-2">
-            <input type="text" class="form-control " placeholder="หมายจับที่" required>     
+            <input type="text" class="form-control " placeholder="หมายจับที่" name="info_arr_list" required>     
         </div>
         <div>
             <label class="col-sm col-form-label">ชื่อศาล : </label>
         </div>
         <div class="col-md">
-            <input type="text" class="form-control " placeholder="ชื่อศาล"  required>
+            <input type="text" class="form-control " placeholder="ชื่อศาล" name="" required>
         </div>
             <div>
               <label class="col-sm col-form-label">วัน/เดือน/ปี : </label>
