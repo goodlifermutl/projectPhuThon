@@ -77,11 +77,17 @@
         <div>
             <label class="col-form-label">สถานที่จับกุม ที่ : </label>
         </div>
-        <div class="col-md-6">
+        <div class="col-md">
             <input type="text" class="form-control" id="" name="arrest_address">
         </div>
+        
+        </div>
+    </div>
+    <p></p>
+    <div class="col-md">
+    <div class="form-row">
         <div>
-        <label class="col-form-label">เจ้าพนักงานจับกุม : </label>
+        <label class="col-form-label">นามเจ้าพนักงานจับกุมทั้งหมด : </label>
         </div>
         <div class="col-md-2">
             <input type="text" class="form-control" placeholder="จับกุมทั้งหมด" id="policeCount" name="cprecord">
@@ -89,53 +95,52 @@
         <div>
         <label class="col-form-label">คน </label>
         </div>
+    </div>
+    </div>
+    <p></p>
+    <div class="col-auto" id="loadpol">
+    </div>
+    <p></p>
+    <div class="col-md">
+    <div class="form-row">
+    <div>
+        <label class="col-form-label">ได้ร่วมกันจับกุม : </label>
+        </div>
+        <div class="col-md-2">
+            <input type="text" class="form-control" placeholder="จับกุมทั้งหมด" id="villainCount" name="crecord">
+        </div> 
+        <div>
+        <label class="col-form-label">คน </label>
         </div>
     </div>
-    <p></p>
-    <div class="text-center">
-    <h4>นามเจ้าพนักงานจับกุม</h4>
     </div>
     <p></p>
-    <div class="col-auto" id="loadaddd">
+    <div class="col-auto" id="loadvill">
     </div>
-    <!-- <div class="SHaddCC">
-    <div class="d-flex justify-content-center">
-    <div class="col-md-6">
-        <div class="input-group mb-3">
-        <div class="input-group-prepend">
-          <span class="input-group-text" id="inputGroup-sizing-default">พนักงานจับกุมคนที่ </span>
+    <p></p>
+    <div class="col-md">
+    <div class="form-row">
+    <div>
+        <label class="col-form-label">พร้อมด้วยของกลางมี : </label>
         </div>
-        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-      </div>
+        <div class="col-md-2">
+            <input type="text" class="form-control" placeholder="จับกุมทั้งหมด" id="CatchCount" name="ccrecord">
+        </div> 
+        <div>
+        <label class="col-form-label">อย่าง </label>
+        </div>
     </div>
-    </div>
-    </div>
-    <p></p> -->
-    <div class="d-flex justify-content-center">
-      <div>
-        <button type="button" class="btn btn-info" id="btnplus">เพิ่มพนักงานจับกุม</button>
-      </div> 
     </div>
     <p></p>
-  
-
-
+    <div class="col-auto" id="loadobx">
+    </div>
+    <p></p>
 
 
 
       <div class="form-group row">
 
-
-                <div class="col">
-                  
-                  </div>
-                </div>
-                <div class="form-group row">
-                  <label class="col-form-label">ได้ร่วมกันจับกุมตัว : </label>
-                  <div class="col">
-                 <textarea class="form-control" id="exampleFormControlTextarea1" rows="6"></textarea>
-                  </div>
-                </div>
+                <div>
                 <div class="form-group row">
                   <label class="col-form-label">พร้อมด้วยของกลางมี : </label>
                   <div class="col">
@@ -200,19 +205,57 @@ function loadaddpolice(){
 
     var count_po = $("#policeCount").val();
 
-      $("#loadaddd").html("")
+      $("#loadpol").html("")
       $.ajax({
         url: "module/fuction/add_police_catch.php",
         data:{loop,cprecord:count_po},
         type: "POST"
       }).done(function(data,){
         // alert(data)
-        $("#loadaddd").html(data)
+        $("#loadpol").html(data)
       })
     }
 
-$(document).ready(function(){
+function loadaddvillain(){
 
+var count_vil = $("#villainCount").val();
+
+  $("#loadvill").html("")
+  $.ajax({
+    url: "module/fuction/add_villain_catch.php",
+    data:{loop,cvrecord:count_vil},
+    type: "POST"
+  }).done(function(data,){
+    // alert(data)
+    $("#loadvill").html(data)
+  })
+}
+
+function loadaddobjectex(){
+
+var count_obx = $("#CatchCount").val();
+
+  $("#loadobx").html("")
+  $.ajax({
+    url: "module/fuction/add_objx_catch.php",
+    data:{loop,ccrecord:count_obx},
+    type: "POST"
+  }).done(function(data,){
+    // alert(data)
+    $("#loadobx").html(data)
+  })
+}
+
+$(document).ready(function(){
+  $("#policeCount").change(function(){
+    loadaddpolice()
+  })
+  $("#villainCount").change(function(){
+    loadaddvillain()
+  })
+  $("#CatchCount").change(function(){
+    loadaddobjectex()
+  })
   $("#btnplus").click(function(){
     
     loadaddpolice()
