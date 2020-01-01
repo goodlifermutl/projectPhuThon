@@ -1,6 +1,6 @@
 <?php 
-include ("../fuction/connect_db.php");
-$con = connect_db();
+// include ("../fuction/connect_db.php");
+// $con = connect_db();
 
 $body_villain = mysqli_query($con,"SELECT body_id,body_name FROM villain_body ")or die("select body error!!!".mysqli_error($con));
 $chin_villain = mysqli_query($con,"SELECT chin_id,chin_name FROM villain_chin")or die("select chin error!!!".mysqli_error($con));

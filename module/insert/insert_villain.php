@@ -261,7 +261,7 @@
     </div>
     </div>
     </form>               
-
+    </div>
 
 <script>
 $('#insert_villain').validate({ 

@@ -10,19 +10,19 @@
             <label class="col-form-label">ป.จ.ว.ข้อ : </label>
         </div>
         <div class="col-md-2">
-            <input type="text" class="form-control" placeholder="ป.จ.ว." id="" name="">     
+            <input type="text" class="form-control" placeholder="ป.จ.ว." id="" name="arnum_pjw" >     
         </div>
         <div>
             <label class="col-form-label">เวลา : </label>
         </div>
-        <div class="col-md">
-            <input type="time" class="form-control" id="">
+        <div class="col-md-2">
+            <input type="time" class="form-control" id="" name="arrest_time" >
         </div>
         <div>
             <label class="col-sm col-form-label">ประเภทคดี : </label>
         </div>
         <div class="col-md-2">
-        <select class="custom-select " id="" name=""  required>
+        <select class="custom-select " id="" name="ar_typecase"  >
                 <option disabled selected value="0">ประเภทคดี</option>
                 <option value="1">คดีเพ่ง</option>
                 <option  value="2">คดีอาญา</option>
@@ -32,8 +32,8 @@
         <div>
             <label class="col-form-label">ที่ : </label>
         </div>
-        <div class="col-md-1">
-            <input type="text" class="form-control" placeholder="" id="">
+        <div class="col-md-2">
+            <input type="text" class="form-control" placeholder="ประเภทคดีที่" id="" name="arrest_No" >
         </div>
         </div>
     </div>
@@ -43,14 +43,14 @@
         <div>
             <label class="col-form-label">บัญชีของกลางลำดับที่ : </label>
         </div>
-        <div class="col-md-1">
-            <input type="text" class="form-control" id="" placeholder="" name="arrest_list">
+        <div class="col-md-2">
+            <input type="text" class="form-control" id="" placeholder="ชัญชีของกลางลำดับที่" name="arrest_list" >
         </div>
         <div>
             <label class="col-form-label">สถานที่ทำการบันทึก : </label>
         </div>
         <div class="col">
-            <input type="text" class="form-control" id="" placeholder="" name="arrest_address_save">
+            <input type="text" class="form-control" id="" placeholder="สถาานที่ทำการบันทึก" name="arrest_address_save" >
         </div>
         </div>
     </div>
@@ -61,13 +61,13 @@
             <label class="col-form-label">วัน/เดือน/ปี ที่บันทึก : </label>
         </div>
         <div class="col-2">
-            <input  name="dates " type="date" required class="form-control" id="dates" name="arrest_date_save" />
+            <input  type="date"  class="form-control" id="dates" name="arrest_date_save" />
         </div>
         <div>
             <label class="col-form-label">วัน/เดือน/ปี ที่จับกุ : </label>
         </div>
         <div class="col-2">
-            <input  name="dates " type="date" required class="form-control" id="dates" name="arrest_date" />
+            <input  type="date"  class="form-control" id="dates" name="arrest_date_catch" />
         </div>
         </div>
     </div>
@@ -78,7 +78,7 @@
             <label class="col-form-label">สถานที่จับกุม ที่ : </label>
         </div>
         <div class="col-md">
-            <input type="text" class="form-control" id="" name="arrest_address">
+            <input type="text" class="form-control" id="" placeholder="สถานที่จับกุม" name="arrest_address_catch" >
         </div>
         
         </div>
@@ -97,6 +97,7 @@
         </div>
     </div>
     </div>
+    <hr>
     <p></p>
     <div class="col-auto" id="loadpol">
     </div>
@@ -114,6 +115,7 @@
         </div>
     </div>
     </div>
+    <hr>
     <p></p>
     <div class="col-auto" id="loadvill">
     </div>
@@ -124,76 +126,74 @@
         <label class="col-form-label">พร้อมด้วยของกลางมี : </label>
         </div>
         <div class="col-md-2">
-            <input type="text" class="form-control" placeholder="จับกุมทั้งหมด" id="CatchCount" name="ccrecord">
+            <input type="text" class="form-control" placeholder="ของกลางทั้งหมด" id="CatchCount" name="ccrecord">
         </div> 
         <div>
         <label class="col-form-label">อย่าง </label>
         </div>
     </div>
     </div>
+    <hr>
     <p></p>
     <div class="col-auto" id="loadobx">
     </div>
     <p></p>
+    <div class="col-md">
+    <div class="form-row">
+    <div>
+    <label class="col-form-label">ตำแหน่งที่พบของกลาง : </label>
+    </div>
+    <div class="col-md">
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="arrest_location_ob" ></textarea>
+    </div>
+    <div>
+    <label class="col-form-label">โดยกล่าวหาว่า : </label>
+    </div>
+    <div class="col-md">
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="arrest_say" ></textarea>
+    </div>
+    </div>
+    </div>
+    <p></p>
+    <div class="col-md">
+    <div class="form-row">
+    <div>
+    <label class="col-form-label">พฤติการรมกล่าวคือ : </label>
+    </div>
+    <div class="col-md">
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="arrest_atcs" ></textarea>
+    </div>
+    <div>
+    <label class="col-form-label">ขณะจับกุมผู้ต้องหาได้ทราบข้อกล่าวหาแล้วให้การ : </label>
+    </div>
+    <div class="col-md">
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="arrest_depors" ></textarea>
+    </div>
+    </div>
+    </div>
+    <p></p>
+    <div class="col-md">
+    <div class="form-row">
+    <div>
+    <label class="col-form-label">เหตุเกิดขึ้นที่ : </label>
+    </div>
+    <div class="col-md-7">
+    <input type="text" class="form-control" placeholder="เหตุเกิดขึ้นที่" id="CatchCount" name="arrest_place" >
+    </div>
+    <div>
+    <label class="col-form-label">วันที่เกิดเหตุ : </label>
+    </div>
+    <div class="col-md">
+    <input type="date" class="form-control" id="" name="arrest_date_place" >
+    </div>
+    </div>
+    </div>
+    <p></p>
+    <div>
+    <button type="submit" class="btn btn-success btn-lg btn-block" id="save">บันทึกข้อมูล</button>
+    </div>
 
-
-
-      <div class="form-group row">
-
-                <div>
-                <div class="form-group row">
-                  <label class="col-form-label">พร้อมด้วยของกลางมี : </label>
-                  <div class="col">
-                 <textarea class="form-control" id="exampleFormControlTextarea1" rows="6"></textarea>
-                  </div>
-                </div>
-                <div class="form-group row">
-                  <label class="col-form-label">ตำแหน่งที่พบของกลาง(ระบุให้ชัดเจน) : </label>
-                  <div class="col">
-                 <textarea class="form-control" id="exampleFormControlTextarea1" rows="6"></textarea>
-                  </div>
-                </div>
-                <div class="form-group row">
-                  <label class="col-form-label">โดยกล่าวหาว่า : </label>
-                  <div class="col">
-                 <textarea class="form-control" id="exampleFormControlTextarea1" rows="4"></textarea>
-                  </div>
-                </div>
-                <div class="form-group row">
-                  <label class="col-form-label">พฤติกรรมกล่าวคือ : </label>
-                  <div class="col">
-                 <textarea class="form-control" id="exampleFormControlTextarea1" rows="7"></textarea>
-                  </div>
-                </div>
-                <div class="form-group row">
-                  <label class="col-form-label">ขณะจับกุมผู้ต้องหาได้ทราบข้อกล่าวหาแล้วให้การ : </label>
-                  <div class="col">
-                 <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                  </div>
-                </div>
-                <div class="form-group row">
-                  <label class="col-form-label">เหตุเกิดที่ : </label>
-                  <div class="col">
-                 <input type="text" class="form-control" id="">
-                  </div>
-                </div>
-                <div class="form-group row">
-                  <label class="col-form-label">วัน/เดือน/ปี : </label>
-                  <div class="col">
-                 <input type="date" class="form-control" id="">
-                  </div>
-                  <label class="col-form-label">เวลา: </label>
-                  <div class="col">
-                <input type="time" class="form-control" id="">
-                  </div>
-                </div>
-                <div class="form-group row">
-                  <label class="col-form-label">ลงชื่อ : </label>
-                  <div class="col">
-                 <input type="text" class="form-control" id="">
-                  </div>
-                </div>
-                <button type="button" class="btn btn-primary btn-lg btn-block">บันทึกข้อมูล</button>
+</form>
 </form>
 </div>
 
@@ -256,14 +256,70 @@ $(document).ready(function(){
   $("#CatchCount").change(function(){
     loadaddobjectex()
   })
-  $("#btnplus").click(function(){
+  // $("#btnplus").click(function(){
     
-    loadaddpolice()
-    loop++
-    // $("#btnplus").hide();
-  })
+  //   loadaddpolice()
+  //   loop++
+  //   // $("#btnplus").hide();
+  // })
   
 })
+
+$("#insertrecord").submit(function(e){
+	e.preventDefault();
+	$check = $("#insertrecord").valid();
+
+		if($check == true){
+		var formData = new FormData(this);
+
+		$.ajax({
+		url: "module/fuction/insert_data_arrestRecord.php",
+		type: 'POST',
+		data: formData,
+			success: function (data) {
+            alert(data) 
+            swal({
+            title: "บันทึกผู้ต้องหาสำเร็จ",
+            icon: "success",
+            button: "ตกลง",
+          }).then((value) => {
+            // window.location.href="home.php?&module=2&action=3"
+})
+		},
+			cache: false,
+			contentType: false,
+			processData: false
+	  });	
+	}
+});
+
+// $("#insertOB").submit(function(e){
+// 	e.preventDefault();
+// 	$check = $("#insertOB").valid();
+
+// 		if($check == true){
+// 		var formData = new FormData(this);
+
+// 		$.ajax({
+// 		url: "module/fuction/insert_data_arrestRecord.php",
+// 		type: 'POST',
+// 		data: formData,
+// 			success: function (data) {
+//             alert(data) 
+//             swal({
+//             title: "บันทึกผู้ต้องหาสำเร็จ",
+//             icon: "success",
+//             button: "ตกลง",
+//           }).then((value) => {
+//             // window.location.href="home.php?&module=2&action=3"
+// })
+// 		},
+// 			cache: false,
+// 			contentType: false,
+// 			processData: false
+// 	  });	
+// 	}
+// });
 
 </script>
 
