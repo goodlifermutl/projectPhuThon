@@ -5,11 +5,11 @@ $num_loop=$_POST['loop'];
 $num_vil_count=$_POST['cvrecord'];
 $i=1;
 ?>
-<div class="container">
-    <form id="insert_villain" method="post">
+<!-- <div class="container">
+    <form id="insert_villain" method="post"> -->
     <?php while($i<=$num_vil_count){ ?>
     <div class="col-md">
-    <h4 class="text-center">เพิ่มข้อมูลผู้ต้องหา<?php echo $i ?></h4>
+    <h4 class="text-center">เพิ่มข้อมูลผู้ต้องหา<?php echo $i?></h4>
     </div>
     <div class="col-md">
         <div class="form-row">
@@ -17,16 +17,16 @@ $i=1;
             <label class="col-sm col-form-label">ชื่อ : </label>
         </div>
         <div class="col-md-2">
-            <input type="text" class="form-control " placeholder="คำนำหน้าชื่อ" value="" id="focus<?php echo $i?>" name="villain_titlename<?php echo $i ?>[]" required>
+            <input type="text" class="form-control " placeholder="คำนำหน้าชื่อ" value="" id="focus<?php echo $i?>" name="villain_titlename[]" >
         </div>
             <div class="col-md">
-            <input type="text" class="form-control " placeholder="ชื่อ" value="" name="villain_name<?php echo $i ?>[]" required>
+            <input type="text" class="form-control " placeholder="ชื่อ" value="" name="villain_name[]" >
         </div>
             <div>
               <label class="col-sm col-form-label">นามสกุล : </label>
             </div>
         <div class="col-md">
-            <input type="text" class="form-control " placeholder="นามสกุล" value="" name="villain_lastname<?php echo $i ?>[]"  required>
+            <input type="text" class="form-control " placeholder="นามสกุล" value="" name="villain_lastname[]"  >
         </div>
     </div>
     </div>
@@ -37,19 +37,19 @@ $i=1;
               <label class="col-sm col-form-label">เชื้อชาติ : </label>
             </div>
             <div class="col-md">
-              <input type="text" class="form-control" placeholder="เชื้อชาติ" value="" name="villain_race<?php echo $i ?>[]" required >
+              <input type="text" class="form-control" placeholder="เชื้อชาติ" value="" name="villain_race[]"  >
             </div>
             <div>
               <label class="col-sm col-form-label">สัญชาติ : </label>
             </div>
             <div class="col-md">
-              <input type="text" class="form-control " placeholder="สัญชาติ" value="" name="villain_nationality<?php echo $i ?>[]" required >
+              <input type="text" class="form-control " placeholder="สัญชาติ" value="" name="villain_nationality[]"  >
             </div>
             <div>
               <label class="col-sm col-form-label">อาชีพ : </label>
             </div>
             <div class="col-md">
-            <input type="text" class="form-control " placeholder="อาชีพ" value="" name="villain_careen<?php echo $i ?>[]"  required>
+            <input type="text" class="form-control " placeholder="อาชีพ" value="" name="villain_careen[]"  >
             </div>
           </div>
           </div>
@@ -60,13 +60,13 @@ $i=1;
             <label class="col-sm col-form-label">เลขบัตรประจำตัวประชาชน : </label>
         </div>
         <div class="col-md">
-            <input type="text" class="form-control" placeholder="เลขบัตร" id="" name="villain_idcard<?php echo $i ?>[]" data-idcard="<?php echo $victim_idcard ?>"  value="" required >
+            <input type="text" class="form-control" placeholder="เลขบัตร" id="" name="villain_idcard[]" data-idcard="<?php echo $victim_idcard ?>"  value=""  >
         </div>
         <div>
             <label class="col-sm col-form-label" >ระดับการศึกษา : </label>
         </div>
         <div class="col-md">
-            <select class="custom-select " id="" name="villain_edu<?php echo $i ?>[]" required >
+            <select class="custom-select " id="" name="villain_edu[]"  >
                 <option disabled selected value="0">ระดับการศึกษา</option>
                 <?php $result_edu = mysqli_query($con,"SELECT * FROM education")or die("select education error".mysqli_error($con));
                     while(list($edu_id,$edu_name)=mysqli_fetch_row($result_edu)){
@@ -82,7 +82,7 @@ $i=1;
         </div>
         <div class="col-md">
 
-            <select class="custom-select " id="" name="villain_sex<?php echo $i ?>[]" required >
+            <select class="custom-select " id="" name="villain_sex[]"  >
       
                 <option disabled selected value="0">เพศ</option>
                 <option value="1" >ชาย</option>
@@ -98,7 +98,7 @@ $i=1;
             <label class="col-sm col-form-label">ที่อยู่ : </label>
         </div>
         <div class="col-md">
-        <input type="text" class="form-control " placeholder="ที่อยู่" value="" name="villain_address<?php echo $i ?>[]" required >
+        <input type="text" class="form-control " placeholder="ที่อยู่" value="" name="villain_address[]"  >
         </div>
         </div>
     </div>
@@ -111,7 +111,7 @@ $i=1;
         <div class="col-md">
         <div class="input-group mb-3">
         <div class="custom-file">
-            <input type="file" class="custom-file-input" id="customFile" name="villain_file<?php echo $i ?>[]">
+            <input type="file" class="custom-file-input" id="customFile" name="villain_file[]">
             <label class="custom-file-label" for="customFile">Choose file</label>
         </div>
         </div>
@@ -127,7 +127,7 @@ $i=1;
             <label class="col-sm col-form-label">รูปร่าง : </label>
             </div>
             <div class="col-md">
-            <select class="custom-select " id="" name="villain_body<?php echo $i ?>[]" required>
+            <select class="custom-select " id="" name="villain_body[]" >
             <option disabled selected value="0">รูปร่าง</option>
             <?php
             include("fuction_bady_section.php");
@@ -141,7 +141,7 @@ $i=1;
             <label class="col-sm col-form-label">ใบหน้า : </label>
             </div>
             <div class="col-md">
-            <select class="custom-select " id="" name="villain_face<?php echo $i ?>[]" required>
+            <select class="custom-select " id="" name="villain_face[]" >
             <option disabled selected value="0">ใบหน้า</option>
             <?php
             include("fuction_bady_section.php");
@@ -155,7 +155,7 @@ $i=1;
             <label class="col-sm col-form-label">ทรงผม : </label>
             </div>
             <div class="col-md">
-            <select class="custom-select " id="" name="villain_hair<?php echo $i ?>[]" required>
+            <select class="custom-select " id="" name="villain_hair[]" >
             <option disabled selected value="0">ทรงผม</option>
             <?php
             include("fuction_bady_section.php");
@@ -174,7 +174,7 @@ $i=1;
             <label class="col-sm col-form-label">จมูก : </label>
             </div>
             <div class="col-md">
-            <select class="custom-select " id="" name="villain_nose<?php echo $i ?>[]" required>
+            <select class="custom-select " id="" name="villain_nose[]" >
             <option disabled selected value="0">จมูก</option>
             <?php
             include("fuction_bady_section.php");
@@ -188,7 +188,7 @@ $i=1;
             <label class="col-sm col-form-label">ปาก : </label>
             </div>
             <div class="col-md">
-            <select class="custom-select " id="" name="villain_mouth<?php echo $i ?>[]" required>
+            <select class="custom-select " id="" name="villain_mouth[]" >
             <option disabled selected value="0">ปาก</option>
             <?php
             include("fuction_bady_section.php");
@@ -202,7 +202,7 @@ $i=1;
             <label class="col-sm col-form-label">คาง : </label>
             </div>
             <div class="col-md">
-            <select class="custom-select " id="" name="villain_chin<?php echo $i ?>[]" required>
+            <select class="custom-select " id="" name="villain_chin[]" >
             <option disabled selected value="0">คาง</option>
             <?php
             include("fuction_bady_section.php");
@@ -221,7 +221,7 @@ $i=1;
             <label class="col-sm col-form-label">หู : </label>
             </div>
             <div class="col-md">
-            <select class="custom-select " id="" name="villain_ears<?php echo $i ?>[]" required>
+            <select class="custom-select " id="" name="villain_ears[]" >
             <option disabled selected value="0">หู</option>
             <?php
             include("fuction_bady_section.php");
@@ -235,7 +235,7 @@ $i=1;
             <label class="col-sm col-form-label">หน้าผาก : </label>
             </div>
             <div class="col-md">
-            <select class="custom-select " id="" name="villain_forehead<?php echo $i ?>[]" required>
+            <select class="custom-select " id="" name="villain_forehead[]" >
             <option disabled selected value="0">หน้าผาก</option>
             <?php
             include("fuction_bady_section.php");
@@ -249,7 +249,7 @@ $i=1;
             <label class="col-sm col-form-label">ตา : </label>
             </div>
             <div class="col-md">
-            <select class="custom-select " id="" name="villain_eyes<?php echo $i ?>[]" required>
+            <select class="custom-select " id="" name="villain_eyes[]" >
             <option disabled selected value="0">ตา</option>
             <?php
             include("fuction_bady_section.php");
@@ -266,56 +266,56 @@ $i=1;
     <?php
     $i++;
   } ?>
-    </form>               
-    </div>
+    <!-- </form>               
+    </div> -->
 
 <script>
-$('#insert_villain').validate({ 
+// $('#insert_villain').validate({ 
 								
-    rules: {
-    usrname:{
-    minlength:6
-    },
-    psw: { 
-    minlength:8
-    },
-    psw2: {
-    minlength:8,
-    equalTo: ".password"
-    },
-    idcard: {
-    minlength:13,
-    maxlength:13
-            }
-        }
-    });
-$("#insert_villain").submit(function(e){
-	e.preventDefault();
-	$check = $("#insert_villain").valid();
+//     rules: {
+//     usrname:{
+//     minlength:6
+//     },
+//     psw: { 
+//     minlength:8
+//     },
+//     psw2: {
+//     minlength:8,
+//     equalTo: ".password"
+//     },
+//     idcard: {
+//     minlength:13,
+//     maxlength:13
+//             }
+//         }
+//     });
+// $("#insert_villain").submit(function(e){
+// 	e.preventDefault();
+// 	$check = $("#insert_villain").valid();
 
-		if($check == true){
-		var formData = new FormData(this);
+// 		if($check == true){
+// 		var formData = new FormData(this);
 
-		$.ajax({
-		url: "module/fuction/insert_data_villain.php",
-		type: 'POST',
-		data: formData,
-			success: function (data) {
-            alert(data) 
-            swal({
-            title: "บันทึกผู้ต้องหาสำเร็จ",
-            icon: "success",
-            button: "ตกลง",
-          }).then((value) => {
-            window.location.href="home.php?&module=2&action=3"
-})
-		},
-			cache: false,
-			contentType: false,
-			processData: false
-	  });	
-	}
-});
+// 		$.ajax({
+// 		url: "module/fuction/insert_data_villain.php",
+// 		type: 'POST',
+// 		data: formData,
+// 			success: function (data) {
+//             alert(data) 
+//             swal({
+//             title: "บันทึกผู้ต้องหาสำเร็จ",
+//             icon: "success",
+//             button: "ตกลง",
+//           }).then((value) => {
+//             window.location.href="home.php?&module=2&action=3"
+// })
+// 		},
+// 			cache: false,
+// 			contentType: false,
+// 			processData: false
+// 	  });	
+// 	}
+// });
 
 // Add the following code if you want the name of the file appear on select
 $(".custom-file-input").on("change", function() {
