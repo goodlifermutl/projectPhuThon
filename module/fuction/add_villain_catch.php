@@ -111,7 +111,7 @@ $i=1;
         <div class="col-md">
         <div class="input-group mb-3">
         <div class="custom-file">
-            <input type="file" class="custom-file-input" id="customFile" name="villain_file[]">
+            <input type="file" class="custom-file-input" id="customFileTe" name="villain_file[]">
             <label class="custom-file-label" for="customFile">Choose file</label>
         </div>
         </div>
