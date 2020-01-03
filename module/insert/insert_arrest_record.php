@@ -10,7 +10,7 @@
             <label class="col-form-label">ป.จ.ว.ข้อ : </label>
         </div>
         <div class="col-md-2">
-            <input type="text" class="form-control" placeholder="ป.จ.ว." id="" name="arnum_pjw" >     
+        <input type="text" class="form-control" id="" name="ar_porjorwor" >
         </div>
         <div>
             <label class="col-form-label">เวลา : </label>
@@ -126,7 +126,7 @@
         <label class="col-form-label">พร้อมด้วยของกลางมี : </label>
         </div>
         <div class="col-md-2">
-            <input type="text" class="form-control" placeholder="ของกลางทั้งหมด" id="CatchCount" name="ccrecord">
+            <input type="text" class="form-control" placeholder="ของกลางทั้งหมด" id="CatchCount" name="oxrecord">
         </div> 
         <div>
         <label class="col-form-label">อย่าง </label>
