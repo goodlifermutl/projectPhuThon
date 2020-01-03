@@ -37,7 +37,7 @@
 <div class="container">
   <div>
     <br>
-    <p><img src="image/Logo.png" class="img-fluid mx-auto d-block" alt="Responsive image"></p>
+    <p><img src="image/logonew.png" class="img-fluid mx-auto d-block" alt="Responsive image"></p>
 </div>
 
   </div>

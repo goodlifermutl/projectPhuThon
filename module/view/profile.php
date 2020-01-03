@@ -59,7 +59,7 @@
 	<!-- <form id="dataPro" method="post"> -->
     <div class="col-lg" style='padding-top:20px;'>
 			<div class="form-group row">
-				<label for="inputPassword" class="col-sm-2 label col-form-label ">ชื่อ</label>
+				<label for="inputPassword" class="col-sm-2 label col-form-label ">ชื่อ-ตำแหน่ง</label>
 				<div class="col-sm">
 				<select class="custom-select edit_rs" id="focus" name="pro_title" style="" disabled required>
 						<option value=0 disabled selected>คำนำหน้าชื่อ</option>
@@ -73,13 +73,13 @@
                 </select>
 				</div>
 				<div class="col-sm-5">
-					<input type="text" style="border:none; background:#fff; " class="form-control edit_rs"  placeholder="ชื่อ"  name="pro_name" value="<?php echo $ps_name; ?>" id="staticEmail" disabled required>
+					<input type="text" style="border:soild; background:#fff; " class="form-control edit_rs"  placeholder="ชื่อ"  name="pro_name" value="<?php echo $ps_name; ?>" id="staticEmail" disabled required>
 				</div>
 			</div>
 			<div class="form-group row">
 				<label for="inputPassword" class="col-sm-2 col-form-label ">นามสกุล</label>
 				<div class="col-sm-10">
-					<input type="text" style="border:none; background:#fff;" class="form-control edit_rs"  placeholder="นามสกุล"  name="pro_lastname" value="<?php echo $ps_lastname; ?>"disabled required>
+					<input type="text" style="border:soild; background:#fff;" class="form-control edit_rs"  placeholder="นามสกุล"  name="pro_lastname" value="<?php echo $ps_lastname; ?>"disabled required>
 				</div>
 			</div>
 			<div class="form-group row">
@@ -91,7 +91,7 @@
 			<div class="form-group row">
 				<label for="" class="col-sm-2 col-form-label " maxlength="13" >โทร</label>
 				<div class="col-sm-10">
-					<input type="text" style="border:none; background:#fff;" class="form-control edit_rs"  placeholder="เบอร์โทร"  name="pro_tel" value="<?php echo $ps_tel; ?>"disabled required>
+					<input type="text" style="border:soild; background:#fff;" class="form-control edit_rs"  placeholder="เบอร์โทร"  name="pro_tel" value="<?php echo $ps_tel; ?>"disabled required>
 				</div>
 			</div>
 			<div class="form-group row">

@@ -89,6 +89,37 @@ else{
   $bar_n="-->";
 }
 
+if($ac_chk=='4'||$ac_chk=='10'||$ac_chk=='11'||$ac_chk=='12'||$ac_chk=='13'||$ac_chk=='14'||$ac_chk=='15'||$ac_chk=='16'||$ac_chk=='17'||$ac_chk=='18'){
+  $ul_t="";
+  $ul_n="";
+  
+}
+else{
+  $ul_t="<!--";
+  $ul_n="-->";
+
+}
+if($ac_chk=='4'){
+  $action1="active";
+}else if($ac_chk=='10'){
+  $action2="active";
+}else if($ac_chk=='11'){
+  $action3="active";
+}else if($ac_chk=='12'){
+  $action4="active";
+}else if($ac_chk=='13'){
+  $action5="active";
+}else if($ac_chk=='14'){
+  $action6="active";
+}else if($ac_chk=='15'){
+  $action7="active";
+}else if($ac_chk=='16'){
+  $action8="active";
+}else if($ac_chk=='17'){
+  $action9="active";
+}else if($ac_chk=='18'){
+  $action10="active";
+}
 ?>
 <?php echo $com_s ?>
 <div class="sticky-top"> <!-- sticky-top -->
@@ -97,6 +128,7 @@ else{
     <span class="navbar-toggler-icon"></span>
   </button>
   <a class="navbar-brand" href="<?php echo $html_l ?>"><i style="font-size: 36px" class="fas fa-h-square"></i> PhuThon pak5</a>  
+   
    <!-- <div class="row">
     <div class="col-md">
     <button type="button" class="btn btn-outline-dark"><i class="fas fa-search-plus" style="font-size: 50px"></i></i></button>
@@ -118,6 +150,41 @@ else{
     </form>
   </div>
 </nav>
+<?php echo $ul_t ?>
+<ul class="nav nav-tabs" style="background-color: #ffffff;">
+  <li class="nav-item">
+  <a class="nav-link <?php echo $action1 ?>" href="#" id="myBtnNsVT0">เพิ่มข้อมูลผู้เสียหาย</a>
+  </li>
+  <li class="nav-item">
+  <a class="nav-link <?php echo $action2 ?>" href="#" id="myBtnNsVT1">เพิ่มข้อมูลผู้ต้องหา</a>
+  </li>
+  <li class="nav-item">
+  <a class="nav-link <?php echo $action3 ?>" href="#" id="myBtnNsVT2">เพิ่มข้อมูลของกลาง</a>
+  </li>
+  <li class="nav-item">
+  <a class="nav-link <?php echo $action4 ?>" href="#" id="myBtnNsVT3">เพิ่มบันทึกการจับกุม</a>
+  </li>
+
+  <li class="nav-item dropdown">
+  <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">เพิ่มข้อมูลอื่น ๆ</a>
+    <div class="dropdown-menu">
+      <a class="dropdown-item <?php echo $action5 ?>" href="#" id="myBtnNsVT4">เพิ่มข้อมูลหมายจับ</a>
+      <div class="dropdown-divider"></div>
+      <a class="dropdown-item <?php echo $action6 ?>" href="#" id="myBtnNsVT5">เพิ่มคำร้องออกหมายจับ</a>
+      <div class="dropdown-divider"></div>
+      <a class="dropdown-item <?php echo $action7 ?>" href="#" id="myBtnNsVT6">เพิ่มรายงานการสอบสวน</a>
+      <div class="dropdown-divider"></div>
+      <a class="dropdown-item <?php echo $action8 ?>" href="#" id="myBtnNsVT7">เพิ่มหมายเรียกผู้ต้องหา</a>
+      <div class="dropdown-divider"></div>
+      <a class="dropdown-item <?php echo $action9 ?>" href="#" id="myBtnNsVT8">เพิ่มคำให้การผู้ต้องหา</a>
+      <div class="dropdown-divider"></div>
+      <a class="dropdown-item <?php echo $action10 ?>" href="#" id="myBtnNsVT9">เพิ่มหมายค้น</a>
+      <div class="dropdown-divider"></div>
+      
+    </div>
+  </li>
+</ul>
+<?php echo $ul_n ?>
 <?php echo $bar_t ?>
 <div class="" style="padding-top:3px;background:white;">
 
@@ -157,5 +224,39 @@ if(empty($_GET['module'])||empty($_GET['action'])){
   <div class="footer">1</div>
        
 <?php echo $com_e?>
+
+<?php
+$id_click=1;
+ $link = array("4", "10", "11", "12", "13", "14", "15", "16", "17","18");
+ $n=count($link);
+  for($j=0;$j<$n;$j++){
+?>
+<script>
+        $(document).ready(function(){
+        $("#myBtnNsVT<?php echo$j ?>").click(function(){
+            // swal({
+            // title: "การเพิ่มข้อมูล",
+            // text: "ต้องการเพิ่มข้อมูลใช่หรือไม่!",
+            // icon: "warning",
+            // buttons: true,
+            // dangerMode: true,
+            // buttons: ["ยกเลิก","ตกลง"]
+            // })
+            // .then((willDelete) => {
+            // if (willDelete) {
+                window.location.href="home.php?module=2&action=<?php echo $link[$j]; ?>";
+
+            // } else {
+
+            //     window.location.href="home.php?module=2&action=3";
+            // }
+            // });
+        });
+        })
+        </script>
+    <?php 
+   $id_click++;
+  }?>
 </body>
 </html>
+

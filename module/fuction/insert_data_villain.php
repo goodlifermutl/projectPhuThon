@@ -63,11 +63,11 @@ if(!empty($_FILES['villain_file']['name'])){
 
 }else{
     if($vil_sex==1){
-        $imgname="icon_data_usermale";
+        $imgname="icon_data_usermale.png";
         
         echo $imgname;
     }else{
-        $imgname="icon_data_userfemale";
+        $imgname="icon_data_userfemale.png";
         echo $imgname;
     }
 }

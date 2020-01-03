@@ -24,8 +24,8 @@
 
         $result_chk_villain = mysqli_query($con,"SELECT case_id FROM villain WHERE case_id = '$data'")or die("resualt_villain sqli error".mysqli_error($con));
         $result_villain = mysqli_query($con,"SELECT vl.title_name,vl.villain_name,vl.villain_lastname,vl.villain_sex,vl.villain_idcard,vl.villain_address,ed.edu_name,vl.villain_image,vl.villain_race,vl.villain_nationality,vl.villain_career FROM villain as vl INNER JOIN education as ed ON vl.villain_education = ed.edu_id WHERE case_id = '$data'")or die("resualt_villain sqli error".mysqli_error($con));
-
         list($case_id)=mysqli_fetch_row($result_chk_villain);
+        $num_loop=mysqli_num_rows($result_villain);
         if(empty($case_id)){
           ?><script>swal("sorry!", "ไม่พบข้อมูลบางส่วน!", "error")</script><?php
           echo "<h5 class='text-center'>----ไม่พบข้อมูล----</h5>";
