@@ -57,16 +57,16 @@
             <label class="col-sm col-form-label">ชื่อ : </label>
         </div>
         <div class="col-md-2">
-            <input type="text" class="form-control " placeholder="คำนำหน้าชื่อ" value="" id="focus<?php echo $i?>" name="victim_titlename" name="ir_prefix"  required>
+            <input type="text" class="form-control " placeholder="คำนำหน้าชื่อ" value="" id="focus<?php echo $i?>"  name="ir_prefix"  required>
         </div>
             <div class="col-md">
-            <input type="text" class="form-control " placeholder="ชื่อ" value="" name="victim_name"name="ir_name"  required>
+            <input type="text" class="form-control " placeholder="ชื่อ" value="" name="ir_name"  required>
         </div>
             <div>
               <label class="col-sm col-form-label">นามสกุล : </label>
             </div>
         <div class="col-md">
-            <input type="text" class="form-control " placeholder="นามสกุล" value="" name="victim_lastname" name="ir_surname"  required>
+            <input type="text" class="form-control " placeholder="นามสกุล" value=""  name="ir_surname"  required>
         </div>
     </div>
     </div>
@@ -80,16 +80,16 @@
             <label class="col-sm col-form-label">ชื่อ : </label>
         </div>
         <div class="col-md-2">
-            <input type="text" class="form-control " placeholder="คำนำหน้าชื่อ" value="" id="focus<?php echo $i?>" name="victim_titlename"name="ir_ir_prefix2"   required>
+            <input type="text" class="form-control " placeholder="คำนำหน้าชื่อ" value="" id="focus<?php echo $i?>" name="ir_ir_prefix2"   required>
         </div>
             <div class="col-md">
-            <input type="text" class="form-control " placeholder="ชื่อ" value="" name="victim_name" name="ir_ir_name2" required>
+            <input type="text" class="form-control " placeholder="ชื่อ" value=""name="ir_ir_name2" required>
         </div>
             <div>
               <label class="col-sm col-form-label">นามสกุล : </label>
             </div>
         <div class="col-md">
-            <input type="text" class="form-control " placeholder="นามสกุล" value="" name="victim_lastname" name="ir_surname2"  required>
+            <input type="text" class="form-control " placeholder="นามสกุล" value="" name="ir_surname2"  required>
         </div>
     </div>
     </div>
@@ -113,7 +113,7 @@
             <label class="col-sm col-form-label">วันเวลาที่เกิดเหตุ : </label>
         </div>
         <div class="col-md">
-        <input type="text" class="form-control " placeholder="วันเวลาที่เกิดเหตุ" value="" name="victim_address" name="ir_date"  required>
+        <input type="date" class="form-control " placeholder="วันเวลาที่เกิดเหตุ" value=""  name="ir_date"  required>
         </div>
         </div>
     </div>
@@ -124,7 +124,7 @@
             <label class="col-sm col-form-label">ตำบลที่เกิดเหตุ : </label>
         </div>
         <div class="col-md">
-        <input type="text" class="form-control " placeholder="ตำบลที่เกิดเหตุ" value="" name="victim_address" name="ir_district"  required>
+        <input type="text" class="form-control " placeholder="ตำบลที่เกิดเหตุ" value=""  name="ir_district"  required>
         </div>
         </div>
     </div>
@@ -152,7 +152,7 @@
             <label class="col-sm col-form-label">วันเวลาที่ร้องทุกข์หรือกล่าวโทษ : </label>
         </div>
         <div class="col-md-5">
-            <input type="text" class="form-control " placeholder="วันเวลาที่ร้องทุกข์หรือกล่าวโทษ"name="ir_Complaint"  required>
+            <input type="date" class="form-control " placeholder="วันเวลาที่ร้องทุกข์หรือกล่าวโทษ"name="ir_Complaint"  required>
         </div>
         </div>
     </div>
@@ -163,7 +163,7 @@
             <label class="col-sm col-form-label">วันเวลาที่ผู้ต้องหาถูก ควบคุม/ขัง/ปล่อยชั่วคราว : </label>
         </div>
         <div class="col-md-5">
-            <input type="text" class="form-control " placeholder="ควบคุม/ขัง/ปล่อยชั่วคราว"name="ir_control"  required>
+            <input type="date" class="form-control " placeholder="ควบคุม/ขัง/ปล่อยชั่วคราว"name="ir_control"  required>
         </div>
         </div>
     </div>
@@ -186,3 +186,33 @@
     </div>
     </form>
 </div>
+
+<script>
+$("#insertvictim").submit(function(e){
+	e.preventDefault();
+	$check = $("#insertvictim").valid();
+
+		if($check == true){
+		var formData = new FormData(this);
+
+		$.ajax({
+		url: "module/fuction/insert_data_inves_report.php",
+		type: 'POST',
+		data: formData,
+			success: function (data) {
+            alert(data) 
+            swal({
+            title: "บันทึกผู้ต้องหาสำเร็จ",
+            icon: "success",
+            button: "ตกลง",
+          }).then((value) => {
+            // window.location.href="home.php?&module=2&action=3"
+})
+		},
+			cache: false,
+			contentType: false,
+			processData: false
+	  });	
+	}
+});
+</script>
