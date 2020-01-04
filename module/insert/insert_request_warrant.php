@@ -7,7 +7,7 @@
   <div class="form-group row">
     <label class="col-form-label">คำร้องที่ : </label>
     <div class="col-2">
-    <input type="text" class="form-control" id="">
+    <input type="text" class="form-control" id="" name="rw_no">
     </div>
     <label class="col-form-label">ขอหมายจับรับที่ร้อง ศาล : </label>
     <div class="col">
