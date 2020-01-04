@@ -1,4 +1,5 @@
 <?php
+
 if(empty($_GET['datacase'])){
   $case_id = $_SESSION['case_id'];
 }else{

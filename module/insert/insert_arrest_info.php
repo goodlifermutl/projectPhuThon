@@ -1,27 +1,33 @@
+<?php 
+$con = connect_db();
+
+$case_id=$_SESSION['case_id'];
+
+?>
 <div class="container">
     <div class="col-md">
     <h1 class="text-center">หมายจับ</h1>
     </div>
-    <form method="post" id="insertvictim">
+    <form method="post" id="insertinfoarrest">
     <div class="col-md">
         <div class="form-row">
         <div>
             <label class="col-sm col-form-label">หมายจับที่ : </label>
         </div>
         <div class="col-md-2">
-            <input type="text" class="form-control " placeholder="หมายจับที่" name="info_arr_list" required>     
+            <input type="text" class="form-control " placeholder="หมายจับที่" name="info_arr_list" >     
         </div>
         <div>
             <label class="col-sm col-form-label">ชื่อศาล : </label>
         </div>
         <div class="col-md">
-            <input type="text" class="form-control " placeholder="ชื่อศาล" name="" required>
+            <input type="text" class="form-control " placeholder="ชื่อศาล" name="san_arr_info" >
         </div>
             <div>
               <label class="col-sm col-form-label">วัน/เดือน/ปี : </label>
             </div>
         <div class="col-md">
-            <input type="text" class="form-control " placeholder="วัน/เดือน/ปี"  required>
+            <input type="date" class="form-control " placeholder="วัน/เดือน/ปี" name="date_arr_info"  >
         </div>
         </div>
     </div>
@@ -32,7 +38,7 @@
             <label class="col-sm col-form-label">ประเภทคดี : </label>
         </div>
         <div class="col-md-2">
-        <select class="custom-select " id="" name=""  required>
+        <select class="custom-select " id="" name="type_arr_info"  >
                 <option disabled selected value="0">ประเภทคดี</option>
                 <option value="1">คดีเพ่ง</option>
                 <option  value="2">คดีอาญา</option>
@@ -43,13 +49,13 @@
             <label class="col-sm col-form-label">ผู้ร้อง : </label>
         </div>
         <div class="col-md">
-            <input type="text" class="form-control " placeholder="ผู้ร้อง"  required>
+            <input type="text" class="form-control " placeholder="ผู้ร้อง" name="victim_ar_info" >
         </div>
             <div>
               <label class="col-sm col-form-label">หมายถึง : </label>
             </div>
         <div class="col-md">
-            <input type="text" class="form-control " placeholder="หมายถึง"  required>
+            <input type="text" class="form-control " placeholder="หมายถึง" name="villain_ar_info" >
         </div>
         </div>
     </div>
@@ -61,7 +67,7 @@
         </div>
         <div class="col-md-10">
         <div class="input-group">
-        <textarea class="form-control" aria-label="With textarea"></textarea>
+        <textarea class="form-control" aria-label="With textarea" name="victim_arin_say"></textarea>
         </div>
         </div>
         </div>
@@ -74,7 +80,7 @@
         </div>
         <div class="col-md-9">
         <div class="input-group">
-        <textarea class="form-control" aria-label="With textarea"></textarea>
+        <textarea class="form-control" aria-label="With textarea" name="villain_perpetrate_arin"></textarea>
         </div>
         </div>
         </div>
@@ -86,57 +92,18 @@
     <p></p>
     <div class="col-md">
         <div class="form-row">
-        <div>
-            <label class="col-sm col-form-label">ชื่อ : </label>
-        </div>
-        <div class="col-md-2">
-            <input type="text" class="form-control " placeholder="คำนำหน้าชื่อ" value="" id="focus<?php echo $i?>" name="victim_titlename"  required>     
-        </div>
-            <div class="col-md">
-            <input type="text" class="form-control " placeholder="ชื่อ" value="" name="victim_name" required>
-        </div>
-            <div>
-              <label class="col-sm col-form-label">นามสกุล : </label>
-            </div>
-        <div class="col-md">
-            <input type="text" class="form-control " placeholder="นามสกุล" value="" name="victim_lastname"  required>
+    <select class="custom-select " id="" name="vil_ar_info" required >
+                <option disabled selected value="0">ผู้ต้องหา</option>
+                <?php $result_vil = mysqli_query($con,"SELECT villain_idcard,title_name,villain_name,villain_lastname FROM villain WHERE case_id='$case_id'")or die("select villain error".mysqli_error($con));
+                    while(list($vil_idcard,$title,$vil_name,$vil_lastname)=mysqli_fetch_row($result_vil)){
+                     echo"<option value='$vil_idcard'>$title $vil_name $vil_lastname</option>";
+                    }
+                ?> 
+                   
+            </select>
         </div>
     </div>
-    </div>
-    <p></p>    
-    <div class="col-md">
-          <div class="form-row">
-            <div>
-              <label class="col-sm col-form-label">เชื้อชาติ : </label>
-            </div>
-            <div class="col-md">
-              <input type="text" class="form-control" placeholder="เชื้อชาติ" value="" name="victim_race"  required>
-            </div>
-            <div>
-              <label class="col-sm col-form-label">สัญชาติ : </label>
-            </div>
-            <div class="col-md">
-              <input type="text" class="form-control " placeholder="สัญชาติ" value="" name="victim_nationality"  required>
-            </div>
-            <div>
-              <label class="col-sm col-form-label">อาชีพ : </label>
-            </div>
-            <div class="col-md">
-            <input type="text" class="form-control " placeholder="อาชีพ" value="" name="victim_careen"  required>
-            </div>
-          </div>
-    </div>
-    <p></p>
-    <div class="col-md">
-        <div class="form-row">
-        <div>
-            <label class="col-sm col-form-label">ที่อยู่ : </label>
-        </div>
-        <div class="col-md">
-        <input type="text" class="form-control " placeholder="ที่อยู่" value="" name="victim_address"  required>
-        </div>
-        </div>
-    </div>
+    
     <p></p>
     <div class="col-md">
         <div class="form-row">
@@ -144,7 +111,7 @@
             <label class="col-sm col-form-label">ใกล้เคียงพื้นที่ : </label>
         </div>
         <div class="col-md">
-        <input type="text" class="form-control " placeholder="ใกล้เคียงพื้นที่" value="" name="victim_address"  required>
+        <input type="text" class="form-control " placeholder="ใกล้เคียงพื้นที่" value="" name="vil_close_address"  >
         </div>
         </div>
     </div>
@@ -155,13 +122,13 @@
             <label class="col-sm col-form-label">ไปส่งที่ : </label>
         </div>
         <div class="col-md-7">
-            <input type="text" class="form-control " placeholder="ส่งตัวไปที่" required>     
+            <input type="text" class="form-control " placeholder="ส่งตัวไปที่" name="vill_to_place">     
         </div>
         <div>
             <label class="col-sm col-form-label">ภายในอายุความ : </label>
         </div>
         <div class="col-md">
-            <input type="text" class="form-control " placeholder="ภายในอายุความ"  required>
+            <input type="text" class="form-control " placeholder="ภายในอายุความ" name="intime_ar_info" >
         </div>
         <div>
             <label class="col-sm col-form-label">ปี </label>
@@ -175,7 +142,7 @@
             <label class="col-sm col-form-label">นับตั้งแต่วันที่ : </label>
         </div>
         <div class="col-md-5">
-            <input type="text" class="form-control " placeholder="วัน/เดือน/ปี" required>     
+            <input type="date" class="form-control " placeholder="วัน/เดือน/ปี" name="stdate_ar_info" >     
         </div>
         </div>
     </div>
@@ -190,13 +157,13 @@
             <label class="col-sm col-form-label">แต่ไม่เกินวันที่ : </label>
         </div>
         <div class="col-md-5">
-            <input type="text" class="form-control " placeholder="วัน/เดือน/ปี" required>     
+            <input type="date" class="form-control " placeholder="วัน/เดือน/ปี" name="dl_ar_info" >     
         </div>
         <div>
             <label class="col-sm col-form-label">ผู้พิพากษา : </label>
         </div>
         <div class="col-md">
-            <input type="text" class="form-control " placeholder="ชื่อผู้พิพากษา" required>     
+            <input type="text" class="form-control " placeholder="ชื่อผู้พิพากษา" name="judge_ar_info" >     
         </div>
         </div>
     </div>
@@ -206,3 +173,33 @@
     </div>
     </form>
 </div>
+
+<script>
+$("#insertinfoarrest").submit(function(e){
+	e.preventDefault();
+	$check = $("#insertinfoarrest").valid();
+
+		if($check == true){
+		var formData = new FormData(this);
+
+		$.ajax({
+		url: "module/fuction/insert_data_arrest_info.php",
+		type: 'POST',
+		data: formData,
+			success: function (data) {
+            alert(data) 
+            swal({
+            title: "บันทึกผู้ต้องหาสำเร็จ",
+            icon: "success",
+            button: "ตกลง",
+          }).then((value) => {
+            // window.location.href="home.php?&module=2&action=3"
+})
+		},
+			cache: false,
+			contentType: false,
+			processData: false
+	  });	
+	}
+});
+</script>
