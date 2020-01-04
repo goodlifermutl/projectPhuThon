@@ -3,7 +3,7 @@
         <h1 class="text-center">เพิ่มหมายค้น</h1>
         <p></p>
 
-<form>
+<form method="post" id="insertWarrSearch">
   <div class="form-group row">
     <label class="col-form-label">หมายค้น ที่ : </label>
     <div class="col-3">
@@ -27,7 +27,7 @@
   <div class="form-group row">
     <label class="col-form-label">หมายถึง : </label>
     <div class="col-6">
-    <input type="text" class="form-control" id=""name="sw_หมายถึง">
+    <input type="text" class="form-control" id=""name="sw_send">
     </div>
   </div>
   <div class="form-group row">
@@ -69,7 +69,7 @@
   </div>
   <div class="form-group row">
     <div class="form-check form-check-inline">
-      <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2"name="sw_map">
+      <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="true"name="sw_map">
       <label class="form-check-label" for="inlineCheckbox2">เพื่อพบและยึดสิ่งของ </label>
     </div>
     <div class="col-5">
@@ -78,25 +78,25 @@
   </div>
 <div class="form-group row">
   <div class="form-check form-check-inline">
-    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2"name="sw_check1">
+    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="true"name="sw_check1">
     <label class="form-check-label" for="inlineCheckbox2">ซึ่งจะเป็นพยานหลักฐานประกอบการสอบสวน ไต่สวนมูลฟ้องหรือพิจารณา </label>
   </div>
   </div>
   <div class="form-group row">
     <div class="form-check form-check-inline">
-      <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2"name="sw_check2">
+      <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="true"name="sw_check2">
       <label class="form-check-label" for="inlineCheckbox2">ซึ่งมีไว้เป็นความผิดหรือได้มาโดยผิดกฎหมาย หรือได้ใช้ หรือตั้งใจจะใช้ในการกระทำความผิด </label>
     </div>
     </div>
     <div class="form-group row">
       <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2"name="sw_check3">
+        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="true"name="sw_check3">
         <label class="form-check-label" for="inlineCheckbox2">ตามคำพิพากษา หรือคำสั่งของศาล </label>
       </div>
       </div>
   <div class="form-group row">
     <div class="form-check form-check-inline">
-      <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2"name="sw_check4">
+      <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="true"name="sw_check4">
       <label class="form-check-label" for="inlineCheckbox2">เพื่อพบ  </label>
     </div>
     <div class="col-5">
@@ -105,13 +105,13 @@
   </div>
   <div class="form-group row">
     <div class="form-check form-check-inline">
-      <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2"name="sw_law">
+      <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="true"name="sw_law">
       <label class="form-check-label" for="inlineCheckbox2">บุคคลที่ถูกหน่วงเหนี่ยวหรือกักขังโดยมิชอบด้วยกฎหมาย </label>
     </div>
     </div>
     <div class="form-group row">
       <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2"name="sw_warrant">
+        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="true"name="sw_warrant">
         <label class="form-check-label" for="inlineCheckbox2">บุคคลที่ออกหมายจับ ตามหมายจับที่ </label>
       </div>
       <div class="col-3">
@@ -161,14 +161,14 @@
       </div>
       <label class="col-form-label">นาฬิกา ถึง</label>
       &nbsp;  &nbsp;<div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2"name="sw_check5">
+        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="true"name="sw_check5">
         <label class="form-check-label" for="inlineCheckbox2">เวลา</label>
         <input type="text" class="form-control" id=""name="sw_">
       </div>
       <label class="col-form-label">นาฬิกา</label>
         &nbsp;  &nbsp;<div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2"name="sw_check6">
-        <label class="form-check-label" for="inlineCheckbox2">คิดค่อกันไปจนกว่าจะเสร็จสิ้นการตรวจค้น</label>
+        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="true"name="sw_check6">
+        <label class="form-check-label" for="inlineCheckbox2">ติดต่อกันไปจนกว่าจะเสร็จสิ้นการตรวจค้น</label>
       </div>
       </div>
       <div class="form-group row">
@@ -194,16 +194,35 @@
             <button type="submit" class="btn btn-success btn-lg btn-block" id="save">บันทึกข้อมูล</button>
             </div>
 
-
-
-
-
-
-
-
-
-
-
-
 </form>
 </div>
+
+<script>
+$("#insertWarrSearch").submit(function(e){
+	e.preventDefault();
+	$check = $("#insertWarrSearch").valid();
+
+		if($check == true){
+		var formData = new FormData(this);
+
+		$.ajax({
+		url: "module/fuction/insert_data_search_warrant.php",
+		type: 'POST',
+		data: formData,
+			success: function (data) {
+            alert(data) 
+            swal({
+            title: "บันทึกผู้ต้องหาสำเร็จ",
+            icon: "success",
+            button: "ตกลง",
+          }).then((value) => {
+            // window.location.href="home.php?&module=2&action=3"
+})
+		},
+			cache: false,
+			contentType: false,
+			processData: false
+	  });	
+	}
+});
+</script>

@@ -3,7 +3,7 @@
         <h1 class="text-center">เพิ่มหมายเรียกผู้ต้องหา</h1>
         <p></p>
 
-<form>
+<form method="post" id="insertSumVil">
   <div class="form-group row">
     <label class="col-form-label">หมายเรียกผู้ต้องหาครั้งที่ : </label>
     <div class="col-2">
@@ -88,7 +88,7 @@
   <input type="text" class="form-control" id=""name="sv_position">
   </div>
 </div>
-  <h3 class="text-center">เพิ่มหมายเรียกผู้ต้องหา</h3>
+  <h3 class="text-center">ใบรับหมายตำรวจ</h3>
 <p></p>
 <div class="form-group row">
   <label class="col-form-label">วัน/เดือน/ปี : </label>
@@ -138,7 +138,7 @@
 <div class="form-group row">
   <label class="col-form-label">ได้มาดำเนินการส่งหมายเรียกให้กับ</label>
   <div class="col">
-  <input type="text" class="form-control" id=""name="sv_policename4">
+  <input type="text" class="form-control" id=""name="sv_policename5">
   </div>
 </div>
 <div class="form-group row">
@@ -150,9 +150,9 @@
 <div class="form-group row">
   <div class="form-check">
     <label class="form-check-label" for="defaultCheck1">ปรากฏผลส่งหมาย ดังนี้</label>
-      &nbsp;  &nbsp;  &nbsp;<input class="form-check-input" type="radio" value="" id="defaultCheck1"name="exampleRadios">
+      &nbsp;  &nbsp;  &nbsp;<input class="form-check-input" type="radio" value="1" id="defaultCheck1"name="exampleRadios">
     <label class="form-check-label" for="defaultCheck1">ส่งได้และผู้ต้องหารับทราบกำหนดนัดแล้ว</label>
-    &nbsp;  &nbsp;  &nbsp;<input class="form-check-input" type="radio"  value="" id="defaultCheck2"name="exampleRadios">
+    &nbsp;  &nbsp;  &nbsp;<input class="form-check-input" type="radio"  value="2" id="defaultCheck2"name="exampleRadios">
     <label class="form-check-label" for="defaultCheck1">ส่งไม่ได้</label>
 </div>
 </div>
@@ -171,13 +171,35 @@
 <button type="submit" class="btn btn-success btn-lg btn-block" id="save">บันทึกข้อมูล</button>
 </div>
 
-
-
-
-
-
-
-
-
 </form>
 </div>
+
+<script>
+$("#insertSumVil").submit(function(e){
+	e.preventDefault();
+	$check = $("#insertSumVil").valid();
+
+		if($check == true){
+		var formData = new FormData(this);
+
+		$.ajax({
+		url: "module/fuction/insert_data_summon_villain.php",
+		type: 'POST',
+		data: formData,
+			success: function (data) {
+            alert(data) 
+            swal({
+            title: "บันทึกผู้ต้องหาสำเร็จ",
+            icon: "success",
+            button: "ตกลง",
+          }).then((value) => {
+            // window.location.href="home.php?&module=2&action=3"
+})
+		},
+			cache: false,
+			contentType: false,
+			processData: false
+	  });	
+	}
+});
+</script>

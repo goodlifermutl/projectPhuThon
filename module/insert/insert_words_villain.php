@@ -1,8 +1,8 @@
-<?php $con = connect_db(); ?>
+
 <div class="container">
         <h1 class="text-center">เพิ่มคำให้การผู้ต้องหา</h1>
         <p></p>
-<form>
+<form method="post" id="insertWordsVill">
   <div class="form-group row">
     <label class="col-form-label">คำให้การของ : </label>
     <div class="col">
@@ -139,7 +139,7 @@
         <div class="form-group row">
             <label class="col-form-label">เจ้าพนักงานได้แจ้งแก่ข้าพเจ้าว่า ข้าพเจ้าต้องหาว่า : </label>
             <div class="col">
-          <textarea class="form-control" aria-label="With textarea"name="ir_official" ></textarea>
+          <textarea class="form-control" aria-label="With textarea"name="wv_official" ></textarea>
             </div>
           </div>
 
@@ -147,25 +147,35 @@
           <button type="submit" class="btn btn-success btn-lg btn-block" id="save">บันทึกข้อมูล</button>
           </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </form>
 </div>
+
+<script>
+$("#insertWordsVill").submit(function(e){
+	e.preventDefault();
+	$check = $("#insertWordsVill").valid();
+
+		if($check == true){
+		var formData = new FormData(this);
+
+		$.ajax({
+		url: "module/fuction/insert_data_words_villain.php",
+		type: 'POST',
+		data: formData,
+			success: function (data) {
+            alert(data) 
+            swal({
+            title: "บันทึกผู้ต้องหาสำเร็จ",
+            icon: "success",
+            button: "ตกลง",
+          }).then((value) => {
+            // window.location.href="home.php?&module=2&action=3"
+})
+		},
+			cache: false,
+			contentType: false,
+			processData: false
+	  });	
+	}
+});
+</script>
