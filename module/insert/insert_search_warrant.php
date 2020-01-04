@@ -7,15 +7,15 @@
   <div class="form-group row">
     <label class="col-form-label">หมายค้น ที่ : </label>
     <div class="col-3">
-    <input type="text" class="form-control" id="">
+    <input type="text" class="form-control" id=""name="sw_">
     </div>
     <label class="col-form-label">ศาล : </label>
     <div class="col-3">
-    <input type="text" class="form-control" id="">
+    <input type="text" class="form-control" id=""sw_>
     </div>
     <label class="col-form-label">วัน/เดือน/ปี : </label>
     <div class="col-3">
-    <input type="date" class="form-control" id="">
+    <input type="date" class="form-control" id=""sw_>
     </div>
   </div>
   <div class="form-group row">

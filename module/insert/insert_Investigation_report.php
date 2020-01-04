@@ -9,24 +9,24 @@
             <label class="col-sm col-form-label">ประเภทคดี : </label>
         </div>
         <div class="col-md-2">
-        <select class="custom-select " id="" name=""  required>
+        <select class="custom-select " id="" name="ir_Casetype"  required>
                 <option disabled selected value="0">ประเภทคดี</option>
                 <option value="1">คดีเพ่ง</option>
                 <option  value="2">คดีอาญา</option>
-                   
-        </select>   
+
+        </select>
         </div>
         <div>
             <label class="col-sm col-form-label">ที่ : </label>
         </div>
         <div class="col-md-1">
-            <input type="text" class="form-control " placeholder="ที่"  required>
+            <input type="text" class="form-control " placeholder="ที่" name="ir_order"  required>
         </div>
             <div>
               <label class="col-sm col-form-label">สถานีตำรวจ : </label>
             </div>
         <div class="col-md">
-            <input type="text" class="form-control " placeholder="ที่อยู่สถาณีตำรวจ"  required>
+            <input type="text" class="form-control " placeholder="ที่อยู่สถาณีตำรวจ" name="ir_Policestation"  required>
         </div>
         </div>
     </div>
@@ -38,7 +38,7 @@
         </div>
         <div class="col-md-10">
         <div class="input-group">
-        <textarea class="form-control" aria-label="With textarea"></textarea>
+        <textarea class="form-control" aria-label="With textarea"name="ir_offer" ></textarea>
         </div>
         </div>
         </div>
@@ -57,16 +57,16 @@
             <label class="col-sm col-form-label">ชื่อ : </label>
         </div>
         <div class="col-md-2">
-            <input type="text" class="form-control " placeholder="คำนำหน้าชื่อ" value="" id="focus<?php echo $i?>" name="victim_titlename"  required>     
+            <input type="text" class="form-control " placeholder="คำนำหน้าชื่อ" value="" id="focus<?php echo $i?>" name="victim_titlename" name="ir_prefix"  required>
         </div>
             <div class="col-md">
-            <input type="text" class="form-control " placeholder="ชื่อ" value="" name="victim_name" required>
+            <input type="text" class="form-control " placeholder="ชื่อ" value="" name="victim_name"name="ir_name"  required>
         </div>
             <div>
               <label class="col-sm col-form-label">นามสกุล : </label>
             </div>
         <div class="col-md">
-            <input type="text" class="form-control " placeholder="นามสกุล" value="" name="victim_lastname"  required>
+            <input type="text" class="form-control " placeholder="นามสกุล" value="" name="victim_lastname" name="ir_surname"  required>
         </div>
     </div>
     </div>
@@ -80,16 +80,16 @@
             <label class="col-sm col-form-label">ชื่อ : </label>
         </div>
         <div class="col-md-2">
-            <input type="text" class="form-control " placeholder="คำนำหน้าชื่อ" value="" id="focus<?php echo $i?>" name="victim_titlename"  required>     
+            <input type="text" class="form-control " placeholder="คำนำหน้าชื่อ" value="" id="focus<?php echo $i?>" name="victim_titlename"name="ir_ir_prefix2"   required>
         </div>
             <div class="col-md">
-            <input type="text" class="form-control " placeholder="ชื่อ" value="" name="victim_name" required>
+            <input type="text" class="form-control " placeholder="ชื่อ" value="" name="victim_name" name="ir_ir_name2" required>
         </div>
             <div>
               <label class="col-sm col-form-label">นามสกุล : </label>
             </div>
         <div class="col-md">
-            <input type="text" class="form-control " placeholder="นามสกุล" value="" name="victim_lastname"  required>
+            <input type="text" class="form-control " placeholder="นามสกุล" value="" name="victim_lastname" name="ir_surname2"  required>
         </div>
     </div>
     </div>
@@ -101,7 +101,7 @@
         </div>
         <div class="col-md">
         <div class="input-group">
-        <textarea class="form-control" aria-label="With textarea"></textarea>
+        <textarea class="form-control" aria-label="With textarea"name="ir_Charge" ></textarea>
         </div>
         </div>
         </div>
@@ -113,7 +113,7 @@
             <label class="col-sm col-form-label">วันเวลาที่เกิดเหตุ : </label>
         </div>
         <div class="col-md">
-        <input type="text" class="form-control " placeholder="วันเวลาที่เกิดเหตุ" value="" name="victim_address"  required>
+        <input type="text" class="form-control " placeholder="วันเวลาที่เกิดเหตุ" value="" name="victim_address" name="ir_date"  required>
         </div>
         </div>
     </div>
@@ -124,7 +124,7 @@
             <label class="col-sm col-form-label">ตำบลที่เกิดเหตุ : </label>
         </div>
         <div class="col-md">
-        <input type="text" class="form-control " placeholder="ตำบลที่เกิดเหตุ" value="" name="victim_address"  required>
+        <input type="text" class="form-control " placeholder="ตำบลที่เกิดเหตุ" value="" name="victim_address" name="ir_district"  required>
         </div>
         </div>
     </div>
@@ -135,13 +135,13 @@
             <label class="col-sm col-form-label">ราคาทรัพย์ที่ถูกประทุษร้าย : </label>
         </div>
         <div class="col-md">
-            <input type="text" class="form-control " placeholder="ราคาทรัพย์ที่ถูกประทุษร้าย" required>     
+            <input type="text" class="form-control " placeholder="ราคาทรัพย์ที่ถูกประทุษร้าย"name="ir_price"  required>
         </div>
         <div>
             <label class="col-sm col-form-label">บาดแผล : </label>
         </div>
         <div class="col-md">
-            <input type="text" class="form-control " placeholder="บาดแผล"  required>
+            <input type="text" class="form-control " placeholder="บาดแผล" name="ir_wound"  required>
         </div>
         </div>
     </div>
@@ -152,7 +152,7 @@
             <label class="col-sm col-form-label">วันเวลาที่ร้องทุกข์หรือกล่าวโทษ : </label>
         </div>
         <div class="col-md-5">
-            <input type="text" class="form-control " placeholder="วันเวลาที่ร้องทุกข์หรือกล่าวโทษ" required>     
+            <input type="text" class="form-control " placeholder="วันเวลาที่ร้องทุกข์หรือกล่าวโทษ"name="ir_Complaint"  required>
         </div>
         </div>
     </div>
@@ -163,7 +163,7 @@
             <label class="col-sm col-form-label">วันเวลาที่ผู้ต้องหาถูก ควบคุม/ขัง/ปล่อยชั่วคราว : </label>
         </div>
         <div class="col-md-5">
-            <input type="text" class="form-control " placeholder="ควบคุม/ขัง/ปล่อยชั่วคราว" required>     
+            <input type="text" class="form-control " placeholder="ควบคุม/ขัง/ปล่อยชั่วคราว"name="ir_control"  required>
         </div>
         </div>
     </div>
@@ -175,7 +175,7 @@
         </div>
         <div class="col-md">
         <div class="input-group">
-        <textarea class="form-control" aria-label="With textarea"></textarea>
+        <textarea class="form-control" aria-label="With textarea"name="ir_fact" ></textarea>
         </div>
         </div>
         </div>
