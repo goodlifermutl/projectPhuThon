@@ -1,12 +1,22 @@
-
+<?php 
+$con=connect_db();
+?>
 <div class="container">
         <h1 class="text-center">เพิ่มคำให้การผู้ต้องหา</h1>
         <p></p>
 <form method="post" id="insertWordsVill">
   <div class="form-group row">
     <label class="col-form-label">คำให้การของ : </label>
-    <div class="col">
-    <input type="text" class="form-control" id=""name="wv_testimony">
+    <div class="col-md">
+    <select class="custom-select " id="seleCard" name="wv_testimony" required >
+                <option disabled selected value="0">ผู้ต้องหา</option>
+                <?php $result_vil = mysqli_query($con,"SELECT villain_idcard,title_name,villain_name,villain_lastname FROM villain WHERE case_id='$_SESSION[case_id]'")or die("select villain error".mysqli_error($con));
+                    while(list($vil_idcard,$title,$vil_name,$vil_lastname)=mysqli_fetch_row($result_vil)){
+                     echo"<option value='$vil_idcard'>$title $vil_name $vil_lastname</option>";
+                    }
+                ?> 
+                   
+            </select>
     </div>
     <label class="col-form-label">เป็น : </label>
     <div class="col">
@@ -15,12 +25,11 @@
   </div>
   <div class="form-group row">
     <label class="col-form-label">โทรศัพท์ติดต่อ : </label>
-    <div class="col-4">
+    <div class="col-2">
     <input type="text" class="form-control" id=""name="wv_phone">
     </div>
     <label class="col-form-label">บัตรประจำตัวประชาชน : </label>
-    <div class="col">
-    <input type="text" class="form-control" id=""name="wv_card">
+    <div class="col-md" id="loadSLidcard">
     </div>
   </div>
   <div class="form-group row">
@@ -151,6 +160,25 @@
 </div>
 
 <script>
+function loadselectedIDcard(){
+
+var idcard = $("#seleCard").val();
+
+  $("#loadSLidcard").html("")
+  $.ajax({
+    url: "module/fuction/add_seleted_card.php",
+    data:{idcard},
+    type: "POST"
+  }).done(function(data,){
+    // alert(data)
+    $("#loadSLidcard").html(data)
+  })
+}
+
+$("#seleCard").change(function(){
+  loadselectedIDcard()
+})
+
 $("#insertWordsVill").submit(function(e){
 	e.preventDefault();
 	$check = $("#insertWordsVill").valid();
