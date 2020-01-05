@@ -285,7 +285,7 @@ $("#btn_edit4<?php echo $md; ?>").click(function(){
 })
 $("#canclebtn4<?php echo $md;  ?>").click(function(){
  // alert("ggg")
- $(".editrw<?php echo $md; ?>").prop("disabled", true);
+ $(".editinr<?php echo $md; ?>").prop("disabled", true);
  $("#savebtn4<?php echo $md ?>").hide();
   $("#canclebtn4<?php echo $md ?>").hide();
   window.location.href="home.php?datacase=<?php echo $case_id_inr; ?>&module=1&action=1";

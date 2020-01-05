@@ -102,6 +102,7 @@ window.location.href = "index.php";
        include("module/view/view_data_arrest_info.php");
        include("module/view/view_data_request_warrant.php");
        include("module/view/view_data_investigation_report.php");
+       include("module/view/view_summon_villain.php");
        ?> 
       
      <br>
