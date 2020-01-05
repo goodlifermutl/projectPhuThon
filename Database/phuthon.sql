@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 05, 2020 at 01:00 PM
+-- Generation Time: Jan 05, 2020 at 09:07 PM
 -- Server version: 10.3.15-MariaDB
 -- PHP Version: 7.3.6
 
@@ -58,6 +58,13 @@ CREATE TABLE `arrest_info` (
   `end_date_arr_info` date NOT NULL,
   `judge_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `arrest_info`
+--
+
+INSERT INTO `arrest_info` (`case_id_arr_info`, `id_arr_info`, `court_name`, `date_arr_info`, `type_arr_info`, `victim_arr_info`, `villain_arr_info`, `victim_say_arr_info`, `vil_perpetrate_arr_info`, `id_vil_catch_arr_info`, `close_add_arr_info`, `send_to_arr_info`, `dl_arr_info`, `st_date_arr_info`, `end_date_arr_info`, `judge_name`) VALUES
+('ค.001', 'test001', 'test1', '2020-01-03', 2, 'test2', 'test3', 'test4', 'test5', '1158497685123', 'test6', 'tset7', 8, '2020-01-18', '2020-01-25', 'test9');
 
 -- --------------------------------------------------------
 
@@ -193,7 +200,7 @@ CREATE TABLE `investigation_report` (
 --
 
 INSERT INTO `investigation_report` (`no_ir`, `ir_case`, `ir_casetype`, `ir_order`, `ir_policestation`, `ir_offer`, `ir_prefix`, `ir_name`, `ir_surname`, `ir_ir_prefix2`, `ir_ir_name2`, `ir_surname2`, `ir_charge`, `ir_date`, `ir_district`, `ir_price`, `ir_wound`, `ir_complaint`, `ir_control`, `ir_fact`) VALUES
-(1, 'ค.001', 2, '85/98', 'test1', 'test2', 'test3', 'test4', 'test5', 'test6', 'test7', 'test8', 'test9', '2020-01-04', 'test9', 'test10', 'test11', '2020-01-05', '2020-01-06', 'test12');
+(1, 'ค.001', 2, '85/98', 'test1', 'test2', 'test3', 'test4', 'test5', 'test6', 'test7', 'test8', 'test9', '2020-01-04', 'test9', 'test10', 'test11', '2020-01-05', '2020-01-06', 'test122');
 
 -- --------------------------------------------------------
 
@@ -343,6 +350,7 @@ CREATE TABLE `request_warrant` (
   `rw_cherk2` char(10) COLLATE utf8_unicode_ci NOT NULL,
   `rw_incident` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `rw_circumstances` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `rw_action` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `rw_Documentary` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `rw_Arrest` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `rw_warrant` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -358,8 +366,8 @@ CREATE TABLE `request_warrant` (
 -- Dumping data for table `request_warrant`
 --
 
-INSERT INTO `request_warrant` (`no_rw`, `rw_case`, `rw_no`, `rw_court`, `rw_cell`, `rw_judge`, `rw_type`, `rw_Petitioner`, `rw_policename`, `rw_position`, `rw_age`, `rw_career`, `rw_Workplace`, `rw_phone`, `rw_dos`, `rw_cherk1`, `rw_cherk2`, `rw_incident`, `rw_circumstances`, `rw_Documentary`, `rw_Arrest`, `rw_warrant`, `rw_petition`, `rw_position2`, `rw_ornot`, `rw_Request`, `rw_warrant2`, `rw_Court2`) VALUES
-(3, 'ค.001', 'test1', 'test2', '2020-01-04', 'test3', 2, 'test4', 'test5', 'test6', 0, 'test8', 'test9', 'test10', 'test11', 'false', 'true2', 'test12', 'test13', 'test15', 'test16', 'test17', 'test18', 'test19', 1, 'test20', 'test21', 'test22');
+INSERT INTO `request_warrant` (`no_rw`, `rw_case`, `rw_no`, `rw_court`, `rw_cell`, `rw_judge`, `rw_type`, `rw_Petitioner`, `rw_policename`, `rw_position`, `rw_age`, `rw_career`, `rw_Workplace`, `rw_phone`, `rw_dos`, `rw_cherk1`, `rw_cherk2`, `rw_incident`, `rw_circumstances`, `rw_action`, `rw_Documentary`, `rw_Arrest`, `rw_warrant`, `rw_petition`, `rw_position2`, `rw_ornot`, `rw_Request`, `rw_warrant2`, `rw_Court2`) VALUES
+(3, 'ค.001', 'test1', 'test2', '2020-01-04', 'test3', 2, 'test4', 'test5', 'test6', 20, 'test8', 'test9', 'test10', 'test11', 'true1', 'true2', 'test12', 'test13', 'test14', 'test15', 'test16', 'test17', 'test18', 'test19', 1, 'test20', 'test21', 'test22');
 
 -- --------------------------------------------------------
 
@@ -395,6 +403,7 @@ CREATE TABLE `search_warrant` (
   `sw_send` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `sw_adderss` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `sw_map` char(5) COLLATE utf8_unicode_ci NOT NULL,
+  `sw_seize` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `sw_check1` char(5) COLLATE utf8_unicode_ci NOT NULL,
   `sw_check2` char(5) COLLATE utf8_unicode_ci NOT NULL,
   `sw_check3` char(5) COLLATE utf8_unicode_ci NOT NULL,
@@ -422,8 +431,8 @@ CREATE TABLE `search_warrant` (
 -- Dumping data for table `search_warrant`
 --
 
-INSERT INTO `search_warrant` (`sw_no`, `sw_case`, `sw_searchwarrant`, `sw_court`, `sw_date`, `sw_petitioner`, `sw_send`, `sw_adderss`, `sw_map`, `sw_check1`, `sw_check2`, `sw_check3`, `sw_check4`, `sw_find`, `sw_law`, `sw_warrant`, `sw_warrant2`, `sw_date2`, `sw_issued`, `sw_sw_issued2`, `sw_position`, `sw_location2`, `sw_month`, `sw_time`, `sw_check5`, `sw_time_to`, `sw_check6`, `sw_search`, `sw_save`, `sw_judge`) VALUES
-(1, 'ค.001', '559/25', 'test1', '2020-01-05', 'test2', 'test3', 'test4', 'true', 'false', 'false', 'false', 'true', 'test12', 'false', 'true', 'test13', 'test14', 'test15', 'test16', 'test17', 'test18', 'test19', '08:00:00', 'true', '10:00:00', 'false', 'test20', 'test21', 'test22');
+INSERT INTO `search_warrant` (`sw_no`, `sw_case`, `sw_searchwarrant`, `sw_court`, `sw_date`, `sw_petitioner`, `sw_send`, `sw_adderss`, `sw_map`, `sw_seize`, `sw_check1`, `sw_check2`, `sw_check3`, `sw_check4`, `sw_find`, `sw_law`, `sw_warrant`, `sw_warrant2`, `sw_date2`, `sw_issued`, `sw_sw_issued2`, `sw_position`, `sw_location2`, `sw_month`, `sw_time`, `sw_check5`, `sw_time_to`, `sw_check6`, `sw_search`, `sw_save`, `sw_judge`) VALUES
+(1, 'ค.001', '559/255', 'test11111', '2020-01-05', 'test2', 'test3', 'test4', 'true', 'test11', 'true', 'true', 'true', 'true', 'test12', 'true', 'true', 'test13', 'test14', 'test15', 'test16', 'test17', 'test18', 'test19', '08:00:00', 'true', '00:00:00', 'f', 'test20', 'test21', 'test22');
 
 -- --------------------------------------------------------
 
@@ -487,6 +496,7 @@ CREATE TABLE `summon_villain` (
   `sv_position` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `sv_datetime2` datetime NOT NULL,
   `sv_policename` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `sv_set` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `sv_datetime3` datetime NOT NULL,
   `sv_recipient` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `sv_sender` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -503,8 +513,8 @@ CREATE TABLE `summon_villain` (
 -- Dumping data for table `summon_villain`
 --
 
-INSERT INTO `summon_villain` (`no_sv`, `sv_case`, `sv_suspect`, `sv_warrant`, `sv_date`, `sv_accused`, `sv_villain`, `sv_refer`, `sv_address`, `sv_headman`, `sv_village`, `sv_hey`, `sv_text`, `sv_goto`, `sv_staff`, `sv_datetime`, `sv_staff2`, `sv_position`, `sv_datetime2`, `sv_policename`, `sv_datetime3`, `sv_recipient`, `sv_sender`, `sv_policename4`, `sv_position2`, `sv_policename5`, `sv_address2`, `sv_status_sent`, `sv_sign`, `sv_position3`) VALUES
-(1, 'ค.001', '85/98', 'test1', '2020-01-05', 'test2', '1248846257625', 'test3', 'test4', 'test5', 'test6', 'test7', 'test8', 'test9', 'test10', '2020-01-09 10:00:00', 'test11', 'test12', '2020-01-26 13:30:00', 'test13', '2020-01-30 09:00:00', 'test15', 'test16', 'test17', 'test18', 'test19', 'test20', 1, 'test21', 'test22');
+INSERT INTO `summon_villain` (`no_sv`, `sv_case`, `sv_suspect`, `sv_warrant`, `sv_date`, `sv_accused`, `sv_villain`, `sv_refer`, `sv_address`, `sv_headman`, `sv_village`, `sv_hey`, `sv_text`, `sv_goto`, `sv_staff`, `sv_datetime`, `sv_staff2`, `sv_position`, `sv_datetime2`, `sv_policename`, `sv_set`, `sv_datetime3`, `sv_recipient`, `sv_sender`, `sv_policename4`, `sv_position2`, `sv_policename5`, `sv_address2`, `sv_status_sent`, `sv_sign`, `sv_position3`) VALUES
+(1, 'ค.001', '85/98', 'test11', '2020-01-05', 'test2', '1', 'test3', 'test4', 'test5', 'test6', 'test7', 'test8', 'test9', 'test10', '0000-00-00 00:00:00', 'test11', 'test12', '0000-00-00 00:00:00', 'test13', 'testnow', '2020-01-30 09:00:00', 'test15', 'test16', 'test17', 'test18', 'test19', 'test20', 2, 'test21', 'test22');
 
 -- --------------------------------------------------------
 
@@ -918,7 +928,7 @@ CREATE TABLE `words_villain` (
 --
 
 INSERT INTO `words_villain` (`wv_no`, `wv_case`, `wv_testimony`, `wv_are`, `wv_phone`, `wv_card`, `wv_output1`, `wv_output2`, `wv_last`, `wv_police`, `wv_station`, `wv_date`, `wv_accused`, `wv_suspect`, `wv_before`, `wv_investigate`, `wv_name`, `wv_age`, `wv_race`, `wv_nationality`, `wv_religion`, `wv_address`, `wv_headman`, `wv_villageheadmane`, `wv_farthername`, `wv_mothername`, `wv_birthday`, `wv_official`) VALUES
-(1, 'ค.001', '1158497684857', 'test2', 'test3', '1158497684857', 'test5', 'test6', 'test7', 'test8', 'test9', '2020-01-05', 'test10', 'test11', 'test12', 'test13', 'test14', 'test15', 'test16', 'test17', 'test18', 'test19', 'test20', 'test21', 'test22', 'test23', 'test24', 'test25');
+(1, 'ค.001', '1158497684857', 'test2', 'test3', '1158497684857', 'test5', 'test6', 'test7', 'test8', 'test9999', '2020-01-05', 'test10', 'test11', 'test12', 'test13', 'test14', 'test15', 'test16', 'test17', 'test18', 'test19', 'test20', 'test21', 'test22', 'test23', 'test24', 'test25');
 
 --
 -- Indexes for dumped tables
