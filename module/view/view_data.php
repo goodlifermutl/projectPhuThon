@@ -99,6 +99,9 @@ window.location.href = "index.php";
        include("module/view/view_data_villain.php");
        include("module/view/view_object.php");
        include("module/view/view_data_arrest_record.php");
+       include("module/view/view_data_arrest_info.php");
+       include("module/view/view_data_request_warrant.php");
+       include("module/view/view_data_investigation_report.php");
        ?> 
       
      <br>
