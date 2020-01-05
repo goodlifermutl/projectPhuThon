@@ -58,6 +58,7 @@ if(empty($_POST['sw_check6'])){
 }
 
 $case_warrsear=$_SESSION['case_id'];
+$qq0=$_POST['sw_no_id'];
 $qq1=$_POST['sw_Searchwarrant'];
 $qq2=$_POST['sw_court'];
 $qq3=$_POST['sw_date'];
@@ -94,11 +95,14 @@ $qq31=$_POST['sw_Search'];
 $qq32=$_POST['sw_save'];
 $qq33=$_POST['sw_judge'];
 
-$sql="INSERT INTO search_warrant VALUE('','$case_warrsear','$qq1','$qq2','$qq3','$qq4','$qq5','$qq6','$qq13','$qq66','$qq14','$qq15'
-,'$qq16','$qq17','$qq18','$qq19','$qq20','$qq21','$qq22','$qq23','$qq24','$qq25','$qq26','$qq27','$qq28','$qq29','$qqto'
-,'$qq30','$qq31','$qq32','$qq33')";
+// $sql="INSERT INTO search_warrant VALUE('','$case_warrsear','$qq1','$qq2','$qq3','$qq4','$qq5','$qq6','$qq13','$qq14','$qq15'
+// ,'$qq16','$qq17','$qq18','$qq19','$qq20','$qq21','$qq22','$qq23','$qq24','$qq25','$qq26','$qq27','$qq28','$qq29','$qqto'
+// ,'$qq30','$qq31','$qq32','$qq33')";
+
+$sql="UPDATE search_warrant SET sw_searchwarrant='$qq1[0]',sw_court='$qq2[0]',sw_date='$qq3[0]',sw_petitioner='$qq4[0]',sw_send='$qq5[0]',sw_adderss='$qq6[0]',sw_map='$qq13[0]',sw_seize='$qq66[0]',sw_check1='$qq14[0]',sw_check2='$qq15[0]',sw_check3='$qq16[0]',sw_check4='$qq17[0]',sw_find='$qq18[0]',sw_law='$qq19[0]',sw_warrant='$qq20[0]',sw_warrant2='$qq21[0]',sw_date2='$qq22[0]',sw_issued='$qq23[0]',sw_sw_issued2='$qq24[0]',sw_position='$qq25[0]',sw_location2='$qq26[0]',sw_month='$qq27[0]',sw_time='$qq28[0]',sw_check5='$qq29[0]',sw_time_to='$qqto[0]',sw_check6='$qq30[0]',sw_search='$qq31[0]',sw_save='$qq32[0]',sw_judge='$qq33[0]' WHERE sw_no='$qq0[0]'";
 
 echo $sql;
 
 mysqli_query($con,$sql)or die("error sql !!!!!!!!!".mysqli_error($con));
+mysqli_close($con);
 ?>
