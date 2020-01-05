@@ -31,9 +31,11 @@ $nn24=$_POST['wv_mothername'];
 $nn25=$_POST['wv_birthday'];
 $nn26=$_POST['wv_official'];
 
-$sql="INSERT investigation_report INTO VALUE('$case_wordsvil','$nn1','$nn2','$nn3','$nn4','$nn5','$nn6','$nn7','$nn8','$nn9','$nn10','$nn11','$nn12'
+$sql="INSERT INTO words_villain VALUE('','$case_wordsvil','$nn1','$nn2','$nn3','$nn4','$nn5','$nn6','$nn7','$nn8','$nn9','$nn10','$nn11','$nn12'
 ,'$nn13','$nn14','$nn15','$nn16','$nn17','$nn18','$nn19','$nn20','$nn21','$nn22','$nn23','$nn24','$nn25','$nn26')";
 
 echo $sql;
+
+mysqli_query($con,$sql)or die("error sql!!!!!!!!!!!".mysqli_error($con));
 
 ?>

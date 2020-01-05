@@ -33,7 +33,7 @@
             <label class="col-form-label">ที่ : </label>
         </div>
         <div class="col-md-2">
-            <input type="text" class="form-control" placeholder="ประเภทคดีที่" id="" name="arrest_No" >
+            <input type="text" class="form-control" placeholder="ประเภทคดีที่" id="arrest_aryaNo" name="arrest_No" >
         </div>
         </div>
     </div>
@@ -219,11 +219,12 @@ function loadaddpolice(){
 function loadaddvillain(){
 
 var count_vil = $("#villainCount").val();
+var arya_no = $("#arrest_aryaNo").val();
 
   $("#loadvill").html("")
   $.ajax({
     url: "module/fuction/add_villain_catch.php",
-    data:{loop,cvrecord:count_vil},
+    data:{loop,arrest_No:arya_no,cvrecord:count_vil},
     type: "POST"
   }).done(function(data,){
     // alert(data)
@@ -234,11 +235,12 @@ var count_vil = $("#villainCount").val();
 function loadaddobjectex(){
 
 var count_obx = $("#CatchCount").val();
+var arya_no = $("#arrest_aryaNo").val();
 
   $("#loadobx").html("")
   $.ajax({
     url: "module/fuction/add_objx_catch.php",
-    data:{loop,ccrecord:count_obx},
+    data:{loop,arrest_No:arya_no,ccrecord:count_obx},
     type: "POST"
   }).done(function(data,){
     // alert(data)

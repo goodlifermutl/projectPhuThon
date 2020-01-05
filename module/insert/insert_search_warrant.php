@@ -20,23 +20,23 @@
   </div>
   <div class="form-group row">
     <label class="col-form-label">ผู้ร้อง : </label>
-    <div class="col-6">
+    <div class="col-md">
     <input type="text" class="form-control" id=""name="sw_Petitioner">
     </div>
   </div>
   <div class="form-group row">
     <label class="col-form-label">หมายถึง : </label>
-    <div class="col-6">
+    <div class="col-md">
     <input type="text" class="form-control" id=""name="sw_send">
     </div>
   </div>
   <div class="form-group row">
     <label class="col-form-label">ด้วยศาลเห็นมีเหตุสมควรให้ค้นสถานที่ / บ้านเลขที่ : </label>
-    <div class="col-6">
+    <div class="col-md">
     <input type="text" class="form-control" id=""name="sw_location">
     </div>
   </div>
-  <div class="form-group row">
+  <!-- <div class="form-group row">
     <label class="col-form-label">หมู่ที่ : </label>
     <div class="col-3">
     <input type="text" class="form-control" id=""name="sw_Village">
@@ -49,8 +49,8 @@
     <div class="col-3">
     <input type="text" class="form-control" id=""name="sw_road">
     </div>
-  </div>
-  <div class="form-group row">
+  </div> -->
+  <!-- <div class="form-group row">
     <label class="col-form-label">ตำบล/แขวง : </label>
     <div class="col-3">
     <input type="text" class="form-control" id=""name="sw_district">
@@ -63,7 +63,7 @@
     <div class="col-3">
     <input type="text" class="form-control" id=""name="sw_province">
     </div>
-  </div>
+  </div> -->
   <div class="form-group row">
     <label class="col-form-label">ตามแผนที่สังเขปแนบท้าย : </label>
   </div>
@@ -157,13 +157,13 @@
     <div class="form-group row">
       <label class="col-form-label">เวลา : </label>
       <div class="col-3">
-      <input type="text" class="form-control" id=""name="sw_time">
+      <input type="time" class="form-control" id=""name="sw_time">
       </div>
       <label class="col-form-label">นาฬิกา ถึง</label>
       &nbsp;  &nbsp;<div class="form-check form-check-inline">
         <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="true"name="sw_check5">
-        <label class="form-check-label" for="inlineCheckbox2">เวลา</label>
-        <input type="text" class="form-control" id=""name="sw_">
+        <label class="form-check-label" for="inlineCheckbox2">เวลา</label>&nbsp;
+        <input type="time" class="form-control" id=""name="sw_time_to">
       </div>
       <label class="col-form-label">นาฬิกา</label>
         &nbsp;  &nbsp;<div class="form-check form-check-inline">

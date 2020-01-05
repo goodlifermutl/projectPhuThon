@@ -23,8 +23,10 @@ $qq16=$_POST['ir_Complaint'];
 $qq17=$_POST['ir_control'];
 $qq18=$_POST['ir_fact'];
 
-$sql="INSERT investigation_report INTO VALUE('$case_inves','$qq1','$qq2','$qq3','$qq4','$qq5','$qq6','$qq7','$qq8','$qq9','$qq10','$qq11','$qq12'
+$sql="INSERT INTO investigation_report VALUE('','$case_inves','$qq1','$qq2','$qq3','$qq4','$qq5','$qq6','$qq7','$qq8','$qq9','$qq10','$qq11','$qq12'
 ,'$qq13','$qq14','$qq15','$qq16','$qq17','$qq18')";
 
 echo $sql;
+
+mysqli_query($con,$sql)or die("ERROR sql !!!!!!!!!!".mysqli_error($con));
 ?>

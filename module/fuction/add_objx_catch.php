@@ -1,6 +1,7 @@
 <?php
 $num_loop=$_POST['loop'];
 $num_ojx_count=$_POST['ccrecord'];
+$no_arya=$_POST['arrest_No'];
 $i=1;
 ?>
 <!-- <div class="container">

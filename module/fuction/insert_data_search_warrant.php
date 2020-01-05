@@ -64,12 +64,12 @@ $qq3=$_POST['sw_date'];
 $qq4=$_POST['sw_Petitioner'];
 $qq5=$_POST['sw_send'];
 $qq6=$_POST['sw_location'];
-$qq7=$_POST['sw_Village'];
-$qq8=$_POST['sw_alley'];
-$qq9=$_POST['sw_road'];
-$qq10=$_POST['sw_district'];
-$qq11=$_POST['sw_district2'];
-$qq12=$_POST['sw_province'];
+// $qq7=$_POST['sw_Village'];
+// $qq8=$_POST['sw_alley'];
+// $qq9=$_POST['sw_road'];
+// $qq10=$_POST['sw_district'];
+// $qq11=$_POST['sw_district2'];
+// $qq12=$_POST['sw_province'];
 
 
 
@@ -86,15 +86,18 @@ $qq25=$_POST['sw_position'];
 $qq26=$_POST['sw_location2'];
 $qq27=$_POST['sw_month'];
 $qq28=$_POST['sw_time'];
+$qqto=$_POST['sw_time_to'];
 
 
 $qq31=$_POST['sw_Search'];
 $qq32=$_POST['sw_save'];
 $qq33=$_POST['sw_judge'];
 
-$sql="INSERT investigation_report INTO VALUE('$case_warrsear','$qq1','$qq2','$qq3','$qq4','$qq5','$qq6','$qq7','$qq8','$qq9','$qq10','$qq11','$qq12'
-,'$qq13','$qq14','$qq15','$qq16','$qq17','$qq18','$qq19','$qq20','$qq21','$qq22','$qq23','$qq24','$qq25','$qq26','$qq27','$qq28','$qq29')";
+$sql="INSERT INTO search_warrant VALUE('','$case_warrsear','$qq1','$qq2','$qq3','$qq4','$qq5','$qq6','$qq13','$qq14','$qq15'
+,'$qq16','$qq17','$qq18','$qq19','$qq20','$qq21','$qq22','$qq23','$qq24','$qq25','$qq26','$qq27','$qq28','$qq29','$qqto'
+,'$qq30','$qq31','$qq32','$qq33')";
 
 echo $sql;
 
+mysqli_query($con,$sql)or die("error sql !!!!!!!!!".mysqli_error($con));
 ?>

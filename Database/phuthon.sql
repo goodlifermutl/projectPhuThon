@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 24, 2019 at 10:08 AM
+-- Generation Time: Jan 05, 2020 at 01:00 PM
 -- Server version: 10.3.15-MariaDB
 -- PHP Version: 7.3.6
 
@@ -37,25 +37,60 @@ CREATE TABLE `arrestor` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `arrest_info`
+--
+
+CREATE TABLE `arrest_info` (
+  `case_id_arr_info` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `id_arr_info` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `court_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `date_arr_info` date NOT NULL,
+  `type_arr_info` tinyint(2) NOT NULL,
+  `victim_arr_info` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `villain_arr_info` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `victim_say_arr_info` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `vil_perpetrate_arr_info` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `id_vil_catch_arr_info` char(13) COLLATE utf8_unicode_ci NOT NULL,
+  `close_add_arr_info` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `send_to_arr_info` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `dl_arr_info` int(11) NOT NULL,
+  `st_date_arr_info` date NOT NULL,
+  `end_date_arr_info` date NOT NULL,
+  `judge_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `arrest_record`
 --
 
 CREATE TABLE `arrest_record` (
+  `arrest_no` int(11) NOT NULL,
+  `por_jor_wor` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `case_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `ar_date_arrest` datetime NOT NULL,
-  `ar_date_record` datetime NOT NULL,
-  `court_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `num_arrest` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `location_record` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `location_arrest` varchar(255) COLLATE utf8_unicode_ci NOT NULL
+  `ar_re_time` time NOT NULL,
+  `ar_re_typecase` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `ar_re_no` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `ar_re_acc` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `ar_re_address_save` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `ar_re_save_date` date NOT NULL,
+  `ar_re_save_catch` date NOT NULL,
+  `ar_re_address_catch` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `ar_re_location_ob` text COLLATE utf8_unicode_ci NOT NULL,
+  `ar_re_say` text COLLATE utf8_unicode_ci NOT NULL,
+  `ar_re_atcs` text COLLATE utf8_unicode_ci NOT NULL,
+  `ar_re_depose` text COLLATE utf8_unicode_ci NOT NULL,
+  `ar_re_location_place` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `ar_re_date_place` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `arrest_record`
 --
 
-INSERT INTO `arrest_record` (`case_id`, `ar_date_arrest`, `ar_date_record`, `court_name`, `num_arrest`, `location_record`, `location_arrest`) VALUES
-('ค.001', '2019-07-03 00:00:00', '2019-07-03 00:00:00', 'ศาลจังหวัดเชียงใหม่', 'จ.123/62', 'สถานีตำรวจ', 'สถานีตำรวจ');
+INSERT INTO `arrest_record` (`arrest_no`, `por_jor_wor`, `case_id`, `ar_re_time`, `ar_re_typecase`, `ar_re_no`, `ar_re_acc`, `ar_re_address_save`, `ar_re_save_date`, `ar_re_save_catch`, `ar_re_address_catch`, `ar_re_location_ob`, `ar_re_say`, `ar_re_atcs`, `ar_re_depose`, `ar_re_location_place`, `ar_re_date_place`) VALUES
+(1, '884/62.กฮ', 'ค.001', '14:36:00', '2', '781/113', '90', 'จำลองสถานที่', '2020-01-02', '2019-12-19', 'สถานที่จับจำลอง', 'ในสวนน้ำ', 'ขมขืน', 'อุ้มไปขมขืน', 'ยอมรับทั้งหมด', 'สถานที่เกิดเหตุจำลอง', '2019-12-19');
 
 -- --------------------------------------------------------
 
@@ -80,6 +115,7 @@ INSERT INTO `case_name` (`case_id`, `case_name`, `case_type`, `case_savetime`, `
 ('123b', '123b', 2, '2019-07-29 06:32:30', 0),
 ('ad234', 'ggggggg', 1, '2019-08-08 05:05:58', 0),
 ('test/667.62', 'ทดแอตสอบใหม่', 1, '2019-12-03 08:39:37', 0),
+('test123456', 'test123456', 2, '2020-01-03 06:35:25', 0),
 ('กบ/24.33', 'ไผ่สีทอง', 2, '2019-07-01 08:33:48', 0),
 ('ค.001', 'แมวดำ', 1, '2019-07-01 08:32:23', 0),
 ('ง.12/52', 'ตีโปร่ง', 2, '2019-07-01 08:32:23', 0),
@@ -114,29 +150,6 @@ INSERT INTO `education` (`edu_id`, `edu_name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `exhibit`
---
-
-CREATE TABLE `exhibit` (
-  `id_exhibit` int(11) NOT NULL,
-  `case_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `exhibit_status` tinyint(2) NOT NULL,
-  `exhibit_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `exhibit_size` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `exhibit_look` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `exhibit_image` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Dumping data for table `exhibit`
---
-
-INSERT INTO `exhibit` (`id_exhibit`, `case_id`, `exhibit_status`, `exhibit_name`, `exhibit_size`, `exhibit_look`, `exhibit_image`) VALUES
-(1, 'ค.001', 1, 'ไม้ไผ่', '60*20', 'ไม่ไผ่สีเขียวเรียวยาว', 'icon_data_exi');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `inquiry_official`
 --
 
@@ -145,6 +158,68 @@ CREATE TABLE `inquiry_official` (
   `case_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `card_id` char(13) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `investigation_report`
+--
+
+CREATE TABLE `investigation_report` (
+  `no_ir` int(11) NOT NULL,
+  `ir_case` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `ir_casetype` tinyint(2) NOT NULL,
+  `ir_order` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `ir_policestation` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `ir_offer` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `ir_prefix` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `ir_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `ir_surname` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `ir_ir_prefix2` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `ir_ir_name2` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `ir_surname2` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `ir_charge` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `ir_date` date NOT NULL,
+  `ir_district` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `ir_price` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `ir_wound` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `ir_complaint` date NOT NULL,
+  `ir_control` date NOT NULL,
+  `ir_fact` varchar(255) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `investigation_report`
+--
+
+INSERT INTO `investigation_report` (`no_ir`, `ir_case`, `ir_casetype`, `ir_order`, `ir_policestation`, `ir_offer`, `ir_prefix`, `ir_name`, `ir_surname`, `ir_ir_prefix2`, `ir_ir_name2`, `ir_surname2`, `ir_charge`, `ir_date`, `ir_district`, `ir_price`, `ir_wound`, `ir_complaint`, `ir_control`, `ir_fact`) VALUES
+(1, 'ค.001', 2, '85/98', 'test1', 'test2', 'test3', 'test4', 'test5', 'test6', 'test7', 'test8', 'test9', '2020-01-04', 'test9', 'test10', 'test11', '2020-01-05', '2020-01-06', 'test12');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `object_case`
+--
+
+CREATE TABLE `object_case` (
+  `ob_no` int(11) NOT NULL,
+  `id_object` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `case_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `object_status` tinyint(2) NOT NULL,
+  `object_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `object_size` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `object_look` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `object_image` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `ob_arya_no` varchar(255) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `object_case`
+--
+
+INSERT INTO `object_case` (`ob_no`, `id_object`, `case_id`, `object_status`, `object_name`, `object_size`, `object_look`, `object_image`, `ob_arya_no`) VALUES
+(1, '0022', 'ค.001', 1, 'test22', 'test22', 'test22222', 'LC0K02S002.jpeg', '781/113'),
+(2, '0011', 'ค.001', 2, 'test11', 'test11', 'test111111111', '0F0KA2V222.jpeg', '781/113');
 
 -- --------------------------------------------------------
 
@@ -162,7 +237,30 @@ CREATE TABLE `pin_case` (
 --
 
 INSERT INTO `pin_case` (`case_id`, `user_id`) VALUES
-('ค.001', 'user01');
+('ค.001', 'user01'),
+('ง.12/52', 'user01');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `police_catch_arrest`
+--
+
+CREATE TABLE `police_catch_arrest` (
+  `id_po_ca_ar` int(1) NOT NULL,
+  `case_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `name_po_ar` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `rank_po_ar` tinyint(2) NOT NULL,
+  `police_arya_no` varchar(255) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `police_catch_arrest`
+--
+
+INSERT INTO `police_catch_arrest` (`id_po_ca_ar`, `case_id`, `name_po_ar`, `rank_po_ar`, `police_arya_no`) VALUES
+(1, 'ค.001', 'ดำดำ', 3, '781/113'),
+(2, 'ค.001', 'แดงแดง', 5, '781/113');
 
 -- --------------------------------------------------------
 
@@ -187,8 +285,9 @@ CREATE TABLE `police_person` (
 --
 
 INSERT INTO `police_person` (`card_id`, `rank_id`, `ps_name`, `ps_lastname`, `sex`, `address`, `ps_num`, `police_pic`, `sta_per_police`) VALUES
-('1458867563768', 6, 'ศูนย์เก้า', 'รักษ์ยม', 0, '12/534 หมู่ 78 บ้าน สันป่าไผ่ อ.ไผ่งาม จ.เชียงราย 50448', '0924563321', '', 1),
-('1509908798090', 8, 'ลูกจ๊อก', 'อ่อนด๊อย', 1, 'หมู่ 8 บ้าน 78', '0977865786', '', 1),
+('1458867563768', 6, 'test', 'รักษ์ยม', 0, '12/534 หมู่ 78 บ้าน สันป่าไผ่ อ.ไผ่งาม จ.เชียงราย 50448', '0924563321', '', 1),
+('1509901623453', 4, 'ytest', 'testy', 1, '667/3 หมู่บ้าน เจริญละ', '0954434234', '', 1),
+('1509908798090', 8, 'ลูกจ๊อก', 'อ่อนด๊อย', 2, 'หมู่ 8 บ้าน 78', '0977865786', '', 1),
 ('1568867987693', 9, 'คนที่สอง', 'ลองดู', 2, '77/5 หมู 8 บ้าน ค่ำ', '085786553', '', 1),
 ('1569789090974', 9, 'แอดดี้', 'แอตตี้กัส', 0, 'บ้านโคก หมู่ 9 ต.เฮือก อ.อะเจียง จ.พิษณุโลก 40570', '0828894625', '', 1);
 
@@ -221,6 +320,50 @@ INSERT INTO `rank_police` (`rank_id`, `rank_name`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `request_warrant`
+--
+
+CREATE TABLE `request_warrant` (
+  `no_rw` int(11) NOT NULL,
+  `rw_case` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `rw_no` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `rw_court` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `rw_cell` date NOT NULL,
+  `rw_judge` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `rw_type` tinyint(2) NOT NULL,
+  `rw_Petitioner` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `rw_policename` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `rw_position` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `rw_age` int(1) NOT NULL,
+  `rw_career` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `rw_Workplace` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `rw_phone` char(10) COLLATE utf8_unicode_ci NOT NULL,
+  `rw_dos` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `rw_cherk1` char(10) COLLATE utf8_unicode_ci NOT NULL,
+  `rw_cherk2` char(10) COLLATE utf8_unicode_ci NOT NULL,
+  `rw_incident` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `rw_circumstances` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `rw_Documentary` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `rw_Arrest` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `rw_warrant` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `rw_petition` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `rw_position2` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `rw_ornot` tinyint(1) NOT NULL,
+  `rw_Request` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `rw_warrant2` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `rw_Court2` varchar(255) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `request_warrant`
+--
+
+INSERT INTO `request_warrant` (`no_rw`, `rw_case`, `rw_no`, `rw_court`, `rw_cell`, `rw_judge`, `rw_type`, `rw_Petitioner`, `rw_policename`, `rw_position`, `rw_age`, `rw_career`, `rw_Workplace`, `rw_phone`, `rw_dos`, `rw_cherk1`, `rw_cherk2`, `rw_incident`, `rw_circumstances`, `rw_Documentary`, `rw_Arrest`, `rw_warrant`, `rw_petition`, `rw_position2`, `rw_ornot`, `rw_Request`, `rw_warrant2`, `rw_Court2`) VALUES
+(3, 'ค.001', 'test1', 'test2', '2020-01-04', 'test3', 2, 'test4', 'test5', 'test6', 0, 'test8', 'test9', 'test10', 'test11', 'false', 'true2', 'test12', 'test13', 'test15', 'test16', 'test17', 'test18', 'test19', 1, 'test20', 'test21', 'test22');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `responsible_person`
 --
 
@@ -235,6 +378,52 @@ CREATE TABLE `responsible_person` (
 
 INSERT INTO `responsible_person` (`case_id`, `card_id`) VALUES
 ('ค.001', '1509908798090');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `search_warrant`
+--
+
+CREATE TABLE `search_warrant` (
+  `sw_no` int(11) NOT NULL,
+  `sw_case` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `sw_searchwarrant` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `sw_court` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `sw_date` date NOT NULL,
+  `sw_petitioner` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `sw_send` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `sw_adderss` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `sw_map` char(5) COLLATE utf8_unicode_ci NOT NULL,
+  `sw_check1` char(5) COLLATE utf8_unicode_ci NOT NULL,
+  `sw_check2` char(5) COLLATE utf8_unicode_ci NOT NULL,
+  `sw_check3` char(5) COLLATE utf8_unicode_ci NOT NULL,
+  `sw_check4` char(5) COLLATE utf8_unicode_ci NOT NULL,
+  `sw_find` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `sw_law` char(5) COLLATE utf8_unicode_ci NOT NULL,
+  `sw_warrant` char(5) COLLATE utf8_unicode_ci NOT NULL,
+  `sw_warrant2` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `sw_date2` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `sw_issued` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `sw_sw_issued2` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `sw_position` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `sw_location2` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `sw_month` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `sw_time` time NOT NULL,
+  `sw_check5` char(5) COLLATE utf8_unicode_ci NOT NULL,
+  `sw_time_to` time NOT NULL,
+  `sw_check6` char(5) COLLATE utf8_unicode_ci NOT NULL,
+  `sw_search` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `sw_save` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `sw_judge` varchar(255) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `search_warrant`
+--
+
+INSERT INTO `search_warrant` (`sw_no`, `sw_case`, `sw_searchwarrant`, `sw_court`, `sw_date`, `sw_petitioner`, `sw_send`, `sw_adderss`, `sw_map`, `sw_check1`, `sw_check2`, `sw_check3`, `sw_check4`, `sw_find`, `sw_law`, `sw_warrant`, `sw_warrant2`, `sw_date2`, `sw_issued`, `sw_sw_issued2`, `sw_position`, `sw_location2`, `sw_month`, `sw_time`, `sw_check5`, `sw_time_to`, `sw_check6`, `sw_search`, `sw_save`, `sw_judge`) VALUES
+(1, 'ค.001', '559/25', 'test1', '2020-01-05', 'test2', 'test3', 'test4', 'true', 'false', 'false', 'false', 'true', 'test12', 'false', 'true', 'test13', 'test14', 'test15', 'test16', 'test17', 'test18', 'test19', '08:00:00', 'true', '10:00:00', 'false', 'test20', 'test21', 'test22');
 
 -- --------------------------------------------------------
 
@@ -274,6 +463,52 @@ INSERT INTO `subpoena` (`case_id`, `subject`, `num_black`, `num_red`, `arrest_wa
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `summon_villain`
+--
+
+CREATE TABLE `summon_villain` (
+  `no_sv` int(11) NOT NULL,
+  `sv_case` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `sv_suspect` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `sv_warrant` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `sv_date` date NOT NULL,
+  `sv_accused` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `sv_villain` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `sv_refer` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `sv_address` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `sv_headman` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `sv_village` char(13) COLLATE utf8_unicode_ci NOT NULL,
+  `sv_hey` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `sv_text` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `sv_goto` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `sv_staff` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `sv_datetime` datetime NOT NULL,
+  `sv_staff2` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `sv_position` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `sv_datetime2` datetime NOT NULL,
+  `sv_policename` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `sv_datetime3` datetime NOT NULL,
+  `sv_recipient` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `sv_sender` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `sv_policename4` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `sv_position2` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `sv_policename5` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `sv_address2` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `sv_status_sent` tinyint(2) NOT NULL,
+  `sv_sign` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `sv_position3` varchar(255) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `summon_villain`
+--
+
+INSERT INTO `summon_villain` (`no_sv`, `sv_case`, `sv_suspect`, `sv_warrant`, `sv_date`, `sv_accused`, `sv_villain`, `sv_refer`, `sv_address`, `sv_headman`, `sv_village`, `sv_hey`, `sv_text`, `sv_goto`, `sv_staff`, `sv_datetime`, `sv_staff2`, `sv_position`, `sv_datetime2`, `sv_policename`, `sv_datetime3`, `sv_recipient`, `sv_sender`, `sv_policename4`, `sv_position2`, `sv_policename5`, `sv_address2`, `sv_status_sent`, `sv_sign`, `sv_position3`) VALUES
+(1, 'ค.001', '85/98', 'test1', '2020-01-05', 'test2', '1248846257625', 'test3', 'test4', 'test5', 'test6', 'test7', 'test8', 'test9', 'test10', '2020-01-09 10:00:00', 'test11', 'test12', '2020-01-26 13:30:00', 'test13', '2020-01-30 09:00:00', 'test15', 'test16', 'test17', 'test18', 'test19', 'test20', 1, 'test21', 'test22');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `user`
 --
 
@@ -292,7 +527,9 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`permiss_id`, `user_id`, `pass_id`, `card_id`, `user_email`, `verification_user`, `verification_type`) VALUES
+(2, 'you001', 'b5b73fae0d87d8b4e2573105f8fbe7bc', '1234509876544', 'nickqbe@gmail.com', 'X1B083309F', 1),
 (2, 'user009', 'b5b73fae0d87d8b4e2573105f8fbe7bc', '1458867563768', 'nickqbe@gmail.com', '529GDC9M1Z', 1),
+(2, 'ggtest', 'e19d5cd5af0378da05f63f891c7467af', '1509901623453', 'been267@gmail.com', 'AZ102160L5', 1),
 (2, 'user01', '2c9341ca4cf3d87b9e4eb905d6a3ec45', '1509908798090', 'nickqbe@gmail.com', '0M19G919JF', 1),
 (3, 'user02', 'b5b73fae0d87d8b4e2573105f8fbe7bc', '1568867987693', 'nickqbe@gmail.com', '07XHB95Z1N', 1),
 (4, 'admin01', 'c93ccd78b2076528346216b3b2f701e6', '1569789090974', 'nickqbe@gmail.com', '1469026SVJ', 1);
@@ -323,13 +560,18 @@ CREATE TABLE `victim` (
 --
 
 INSERT INTO `victim` (`case_id`, `title_name`, `victim_name`, `victim_lastname`, `victim_sex`, `victim_idcard`, `victim_address`, `victim_education`, `victim_image`, `victim_race`, `victim_nationality`, `victim_career`) VALUES
+('test123456', 'นาย', 'กกกกก', 'ขขขขขข', 1, '1234567237654', '123/2 หมู่ 6 ต.ป่าไผ่ อ.ดอกจัน จ.เชียงใหม่ 50089', 6, '3V20K02J02.jpeg', 'ไทย', 'ไทย', 'พ่อค้า'),
 ('ฮ.0324', 'นาย', 'กี้', 'แปปนึง', 1, '1306607845367', '123/2 หมู่ 6 ต.ป่าไผ่ อ.ดอกจัน จ.เชียงใหม่ 50089', 6, 'BV99D7SL9M.jpeg', 'ไทย', 'ไทย', 'พ่อค้าเร่'),
+('ค.001', 'นางสาว', 'รีน่าจัง', 'อุยอ้าย', 2, '1486648521352', '25/185 หมู่ 6 ต.ป่าไผ่ อ.ดอกจัน จ.เชียงใหม่ 50089', 5, 'icon_data_userfemale.png', 'ไทย', 'ไทย', 'รับจ้างทั่วไป'),
 ('ง.12/52', 'นาย', 'จันทร์ดี', 'โอโออา', 1, '1508890723431', '23 หมู่ 4 บ้าน ดง ต.ก่อไผ่ อ.ดอกไม้ จ.เชียงใหม่ 54334', 5, 'icon_data_usermale.png', 'ไทย', 'ไทย', 'ธุรกิจส่วนตัว'),
 ('ค.001', 'นางสาว', 'พะยองจ้าเอ่ย', 'จังเลยงาว', 2, '1509643456712', '25 หมู่ 7 ต.ดอกไม้ อ.ต้นไม้ จ.เชียงใหม่ 54334', 7, 'icon_data_userfemale.png', 'ไทย', 'ไทย/ญีปุ่น', 'ธรุกิจส่วนตัว'),
 ('ค.001', 'นาย', 'ช้าง', 'โตที่สุด', 1, '1509901658485', '68 หมู่ 8 บ้าน นอก ต.ใน อ.นอก จ.ใน 45667', 7, 'icon_data_usermale.png', 'ไทย', 'ไทย', 'ธรุกิจส่วนตัว'),
+('กบ/24.33', 'นาย', 'เศรษฐศิลป์', 'เพ็ญสิทธิ์', 1, '1509908675432', '34/5 หมู่ 6 ต.ป่าไผ่ อ.ดอกจัน จ.เชียงใหม่ 50089', 4, 'icon_data_usermale.png', 'ไทย', 'ไทย', 'นักศึกษา'),
 ('ฮ.0324', 'นางสาว', 'ยู', 'ไอ', 2, '1569908977456', '123/2 หมู่ 6 ต.ป่าไผ่ อ.ดอกจัน จ.เชียงใหม่ 50089', 6, '00LB7NVDKS.jpeg', 'ไทย', 'ไทย', 'นักแสดง'),
 ('ค.001', 'นาย', 'ทด', 'ลอง', 1, '1586677898675', '123/2 หมู่ 6 ต.ป่าไผ่ อ.ดอกจัน จ.เชียงใหม่ 50089', 6, 'icon_data_usermale.png', 'ไทย', 'ไทย ', 'การค้า'),
-('ง.12/52', 'นาย', 'ลึงลง', 'ใต้น้ำใหญ่', 1, '1607782455677', '123 หมู่ 9 ต.เชิงบน อ.เชิงล่าง จ.เชียงใหม่ 49668', 6, 'icon_data_usermale.png', 'ไทย', 'อังกฤษ', 'นักศึกษา');
+('ง.12/52', 'นาย', 'ลึงลง', 'ใต้น้ำใหญ่', 1, '1607782455677', '123 หมู่ 9 ต.เชิงบน อ.เชิงล่าง จ.เชียงใหม่ 49668', 6, 'icon_data_usermale.png', 'ไทย', 'อังกฤษ', 'นักศึกษา'),
+('123a', 'นางสาว', 'อุอะ', 'รารา', 2, '1748869532121', '123/2 หมู่ 6 บ้านดงใหญ่ 8888', 4, 'icon_data_userfemale.png', 'ไทย', 'ไทย', 'ฟหกด'),
+('123a', 'นาย', 'ฟฟกหดฟหกดฟก', 'dsafadsfasdg', 1, '1754486255132', '123/2 หมู่ 855', 5, 'icon_data_usermale.png', 'ไทย', 'ไทย', 'ttt');
 
 -- --------------------------------------------------------
 
@@ -349,18 +591,21 @@ CREATE TABLE `villain` (
   `villain_image` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `villain_race` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `villain_nationality` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `villain_career` varchar(255) COLLATE utf8_unicode_ci NOT NULL
+  `villain_career` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `villain_arya_no` varchar(255) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `villain`
 --
 
-INSERT INTO `villain` (`case_id`, `title_name`, `villain_name`, `villain_lastname`, `villain_sex`, `villain_idcard`, `villain_address`, `villain_education`, `villain_image`, `villain_race`, `villain_nationality`, `villain_career`) VALUES
-('ค.001', 'นาย', 'ทดสอบ', 'ทดลอง', 1, '1158497685123', '154/552 บ้านจัดไป หมู่ 8 ต.จันจ๋า อ.ดอยจัน จ.เชียงตุง 70550', 5, 'icon_data_usermale.png', 'ไทย', 'ไทย/ลาว', 'นักพากษ์'),
-('ค.001', 'นาย', 'สุดจัด', 'ปลัดบอก', 1, '1408809678543', '23 หมู่ 8', 6, 'icon_data_usermale.png', 'ไทย', 'ไทย', 'พ่อค้า'),
-('ค.001', 'นางสาว', 'เจิดจลัด', 'จุงเบย', 2, '1507705467822', NULL, 6, 'icon_data_userfemale.png', 'ไทย', 'ไทย', 'แม่ค้า'),
-('ง.12/52', 'นาย', 'แดง', 'สีแดง', 1, '1508509823421', NULL, 1, 'icon_data_usermale.png', 'ไทย', 'ไทย', 'พ่อค้า');
+INSERT INTO `villain` (`case_id`, `title_name`, `villain_name`, `villain_lastname`, `villain_sex`, `villain_idcard`, `villain_address`, `villain_education`, `villain_image`, `villain_race`, `villain_nationality`, `villain_career`, `villain_arya_no`) VALUES
+('ค.001', 'นาย', 'ลองอีก', 'เกิดไรวะ', 1, '1158497684857', '1/1/64 บ้านจัดไป หมู่ 8 ', 4, 'icon_data_usermale.png', 'ไทย', 'ไทย', 'นักร้อง', ''),
+('ค.001', 'นาย', 'ทดสอบ', 'ทดลอง', 1, '1158497685123', '154/552 บ้านจัดไป หมู่ 8 ต.จันจ๋า อ.ดอยจัน จ.เชียงตุง 70550', 5, 'icon_data_usermale.png', 'ไทย', 'ไทย/ลาว', 'นักพากษ์', ''),
+('กบ/24.33', 'นาง', 'อทัย', 'สุกล', 2, '1234895674536', '154/552 บ้านจัดไป หมู่ 8 ต.เอือก อ.สักรำ จ.เชียงราย 56776', 7, '0XA0301J22.jpeg', 'ไทย', 'ไทย', 'ผู้รับเหมา', ''),
+('ค.001', 'นางสาว', 'ภูมิลอง', 'ลองพูม', 2, '1248846251938', '75/8 บ้านจัดไป หมู่ 8 ต.จันจ๋า อ.ดอยจัน จ.เชียงตุง 70550', 6, 'L2B02C0Z2K.jpeg', 'ไทย', 'ไทย/ลาว', 'นักแสดง', '781/113'),
+('ค.001', 'นาย', 'ลองเชิง', 'เชิงกราน', 1, '1248846257625', '154/552 บ้านจัดไป หมู่ 8 ต.จันจ๋า อ.ดอยจัน จ.เชียงตุง 70550', 7, 'icon_data_usermale.png', 'ไทย', 'ไทย', 'หมอ', '781/113'),
+('ง.12/52', 'นาย', 'แดง', 'สีแดง', 1, '1508509823421', NULL, 1, 'icon_data_usermale.png', 'ไทย', 'ไทย', 'พ่อค้า', '');
 
 -- --------------------------------------------------------
 
@@ -552,9 +797,11 @@ CREATE TABLE `villain_identities` (
 --
 
 INSERT INTO `villain_identities` (`villain_idcard`, `face_villain`, `hair_style_villain`, `ears_villain`, `forehead_villain`, `eyes_villain`, `nose_villain`, `mouth_villain`, `chin_villain`, `body_villain`) VALUES
+('1158497684857', 3, 3, 5, 4, 6, 8, 5, 3, 1),
 ('1158497685123', 3, 7, 5, 3, 1, 6, 5, 2, 1),
-('1408809678543', 2, 8, 3, 4, 5, 4, 7, 5, 1),
-('1507705467822', 1, 6, 8, 3, 4, 5, 2, 3, 2);
+('1234895674536', 4, 8, 6, 5, 5, 7, 6, 4, 3),
+('1248846251938', 1, 8, 6, 3, 3, 10, 2, 4, 3),
+('1248846257625', 7, 8, 5, 1, 2, 10, 5, 3, 2);
 
 -- --------------------------------------------------------
 
@@ -609,6 +856,70 @@ INSERT INTO `villain_nose` (`nose_id`, `nose_name`) VALUES
 (9, 'ฐานจมูกราบ'),
 (10, 'ฐานจมูกเชิด');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `witness_request_warr`
+--
+
+CREATE TABLE `witness_request_warr` (
+  `no_witness` int(11) NOT NULL,
+  `witness_case` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `rw_witness` varchar(255) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `witness_request_warr`
+--
+
+INSERT INTO `witness_request_warr` (`no_witness`, `witness_case`, `rw_witness`) VALUES
+(3, 'ค.001', 'mm1'),
+(4, 'ค.001', 'mm2');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `words_villain`
+--
+
+CREATE TABLE `words_villain` (
+  `wv_no` int(11) NOT NULL,
+  `wv_case` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `wv_testimony` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `wv_are` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `wv_phone` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `wv_card` char(13) COLLATE utf8_unicode_ci NOT NULL,
+  `wv_output1` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `wv_output2` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `wv_last` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `wv_police` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `wv_station` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `wv_date` date NOT NULL,
+  `wv_accused` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `wv_suspect` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `wv_before` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `wv_investigate` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `wv_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `wv_age` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `wv_race` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `wv_nationality` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `wv_religion` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `wv_address` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `wv_headman` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `wv_villageheadmane` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `wv_farthername` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `wv_mothername` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `wv_birthday` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `wv_official` varchar(255) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `words_villain`
+--
+
+INSERT INTO `words_villain` (`wv_no`, `wv_case`, `wv_testimony`, `wv_are`, `wv_phone`, `wv_card`, `wv_output1`, `wv_output2`, `wv_last`, `wv_police`, `wv_station`, `wv_date`, `wv_accused`, `wv_suspect`, `wv_before`, `wv_investigate`, `wv_name`, `wv_age`, `wv_race`, `wv_nationality`, `wv_religion`, `wv_address`, `wv_headman`, `wv_villageheadmane`, `wv_farthername`, `wv_mothername`, `wv_birthday`, `wv_official`) VALUES
+(1, 'ค.001', '1158497684857', 'test2', 'test3', '1158497684857', 'test5', 'test6', 'test7', 'test8', 'test9', '2020-01-05', 'test10', 'test11', 'test12', 'test13', 'test14', 'test15', 'test16', 'test17', 'test18', 'test19', 'test20', 'test21', 'test22', 'test23', 'test24', 'test25');
+
 --
 -- Indexes for dumped tables
 --
@@ -622,10 +933,16 @@ ALTER TABLE `arrestor`
   ADD KEY `card_id` (`card_id`);
 
 --
+-- Indexes for table `arrest_info`
+--
+ALTER TABLE `arrest_info`
+  ADD PRIMARY KEY (`case_id_arr_info`);
+
+--
 -- Indexes for table `arrest_record`
 --
 ALTER TABLE `arrest_record`
-  ADD PRIMARY KEY (`case_id`);
+  ADD PRIMARY KEY (`arrest_no`);
 
 --
 -- Indexes for table `case_name`
@@ -640,13 +957,6 @@ ALTER TABLE `education`
   ADD PRIMARY KEY (`edu_id`);
 
 --
--- Indexes for table `exhibit`
---
-ALTER TABLE `exhibit`
-  ADD PRIMARY KEY (`id_exhibit`),
-  ADD KEY `case_id` (`case_id`);
-
---
 -- Indexes for table `inquiry_official`
 --
 ALTER TABLE `inquiry_official`
@@ -655,10 +965,29 @@ ALTER TABLE `inquiry_official`
   ADD KEY `card_id` (`card_id`);
 
 --
+-- Indexes for table `investigation_report`
+--
+ALTER TABLE `investigation_report`
+  ADD PRIMARY KEY (`no_ir`);
+
+--
+-- Indexes for table `object_case`
+--
+ALTER TABLE `object_case`
+  ADD PRIMARY KEY (`ob_no`),
+  ADD KEY `case_id` (`case_id`);
+
+--
 -- Indexes for table `pin_case`
 --
 ALTER TABLE `pin_case`
   ADD KEY `case_id` (`case_id`);
+
+--
+-- Indexes for table `police_catch_arrest`
+--
+ALTER TABLE `police_catch_arrest`
+  ADD PRIMARY KEY (`id_po_ca_ar`);
 
 --
 -- Indexes for table `police_person`
@@ -674,11 +1003,23 @@ ALTER TABLE `rank_police`
   ADD PRIMARY KEY (`rank_id`);
 
 --
+-- Indexes for table `request_warrant`
+--
+ALTER TABLE `request_warrant`
+  ADD PRIMARY KEY (`no_rw`);
+
+--
 -- Indexes for table `responsible_person`
 --
 ALTER TABLE `responsible_person`
   ADD PRIMARY KEY (`case_id`),
   ADD KEY `card_id` (`card_id`);
+
+--
+-- Indexes for table `search_warrant`
+--
+ALTER TABLE `search_warrant`
+  ADD PRIMARY KEY (`sw_no`);
 
 --
 -- Indexes for table `status_case`
@@ -691,6 +1032,12 @@ ALTER TABLE `status_case`
 --
 ALTER TABLE `subpoena`
   ADD PRIMARY KEY (`case_id`);
+
+--
+-- Indexes for table `summon_villain`
+--
+ALTER TABLE `summon_villain`
+  ADD PRIMARY KEY (`no_sv`);
 
 --
 -- Indexes for table `user`
@@ -784,6 +1131,18 @@ ALTER TABLE `villain_nose`
   ADD PRIMARY KEY (`nose_id`);
 
 --
+-- Indexes for table `witness_request_warr`
+--
+ALTER TABLE `witness_request_warr`
+  ADD PRIMARY KEY (`no_witness`);
+
+--
+-- Indexes for table `words_villain`
+--
+ALTER TABLE `words_villain`
+  ADD PRIMARY KEY (`wv_no`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -794,16 +1153,16 @@ ALTER TABLE `arrestor`
   MODIFY `arrt_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT for table `arrest_record`
+--
+ALTER TABLE `arrest_record`
+  MODIFY `arrest_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `education`
 --
 ALTER TABLE `education`
   MODIFY `edu_id` tinyint(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
-
---
--- AUTO_INCREMENT for table `exhibit`
---
-ALTER TABLE `exhibit`
-  MODIFY `id_exhibit` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `inquiry_official`
@@ -812,16 +1171,52 @@ ALTER TABLE `inquiry_official`
   MODIFY `in_of_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT for table `investigation_report`
+--
+ALTER TABLE `investigation_report`
+  MODIFY `no_ir` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `object_case`
+--
+ALTER TABLE `object_case`
+  MODIFY `ob_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `police_catch_arrest`
+--
+ALTER TABLE `police_catch_arrest`
+  MODIFY `id_po_ca_ar` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `rank_police`
 --
 ALTER TABLE `rank_police`
   MODIFY `rank_id` tinyint(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
+-- AUTO_INCREMENT for table `request_warrant`
+--
+ALTER TABLE `request_warrant`
+  MODIFY `no_rw` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `search_warrant`
+--
+ALTER TABLE `search_warrant`
+  MODIFY `sw_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `status_case`
 --
 ALTER TABLE `status_case`
   MODIFY `status_num` tinyint(2) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `summon_villain`
+--
+ALTER TABLE `summon_villain`
+  MODIFY `no_sv` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `villain_body`
@@ -878,6 +1273,18 @@ ALTER TABLE `villain_nose`
   MODIFY `nose_id` tinyint(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
+-- AUTO_INCREMENT for table `witness_request_warr`
+--
+ALTER TABLE `witness_request_warr`
+  MODIFY `no_witness` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `words_villain`
+--
+ALTER TABLE `words_villain`
+  MODIFY `wv_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- Constraints for dumped tables
 --
 
@@ -889,23 +1296,17 @@ ALTER TABLE `arrestor`
   ADD CONSTRAINT `arrestor_ibfk_2` FOREIGN KEY (`card_id`) REFERENCES `police_person` (`card_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `arrest_record`
---
-ALTER TABLE `arrest_record`
-  ADD CONSTRAINT `arrest_record_ibfk_1` FOREIGN KEY (`case_id`) REFERENCES `case_name` (`case_id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `exhibit`
---
-ALTER TABLE `exhibit`
-  ADD CONSTRAINT `exhibit_ibfk_1` FOREIGN KEY (`case_id`) REFERENCES `case_name` (`case_id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
 -- Constraints for table `inquiry_official`
 --
 ALTER TABLE `inquiry_official`
   ADD CONSTRAINT `inquiry_official_ibfk_1` FOREIGN KEY (`case_id`) REFERENCES `case_name` (`case_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `inquiry_official_ibfk_3` FOREIGN KEY (`card_id`) REFERENCES `police_person` (`card_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `object_case`
+--
+ALTER TABLE `object_case`
+  ADD CONSTRAINT `object_case_ibfk_1` FOREIGN KEY (`case_id`) REFERENCES `case_name` (`case_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `pin_case`

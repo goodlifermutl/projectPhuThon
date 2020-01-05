@@ -3,6 +3,7 @@ include ("connect_db.php");
 $con = connect_db();
 $num_loop=$_POST['loop'];
 $num_vil_count=$_POST['cvrecord'];
+$no_arya=$_POST['arrest_No'];
 $i=1;
 ?>
 <!-- <div class="container">

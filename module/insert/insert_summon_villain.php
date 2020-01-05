@@ -14,7 +14,7 @@
     <input type="text" class="form-control" id=""name="sv_warrant">
     </div>
     <label class="col-form-label">ออกหมายวันที่่ : </label>
-    <div class="col-2">
+    <div class="col-md">
     <input type="date" class="form-control" id=""name="sv_date">
     </div>
   </div>
@@ -23,9 +23,16 @@
     <div class="col-5">
     <input type="text" class="form-control" id=""name="sv_Accused">
     </div>
-    <label class="col-form-label">ผู้ต้องหา : </label>
-    <div class="col-5">
-    <input type="text" class="form-control" id=""name="sv_suspect">
+    <div class="col-md">
+    <select class="custom-select " id="" name="sv_villain" required >
+                <option disabled selected value="0">ผู้ต้องหา</option>
+                <?php $result_vil = mysqli_query($con,"SELECT villain_idcard,title_name,villain_name,villain_lastname FROM villain WHERE case_id='$_SESSION[case_id]'")or die("select villain error".mysqli_error($con));
+                    while(list($vil_idcard,$title,$vil_name,$vil_lastname)=mysqli_fetch_row($result_vil)){
+                     echo"<option value='$vil_idcard'>$title $vil_name $vil_lastname</option>";
+                    }
+                ?> 
+                   
+            </select>
     </div>
 </div>
 <div class="form-group row">
@@ -75,12 +82,14 @@
 </div>
 <div class="form-group row">
   <label class="col-form-label">วัน/เดือน/ปี : </label>
-  <div class="col">
+  <div class="col-md">
   <input type="datetime-local" class="form-control" id=""name="sv_datetime">
   </div>
+</div>
+<div class="form-group row">
   <label class="col-form-label">( ลงชื่อ ) : </label>
   <div class="col">
-  <input type="text" class="form-control" id=""name="sv_staff">
+  <input type="text" class="form-control" id=""name="sv_staff2">
   </div>
   <label class="col-form-label">ผู้ออกหมาย</label>
   &nbsp;<label class="col-form-label">ตำแหน่ง : </label>
@@ -92,11 +101,13 @@
 <p></p>
 <div class="form-group row">
   <label class="col-form-label">วัน/เดือน/ปี : </label>
-  <div class="col-3">
+  <div class="col-md">
   <input type="datetime-local" class="form-control" id=""name="sv_datetime2">
   </div>
+</div>
+<div class="form-group row">
   <label class="col-form-label">ข้าพเจ้า : </label>
-  <div class="col">
+  <div class="col-md">
   <input type="text" class="form-control" id=""name="sv_policename">
     </div>
     <label class="col-form-label">ได้รับหมายเรียกของพนักงานตำรวจ</label>
@@ -106,8 +117,10 @@
   <div class="col">
   <input type="text" class="form-control" id=""name="sv_set">
     </div>
+</div>
+<div class="form-group row">
   <label class="col-form-label">วัน/เดือน/ปี : </label>
-  <div class="col-3">
+  <div class="col-md">
   <input type="datetime-local" class="form-control" id=""name="sv_datetime3">
   </div>
 </div>
