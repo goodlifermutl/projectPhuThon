@@ -1,6 +1,8 @@
 <a name="คำร้องออกหมายจับ"></a>
 <br>
 <br>
+<br>
+<br>
     <div class="dataview">
       <p><h1 class="text-center">คำร้องออกหมายจับ</h1></p>
       <br>
@@ -67,7 +69,7 @@
         <input type="hidden" id="chk_link" value="<?php echo $l  ?>">
         
          <div class="col-md">
-         <b><label for="formGroupExampleInput">หมายจับ ฉบับที่ <?php echo $i; ?></label></b><button type="button" id="btn_edit3<?php echo $i ?>"><i class="fas fa-edit" style="font-size: 10px"></i></button>
+         <b><label for="formGroupExampleInput">คำร้องออกหมายจับ ฉบับที่ <?php echo $i; ?></label></b><button type="button" id="btn_edit3<?php echo $i ?>"><i class="fas fa-edit" style="font-size: 10px"></i></button>
          
         </div>
         <div class="col-md">

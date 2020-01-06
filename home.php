@@ -186,14 +186,55 @@ if($ac_chk=='4'){
 </ul>
 <?php echo $ul_n ?>
 <?php echo $bar_t ?>
-<div class="" style="padding-top:3px;background:white;">
+<ul class="nav nav-tabs" style="background-color: #ffffff;">
+<button type="button" id="btnPinG" class="btn btn-warning"><b>ปักหมุดคดี</b></button>
+<button type="button" id="btnPinN" class="btn btn-danger"><b>ยกเลิกปักหมุด</b></button>
+  <li class="nav-item">
+  <a class="nav-link <?php echo $action1 ?>" href="#ผู้เสียหาย" id="">ผู้เสียหาย</a>
+  </li>
+  <li class="nav-item">
+  <a class="nav-link <?php echo $action2 ?>" href="#ผู้ต้องหา" id="">ผู้ต้องหา</a>
+  </li>
+  <li class="nav-item">
+  <a class="nav-link <?php echo $action3 ?>" href="#ของกลาง" id="">ของกลาง</a>
+  </li>
+  <li class="nav-item">
+  <a class="nav-link <?php echo $action4 ?>" href="#บันทึกการจับกุม" id="">บันทึกการจับกุม</a>
+  </li>
+  <li>
+  <a class="nav-link <?php echo $action5 ?>" href="#หมายจับ" id="">หมายจับ</a>
+  </li>
+  <li>
+  <a class="nav-link <?php echo $action6 ?>" href="#คำร้องออกหมายจับ" id="">คำร้องออกหมายจับ</a>
+  </li>
+  <li>
+  <a class="nav-link <?php echo $action7 ?>" href="#รายงานการสอบสวน" id="">รายงานการสอบสวน</a>
+  </li>
+  <li>
+  <a class="nav-link <?php echo $action8 ?>" href="#หมายเรียกผู้ต้องหา" id="">หมายเรียกผู้ต้องหา</a>
+  </li>
+
+
+  <li class="nav-item dropdown">
+  <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">อื่น ๆ</a>
+    <div class="dropdown-menu">
+      <a class="dropdown-item <?php echo $action9 ?>" href="#คำให้การผู้ต้องหา" id="">คำให้การผู้ต้องหา</a>
+      <div class="dropdown-divider"></div>
+      <a class="dropdown-item <?php echo $action10 ?>" href="#หมายค้น" id="">หมายค้น</a>
+      <div class="dropdown-divider"></div>
+      
+    </div>
+  </li>
+</ul>
+
+<?php echo $bar_n ?>
+<!-- <div class="" style="padding-top:3px;background:white;">
 
 <button type="button" id="btnPinG" class="btn btn-warning"><b>ปักหมุดคดี</b></button>
 <button type="button" id="btnPinN" class="btn btn-danger"><b>ยกเลิกปักหมุด</b></button>
 <a href="#ผู้เสียหาย"><button type="button" class="btn btn-outline-info">ผู้เสียหาย</button></a>
 <a href="#ผู้ต้องหา"><button type="button" class="btn btn-outline-info">ผู้ต้องหา</button></a>
-</div>
-<?php echo $bar_n ?>
+</div> -->
 </div>
 <!-- <ul class="nav justify-content-center">
   <li class="nav-item" style="margin-right:20px;">
