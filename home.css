@@ -24,6 +24,7 @@
 }
 .subbigbody{
   padding-left: 20%;
+  background-color: #c7cecb;
 }
 .subbigbody2{
   padding-top: 3%;
@@ -44,12 +45,14 @@ a:hover{
   width:15%;
   height: auto;
   text-align: center;
+  background-color: #29eca1;
 }
 .beforfooter{
   border: 1px solid #f31d76;
   float: right;
   width: 85%;
   height:auto;
+  background-color: #e9e9e9;
 }
 .beforfooter2{
   border: 1px solid #12a166;
@@ -89,4 +92,7 @@ tr.shown td.details-control {
 }
 .dataview{
   border: 1px solid #eb451c;
+}
+.list-group-item{
+  background-color: #dcfafc;
 }
