@@ -180,9 +180,9 @@ if(!empty($coutcatch_vill)){
         // echo "ชื่อไฟล์รูป>>>".$imgname;
         $sql_insert_villain="INSERT INTO villain VALUES('$ar_case','$vil_title[$won1]','$vil_name[$won1]','$vil_lastname[$won1]','$vil_sex[$won1]','$vil_idcard[$won1]','$vil_address[$won1]','$vil_edu[$won1]','$imgname1','$vil_race[$won1]','$vil_nationality[$won1]','$vil_careen[$won1]','$accout_no')";
         $sql_insert_villain_iden="INSERT INTO villain_identities VALUES('$vil_idcard[$won1]','$vil_face[$won1]','$vil_hair[$won1]','$vil_ears[$won1]','$vil_forehead[$won1]','$vil_eyes[$won1]','$vil_nose[$won1]','$vil_mouth[$won1]','$vil_chin[$won1]','$vil_body[$won1]')";
-        echo "sqlผู้ต้องหา++++++++++>".$sql_insert_villain,$sql_insert_villain_iden;
+        //echo "sqlผู้ต้องหา++++++++++>".$sql_insert_villain,$sql_insert_villain_iden;
         mysqli_query($con,$sql_insert_villain)or die("sql insert villain error!!!!!!!".mysqli_error($con));
-        mysqli_query($con,$sql_insert_villain_iden)or die("sql insert villain_iden ERROR!!!!".mysqli_error($con));
+       mysqli_query($con,$sql_insert_villain_iden)or die("sql insert villain_iden ERROR!!!!".mysqli_error($con));
          $vil++;
          $won1++;
     }
@@ -219,8 +219,8 @@ if(!empty($coutcatch)){
                 }
                 
     
-            $sql_insert_object="INSERT INTO object_case VALUES('$ob_id[$won2]','$ar_case','$ob_status[$won2]','$ob_name[$won2]','$ob_size[$won2]','$ob_look[$won2]','$imgname','$accout_no')";
-            echo "ของกลาง--->".$sql_insert_object;
+            $sql_insert_object="INSERT INTO object_case VALUES('','$ob_id[$won2]','$ar_case','$ob_status[$won2]','$ob_name[$won2]','$ob_size[$won2]','$ob_look[$won2]','$imgname','$accout_no')";
+            //echo "ของกลาง--->".$sql_insert_object;
 
             mysqli_query($con,$sql_insert_object)or die("ERROR insert OB +++!!!".mysqli_error($con));
             $ox++;
@@ -231,15 +231,17 @@ if(!empty($coutcatch)){
     if(!empty($countcatch_pol)){
         while($po<=$countcatch_pol){
 
-            $sql_in_po="INSERT INTO police_catch_arrest VALUES('','$ar_case','$police_name[$won3]','$police_rank[$won3]')";
+            $sql_in_po="INSERT INTO police_catch_arrest VALUES('','$ar_case','$police_name[$won3]','$police_rank[$won3]','$no_ar')";
             mysqli_query($con,$sql_in_po)or die("ERROR insert po +++!!!".mysqli_error($con));
+            //echo $sql_in_po;
         $po++;
         $won3++;
         }
     } 
 
-    $sql_insert="INSERT INTO arrest_record VALUES('$porjorwor','$ar_case','$time','$casetype','$no_ar','$accout_no','$save_address','$date_save','$date_catch','$address_catch','$location_ob',
+    $sql_insert="INSERT INTO arrest_record VALUES('','$porjorwor','$ar_case','$time','$casetype','$no_ar','$accout_no','$save_address','$date_save','$date_catch','$address_catch','$location_ob',
     '$say_ar','$atcs_ar','$depors_ar','$place_ar','$date_ar')";
+    //echo $sql_insert;
     mysqli_query($con,$sql_insert)or die("ERROR insert ARRESTrecord++++++++++++!!!!!".mysqli_error($con));
 
 

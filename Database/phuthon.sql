@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 05, 2020 at 09:07 PM
+-- Generation Time: Jan 06, 2020 at 02:45 AM
 -- Server version: 10.3.15-MariaDB
 -- PHP Version: 7.3.6
 
@@ -64,6 +64,7 @@ CREATE TABLE `arrest_info` (
 --
 
 INSERT INTO `arrest_info` (`case_id_arr_info`, `id_arr_info`, `court_name`, `date_arr_info`, `type_arr_info`, `victim_arr_info`, `villain_arr_info`, `victim_say_arr_info`, `vil_perpetrate_arr_info`, `id_vil_catch_arr_info`, `close_add_arr_info`, `send_to_arr_info`, `dl_arr_info`, `st_date_arr_info`, `end_date_arr_info`, `judge_name`) VALUES
+('testnow1', 'test001', 'test1', '2020-01-06', 2, 'test2', 'test3', 'test4', 'test5', '1248854621938', 'test6', 'tset7', 8, '2020-01-07', '2020-01-15', 'test9'),
 ('ค.001', 'test001', 'test1', '2020-01-03', 2, 'test2', 'test3', 'test4', 'test5', '1158497685123', 'test6', 'tset7', 8, '2020-01-18', '2020-01-25', 'test9');
 
 -- --------------------------------------------------------
@@ -97,7 +98,8 @@ CREATE TABLE `arrest_record` (
 --
 
 INSERT INTO `arrest_record` (`arrest_no`, `por_jor_wor`, `case_id`, `ar_re_time`, `ar_re_typecase`, `ar_re_no`, `ar_re_acc`, `ar_re_address_save`, `ar_re_save_date`, `ar_re_save_catch`, `ar_re_address_catch`, `ar_re_location_ob`, `ar_re_say`, `ar_re_atcs`, `ar_re_depose`, `ar_re_location_place`, `ar_re_date_place`) VALUES
-(1, '884/62.กฮ', 'ค.001', '14:36:00', '2', '781/113', '90', 'จำลองสถานที่', '2020-01-02', '2019-12-19', 'สถานที่จับจำลอง', 'ในสวนน้ำ', 'ขมขืน', 'อุ้มไปขมขืน', 'ยอมรับทั้งหมด', 'สถานที่เกิดเหตุจำลอง', '2019-12-19');
+(1, '884/62.กฮ', 'ค.001', '14:36:00', '2', '781/113', '90', 'จำลองสถานที่', '2020-01-02', '2019-12-19', 'สถานที่จับจำลอง', 'ในสวนน้ำ', 'ขมขืน', 'อุ้มไปขมขืน', 'ยอมรับทั้งหมด', 'สถานที่เกิดเหตุจำลอง', '2019-12-19'),
+(2, 'test1', 'testnow1', '08:00:00', '2', 'test2', 'test3', 'test4', '2020-01-06', '2020-01-07', 'test3', 'test6', 'test7', 'test8', 'test9', 'test10', '2020-01-04');
 
 -- --------------------------------------------------------
 
@@ -123,6 +125,7 @@ INSERT INTO `case_name` (`case_id`, `case_name`, `case_type`, `case_savetime`, `
 ('ad234', 'ggggggg', 1, '2019-08-08 05:05:58', 0),
 ('test/667.62', 'ทดแอตสอบใหม่', 1, '2019-12-03 08:39:37', 0),
 ('test123456', 'test123456', 2, '2020-01-03 06:35:25', 0),
+('testnow1', 'testnow1', 2, '2020-01-06 01:03:42', 0),
 ('กบ/24.33', 'ไผ่สีทอง', 2, '2019-07-01 08:33:48', 0),
 ('ค.001', 'แมวดำ', 1, '2019-07-01 08:32:23', 0),
 ('ง.12/52', 'ตีโปร่ง', 2, '2019-07-01 08:32:23', 0),
@@ -200,7 +203,8 @@ CREATE TABLE `investigation_report` (
 --
 
 INSERT INTO `investigation_report` (`no_ir`, `ir_case`, `ir_casetype`, `ir_order`, `ir_policestation`, `ir_offer`, `ir_prefix`, `ir_name`, `ir_surname`, `ir_ir_prefix2`, `ir_ir_name2`, `ir_surname2`, `ir_charge`, `ir_date`, `ir_district`, `ir_price`, `ir_wound`, `ir_complaint`, `ir_control`, `ir_fact`) VALUES
-(1, 'ค.001', 2, '85/98', 'test1', 'test2', 'test3', 'test4', 'test5', 'test6', 'test7', 'test8', 'test9', '2020-01-04', 'test9', 'test10', 'test11', '2020-01-05', '2020-01-06', 'test122');
+(1, 'ค.001', 2, '85/98', 'test1', 'test2', 'test3', 'test4', 'test5', 'test6', 'test7', 'test8', 'test9', '2020-01-04', 'test9', 'test10', 'test11', '2020-01-05', '2020-01-06', 'test122'),
+(2, 'testnow1', 2, '6666', 'test1', 'test2', 'test3', 'test4', 'test5', 'test6', 'test7', 'test8', 'test9', '2020-01-06', 'test10', 'test11', 'test12', '2020-01-05', '2020-01-15', 'test13');
 
 -- --------------------------------------------------------
 
@@ -226,7 +230,8 @@ CREATE TABLE `object_case` (
 
 INSERT INTO `object_case` (`ob_no`, `id_object`, `case_id`, `object_status`, `object_name`, `object_size`, `object_look`, `object_image`, `ob_arya_no`) VALUES
 (1, '0022', 'ค.001', 1, 'test22', 'test22', 'test22222', 'LC0K02S002.jpeg', '781/113'),
-(2, '0011', 'ค.001', 2, 'test11', 'test11', 'test111111111', '0F0KA2V222.jpeg', '781/113');
+(2, '0011', 'ค.001', 2, 'test11', 'test11', 'test111111111', '0F0KA2V222.jpeg', '781/113'),
+(4, 'test0001', 'testnow1', 1, 'test2', 'test3', 'test4', '0DFAX00HN6.jpeg', 'test3');
 
 -- --------------------------------------------------------
 
@@ -245,7 +250,8 @@ CREATE TABLE `pin_case` (
 
 INSERT INTO `pin_case` (`case_id`, `user_id`) VALUES
 ('ค.001', 'user01'),
-('ง.12/52', 'user01');
+('ง.12/52', 'user01'),
+('testnow1', 'user01');
 
 -- --------------------------------------------------------
 
@@ -267,7 +273,9 @@ CREATE TABLE `police_catch_arrest` (
 
 INSERT INTO `police_catch_arrest` (`id_po_ca_ar`, `case_id`, `name_po_ar`, `rank_po_ar`, `police_arya_no`) VALUES
 (1, 'ค.001', 'ดำดำ', 3, '781/113'),
-(2, 'ค.001', 'แดงแดง', 5, '781/113');
+(2, 'ค.001', 'แดงแดง', 5, '781/113'),
+(3, 'testnow1', 'test11', 1, 'test2'),
+(4, 'testnow1', 'test22', 4, 'test2');
 
 -- --------------------------------------------------------
 
@@ -367,7 +375,8 @@ CREATE TABLE `request_warrant` (
 --
 
 INSERT INTO `request_warrant` (`no_rw`, `rw_case`, `rw_no`, `rw_court`, `rw_cell`, `rw_judge`, `rw_type`, `rw_Petitioner`, `rw_policename`, `rw_position`, `rw_age`, `rw_career`, `rw_Workplace`, `rw_phone`, `rw_dos`, `rw_cherk1`, `rw_cherk2`, `rw_incident`, `rw_circumstances`, `rw_action`, `rw_Documentary`, `rw_Arrest`, `rw_warrant`, `rw_petition`, `rw_position2`, `rw_ornot`, `rw_Request`, `rw_warrant2`, `rw_Court2`) VALUES
-(3, 'ค.001', 'test1', 'test2', '2020-01-04', 'test3', 2, 'test4', 'test5', 'test6', 20, 'test8', 'test9', 'test10', 'test11', 'true1', 'true2', 'test12', 'test13', 'test14', 'test15', 'test16', 'test17', 'test18', 'test19', 1, 'test20', 'test21', 'test22');
+(3, 'ค.001', 'test1', 'test2', '2020-01-04', 'test3', 2, 'test4', 'test5', 'test6', 20, 'test8', 'test9', 'test10', 'test11', 'true1', 'true2', 'test12', 'test13', 'test14', 'test15', 'test16', 'test17', 'test18', 'test19', 1, 'test20', 'test21', 'test22'),
+(4, 'testnow1', 'test1', 'test2', '2020-01-06', 'test3', 2, 'test4', 'test5', 'test6', 0, 'test8', 'test9', 'test10', 'test11', 'true1', 'true2', 'test12', 'test13', 'test14', 'test15', 'test16', 'test17', 'test18', 'test19', 1, 'test20', 'test21', 'test22');
 
 -- --------------------------------------------------------
 
@@ -432,7 +441,8 @@ CREATE TABLE `search_warrant` (
 --
 
 INSERT INTO `search_warrant` (`sw_no`, `sw_case`, `sw_searchwarrant`, `sw_court`, `sw_date`, `sw_petitioner`, `sw_send`, `sw_adderss`, `sw_map`, `sw_seize`, `sw_check1`, `sw_check2`, `sw_check3`, `sw_check4`, `sw_find`, `sw_law`, `sw_warrant`, `sw_warrant2`, `sw_date2`, `sw_issued`, `sw_sw_issued2`, `sw_position`, `sw_location2`, `sw_month`, `sw_time`, `sw_check5`, `sw_time_to`, `sw_check6`, `sw_search`, `sw_save`, `sw_judge`) VALUES
-(1, 'ค.001', '559/255', 'test11111', '2020-01-05', 'test2', 'test3', 'test4', 'true', 'test11', 'true', 'true', 'true', 'true', 'test12', 'true', 'true', 'test13', 'test14', 'test15', 'test16', 'test17', 'test18', 'test19', '08:00:00', 'true', '00:00:00', 'f', 'test20', 'test21', 'test22');
+(1, 'ค.001', '559/255', 'test11111', '2020-01-05', 'test2', 'test3', 'test4', 'true', 'test11', 'true', 'true', 'true', 'true', 'test12', 'true', 'true', 'test13', 'test14', 'test15', 'test16', 'test17', 'test18', 'test19', '08:00:00', 'true', '00:00:00', 'f', 'test20', 'test21', 'test22'),
+(2, 'testnow1', '559/256666', 'test1', '2020-01-06', 'test2', 'test3', 'test4', 'true', 'test11', 'false', 'false', 'false', 'true', 'test12', 'false', 'true', 'test13', 'test14', 'test15', 'test16', 'test17', 'test18', 'test19', '07:00:00', 'true', '10:00:00', 'true', 'test20', 'test21', 'test22');
 
 -- --------------------------------------------------------
 
@@ -514,7 +524,8 @@ CREATE TABLE `summon_villain` (
 --
 
 INSERT INTO `summon_villain` (`no_sv`, `sv_case`, `sv_suspect`, `sv_warrant`, `sv_date`, `sv_accused`, `sv_villain`, `sv_refer`, `sv_address`, `sv_headman`, `sv_village`, `sv_hey`, `sv_text`, `sv_goto`, `sv_staff`, `sv_datetime`, `sv_staff2`, `sv_position`, `sv_datetime2`, `sv_policename`, `sv_set`, `sv_datetime3`, `sv_recipient`, `sv_sender`, `sv_policename4`, `sv_position2`, `sv_policename5`, `sv_address2`, `sv_status_sent`, `sv_sign`, `sv_position3`) VALUES
-(1, 'ค.001', '85/98', 'test11', '2020-01-05', 'test2', '1', 'test3', 'test4', 'test5', 'test6', 'test7', 'test8', 'test9', 'test10', '0000-00-00 00:00:00', 'test11', 'test12', '0000-00-00 00:00:00', 'test13', 'testnow', '2020-01-30 09:00:00', 'test15', 'test16', 'test17', 'test18', 'test19', 'test20', 2, 'test21', 'test22');
+(1, 'ค.001', '85/98', 'test11', '2020-01-05', 'test2', '1', 'test3', 'test4', 'test5', 'test6', 'test7', 'test8', 'test9', 'test10', '0000-00-00 00:00:00', 'test11', 'test12', '0000-00-00 00:00:00', 'test13', 'testnow', '2020-01-30 09:00:00', 'test15', 'test16', 'test17', 'test18', 'test19', 'test20', 2, 'test21', 'test22'),
+(2, 'testnow1', '777', 'test1', '2020-01-06', 'test2', '1448846661938', 'test3', 'test4', 'test5', 'test6', 'test7', 'test8', 'test9', 'test10', '2020-01-06 08:00:00', 'test11', 'test12', '2020-01-06 08:00:00', 'test13', 'test14', '2020-01-06 08:00:00', 'test15', 'test16', 'test17', 'test18', 'test19', 'test20', 1, 'test21', 'test22');
 
 -- --------------------------------------------------------
 
@@ -581,7 +592,8 @@ INSERT INTO `victim` (`case_id`, `title_name`, `victim_name`, `victim_lastname`,
 ('ค.001', 'นาย', 'ทด', 'ลอง', 1, '1586677898675', '123/2 หมู่ 6 ต.ป่าไผ่ อ.ดอกจัน จ.เชียงใหม่ 50089', 6, 'icon_data_usermale.png', 'ไทย', 'ไทย ', 'การค้า'),
 ('ง.12/52', 'นาย', 'ลึงลง', 'ใต้น้ำใหญ่', 1, '1607782455677', '123 หมู่ 9 ต.เชิงบน อ.เชิงล่าง จ.เชียงใหม่ 49668', 6, 'icon_data_usermale.png', 'ไทย', 'อังกฤษ', 'นักศึกษา'),
 ('123a', 'นางสาว', 'อุอะ', 'รารา', 2, '1748869532121', '123/2 หมู่ 6 บ้านดงใหญ่ 8888', 4, 'icon_data_userfemale.png', 'ไทย', 'ไทย', 'ฟหกด'),
-('123a', 'นาย', 'ฟฟกหดฟหกดฟก', 'dsafadsfasdg', 1, '1754486255132', '123/2 หมู่ 855', 5, 'icon_data_usermale.png', 'ไทย', 'ไทย', 'ttt');
+('123a', 'นาย', 'ฟฟกหดฟหกดฟก', 'dsafadsfasdg', 1, '1754486255132', '123/2 หมู่ 855', 5, 'icon_data_usermale.png', 'ไทย', 'ไทย', 'ttt'),
+('testnow1', 'นาย', 'test1', 'test2', 1, 'test6', 'test6', 4, 'G2VMHL0060.jpeg', 'test3', 'test4', 'test5');
 
 -- --------------------------------------------------------
 
@@ -615,6 +627,8 @@ INSERT INTO `villain` (`case_id`, `title_name`, `villain_name`, `villain_lastnam
 ('กบ/24.33', 'นาง', 'อทัย', 'สุกล', 2, '1234895674536', '154/552 บ้านจัดไป หมู่ 8 ต.เอือก อ.สักรำ จ.เชียงราย 56776', 7, '0XA0301J22.jpeg', 'ไทย', 'ไทย', 'ผู้รับเหมา', ''),
 ('ค.001', 'นางสาว', 'ภูมิลอง', 'ลองพูม', 2, '1248846251938', '75/8 บ้านจัดไป หมู่ 8 ต.จันจ๋า อ.ดอยจัน จ.เชียงตุง 70550', 6, 'L2B02C0Z2K.jpeg', 'ไทย', 'ไทย/ลาว', 'นักแสดง', '781/113'),
 ('ค.001', 'นาย', 'ลองเชิง', 'เชิงกราน', 1, '1248846257625', '154/552 บ้านจัดไป หมู่ 8 ต.จันจ๋า อ.ดอยจัน จ.เชียงตุง 70550', 7, 'icon_data_usermale.png', 'ไทย', 'ไทย', 'หมอ', '781/113'),
+('testnow1', 'test1', 'test2', 'test3', 1, '1248854621938', 'test7', 5, '1ZL00000XN.jpeg', 'test4', 'test5', 'test6', 'test3'),
+('testnow1', 'test1', 'test2', 'test3', 1, '1448846661938', 'test7', 3, 'G606HD2N1K.jpeg', 'test4', 'test5', 'test6', 'test3'),
 ('ง.12/52', 'นาย', 'แดง', 'สีแดง', 1, '1508509823421', NULL, 1, 'icon_data_usermale.png', 'ไทย', 'ไทย', 'พ่อค้า', '');
 
 -- --------------------------------------------------------
@@ -811,7 +825,9 @@ INSERT INTO `villain_identities` (`villain_idcard`, `face_villain`, `hair_style_
 ('1158497685123', 3, 7, 5, 3, 1, 6, 5, 2, 1),
 ('1234895674536', 4, 8, 6, 5, 5, 7, 6, 4, 3),
 ('1248846251938', 1, 8, 6, 3, 3, 10, 2, 4, 3),
-('1248846257625', 7, 8, 5, 1, 2, 10, 5, 3, 2);
+('1248846257625', 7, 8, 5, 1, 2, 10, 5, 3, 2),
+('1248854621938', 1, 5, 5, 3, 7, 8, 6, 3, 2),
+('1448846661938', 6, 8, 6, 4, 5, 8, 7, 4, 3);
 
 -- --------------------------------------------------------
 
@@ -884,7 +900,11 @@ CREATE TABLE `witness_request_warr` (
 
 INSERT INTO `witness_request_warr` (`no_witness`, `witness_case`, `rw_witness`) VALUES
 (3, 'ค.001', 'mm1'),
-(4, 'ค.001', 'mm2');
+(4, 'ค.001', 'mm2'),
+(5, 'testnow1', 'test11'),
+(6, 'testnow1', 'test22'),
+(7, 'testnow1', 'test33'),
+(8, 'testnow1', 'test44');
 
 -- --------------------------------------------------------
 
@@ -928,7 +948,8 @@ CREATE TABLE `words_villain` (
 --
 
 INSERT INTO `words_villain` (`wv_no`, `wv_case`, `wv_testimony`, `wv_are`, `wv_phone`, `wv_card`, `wv_output1`, `wv_output2`, `wv_last`, `wv_police`, `wv_station`, `wv_date`, `wv_accused`, `wv_suspect`, `wv_before`, `wv_investigate`, `wv_name`, `wv_age`, `wv_race`, `wv_nationality`, `wv_religion`, `wv_address`, `wv_headman`, `wv_villageheadmane`, `wv_farthername`, `wv_mothername`, `wv_birthday`, `wv_official`) VALUES
-(1, 'ค.001', '1158497684857', 'test2', 'test3', '1158497684857', 'test5', 'test6', 'test7', 'test8', 'test9999', '2020-01-05', 'test10', 'test11', 'test12', 'test13', 'test14', 'test15', 'test16', 'test17', 'test18', 'test19', 'test20', 'test21', 'test22', 'test23', 'test24', 'test25');
+(1, 'ค.001', '1158497684857', 'test2', 'test3', '1158497684857', 'test5', 'test6', 'test7', 'test8', 'test9999', '2020-01-05', 'test10', 'test11', 'test12', 'test13', 'test14', 'test15', 'test16', 'test17', 'test18', 'test19', 'test20', 'test21', 'test22', 'test23', 'test24', 'test25'),
+(2, 'testnow1', '1248854621938', 'test2', 'test3', '1248854621938', 'test5', 'test6', 'test7', 'test8', 'test9', '2020-01-06', 'test10', 'test11', 'test12', 'test13', 'test14', 'test15', 'test16', 'test17', 'test18', 'test19', 'test20', 'test21', 'test22', 'test23', 'test24', 'test25');
 
 --
 -- Indexes for dumped tables
@@ -1166,7 +1187,7 @@ ALTER TABLE `arrestor`
 -- AUTO_INCREMENT for table `arrest_record`
 --
 ALTER TABLE `arrest_record`
-  MODIFY `arrest_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `arrest_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `education`
@@ -1184,19 +1205,19 @@ ALTER TABLE `inquiry_official`
 -- AUTO_INCREMENT for table `investigation_report`
 --
 ALTER TABLE `investigation_report`
-  MODIFY `no_ir` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `no_ir` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `object_case`
 --
 ALTER TABLE `object_case`
-  MODIFY `ob_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `ob_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `police_catch_arrest`
 --
 ALTER TABLE `police_catch_arrest`
-  MODIFY `id_po_ca_ar` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_po_ca_ar` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `rank_police`
@@ -1208,13 +1229,13 @@ ALTER TABLE `rank_police`
 -- AUTO_INCREMENT for table `request_warrant`
 --
 ALTER TABLE `request_warrant`
-  MODIFY `no_rw` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `no_rw` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `search_warrant`
 --
 ALTER TABLE `search_warrant`
-  MODIFY `sw_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `sw_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `status_case`
@@ -1226,7 +1247,7 @@ ALTER TABLE `status_case`
 -- AUTO_INCREMENT for table `summon_villain`
 --
 ALTER TABLE `summon_villain`
-  MODIFY `no_sv` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `no_sv` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `villain_body`
@@ -1286,13 +1307,13 @@ ALTER TABLE `villain_nose`
 -- AUTO_INCREMENT for table `witness_request_warr`
 --
 ALTER TABLE `witness_request_warr`
-  MODIFY `no_witness` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `no_witness` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `words_villain`
 --
 ALTER TABLE `words_villain`
-  MODIFY `wv_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `wv_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables

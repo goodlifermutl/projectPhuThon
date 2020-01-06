@@ -78,52 +78,52 @@ $i=1;
 </div> -->
 
 <script>
-$('#insertOB').validate({ 
+// $('#insertOB').validate({ 
 								
-                rules: {
-                nameob:{
+//                 rules: {
+//                 nameob:{
                 
-                },
-                sizeob: { 
+//                 },
+//                 sizeob: { 
                 
-                },
-                lookob: {
+//                 },
+//                 lookob: {
                
-                },
-                staob: {
+//                 },
+//                 staob: {
                 
-                        }
-                    }
-});
+//                         }
+//                     }
+// });
 
- $("#insertOB").submit(function(e){
-	e.preventDefault();
-	$check = $("#insertOB").valid();
+//  $("#insertOB").submit(function(e){
+// 	e.preventDefault();
+// 	$check = $("#insertOB").valid();
 
-		if($check == true){
-		var formData = new FormData(this);
+// 		if($check == true){
+// 		var formData = new FormData(this);
 
-		$.ajax({
-		url: "module/fuction/insert_data_object.php",
-		type: 'POST',
-		data: formData,
-			success: function (data) {
-            alert(data) 
-            swal({
-            title: "บันทึกของกลางสำเร็จ",
-            icon: "success",
-            button: "ตกลง",
-          }).then((value) => {
-            window.location.href="home.php?&module=2&action=3"
+// 		$.ajax({
+// 		url: "module/fuction/insert_data_object.php",
+// 		type: 'POST',
+// 		data: formData,
+// 			success: function (data) {
+//             alert(data) 
+//             swal({
+//             title: "บันทึกของกลางสำเร็จ",
+//             icon: "success",
+//             button: "ตกลง",
+//           }).then((value) => {
+//             window.location.href="home.php?&module=2&action=3"
  
-})
-		},
-			cache: false,
-			contentType: false,
-			processData: false
-	  });	
-	}
-});
+// })
+// 		},
+// 			cache: false,
+// 			contentType: false,
+// 			processData: false
+// 	  });	
+// 	}
+// });
 
 
  $(".custom-file-input").on("change", function() {

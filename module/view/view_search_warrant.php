@@ -1,8 +1,8 @@
-<a name="คำให้การผู้ต้องหา"></a>
+<a name="หมายค้น"></a>
 <br>
 <br>
     <div class="dataview">
-      <p><h1 class="text-center">คำให้การผู้ต้องหา</h1></p>
+      <p><h1 class="text-center">หมายค้น</h1></p>
       <br>
    
       <?php 
@@ -112,7 +112,7 @@
         <input type="hidden" id="chk_link" value="<?php echo $l  ?>">
         
          <div class="col-md">
-         <b><label for="formGroupExampleInput">คำให้การผู้ต้องหา ฉบับที่ <?php echo $i; ?></label></b><button type="button" id="btn_edit7<?php echo $i ?>"><i class="fas fa-edit" style="font-size: 10px"></i></button>
+         <b><label for="formGroupExampleInput">หมายค้น ฉบับที่ <?php echo $i; ?></label></b><button type="button" id="btn_edit7<?php echo $i ?>"><i class="fas fa-edit" style="font-size: 10px"></i></button>
          
         </div>
 
