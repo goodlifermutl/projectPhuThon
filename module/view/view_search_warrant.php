@@ -24,7 +24,7 @@
         $i=1;
         
         $result_chk_sw = mysqli_query($con,"SELECT sw_case FROM search_warrant  WHERE sw_case = '$data'")or die("result_chk_object sqli error".mysqli_error($con));
-        $result_data_sw = mysqli_query($con,"SELECT sw_no, sw_searchwarrant, sw_court, sw_date, sw_petitioner, sw_send, sw_adderss, sw_map,sw_seize, sw_check1, sw_check2, sw_check3, sw_check4, sw_find, sw_law, sw_warrant, sw_warrant2, sw_date2, sw_issued, sw_sw_issued2, sw_position, sw_location2, sw_month, sw_time, sw_check5, sw_time_to, sw_check6, sw_search, sw_save, sw_judge FROM search_warrant  WHERE sw_case = '$data'".mysqli_error($con));
+        $result_data_sw = mysqli_query($con,"SELECT sw_no, sw_searchwarrant, sw_court, sw_date, sw_petitioner, sw_send, sw_adderss, sw_map,sw_seize, sw_check1, sw_check2, sw_check3, sw_check4, sw_find, sw_law, sw_warrant, sw_warrant2, sw_date2, sw_issued, sw_sw_issued2, sw_position, sw_location2, sw_time, sw_check5, sw_time_to, sw_check6, sw_search, sw_save, sw_judge FROM search_warrant  WHERE sw_case = '$data'".mysqli_error($con));
         list($case_id_sw)=mysqli_fetch_row($result_chk_sw);
         $num_loop=mysqli_num_rows($result_data_sw);
         // echo $data,$num_loop;
@@ -33,7 +33,7 @@
           echo "<h5 class='text-center'>----ไม่พบข้อมูล----</h5>";
         }else {
         
-        while(list($sw_no,$sw_searchwarrant,$sw_court,$sw_date,$sw_petitioner,$sw_send,$sw_adderss,$sw_map,$sw_seize,$sw_check1,$sw_check2,$sw_check3,$sw_check4,$sw_find,$sw_law,$sw_warrant,$sw_warrant2,$sw_date2,$sw_issued,$sw_sw_issued2,$sw_position,$sw_location2,$sw_month,$sw_time,$sw_check5,$sw_time_to,$sw_check6,$sw_search,$sw_save,$sw_judge)=mysqli_fetch_row($result_data_sw)){
+        while(list($sw_no,$sw_searchwarrant,$sw_court,$sw_date,$sw_petitioner,$sw_send,$sw_adderss,$sw_map,$sw_seize,$sw_check1,$sw_check2,$sw_check3,$sw_check4,$sw_find,$sw_law,$sw_warrant,$sw_warrant2,$sw_date2,$sw_issued,$sw_sw_issued2,$sw_position,$sw_location2,$sw_time,$sw_check5,$sw_time_to,$sw_check6,$sw_search,$sw_save,$sw_judge)=mysqli_fetch_row($result_data_sw)){
 
        // if($ir_casetype == 1){
             //     $status1="selected";
@@ -264,11 +264,7 @@
     <div class="col-3">
     <input type="text" class="form-control editsw<?php echo $i; ?>" id="" value="<?php echo $sw_location2  ?>" name="sw_location2[]" disabled>
     </div>
-    <label class="col-form-label">เดือน : </label>
-    <div class="col-3">
-    <input type="text" class="form-control editsw<?php echo $i; ?>" id="" value="<?php echo $sw_month  ?>" name="sw_month[]" disabled>
-    </div>
-    <label class="col-form-label">พุทธศักราช	๒๕๔๗  </label>
+
     </div>
     <div class="form-group row">
       <label class="col-form-label">เวลา : </label>
@@ -279,7 +275,7 @@
       &nbsp;  &nbsp;<div class="form-check form-check-inline">
         <input class="form-check-input editsw<?php echo $i; ?>" type="checkbox" id="inlineCheckbox2" value="true"name="sw_check5[]" <?php echo $check8 ?> disabled>
         <label class="form-check-label" for="inlineCheckbox2">เวลา</label>&nbsp;
-        <input type="time" class="form-control editsw<?php echo $i; ?>" id=""name="sw_time_to[]" disabled>
+        <input type="time" class="form-control editsw<?php echo $i; ?>" id="" value="<?php echo $sw_time_to  ?>" name="sw_time_to[]" disabled>
       </div>
       <label class="col-form-label">นาฬิกา</label>
         &nbsp;  &nbsp;<div class="form-check form-check-inline">

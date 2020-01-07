@@ -39,11 +39,11 @@ $con=connect_db();
     </div>
     <label class="col-form-label">ออกเมื่อ : </label>
     <div class="col">
-    <input type="text" class="form-control" id=""name="wv_output2">
+    <input type="date" class="form-control" id=""name="wv_output2">
     </div>
     <label class="col-form-label">หมดอายุ : </label>
     <div class="col">
-    <input type="text" class="form-control" id=""name="wv_last">
+    <input type="date" class="form-control" id=""name="wv_last">
     </div>
   </div>
   <div class="form-group row">

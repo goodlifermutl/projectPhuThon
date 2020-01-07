@@ -24,7 +24,7 @@
         $i=1;
         
         $result_chk_inr = mysqli_query($con,"SELECT ir_case FROM investigation_report  WHERE ir_case = '$data'")or die("result_chk_object sqli error".mysqli_error($con));
-        $result_data_inr = mysqli_query($con,"SELECT no_ir, ir_casetype, ir_order, ir_policestation, ir_offer, ir_prefix, ir_name, ir_surname, ir_ir_prefix2, ir_ir_name2, ir_surname2, ir_charge, ir_date, ir_district, ir_price, ir_wound, ir_complaint, ir_control, ir_fact FROM investigation_report  WHERE ir_case = '$data'".mysqli_error($con));
+        $result_data_inr = mysqli_query($con,"SELECT no_ir, ir_casetype, ir_order, ir_policestation, ir_offer, vic_ir, vil_ir, ir_charge, ir_date, ir_district, ir_price, ir_wound, ir_complaint, ir_control, ir_fact FROM investigation_report  WHERE ir_case = '$data'".mysqli_error($con));
         list($case_id_inr)=mysqli_fetch_row($result_chk_inr);
         $num_loop=mysqli_num_rows($result_data_inr);
         // echo $data,$num_loop;
@@ -33,7 +33,7 @@
           echo "<h5 class='text-center'>----ไม่พบข้อมูล----</h5>";
         }else {
         
-        while(list($no_ir,$ir_casetype,$ir_order,$ir_policestation,$ir_offer,$ir_prefix,$ir_name,$ir_surname,$ir_ir_prefix2,$ir_ir_name2,$ir_surname2,$ir_charge,$ir_date,$ir_district,$ir_price,$ir_wound,$ir_complaint,$ir_control,$ir_fact)=mysqli_fetch_row($result_data_inr)){
+        while(list($no_ir,$ir_casetype,$ir_order,$ir_policestation,$ir_offer,$vic_ir,$vil_ir,$ir_charge,$ir_date,$ir_district,$ir_price,$ir_wound,$ir_complaint,$ir_control,$ir_fact)=mysqli_fetch_row($result_data_inr)){
 
             if($ir_casetype == 1){
                 $status1="selected";
@@ -107,22 +107,19 @@
         <div>
             <label class="col-sm col-form-label">ผู้กล่าวหา </label>
         </div>
-        <div>
-            <label class="col-sm col-form-label">ชื่อ : </label>
-        </div>
-        <div class="col-md-2">
-            <input type="text" class="form-control editinr<?php echo $i; ?>" placeholder="คำนำหน้าชื่อ" value="<?php echo $ir_prefix ?>"  name="ir_prefix[]"  required disabled>
-        </div>
-            <div class="col-md">
-            <input type="text" class="form-control editinr<?php echo $i; ?>" placeholder="ชื่อ" value="<?php echo $ir_name ?>" name="ir_name[]"  required disabled>
-        </div>
-            <div>
-              <label class="col-sm col-form-label">นามสกุล : </label>
-            </div>
         <div class="col-md">
-            <input type="text" class="form-control editinr<?php echo $i; ?>" placeholder="นามสกุล" value="<?php echo $ir_surname ?>"  name="ir_surname[]"  required disabled>
+    <select class="custom-select editinr<?php echo $i; ?>" id="" name="vic_ir[]" required disabled>
+                <option disabled selected value="0">ผู้ต้องหา</option>
+                <?php $result_vil = mysqli_query($con,"SELECT victim_idcard,title_name,victim_name,victim_lastname FROM victim WHERE case_id='$_SESSION[case_id]'")or die("select villain error".mysqli_error($con));
+                    while(list($vil_idcard,$title,$vil_name,$vil_lastname)=mysqli_fetch_row($result_vil)){
+                        $selectd=$vil_idcard==$vic_ir?"selected":"";
+                     echo"<option value='$vil_idcard' $selected>$title $vil_name $vil_lastname</option>";
+                    }
+                ?> 
+                   
+            </select>
+            </div>
         </div>
-    </div>
     </div>
     <p></p>
     <div class="col-md">
@@ -130,22 +127,19 @@
         <div>
             <label class="col-sm col-form-label">ผู้ต้องหา </label>
         </div>
-        <div>
-            <label class="col-sm col-form-label">ชื่อ : </label>
-        </div>
-        <div class="col-md-2">
-            <input type="text" class="form-control editinr<?php echo $i; ?>" placeholder="คำนำหน้าชื่อ" value="<?php echo $ir_ir_prefix2 ?>"  name="ir_ir_prefix2[]"   required disabled>
-        </div>
-            <div class="col-md">
-            <input type="text" class="form-control editinr<?php echo $i; ?>" placeholder="ชื่อ" value="<?php echo $ir_ir_name2 ?>" name="ir_ir_name2[]" required disabled> 
-        </div>
-            <div>
-              <label class="col-sm col-form-label ">นามสกุล : </label>
-            </div>
         <div class="col-md">
-            <input type="text" class="form-control editinr<?php echo $i; ?>" placeholder="นามสกุล" value="<?php echo $ir_surname2 ?>" name="ir_surname2[]"  required disabled>
+    <select class="custom-select editinr<?php echo $i; ?>" id="" name="vil_ir[]" required disabled >
+                <option disabled selected value="0">ผู้ต้องหา</option>
+                <?php $result_vil = mysqli_query($con,"SELECT villain_idcard,title_name,villain_name,villain_lastname FROM villain WHERE case_id='$_SESSION[case_id]'")or die("select villain error".mysqli_error($con));
+                    while(list($vil_idcard,$title,$vil_name,$vil_lastname)=mysqli_fetch_row($result_vil)){
+                        $selectd=$vil_idcard==$vil_ir?"selected":"";
+                     echo"<option value='$vil_idcard' $selected>$title $vil_name $vil_lastname</option>";
+                    }
+                ?> 
+                   
+            </select>
+            </div>
         </div>
-    </div>
     </div>
     <p></p>
     <div class="col-md">

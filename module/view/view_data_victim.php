@@ -22,11 +22,12 @@
         }
         $sex_name;
         $i=1;
-
+        // echo $data;
         $result_chk_victim = mysqli_query($con,"SELECT case_id FROM victim  WHERE case_id = '$data'")or die("resualt_chk_victim sqli error".mysqli_error($con));
         $result_victim = mysqli_query($con,"SELECT vm.title_name, vm.victim_name,vm.victim_lastname,vm.victim_sex,vm.victim_idcard,vm.victim_address,ed.edu_name,vm.victim_image,vm.victim_race,vm.victim_nationality,vm.victim_career FROM victim as vm  INNER JOIN education as ed ON vm.victim_education = ed.edu_id WHERE case_id = '$data'")or die("resualt_victim sqli error".mysqli_error($con));
         list($case_id)=mysqli_fetch_row($result_chk_victim);
         $num_loop=mysqli_num_rows($result_victim);
+        // echo $case_id;
         if(empty($case_id)){
           ?><script>swal("sorry!", "ไม่พบข้อมูลบางส่วน!", "error")</script><?php
           echo "<h5 class='text-center'>----ไม่พบข้อมูล----</h5>";

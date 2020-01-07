@@ -1,3 +1,6 @@
+<?php 
+$con=connect_db();
+?>
 <div class="container">
     <div class="col-md">
     <h1 class="text-center">รายงานการสอบสวน</h1>
@@ -53,6 +56,24 @@
         <div>
             <label class="col-sm col-form-label">ผู้กล่าวหา </label>
         </div>
+        <div class="col-md">
+    <select class="custom-select " id="" name="vic_ir" required >
+                <option disabled selected value="0">ผู้ต้องหา</option>
+                <?php $result_vil = mysqli_query($con,"SELECT victim_idcard,title_name,victim_name,victim_lastname FROM victim WHERE case_id='$_SESSION[case_id]'")or die("select villain error".mysqli_error($con));
+                    while(list($vil_idcard,$title,$vil_name,$vil_lastname)=mysqli_fetch_row($result_vil)){
+                     echo"<option value='$vil_idcard'>$title $vil_name $vil_lastname</option>";
+                    }
+                ?> 
+                   
+            </select>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="col-md">
+        <div class="form-row">
+        <div>
+            <label class="col-sm col-form-label">ผู้กล่าวหา </label>
+        </div>
         <div>
             <label class="col-sm col-form-label">ชื่อ : </label>
         </div>
@@ -69,9 +90,27 @@
             <input type="text" class="form-control " placeholder="นามสกุล" value=""  name="ir_surname"  required>
         </div>
     </div>
-    </div>
+    </div> -->
     <p></p>
     <div class="col-md">
+        <div class="form-row">
+        <div>
+            <label class="col-sm col-form-label">ผู้ต้องหา </label>
+        </div>
+        <div class="col-md">
+    <select class="custom-select " id="" name="vil_ir" required >
+                <option disabled selected value="0">ผู้ต้องหา</option>
+                <?php $result_vil = mysqli_query($con,"SELECT villain_idcard,title_name,villain_name,villain_lastname FROM villain WHERE case_id='$_SESSION[case_id]'")or die("select villain error".mysqli_error($con));
+                    while(list($vil_idcard,$title,$vil_name,$vil_lastname)=mysqli_fetch_row($result_vil)){
+                     echo"<option value='$vil_idcard'>$title $vil_name $vil_lastname</option>";
+                    }
+                ?> 
+                   
+            </select>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="col-md">
         <div class="form-row">
         <div>
             <label class="col-sm col-form-label">ผู้ต้องหา </label>
@@ -92,7 +131,7 @@
             <input type="text" class="form-control " placeholder="นามสกุล" value="" name="ir_surname2"  required>
         </div>
     </div>
-    </div>
+    </div> -->
     <p></p>
     <div class="col-md">
         <div class="form-row">

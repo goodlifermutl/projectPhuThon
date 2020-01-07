@@ -89,7 +89,6 @@ $con = connect_db();
     <span class="sr-only">unread messages</span>
     </button> -->
     <a class="nav-link" href="home_admin.php?module=1&action=9">เจ้าหน้าที่ในหน่วยงาน</a>
-    <a class="nav-link" href="#">ข้อมูลตำแหน่ง</a>
     
  
   </nav>

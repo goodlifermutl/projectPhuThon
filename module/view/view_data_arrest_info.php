@@ -138,7 +138,7 @@
     <p></p>
     <div class="col-md">
         <div class="form-row">
-    <select class="custom-select " id="" name="vil_ar_info[]" required disabled >
+    <select class="custom-select editarin<?php echo $i; ?>" id="" name="vil_ar_info[]" required disabled >
                 <option disabled selected value="0">ผู้ต้องหา</option>
                 <?php $result_vil = mysqli_query($con,"SELECT villain_idcard,title_name,villain_name,villain_lastname FROM villain WHERE case_id='$_SESSION[case_id]'")or die("select villain error".mysqli_error($con));
                     while(list($vil_idcard,$title,$vil_name,$vil_lastname)=mysqli_fetch_row($result_vil)){

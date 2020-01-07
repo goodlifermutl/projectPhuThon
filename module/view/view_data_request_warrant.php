@@ -81,7 +81,7 @@
   <input type="hidden" id="" value="<?php echo $no_rw  ?>" name="rw_no_up[]">
     <label class="col-form-label">คำร้องที่ : </label>
     <div class="col-2">
-    <input type="text" class="form-control editrw<?php echo $i; ?>" id="" value="<?php echo $rw_no ?>" name="rw_no[]" disabled>
+    <input type="text" class="form-control editrw<?php echo $i; ?>" id="focusrw<?php echo $i ?>" value="<?php echo $rw_no ?>" name="rw_no[]" disabled>
     </div>
     <label class="col-form-label">ขอหมายจับรับที่ร้อง ศาล : </label>
     <div class="col">
@@ -346,7 +346,7 @@ $("#btn_edit3<?php echo $md; ?>").click(function(){
 })
 .then((willDelete) => {
   if (willDelete) {
-    $( "#focusarin<?php echo $md ?>" ).focus();
+    $( "#focusrw<?php echo $md ?>" ).focus();
     
   } else {
     

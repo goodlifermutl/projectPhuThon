@@ -13,7 +13,7 @@ $num_peson=1;
 $sex;
 $per;
 
-echo $_GET['cardid'];
+// echo $_GET['cardid'];
 
 while(list($p_cardid,$p_rk,$p_name,$p_lastname,$p_sex,$p_address,$p_tel,$p_pic,$p_sta_per)=mysqli_fetch_row($result)){
     list($id_user)=mysqli_fetch_row($result2);

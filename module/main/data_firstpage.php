@@ -44,7 +44,7 @@
       ?><?php
           echo"
           <ul class='list-group'>
-          <li class='list-group-item'><button type='button' class='btn btn-danger' id='deletelist$i'><i class='far fa-trash-alt' style='font-size: 10px'></i></button> <a href='?datacase=$case_id_pin[0]&module=1&action=1'>$case_name $case_typeName</a></li>
+          <li class='list-group-item'><button type='button' class='btn btn-danger' id='deletelist$i'><i class='far fa-trash-alt' style='font-size: 10px'></i></button> <a href='?datacase=$case_id_pin[$i]&module=1&action=1'>$case_name $case_typeName</a></li>
         </ul>";
 
           $i++;

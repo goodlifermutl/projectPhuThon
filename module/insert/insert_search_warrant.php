@@ -119,7 +119,7 @@
       </div>
       <label class="col-form-label">ลงวันที่ : </label>
       <div class="col-3">
-      <input type="text" class="form-control" id=""name="sw_date2">
+      <input type="date" class="form-control" id=""name="sw_date2">
       </div>
       </div>
 
@@ -146,14 +146,9 @@
   <div class="form-group row">
     <label class="col-form-label">สถานที่ / บ้านข้างต้นได้ในวันที่ : </label>
     <div class="col-3">
-    <input type="text" class="form-control" id=""name="sw_location2">
+    <input type="date" class="form-control" id=""name="sw_location2">
     </div>
-    <label class="col-form-label">เดือน : </label>
-    <div class="col-3">
-    <input type="text" class="form-control" id=""name="sw_month">
-    </div>
-    <label class="col-form-label">พุทธศักราช	๒๕๔๗  </label>
-    </div>
+   </div>
     <div class="form-group row">
       <label class="col-form-label">เวลา : </label>
       <div class="col-3">

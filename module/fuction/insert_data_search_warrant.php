@@ -85,7 +85,7 @@ $qq23=$_POST['sw_issued'];
 $qq24=$_POST['sw_sw_issued2'];
 $qq25=$_POST['sw_position'];
 $qq26=$_POST['sw_location2'];
-$qq27=$_POST['sw_month'];
+// $qq27=$_POST['sw_month'];
 $qq28=$_POST['sw_time'];
 $qqto=$_POST['sw_time_to'];
 
@@ -95,7 +95,7 @@ $qq32=$_POST['sw_save'];
 $qq33=$_POST['sw_judge'];
 
 $sql="INSERT INTO search_warrant VALUE('','$case_warrsear','$qq1','$qq2','$qq3','$qq4','$qq5','$qq6','$qq13','$qq66','$qq14','$qq15'
-,'$qq16','$qq17','$qq18','$qq19','$qq20','$qq21','$qq22','$qq23','$qq24','$qq25','$qq26','$qq27','$qq28','$qq29','$qqto'
+,'$qq16','$qq17','$qq18','$qq19','$qq20','$qq21','$qq22','$qq23','$qq24','$qq25','$qq26','$qq28','$qq29','$qqto'
 ,'$qq30','$qq31','$qq32','$qq33')";
 
 echo $sql;

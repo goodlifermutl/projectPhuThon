@@ -114,11 +114,11 @@
     </div>
     <label class="col-form-label">ออกเมื่อ : </label>
     <div class="col">
-    <input type="text" class="form-control editwv<?php echo $i; ?>" id="" value="<?php echo $wv_output2  ?>" name="wv_output2[]" disabled>
+    <input type="date" class="form-control editwv<?php echo $i; ?>" id="" value="<?php echo $wv_output2  ?>" name="wv_output2[]" disabled>
     </div>
     <label class="col-form-label">หมดอายุ : </label>
     <div class="col">
-    <input type="text" class="form-control editwv<?php echo $i; ?>" id="" value="<?php echo $wv_last  ?>" name="wv_last[]" disabled>
+    <input type="date" class="form-control editwv<?php echo $i; ?>" id="" value="<?php echo $wv_last  ?>" name="wv_last[]" disabled>
     </div>
   </div>
   <div class="form-group row">
