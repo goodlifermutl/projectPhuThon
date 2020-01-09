@@ -83,7 +83,7 @@
     <div class="col-md">
     <select class="custom-select " id="seleCard"  name="wv_testimony[]" required disabled >
                 <option disabled selected value="0">ผู้ต้องหา</option>
-                <?php $result_vil = mysqli_query($con,"SELECT villain_idcard,title_name,villain_name,villain_lastname FROM villain WHERE case_id='$_SESSION[case_id]'")or die("select villain error".mysqli_error($con));
+                <?php $result_vil = mysqli_query($con,"SELECT villain_idcard,title_name,villain_name,villain_lastname FROM villain WHERE case_id='$case_id_wv'")or die("select villain error".mysqli_error($con));
                     while(list($vil_idcard,$title,$vil_name,$vil_lastname)=mysqli_fetch_row($result_vil)){
                         $selected=$wv_testimony==$vil_idcard?"selected":"";
                         echo"<option value='$vil_idcard' $selected>$title $vil_name $vil_lastname</option>";
