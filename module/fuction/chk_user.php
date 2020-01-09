@@ -47,7 +47,7 @@ if($user_name==$_POST['username'] && $password==$pass){
         });
     </script>
     <?php
-        }else if($permiss_id==2){
+        }else if($permiss_id==2||$permiss_id==1){
             ?>
              <script>
                 swal({

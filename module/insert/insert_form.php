@@ -84,17 +84,18 @@ a:hover{
       </a>
     </div>
     <div class="col-sm-4">
-      <p class="text-center"><b>เพิ่มข้อมูลหมายจับ</b></p>
-      <a href="#" id="myBtnNsVT4">
-      <p class="text-center"><i class="fas fa-sticky-note" style="font-size: 80px"></i></p>
-      </a>
-    </div>
-    <div class="col-sm-4">
       <p class="text-center"><b>เพิ่มคำร้องออกหมายจับ</b></p>
       <a href="#" id="myBtnNsVT5">
       <p class="text-center"><i class="fas fa-sticky-note" style="font-size: 80px"></i></p>
       </a>
     </div>
+    <div class="col-sm-4">
+      <p class="text-center"><b>เพิ่มข้อมูลหมายจับ</b></p>
+      <a href="#" id="myBtnNsVT4">
+      <p class="text-center"><i class="fas fa-sticky-note" style="font-size: 80px"></i></p>
+      </a>
+    </div>
+    
     </div>
     <!-- </div>
     </div> -->

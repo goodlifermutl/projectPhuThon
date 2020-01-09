@@ -39,7 +39,7 @@ $con = connect_db();
 $select = mysqli_query($con,"SELECT permiss_id FROM user WHERE user_id='$_SESSION[user_name]'")or die("select sql error".mysqli_error($con));
 list($permiss)=mysqli_fetch_row($select);
 $html_l;
-if($permiss==2){
+if($permiss==2||$permiss==1){
   $html_l="home.php";
 }if($permiss==3){
   $html_l="home.php?&module=2&action=2";
@@ -168,9 +168,9 @@ if($ac_chk=='4'){
   <li class="nav-item dropdown">
   <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">เพิ่มข้อมูลอื่น ๆ</a>
     <div class="dropdown-menu">
-      <a class="dropdown-item <?php echo $action5 ?>" href="#" id="myBtnNsVT4">เพิ่มข้อมูลหมายจับ</a>
-      <div class="dropdown-divider"></div>
       <a class="dropdown-item <?php echo $action6 ?>" href="#" id="myBtnNsVT5">เพิ่มคำร้องออกหมายจับ</a>
+      <div class="dropdown-divider"></div>
+      <a class="dropdown-item <?php echo $action5 ?>" href="#" id="myBtnNsVT4">เพิ่มข้อมูลหมายจับ</a>
       <div class="dropdown-divider"></div>
       <a class="dropdown-item <?php echo $action7 ?>" href="#" id="myBtnNsVT6">เพิ่มรายงานการสอบสวน</a>
       <div class="dropdown-divider"></div>
@@ -202,10 +202,10 @@ if($ac_chk=='4'){
   <a class="nav-link <?php echo $action4 ?>" href="#บันทึกการจับกุม" id="">บันทึกการจับกุม</a>
   </li>
   <li>
-  <a class="nav-link <?php echo $action5 ?>" href="#หมายจับ" id="">หมายจับ</a>
+  <a class="nav-link <?php echo $action6 ?>" href="#คำร้องออกหมายจับ" id="">คำร้องออกหมายจับ</a>
   </li>
   <li>
-  <a class="nav-link <?php echo $action6 ?>" href="#คำร้องออกหมายจับ" id="">คำร้องออกหมายจับ</a>
+  <a class="nav-link <?php echo $action5 ?>" href="#หมายจับ" id="">หมายจับ</a>
   </li>
   <li>
   <a class="nav-link <?php echo $action7 ?>" href="#รายงานการสอบสวน" id="">รายงานการสอบสวน</a>

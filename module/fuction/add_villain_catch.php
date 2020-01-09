@@ -10,7 +10,7 @@ $i=1;
     <form id="insert_villain" method="post"> -->
     <?php while($i<=$num_vil_count){ ?>
     <div class="col-md">
-    <h4 class="text-center">เพิ่มข้อมูลผู้ต้องหา<?php echo $i?></h4>
+    <h4 class="text-center">เพิ่มข้อมูลผู้ต้องหาคนที่<?php echo $i?></h4>
     </div>
     <div class="col-md">
         <div class="form-row">
