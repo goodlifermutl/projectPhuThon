@@ -165,12 +165,20 @@
               <div class="col-md">
               <select class="custom-select edit_vill<?php echo $i; ?>" id="" name="villain_body[]" disabled required>
               <option disabled selected value="0">รูปร่าง</option>
+              <?php 
+              $selected1=$iden_body=='1'?"selected":""; 
+              $selected2=$iden_body=='2'?"selected":""; 
+              $selected3=$iden_body=='3'?"selected":""; 
+              ?>
+              <option value="1" <?php echo $selected1 ?>>สูง</option>
+              <option value="2" <?php echo $selected2 ?>>สันทัด</option>
+              <option value="3" <?php echo $selected3 ?>>เตี้ย</option>
               <?php
-              include("module/fuction/fuction_bady_section.php");
-              while(list($body_id,$body_name)=mysqli_fetch_row($body_villain)){
-                $selected=$body_id==$iden_body?"selected":"";
-                      echo"<option value='$body_id'$selected>$body_name</option>";
-                      }
+              // include("module/fuction/fuction_bady_section.php");
+              // while(list($body_id,$body_name)=mysqli_fetch_row($body_villain)){
+              //   $selected=$body_id==$iden_body?"selected":"";
+              //         echo"<option value='$body_id'$selected>$body_name</option>";
+              //         }
                     ?>
             </select>
               </div>
@@ -180,12 +188,28 @@
               <div class="col-md">
               <select class="custom-select edit_vill<?php echo $i; ?>" id="" name="villain_face[]"disabled required>
               <option disabled selected value="0">ใบหน้า</option>
+              <?php 
+              $selected1=$iden_face=='1'?"selected":""; 
+              $selected2=$iden_face=='2'?"selected":""; 
+              $selected3=$iden_face=='3'?"selected":""; 
+              $selected4=$iden_face=='4'?"selected":""; 
+              $selected5=$iden_face=='5'?"selected":""; 
+              $selected6=$iden_face=='6'?"selected":"";
+              $selected7=$iden_face=='7'?"selected":"";
+              ?>
+              <option value="1" <?php echo $selected1 ?>>กลม</option>
+              <option value="2" <?php echo $selected2 ?>>รูปไข่</option>
+              <option value="3" <?php echo $selected3 ?>>สี่เหลี่ยม</option>
+              <option value="4" <?php echo $selected4 ?>>สี่เหลี่ยมยาว</option>
+              <option value="5" <?php echo $selected5 ?>>สามเหลี่ยม</option>
+              <option value="6" <?php echo $selected6 ?>>สามเหลี่ยมยาว</option>
+              <option value="7" <?php echo $selected7 ?>>แหลมหลิม</option>
               <?php
-              include("module/fuction/fuction_bady_section.php");
-              while(list($face_id,$face_name)=mysqli_fetch_row($face_villain)){
-                $selected=$face_id==$iden_face?"selected":"";
-                      echo"<option value='$face_id'$selected>$face_name</option>";
-                      }
+              // include("module/fuction/fuction_bady_section.php");
+              // while(list($face_id,$face_name)=mysqli_fetch_row($face_villain)){
+              //   $selected=$face_id==$iden_face?"selected":"";
+              //         echo"<option value='$face_id'$selected>$face_name</option>";
+              //         }
                     ?>
             </select>
               </div>
@@ -195,12 +219,32 @@
               <div class="col-md">
               <select class="custom-select edit_vill<?php echo $i; ?>" id="" name="villain_hair[]"disabled required>
               <option disabled selected value="0">ทรงผม</option>
+              <?php 
+              $selected1=$iden_hair=='1'?"selected":""; 
+              $selected2=$iden_hair=='2'?"selected":""; 
+              $selected3=$iden_hair=='3'?"selected":""; 
+              $selected4=$iden_hair=='4'?"selected":""; 
+              $selected5=$iden_hair=='5'?"selected":""; 
+              $selected6=$iden_hair=='6'?"selected":"";
+              $selected7=$iden_hair=='7'?"selected":"";
+              $selected8=$iden_hair=='8'?"selected":"";
+              $selected9=$iden_hair=='9'?"selected":"";
+              ?>
+              <option value="1" <?php echo $selected1 ?>>ทุ่งหมาหลง</option>
+              <option value="2" <?php echo $selected2 ?>>ดงช้างข้าม</option>
+              <option value="3" <?php echo $selected3 ?>>ง่ามเทโพ</option>
+              <option value="4" <?php echo $selected4 ?>>ชะโดตีแปลง</option>
+              <option value="5" <?php echo $selected5 ?>>แร้งกระพือปีก</option>
+              <option value="6" <?php echo $selected6 ?>>ฉีกหางฟาด</option>
+              <option value="7" <?php echo $selected7 ?>>ราชคลึงเครา</option>
+              <option value="8" <?php echo $selected8 ?>>รองทรง</option>
+              <option value="9" <?php echo $selected9 ?>>ผมยาว</option>
               <?php
-              include("module/fuction/fuction_bady_section.php");
-              while(list($hair_style_id,$hair_name)=mysqli_fetch_row($hair_villain)){
-                $selected=$hair_style_id==$iden_hair?"selected":"";
-                      echo"<option value='$hair_style_id'$selected>$hair_name</option>";
-                      }
+              // include("module/fuction/fuction_bady_section.php");
+              // while(list($hair_style_id,$hair_name)=mysqli_fetch_row($hair_villain)){
+              //   $selected=$hair_style_id==$iden_hair?"selected":"";
+              //         echo"<option value='$hair_style_id'$selected>$hair_name</option>";
+              //         }
                     ?>
             </select>
               </div>
@@ -215,12 +259,34 @@
               <div class="col-md">
               <select class="custom-select edit_vill<?php echo $i; ?>" id="" name="villain_nose[]"disabled required>
               <option disabled selected value="0">จมูก</option>
+              <?php 
+              $selected1=$iden_nose=='1'?"selected":""; 
+              $selected2=$iden_nose=='2'?"selected":""; 
+              $selected3=$iden_nose=='3'?"selected":""; 
+              $selected4=$iden_nose=='4'?"selected":""; 
+              $selected5=$iden_nose=='5'?"selected":""; 
+              $selected6=$iden_nose=='6'?"selected":"";
+              $selected7=$iden_nose=='7'?"selected":"";
+              $selected8=$iden_nose=='8'?"selected":"";
+              $selected9=$iden_nose=='9'?"selected":"";
+              $selected10=$iden_nose=='10'?"selected":"";
+              ?>
+              <option value="1" <?php echo $selected1 ?>>จมูกแคบ</option>
+              <option value="2" <?php echo $selected2 ?>>จมูกกว้าง</option>
+              <option value="3" <?php echo $selected3 ?>>จมูกชมพู่</option>
+              <option value="4" <?php echo $selected4 ?>>สันจมูกสั้น</option>
+              <option value="5" <?php echo $selected5 ?>>สันจมูกโค้งเหลี่ยม</option>
+              <option value="6" <?php echo $selected6 ?>>สันจมูกโค้กกลม</option>
+              <option value="7" <?php echo $selected7 ?>>สันจมูกงอน</option>
+              <option value="8" <?php echo $selected8 ?>>ฐานจมูกงุ้ม</option>
+              <option value="9" <?php echo $selected9 ?>>ฐานจมูกราบ</option>
+              <option value="10" <?php echo $selected10 ?>>ฐานจมูกเชิด</option>
               <?php
-              include("module/fuction/fuction_bady_section.php");
-              while(list($nose_id,$nose_name)=mysqli_fetch_row($nose_villain)){
-                $selected=$nose_id==$iden_nose?"selected":"";
-                      echo"<option value='$nose_id'$selected>$nose_name</option>";
-                      }
+              // include("module/fuction/fuction_bady_section.php");
+              // while(list($nose_id,$nose_name)=mysqli_fetch_row($nose_villain)){
+              //   $selected=$nose_id==$iden_nose?"selected":"";
+              //         echo"<option value='$nose_id'$selected>$nose_name</option>";
+              //         }
                     ?>
             </select>
               </div>
@@ -230,12 +296,32 @@
               <div class="col-md">
               <select class="custom-select edit_vill<?php echo $i; ?>" id="" name="villain_mouth[]"disabled required>
               <option disabled selected value="0">ปาก</option>
+              <?php 
+              $selected1=$iden_mouth=='1'?"selected":""; 
+              $selected2=$iden_mouth=='2'?"selected":""; 
+              $selected3=$iden_mouth=='3'?"selected":""; 
+              $selected4=$iden_mouth=='4'?"selected":""; 
+              $selected5=$iden_mouth=='5'?"selected":""; 
+              $selected6=$iden_mouth=='6'?"selected":"";
+              $selected7=$iden_mouth=='7'?"selected":"";
+              $selected8=$iden_mouth=='8'?"selected":"";
+              $selected9=$iden_mouth=='9'?"selected":"";
+              ?>
+              <option value="1" <?php echo $selected1 ?>>ปากกระจับ</option>
+              <option value="2" <?php echo $selected2 ?>>ปากหนา</option>
+              <option value="3" <?php echo $selected3 ?>>ปากล่างห้อย</option>
+              <option value="4" <?php echo $selected4 ?>>ปากเชิด</option>
+              <option value="5" <?php echo $selected5 ?>>ปากกว้าง</option>
+              <option value="6" <?php echo $selected6 ?>>ปากแคบ</option>
+              <option value="7" <?php echo $selected7 ?>>ปากเสมอ</option>
+              <option value="8" <?php echo $selected8 ?>>ปากล่างยื่น</option>
+              <option value="9" <?php echo $selected9 ?>>ปากบนยื่น</option>
               <?php
-              include("module/fuction/fuction_bady_section.php");
-              while(list($mouth_id,$mouth_name)=mysqli_fetch_row($mouth_villain)){
-                $selected=$mouth_id==$iden_mouth?"selected":"";
-                      echo"<option value='$mouth_id'$selected>$mouth_name</option>";
-                      }
+              // include("module/fuction/fuction_bady_section.php");
+              // while(list($mouth_id,$mouth_name)=mysqli_fetch_row($mouth_villain)){
+              //   $selected=$mouth_id==$iden_mouth?"selected":"";
+              //         echo"<option value='$mouth_id'$selected>$mouth_name</option>";
+              //         }
                     ?>
             </select>
               </div>
@@ -245,12 +331,26 @@
               <div class="col-md">
               <select class="custom-select edit_vill<?php echo $i; ?>" id="" name="villain_chin[]"disabled required>
               <option disabled selected value="0">คาง</option>
+              <?php 
+              $selected1=$iden_chin=='1'?"selected":""; 
+              $selected2=$iden_chin=='2'?"selected":""; 
+              $selected3=$iden_chin=='3'?"selected":""; 
+              $selected4=$iden_chin=='4'?"selected":""; 
+              $selected5=$iden_chin=='5'?"selected":""; 
+              $selected6=$iden_chin=='6'?"selected":"";
+              ?>
+              <option value="1" <?php echo $selected1 ?>>คางตรง</option>
+              <option value="2" <?php echo $selected2 ?>>คางราบ</option>
+              <option value="3" <?php echo $selected3 ?>>คางยื่น</option>
+              <option value="4" <?php echo $selected4 ?>>คางป่าน</option>
+              <option value="5" <?php echo $selected5 ?>>คางสั่น</option>
+              <option value="6" <?php echo $selected6 ?>>คางยาน</option>
               <?php
-              include("module/fuction/fuction_bady_section.php");
-              while(list($chin_id,$chin_name)=mysqli_fetch_row($chin_villain)){
-                $selected=$chin_id==$iden_chin?"selected":"";
-                      echo"<option value='$chin_id'$selected>$chin_name</option>";
-                      }
+              // include("module/fuction/fuction_bady_section.php");
+              // while(list($chin_id,$chin_name)=mysqli_fetch_row($chin_villain)){
+              //   $selected=$chin_id==$iden_chin?"selected":"";
+              //         echo"<option value='$chin_id'$selected>$chin_name</option>";
+              //         }
                     ?>
             </select>
               </div>
@@ -265,12 +365,30 @@
                 <div class="col-md">
                 <select class="custom-select edit_vill<?php echo $i; ?>" id="" name="villain_ears[]"disabled required>
                 <option disabled selected value="0">หู</option>
+                <?php 
+                $selected1=$iden_ears=='1'?"selected":""; 
+                $selected2=$iden_ears=='2'?"selected":""; 
+                $selected3=$iden_ears=='3'?"selected":""; 
+                $selected4=$iden_ears=='4'?"selected":""; 
+                $selected5=$iden_ears=='5'?"selected":""; 
+                $selected6=$iden_ears=='6'?"selected":"";
+                $selected7=$iden_ears=='7'?"selected":"";
+                $selected8=$iden_ears=='8'?"selected":"";
+                ?>
+                <option value="1" <?php echo $selected1 ?>>หูสามเหลี่ยม</option>
+                <option value="2" <?php echo $selected2 ?>>หูสี่เหลี่ยม</option>
+                <option value="3" <?php echo $selected3 ?>>หูกลม</option>
+                <option value="4" <?php echo $selected4 ?>>หูกระหล่ำปลี</option>
+                <option value="5" <?php echo $selected5 ?>>หูกาง</option>
+                <option value="6" <?php echo $selected6 ?>>หูลีบ</option>
+                <option value="7" <?php echo $selected7 ?>>ติ่งย้อย</option>
+                <option value="8" <?php echo $selected8 ?>>ติ่งราบ</option>
                 <?php
-                include("module/fuction/fuction_bady_section.php");
-                while(list($ears_id,$ears_name)=mysqli_fetch_row($ears_villain)){
-                  $selected=$ears_id==$iden_ears?"selected":"";
-                        echo"<option value='$ears_id'$selected>$ears_name</option>";
-                        }
+                // include("module/fuction/fuction_bady_section.php");
+                // while(list($ears_id,$ears_name)=mysqli_fetch_row($ears_villain)){
+                //   $selected=$ears_id==$iden_ears?"selected":"";
+                //         echo"<option value='$ears_id'$selected>$ears_name</option>";
+                //         }
                       ?>
                 </select>
                 </div>
@@ -280,12 +398,26 @@
                 <div class="col-md">
                 <select class="custom-select edit_vill<?php echo $i; ?>" id="" name="villain_forehead[]"disabled required>
                 <option disabled selected value="0">หน้าผาก</option>
+                <?php 
+                $selected1=$iden_forehead=='1'?"selected":""; 
+                $selected2=$iden_forehead=='2'?"selected":""; 
+                $selected3=$iden_forehead=='3'?"selected":""; 
+                $selected4=$iden_forehead=='4'?"selected":""; 
+                $selected5=$iden_forehead=='5'?"selected":""; 
+                $selected6=$iden_forehead=='6'?"selected":"";
+                ?>
+                <option value="1" <?php echo $selected1 ?>>หน้าผากโหนง</option>
+                <option value="2" <?php echo $selected2 ?>>หน้าผากลาด</option>
+                <option value="3" <?php echo $selected3 ?>>หน้าผากแคบ</option>
+                <option value="4" <?php echo $selected4 ?>>หน้าผากสั่น</option>
+                <option value="5" <?php echo $selected5 ?>>หน้าผากสูง</option>
+                <option value="6" <?php echo $selected6 ?>>หน้าผากกว้าง</option>
                 <?php
-                include("module/fuction/fuction_bady_section.php");
-                while(list($forehead_id,$forehead_name)=mysqli_fetch_row($forehead_villain)){
-                  $selected=$forehead_id==$iden_forehead?"selected":"";
-                        echo"<option value='$forehead_id'$selected>$forehead_name</option>";
-                        }
+                // include("module/fuction/fuction_bady_section.php");
+                // while(list($forehead_id,$forehead_name)=mysqli_fetch_row($forehead_villain)){
+                //   $selected=$forehead_id==$iden_forehead?"selected":"";
+                //         echo"<option value='$forehead_id'$selected>$forehead_name</option>";
+                //         }
                       ?>
                 </select>
                 </div>
@@ -295,12 +427,32 @@
                 <div class="col-md">
                 <select class="custom-select edit_vill<?php echo $i; ?>" id="" name="villain_eyes[]"disabled required>
                 <option disabled selected value="0">ตา</option>
+                <?php 
+                $selected1=$iden_eyes=='1'?"selected":""; 
+                $selected2=$iden_eyes=='2'?"selected":""; 
+                $selected3=$iden_eyes=='3'?"selected":""; 
+                $selected4=$iden_eyes=='4'?"selected":""; 
+                $selected5=$iden_eyes=='5'?"selected":""; 
+                $selected6=$iden_eyes=='6'?"selected":"";
+                $selected7=$iden_eyes=='7'?"selected":"";
+                $selected8=$iden_eyes=='8'?"selected":"";
+                $selected9=$iden_eyes=='9'?"selected":"";
+                ?>
+                <option value="1" <?php echo $selected1 ?>>ตาสองชั้น</option>
+                <option value="2" <?php echo $selected2 ?>>ตาชั้นเดียว</option>
+                <option value="3" <?php echo $selected3 ?>>ตากลม</option>
+                <option value="4" <?php echo $selected4 ?>>ตาพองโต</option>
+                <option value="5" <?php echo $selected5 ?>>ตาลึก</option>
+                <option value="6" <?php echo $selected6 ?>>ตาถั่ว</option>
+                <option value="7" <?php echo $selected7 ?>>ตาเข</option>
+                <option value="8" <?php echo $selected8 ?>>ตาเหล่</option>
+                <option value="9" <?php echo $selected9 ?>>ตาเอก</option>
                 <?php
-                include("module/fuction/fuction_bady_section.php");
-                while(list($eyes_id,$eyes_name)=mysqli_fetch_row($eyes_villain)){
-                  $selected=$eyes_id==$iden_eyes?"selected":"";
-                        echo"<option value='$eyes_id'$selected>$eyes_name</option>";
-                        }
+                // include("module/fuction/fuction_bady_section.php");
+                // while(list($eyes_id,$eyes_name)=mysqli_fetch_row($eyes_villain)){
+                //   $selected=$eyes_id==$iden_eyes?"selected":"";
+                //         echo"<option value='$eyes_id'$selected>$eyes_name</option>";
+                //         }
                       ?>
                 </select>
                 </div>

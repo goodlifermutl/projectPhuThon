@@ -262,7 +262,7 @@
   <div class="form-group row">
     <label class="col-form-label">สถานที่ / บ้านข้างต้นได้ในวันที่ : </label>
     <div class="col-3">
-    <input type="text" class="form-control editsw<?php echo $i; ?>" id="" value="<?php echo $sw_location2  ?>" name="sw_location2[]" disabled>
+    <input type="date" class="form-control editsw<?php echo $i; ?>" id="" value="<?php echo $sw_location2  ?>" name="sw_location2[]" disabled>
     </div>
 
     </div>

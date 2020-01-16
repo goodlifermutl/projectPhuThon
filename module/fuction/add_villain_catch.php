@@ -130,11 +130,14 @@ $i=1;
             <div class="col-md">
             <select class="custom-select " id="" name="villain_body[]" >
             <option disabled selected value="0">รูปร่าง</option>
+            <option value="1">สูง</option>
+            <option value="2">สันทัด</option>
+            <option value="3">เตี้ย</option>
             <?php
-            include("fuction_bady_section.php");
-            while(list($body_id,$body_name)=mysqli_fetch_row($body_villain)){
-                     echo"<option value='$body_id'>$body_name</option>";
-                    }
+            // include("fuction_bady_section.php");
+            // while(list($body_id,$body_name)=mysqli_fetch_row($body_villain)){
+            //          echo"<option value='$body_id'>$body_name</option>";
+            //         }
                     ?>
             </select>
             </div>
@@ -144,11 +147,18 @@ $i=1;
             <div class="col-md">
             <select class="custom-select " id="" name="villain_face[]" >
             <option disabled selected value="0">ใบหน้า</option>
+            <option value="1">กลม</option>
+            <option value="2">รูปไข่</option>
+            <option value="3">สี่เหลี่ยม</option>
+            <option value="4">สี่เหลี่ยมยาว</option>
+            <option value="5">สามเหลี่ยม</option>
+            <option value="6">สามเหลี่ยมยาว</option>
+            <option value="7">แหลมหลิม</option>
             <?php
-            include("fuction_bady_section.php");
-            while(list($face_id,$face_name)=mysqli_fetch_row($face_villain)){
-                     echo"<option value='$face_id'>$face_name</option>";
-                    }
+            // include("fuction_bady_section.php");
+            // while(list($face_id,$face_name)=mysqli_fetch_row($face_villain)){
+            //          echo"<option value='$face_id'>$face_name</option>";
+            //         }
                     ?>
             </select>
             </div>
@@ -158,11 +168,20 @@ $i=1;
             <div class="col-md">
             <select class="custom-select " id="" name="villain_hair[]" >
             <option disabled selected value="0">ทรงผม</option>
+            <option value="1">ทุ่งหมาหลง</option>
+            <option value="2">ดงช้างข้าม</option>
+            <option value="3">ง่ามเทโพ</option>
+            <option value="4">ชะโดตีแปลง</option>
+            <option value="5">แร้งกระพือปีก</option>
+            <option value="6">ฉีกหางฟาด</option>
+            <option value="7">ราชคลึงเครา</option>
+            <option value="8">รองทรง</option>
+            <option value="9">ผมยาว</option>
             <?php
-            include("fuction_bady_section.php");
-            while(list($hair_style_id,$hair_name)=mysqli_fetch_row($hair_villain)){
-                     echo"<option value='$hair_style_id'>$hair_name</option>";
-                    }
+            // include("fuction_bady_section.php");
+            // while(list($hair_style_id,$hair_name)=mysqli_fetch_row($hair_villain)){
+            //          echo"<option value='$hair_style_id'>$hair_name</option>";
+            //         }
                     ?>
             </select>
             </div>
@@ -177,11 +196,21 @@ $i=1;
             <div class="col-md">
             <select class="custom-select " id="" name="villain_nose[]" >
             <option disabled selected value="0">จมูก</option>
+            <option value="1">จมูกแคบ</option>
+            <option value="2">จมูกกว้าง</option>
+            <option value="3">จมูกชมพู่</option>
+            <option value="4">สันจมูกสั้น</option>
+            <option value="5">สันจมูกโค้งเหลี่ยม</option>
+            <option value="6">สันจมูกโค้กกลม</option>
+            <option value="7">สันจมูกงอน</option>
+            <option value="8">ฐานจมูกงุ้ม</option>
+            <option value="9">ฐานจมูกราบ</option>
+            <option value="10">ฐานจมูกเชิด</option>
             <?php
-            include("fuction_bady_section.php");
-            while(list($nose_id,$nose_name)=mysqli_fetch_row($nose_villain)){
-                     echo"<option value='$nose_id'>$nose_name</option>";
-                    }
+            // include("fuction_bady_section.php");
+            // while(list($nose_id,$nose_name)=mysqli_fetch_row($nose_villain)){
+            //          echo"<option value='$nose_id'>$nose_name</option>";
+            //         }
                     ?>
             </select>
             </div>
@@ -191,11 +220,20 @@ $i=1;
             <div class="col-md">
             <select class="custom-select " id="" name="villain_mouth[]" >
             <option disabled selected value="0">ปาก</option>
+            <option value="1">ปากกระจับ</option>
+            <option value="2">ปากหนา</option>
+            <option value="3">ปากล่างห้อย</option>
+            <option value="4">ปากเชิด</option>
+            <option value="5">ปากกว้าง</option>
+            <option value="6">ปากแคบ</option>
+            <option value="7">ปากเสมอ</option>
+            <option value="8">ปากล่างยื่น</option>
+            <option value="9">ปากบนยื่น</option>
             <?php
-            include("fuction_bady_section.php");
-            while(list($mouth_id,$mouth_name)=mysqli_fetch_row($mouth_villain)){
-                     echo"<option value='$mouth_id'>$mouth_name</option>";
-                    }
+            // include("fuction_bady_section.php");
+            // while(list($mouth_id,$mouth_name)=mysqli_fetch_row($mouth_villain)){
+            //          echo"<option value='$mouth_id'>$mouth_name</option>";
+            //         }
                     ?>
             </select>
             </div>
@@ -205,11 +243,17 @@ $i=1;
             <div class="col-md">
             <select class="custom-select " id="" name="villain_chin[]" >
             <option disabled selected value="0">คาง</option>
+            <option value="1">คางตรง</option>
+            <option value="2">คางราบ</option>
+            <option value="3">คางยื่น</option>
+            <option value="4">คางป่าน</option>
+            <option value="5">คางสั่น</option>
+            <option value="6">คางยาน</option>
             <?php
-            include("fuction_bady_section.php");
-            while(list($chin_id,$chin_name)=mysqli_fetch_row($chin_villain)){
-                     echo"<option value='$chin_id'>$chin_name</option>";
-                    }
+            // include("fuction_bady_section.php");
+            // while(list($chin_id,$chin_name)=mysqli_fetch_row($chin_villain)){
+            //          echo"<option value='$chin_id'>$chin_name</option>";
+            //         }
                     ?>
             </select>
             </div>
@@ -224,11 +268,19 @@ $i=1;
             <div class="col-md">
             <select class="custom-select " id="" name="villain_ears[]" >
             <option disabled selected value="0">หู</option>
+            <option value="1">หูสามเหลี่ยม</option>
+            <option value="2">หูสี่เหลี่ยม</option>
+            <option value="3">หูกลม</option>
+            <option value="4">หูกระหล่ำปลี</option>
+            <option value="5">หูกาง</option>
+            <option value="6">หูลีบ</option>
+            <option value="7">ติ่งย้อย</option>
+            <option value="8">ติ่งราบ</option>
             <?php
-            include("fuction_bady_section.php");
-            while(list($ears_id,$ears_name)=mysqli_fetch_row($ears_villain)){
-                     echo"<option value='$ears_id'>$ears_name</option>";
-                    }
+            // include("fuction_bady_section.php");
+            // while(list($ears_id,$ears_name)=mysqli_fetch_row($ears_villain)){
+            //          echo"<option value='$ears_id'>$ears_name</option>";
+            //         }
                     ?>
             </select>
             </div>
@@ -238,11 +290,17 @@ $i=1;
             <div class="col-md">
             <select class="custom-select " id="" name="villain_forehead[]" >
             <option disabled selected value="0">หน้าผาก</option>
+            <option value="1">หน้าผากโหนง</option>
+            <option value="2">หน้าผากลาด</option>
+            <option value="3">หน้าผากแคบ</option>
+            <option value="4">หน้าผากสั่น</option>
+            <option value="5">หน้าผากสูง</option>
+            <option value="6">หน้าผากกว้าง</option>
             <?php
-            include("fuction_bady_section.php");
-            while(list($forehead_id,$forehead_name)=mysqli_fetch_row($forehead_villain)){
-                     echo"<option value='$forehead_id'>$forehead_name</option>";
-                    }
+            // include("fuction_bady_section.php");
+            // while(list($forehead_id,$forehead_name)=mysqli_fetch_row($forehead_villain)){
+            //          echo"<option value='$forehead_id'>$forehead_name</option>";
+            //         }
                     ?>
             </select>
             </div>
@@ -252,11 +310,20 @@ $i=1;
             <div class="col-md">
             <select class="custom-select " id="" name="villain_eyes[]" >
             <option disabled selected value="0">ตา</option>
+            <option value="1">ตาสองชั้น</option>
+            <option value="2">ตาชั้นเดียว</option>
+            <option value="3">ตากลม</option>
+            <option value="4">ตาพองโต</option>
+            <option value="5">ตาลึก</option>
+            <option value="6">ตาถั่ว</option>
+            <option value="7">ตาเข</option>
+            <option value="8">ตาเหล่</option>
+            <option value="9">ตาเอก</option>
             <?php
-            include("fuction_bady_section.php");
-            while(list($eyes_id,$eyes_name)=mysqli_fetch_row($eyes_villain)){
-                     echo"<option value='$eyes_id'>$eyes_name</option>";
-                    }
+            // include("fuction_bady_section.php");
+            // while(list($eyes_id,$eyes_name)=mysqli_fetch_row($eyes_villain)){
+            //          echo"<option value='$eyes_id'>$eyes_name</option>";
+            //         }
                     ?>
             </select>
             </div>
