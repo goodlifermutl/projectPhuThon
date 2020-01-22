@@ -350,7 +350,7 @@ $("#btn_edit3<?php echo $md; ?>").click(function(){
     
   } else {
     
-    window.location.href="home.php?datacase=<?php echo $case_id_ob; ?>&module=1&action=1";
+    window.location.href="home.php?datacase=<?php echo $case_id_rw; ?>&module=1&action=1";
   }
 });
 })
@@ -359,7 +359,7 @@ $("#canclebtn3<?php echo $md;  ?>").click(function(){
  $(".editrw<?php echo $md; ?>").prop("disabled", true);
  $("#savebtn3<?php echo $md ?>").hide();
   $("#canclebtn3<?php echo $md ?>").hide();
-  window.location.href="home.php?datacase=<?php echo $case_id_ob; ?>&module=1&action=1";
+  window.location.href="home.php?datacase=<?php echo $case_id_rw; ?>&module=1&action=1";
 })
 $(".save3<?php echo$md; ?>").submit(function(){
   alert("ggggggg")
@@ -381,7 +381,7 @@ $(".save3<?php echo$md; ?>").submit(function(){
 								});   
                 
                 
-                window.location.href="home.php?datacase=<?php echo $case_id_ob; ?>&module=1&action=1";
+                window.location.href="home.php?datacase=<?php echo $case_id_rw; ?>&module=1&action=1";
 					        },
 					        cache: false,
 					        contentType: false,

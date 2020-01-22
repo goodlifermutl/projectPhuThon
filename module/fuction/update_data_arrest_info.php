@@ -28,5 +28,5 @@ $sql="UPDATE arrest_info SET id_arr_info='$arinfo_list[0]',court_name='$arinfo_s
 
 echo $sql;
 mysqli_query($con,$sql)or die("ERROR sql".mysqli_error($con));
-mysqli_close($con);
+
 ?>

@@ -54,7 +54,7 @@
         <div class="col-md">
 
     </div>
-    <form class="save2<?php echo$i ?>" method="post" id="insertinfoarrest">
+    <form class="arr_info<?php echo $i; ?>" method="post" id="insertinfoarrest">
     <div class="col-md">
         <div class="form-row">
         <div>
@@ -140,7 +140,7 @@
         <div class="form-row">
     <select class="custom-select editarin<?php echo $i; ?>" id="" name="vil_ar_info[]" required disabled >
                 <option disabled selected value="0">ผู้ต้องหา</option>
-                <?php $result_vil = mysqli_query($con,"SELECT villain_idcard,title_name,villain_name,villain_lastname FROM villain WHERE case_id='$_SESSION[case_id]'")or die("select villain error".mysqli_error($con));
+                <?php $result_vil = mysqli_query($con,"SELECT villain_idcard,title_name,villain_name,villain_lastname FROM villain WHERE villain_idcard='$id_vil_catch_arr_info'")or die("select villain error".mysqli_error($con));
                     while(list($vil_idcard,$title,$vil_name,$vil_lastname)=mysqli_fetch_row($result_vil)){
                         $selected=$id_vil_catch_arr_info==$vil_idcard?"selected":"";
                         echo"<option value='$vil_idcard' $selected>$title $vil_name $vil_lastname</option>";
@@ -216,8 +216,8 @@
     </div>
     <p></p>
     <div class="col-md">
-            <p class="text-center"><button type="submit" class="btn btn-outline-success savebtn2" id="savebtn2<?php echo $i; ?>" data-idcard="<?php echo $victim_idcard ?>">บันทึก</button>
-            <button type="button" class="btn btn-outline-danger" id="canclebtn2<?php echo $i; ?>">ยกเลิก</button></p>
+            <p class="text-center"><button type="submit" class="btn btn-outline-success savebtn2" id="savebtnArrINfo<?php echo $i; ?>" data-idcard="<?php echo $victim_idcard ?>">บันทึก</button>
+            <button type="button" class="btn btn-outline-danger" id="canclebtnArrInfo<?php echo $i; ?>">ยกเลิก</button></p>
             </div>
     </form>
 
@@ -240,13 +240,13 @@ $md=1;
 var id<?php echo $md;?> = $("#id<?php echo $md; ?>").val()
 
 
-$("#savebtn2<?php echo $md ?>").hide();
-$("#canclebtn2<?php echo $md ?>").hide();
+$("#savebtnArrINfo<?php echo $md ?>").hide();
+$("#canclebtnArrInfo<?php echo $md ?>").hide();
 
 $("#btn_edit2<?php echo $md; ?>").click(function(){
     $(".editarin<?php echo $md; ?>").prop("disabled", false);
-    $("#savebtn2<?php echo $md ?>").show();
-    $("#canclebtn2<?php echo $md ?>").show();
+    $("#savebtnArrINfo<?php echo $md ?>").show();
+    $("#canclebtnArrInfo<?php echo $md ?>").show();
     swal({
   title: "การแก้ไขข้อมูล",
   text: "ต้องการแก้ไขข้อมูลใช่หรือไม่!",
@@ -265,25 +265,25 @@ $("#btn_edit2<?php echo $md; ?>").click(function(){
   }
 });
 })
-$("#canclebtn2<?php echo $md;  ?>").click(function(){
+$("#canclebtnArrInfo<?php echo $md;  ?>").click(function(){
  // alert("ggg")
  $(".editarin<?php echo $md; ?>").prop("disabled", true);
- $("#savebtn2<?php echo $md ?>").hide();
-  $("#canclebtn2<?php echo $md ?>").hide();
+ $("#savebtnArrINfo<?php echo $md ?>").hide();
+  $("#canclebtnArrInfo<?php echo $md ?>").hide();
   window.location.href="home.php?datacase=<?php echo $case_id_ob; ?>&module=1&action=1";
 })
-$(".save2<?php echo$md; ?>").submit(function(){
+$(".arr_info<?php echo$md; ?>").submit(function(){
   alert("ggggggg")
-  $check = $(".save2<?php echo$md; ?>").valid();
+  $check = $(".arr_info<?php echo$md; ?>").valid();
 
-		if($check == true){
-  var formData = new FormData(this);
-  $.ajax({
+    if($check == true){
+    var formData = new FormData(this);
+    $.ajax({
 					        url: "module/fuction/update_data_arrest_info.php",
 					        type: 'POST',
 					        data: formData,
 					        success: function (data) {
-								alert(data);
+								alert(data)
 								//swal("บันทึกสำเร็จแล้ว!", "", "success")
 								swal("บันทึกสำเร็จ!", {
 									icon: "success",
@@ -292,7 +292,7 @@ $(".save2<?php echo$md; ?>").submit(function(){
 								});   
                 
                 
-                window.location.href="home.php?datacase=<?php echo $case_id_ob; ?>&module=1&action=1";
+                         window.location.href="home.php?datacase=<?php echo $case_id_ob; ?>&module=1&action=1";
 					        },
 					        cache: false,
 					        contentType: false,
