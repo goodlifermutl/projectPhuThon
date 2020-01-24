@@ -95,7 +95,7 @@ $sql_res = mysqli_query($con,"SELECT cn.case_id,cn.case_name,cn.case_type,cn.cas
       //alert(data) 
 
             swal({
-            title: "สมัครสมาชิกสำเร็จ",
+            title: "เพิ่มคดีเรียบร้อยแล้ว",
             icon: "success",
             button: "ตกลง",
           }).then((value) => {

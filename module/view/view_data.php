@@ -78,9 +78,52 @@ window.location.href = "index.php";
       list($case_name)=mysqli_fetch_row($show_case);
       $show_pin = mysqli_query($con,"SELECT case_id,user_id FROM pin_case WHERE case_id = '$data' AND user_id='$_SESSION[user_name]'")or die("pin error".mysqli_error($con));
       list($pin_id,$pin_user)=mysqli_fetch_row($show_pin);
+      $result_status = mysqli_query($con,"SELECT text_status,date_status FROM status_case WHERE sta_case_id='$data'")or die("select status error".mysqli_error($con));
+      
       ?>
       <p><h1 class="text-center">คดี : <?php echo $case_name ?></h1></p>
-      </form>
+      <hr>
+      <div>
+      <p class="text-center"><td class="text-center" colspan=4><button type="button" class="btn btn-outline-success btn_add btn-lg" id="btn_add_sta">อัพเดทสถานะของคดีคุณ</button></p>
+      </div>
+      
+      <div class="col-md" id="status_case_show">
+      <select class="custom-select " id="seleCard"  name="" >
+                <!-- <option disabled selected value="0">สถานะทางคดี</option> -->
+                <?php
+                $chk_sta_show="";
+                    while(list($text_status,$date_status)=mysqli_fetch_row($result_status)){
+                        echo"<option value=''>$text_status เมื่อวันที่ $date_status</option>";
+
+                          $chk_sta_show="true";
+
+                    }
+                ?> 
+                   
+      </select>
+    </div>
+    </form>
+    <form id="add_status" method="post">
+    <div class="col-md">
+    <div class="row" id="add_status_data">
+        <div class="col-md">
+        <label for="">กรอกสถานะ</label>
+          <input type="hidden" class="form-control" value="<?php echo $data ?>" name="case_sta"required>
+          <input type="text" class="form-control" placeholder="ข้อความสถานะ" name="data_sta"required>
+        </div>
+        <div class="col-md">
+        <label for="">วันเดือนปี</label>
+          <input type="date" class="form-control" name="date_sta" required >
+        </div>
+        
+          <button type="submit" class="btn btn-outline-primary" id="save">บันทึก</button>&nbsp;
+          <button type="button" class="btn btn-outline-danger" id="cancle">ยกเลิก</button>
+      
+    </div>
+
+    </div>
+
+    </form>
     </div>
     <div class="arr_record" >
       <form>
@@ -180,8 +223,62 @@ $(document).ready(function(){
       $("#btnPinN").show();
       <?php
     }
+      ?>
+
+      $('#btn_add_sta').show();
+      $('#add_status_data').hide();
+
+      <?php
+    if($chk_sta_show=="true"){
+      ?>
+      $('#status_case_show').show();
+      <?php
+    }else if(empty($chk_sata_show)){
+      ?>
+      $('#status_case_show').hide();
+      <?php
+    }
     ?>
- 
+
+   $("#btn_add_sta").click(function(){
+    $('#add_status_data').show();
+    $('#btn_add_sta').hide();
+   })
+
+   $("#cancle").click(function(){
+    $('#add_status_data').hide();
+    $('#btn_add_sta').show();
+   })
+
+$("#add_status").submit(function(e){
+    e.preventDefault();
+	
+		var formData = new FormData(this);
+
+		$.ajax({
+		url: "module/fuction/insert_status_csD.php",
+		type: 'POST',
+		data: formData,
+			success: function (data) {
+      alert(data) 
+
+            swal({
+            title: "เพิ่มสถานะคดีเรียบร้อย",
+            icon: "success",
+            button: "ตกลง",
+          }).then((value) => {
+    window.location.href = "home.php?datacase=<?php echo $data; ?>&module=1&action=1";
+});
+
+		},
+			cache: false,
+			contentType: false,
+			processData: false
+	  });	
+    
+});
+
+
   $('#table_id').DataTable();
   $("#myBtnSc").click(function(){
     $("#SC").modal();
