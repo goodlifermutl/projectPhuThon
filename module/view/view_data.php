@@ -78,8 +78,9 @@ window.location.href = "index.php";
       list($case_name)=mysqli_fetch_row($show_case);
       $show_pin = mysqli_query($con,"SELECT case_id,user_id FROM pin_case WHERE case_id = '$data' AND user_id='$_SESSION[user_name]'")or die("pin error".mysqli_error($con));
       list($pin_id,$pin_user)=mysqli_fetch_row($show_pin);
-      $result_status = mysqli_query($con,"SELECT text_status,date_status FROM status_case WHERE sta_case_id='$data'")or die("select status error".mysqli_error($con));
-      
+      $result_status = mysqli_query($con,"SELECT num_status,text_status,date_status FROM status_case WHERE sta_case_id='$data'")or die("select status error".mysqli_error($con));
+      $result_max = mysqli_query($con,"SELECT MAX(num_status) FROM status_case")or die("select status error".mysqli_error($con));
+      list($MAX)=mysqli_fetch_row($result_max);
       ?>
       <p><h1 class="text-center">คดี : <?php echo $case_name ?></h1></p>
       <hr>
@@ -92,8 +93,9 @@ window.location.href = "index.php";
                 <!-- <option disabled selected value="0">สถานะทางคดี</option> -->
                 <?php
                 $chk_sta_show="";
-                    while(list($text_status,$date_status)=mysqli_fetch_row($result_status)){
-                        echo"<option value=''>$text_status เมื่อวันที่ $date_status</option>";
+                    while(list($num_status,$text_status,$date_status)=mysqli_fetch_row($result_status)){
+                      $selected=$MAX==$num_status?"selected":"";
+                        echo"<option value='' $selected>$text_status เมื่อวันที่ $date_status</option>";
 
                           $chk_sta_show="true";
 

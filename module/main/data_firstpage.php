@@ -76,6 +76,13 @@
             <div class="input-group-prepend">
               <span class="input-group-text" id="basic-addon1">แท็กเพื่อน</span>
             </div>
+            <button type="button" class="btn dropdown-toggle btn-light" data-toggle="dropdown" role="button" title="" aria-expanded="true"></button>
+            <select class="selectpicker" data-live-search="true">
+            <option data-tokens="ketchup mustard">Hot Dog, Fries and a Soda</option>
+            <option data-tokens="mustard">Burger, Shake and a Smile</option>
+            <option data-tokens="frosting">Sugar, Spice and all things nice</option>
+            </select>
+
               <input class=" dropdown-toggle" type="text" id="txtdrop" value="<?php echo $tagF=''; ?>" name="sc_friend" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <button type="button" class="close" id="sc_friend_close" >&times;</button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenu2" id="loadDropPF">
