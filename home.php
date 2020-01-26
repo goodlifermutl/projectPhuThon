@@ -127,11 +127,11 @@ if($ac_chk=='4'){
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <a class="navbar-brand" href="<?php echo $html_l ?>"><i style="font-size: 36px" class="fas fa-h-square"></i> PhuThon pak5</a>  
+  <a class="navbar-brand" href="<?php echo $html_l ?>"><img src="image/logonew.png" width="32px" height="32px"> PhuThon pak5</a>  
    
    <!-- <div class="row">
     <div class="col-md">
-    <button type="button" class="btn btn-outline-dark"><i class="fas fa-search-plus" style="font-size: 50px"></i></i></button>
+    <button type="button" class="btn btn-outline-dark"><i class="fas fa-search-plus" style="font-size: 50px"></i></img></button>
     </div>
     <div class="col-md">
     <button type="button" class="btn btn-outline-dark"><i class="fas fa-edit" style="font-size: 50px"></i></button>
@@ -190,7 +190,7 @@ if($ac_chk=='4'){
 <button type="button" id="btnPinG" class="btn btn-warning"><b>ปักหมุดคดี</b></button>
 <button type="button" id="btnPinN" class="btn btn-danger"><b>ยกเลิกปักหมุด</b></button>
   <li class="nav-item">
-  <a class="nav-link <?php echo $action1 ?>" href="#ผู้เสียหาย" id="">ผู้เสียหาย</a>
+  <a class="nav-link <?php echo $action1 ?>" href="#ผู้เสียหาย" id="idvictim">ผู้เสียหาย</a>
   </li>
   <li class="nav-item">
   <a class="nav-link <?php echo $action2 ?>" href="#ผู้ต้องหา" id="">ผู้ต้องหา</a>
@@ -226,7 +226,7 @@ if($ac_chk=='4'){
     </div>
   </li>
 </ul>
-
+<button onclick="topFunction()" id="myBtn" title="Go to top"><b>Top</b></button>
 <?php echo $bar_n ?>
 <!-- <div class="" style="padding-top:3px;background:white;">
 
@@ -300,4 +300,26 @@ $id_click=1;
   }?>
 </body>
 </html>
+
+<script>
+//Get the button
+var mybutton = document.getElementById("myBtn");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 1000 || document.documentElement.scrollTop > 1000) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+</script>
 

@@ -26,7 +26,7 @@
  <nav class="navbar navbar-expand-sm bg-dark navbar-dark"> 
   <div class="container-fluid">
    
-      <a class="navbar-brand" href="index.php"><i style="font-size: 36px" class="fas fa-h-square"></i> PhuThon pak5</a>
+      <a class="navbar-brand" href="index.php"><img src="image/logonew.png" width="32px" height="32px"> PhuThon pak5</a>
     
     <ul class="navbar-nav">
       <li class="nav-item"><a class="nav-link" href="#" id="myBtnlogin"><i class="fas fa-sign-in-alt"></i> เข้าสู่ระบบ</a></li>
