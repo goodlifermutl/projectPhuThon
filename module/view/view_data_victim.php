@@ -32,7 +32,7 @@
           ?><script>swal("sorry!", "ไม่พบข้อมูลบางส่วน!", "error")</script><?php
           echo "<h5 class='text-center'>----ไม่พบข้อมูล----</h5>";
         }else {
-        
+
         while(list($title_name,$victim_name,$victim_lastname,$victim_sex,$victim_idcard,$victim_address,$victim_education,$victim_image,$victim_race,$victim_nationality,$victim_careen)=mysqli_fetch_row($result_victim)){
     
           if($victim_sex == 1){
@@ -51,7 +51,7 @@
         <a name="<?php echo $victim_name ?>"></a> 
         <a name="<?php echo $victim_lastname ?>"></a> 
          <div class="col-md">
-         <b><label for="formGroupExampleInput">ผู้เสียหาย คนที่ <?php echo $i; ?></label></b><button type="button" id="victim_test<?php echo $i ?>"><i class="fas fa-edit" style="font-size: 10px"></i></button>
+         <b><label for="formGroupExampleInput">ผู้เสียหาย คนที่ <?php echo $i; ?></label></b><button type="button" id="victim_test<?php echo $i ?>"><i class="fas fa-edit" style="font-size: 10px"></i></button><button type="button" id="victim_report<?php echo $i ?>"><i class="fas fa-edit" style="font-size: 10px"></i></button>
          <p><img src="image/<?php echo $victim_image; ?>" class="img-fluid mx-auto d-block rounded-circle victimpic" alt="Responsive image" width="128";height="128"; id="victimpic<?php echo $i; ?>"></p>
           <div class="col-md">
           <div class="form-row">
@@ -155,7 +155,7 @@
           </div>
           <p></p>
           <div class="col-md">
-            <p class="text-center"><button type="submit" class="btn btn-outline-success save" id="save<?php echo $i; ?>" data-idcard="<?php echo $victim_idcard ?>">บันทึก</button>
+            <p class="text-center"><button type="submit" class="btn btn-outline-success save" id="save<?php echo $i; ?>" data-idcard="">บันทึก</button>
             <button type="button" class="btn btn-outline-danger" id="cancle<?php echo $i; ?>">ยกเลิก</button></p>
             </div>
         </div>
@@ -217,7 +217,7 @@ $("#victim_test<?php echo $md; ?>").click(function(){
     $("#cancle<?php echo $md ?>").show();
     swal({
   title: "การแก้ไขข้อมูล",
-  text: "ต้องการแก้ไขข้อมูลใช่หรือไม่!",
+  text: "ต้องการแก้ไขข้อมูลใช่หรือไม่?",
   icon: "warning",
   buttons: true,
   dangerMode: true,
@@ -233,6 +233,34 @@ $("#victim_test<?php echo $md; ?>").click(function(){
   }
 });
 })
+
+
+
+$("#victim_report<?php echo $md; ?>").click(function(){
+    swal({
+  title: "รายงานPDF",
+  text: "ต้องการออกรายงานใช่หรือไม่?",
+  icon: "warning",
+  buttons: true,
+  dangerMode: true,
+  buttons: ["ยกเลิก","ตกลง"]
+})
+.then((willDelete) => {
+  if (willDelete) {
+    var reidcard = $("#victim_idcard<?php echo $md ?>").val()
+      $.post("module/fuction/test_send_reidcard.php",{reidcard}).done(function(data,txtstuta){
+      alert(reidcard)
+      alert(data)
+      window.location.href="module/fuction/victim_report.php";
+     })
+}
+
+ else {
+    window.location.href="home.php?datacase=<?php echo $case_id; ?>&module=1&action=1";
+  }
+});
+})
+
 $("#cancle<?php echo $md;  ?>").click(function(){
  // alert("ggg")
  $(".edit<?php echo $md; ?>").prop("disabled", true);

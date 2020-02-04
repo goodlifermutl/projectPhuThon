@@ -109,7 +109,7 @@ $("#sel1<?php echo $md; ?>").change(function(){
   if (willDelete) {
     var per = $("#sel1<?php echo $md; ?>").val()
     var user= $("#user<?php echo $md ?>").val()
-    $.post("module/fuction/upstatus_user.php",{per:per,user:user}).done(function(data,txtstuta){
+    $.post("module/fuction/upstatus_user.php",{per:per,user:user}).done(function(data){
       alert(per);
       alert(user)
       alert(data)
