@@ -11,8 +11,8 @@ if(!isset($_COOKIE['idcardvictimreport'])) {
     echo "Cookie '" . $test . "' is set!<br>";
 }
 
-$result_victim = mysqli_query($con,"SELECT case_id,vm.title_name, vm.victim_name,vm.victim_lastname,vm.victim_sex,vm.victim_idcard,vm.victim_address,ed.edu_name,vm.victim_image,vm.victim_race,vm.victim_nationality,vm.victim_career FROM victim as vm  INNER JOIN education as ed ON vm.victim_education = ed.edu_id WHERE victim_idcard = '$test'")or die("resualt_victim sqli error".mysqli_error($con));
-list($case_id,$title_name,$victim_name,$victim_lastname,$victim_sex,$victim_idcard,$victim_address,$victim_education,$victim_image,$victim_race,$victim_nationality,$victim_careen)=mysqli_fetch_row($result_victim);
+// $result_victim = mysqli_query($con,"SELECT case_id,vm.title_name, vm.victim_name,vm.victim_lastname,vm.victim_sex,vm.victim_idcard,vm.victim_address,ed.edu_name,vm.victim_image,vm.victim_race,vm.victim_nationality,vm.victim_career FROM victim as vm  INNER JOIN education as ed ON vm.victim_education = ed.edu_id WHERE victim_idcard = '$test'")or die("resualt_victim sqli error".mysqli_error($con));
+// list($case_id,$title_name,$victim_name,$victim_lastname,$victim_sex,$victim_idcard,$victim_address,$victim_education,$victim_image,$victim_race,$victim_nationality,$victim_careen)=mysqli_fetch_row($result_victim);
 
 // $defaultFontConfig = (new Mpdf\Config\FontVariables())->getDefaults();
 // $fontData = $defaultFontConfig['fontdata'];

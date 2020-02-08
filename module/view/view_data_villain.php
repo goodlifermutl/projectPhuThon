@@ -48,7 +48,7 @@
         <a name="<?php echo $villain_lastname ?>"></a> 
         <form class="villain<?php echo$i ?>" method="post" enctype="multipart/form-data">
          <div class="col-md">
-          <b><label for="formGroupExampleInput">ผู้ต้องหา คนที่ <?php echo $i; ?></label></b><button type="button" id="villain_test<?php echo $i ?>"><i class="fas fa-edit" style="font-size: 10px"></i></button>
+          <b><label for="formGroupExampleInput">ผู้ต้องหา คนที่ <?php echo $i; ?></label></b><button type="button" id="villain_test<?php echo $i ?>"><i class="fas fa-edit" style="font-size: 10px"></i></button><button type="button" id="villain_report<?php echo $i ?>"><i class="fas fa-edit" style="font-size: 10px"></i></button>
           <p><img src="image/<?php echo $villain_image; ?>" class="img-fluid mx-auto d-block rounded-circle vill_pic" alt="Responsive image" width="128";height="128"; id="vill_pic<?php echo $i; ?>"> </p>
           <div class="col-md">
           <div class="form-row">
@@ -105,7 +105,7 @@
                   <label class="col-sm col-form-label">เลขบัตรประจำตัวประชาชน : </label>
                 </div>
                 <div class="col-md">
-                  <input type="text" class="form-control" placeholder="เลขบัตรประจำตัวประชาชน" value="<?php echo $villain_idcard; ?>" name="villain_idcard[]" readonly required>
+                  <input type="text" class="form-control" placeholder="เลขบัตรประจำตัวประชาชน" value="<?php echo $villain_idcard; ?>" id="villain_idcard<?php echo $i; ?>" name="villain_idcard[]" readonly required>
                 </div>
                 <div>
                   <label class="col-sm col-form-label">ระดับการศึกษา : </label>
@@ -539,6 +539,33 @@ $("#villain_test<?php echo $md; ?>").click(function(){
   }
 });
 })
+
+$("#villain_report<?php echo $md; ?>").click(function(){
+    swal({
+  title: "รายงานPDF",
+  text: "ต้องการออกรายงานใช่หรือไม่?",
+  icon: "warning",
+  buttons: true,
+  dangerMode: true,
+  buttons: ["ยกเลิก","ตกลง"]
+})
+.then((willDelete) => {
+  if (willDelete) {
+    var reidcard = $("#villain_idcard<?php echo $md ?>").val()
+      $.post("module/fuction/test_send_reidcard.php",{reidcard}).done(function(data,txtstuta){
+      alert(reidcard)
+      alert(data)
+      window.location.href="module/fuction/villain_report.php";
+     })
+}
+
+ else {
+    window.location.href="home.php?datacase=<?php echo $case_id; ?>&module=1&action=1";
+  }
+});
+})
+
+
 $("#cancle_vill<?php echo $md;  ?>").click(function(){
  // alert("ggg")
  $(".edit_vill<?php echo $md; ?>").prop("disabled", true);
