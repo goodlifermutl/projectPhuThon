@@ -48,7 +48,7 @@
         <input type="hidden" id="chk_link" value="<?php echo $l  ?>">
         
          <div class="col-md">
-         <b><label for="formGroupExampleInput">ของกลาง อย่างที่ <?php echo $i; ?></label></b><button type="button" id="btn_edit<?php echo $i ?>"><i class="fas fa-edit" style="font-size: 10px"></i></button>
+         <b><label for="formGroupExampleInput">ของกลาง อย่างที่ <?php echo $i; ?></label></b><button type="button" id="btn_edit<?php echo $i ?>"><i class="fas fa-edit" style="font-size: 10px"></i></button><button type="button" id="btn_report<?php echo $i ?>"><i class="fas fa-edit" style="font-size: 10px"></i></button>
          <p><img src="image/<?php echo $object_image; ?>" class="img-fluid mx-auto d-block rounded-circle victimpic" alt="Responsive image" width="128";height="128"; id="victimpic<?php echo $i; ?>"></p>
         </div>
         <div class="col-md">
@@ -79,7 +79,7 @@
             <label class="col-sm col-form-label">ID ของกลาง : </label>
         </div>
         <div class="col-md-2">
-            <input type="text" class="form-control edit<?php echo $i; ?>" placeholder="ID" name="idob[]" value="<?php echo $id_object ?>" disabled required>     
+            <input type="text" class="form-control edit<?php echo $i; ?>" placeholder="ID" id="idobject<?php echo $i; ?>" name="idob[]" value="<?php echo $id_object ?>" disabled required>     
         </div>
         <div>
             <label class="col-sm col-form-label">ชื่อของกลาง : </label>
@@ -157,6 +157,31 @@ $("#btn_edit<?php echo $md; ?>").click(function(){
   }
 });
 })
+
+$("#btn_report<?php echo $md; ?>").click(function(){
+    swal({
+  title: "รายงานPDF",
+  text: "ต้องการออกรายงานใช่หรือไม่?",
+  icon: "warning",
+  buttons: true,
+  dangerMode: true,
+  buttons: ["ยกเลิก","ตกลง"]
+})
+.then((willDelete) => {
+  if (willDelete) {
+    var reidcard = $("#idobject<?php echo $md ?>").val()
+      $.post("module/fuction/test_send_reidcard.php",{reidcard}).done(function(data,txtstuta){
+      alert(reidcard)
+      alert(data)
+      window.location.href="module/fuction/object_report.php";
+     })
+}
+else {
+    window.location.href="home.php?datacase=<?php echo $case_id; ?>&module=1&action=1";
+  }
+});
+})
+
 $("#canclebtn<?php echo $md;  ?>").click(function(){
  // alert("ggg")
  $(".edit<?php echo $md; ?>").prop("disabled", true);
