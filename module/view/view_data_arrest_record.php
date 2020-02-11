@@ -49,7 +49,7 @@
         <input type="hidden" id="chk_link" value="<?php echo $l  ?>">
         
          <div class="col-md">
-         <b><label for="formGroupExampleInput">บันทึกการจับกุม ฉบับที่ <?php echo $i; ?></label></b><button type="button" id="btn_edit1<?php echo $i ?>"><i class="fas fa-edit" style="font-size: 10px"></i></button>
+         <b><label for="formGroupExampleInput">บันทึกการจับกุม ฉบับที่ <?php echo $i; ?></label></b><button type="button" id="btn_edit1<?php echo $i ?>"><i class="fas fa-edit" style="font-size: 10px"></i></button><button type="button" id="btn_ar_report<?php echo $i ?>"><i class="fas fa-edit" style="font-size: 10px"></i></button>
          </div>
       
 
@@ -201,7 +201,7 @@
       
     ?>
         <div>
-        <label class="col-form-label">ชื่อผู้ต้องหาคนที่ <?php echo $ob ?> : </label>
+        <label class="col-form-label">ชื่อของกลางที่ <?php echo $ob ?> : </label>
         </div>
         <div class="col-md-2">
             <input type="text" class="form-control" value="<?php echo "ID".$id_object."ชื่อ".$object_name?>" readonly>
@@ -320,6 +320,31 @@ $("#btn_edit1<?php echo $md; ?>").click(function(){
   }
 });
 })
+
+$("#btn_ar_report<?php echo $md; ?>").click(function(){
+    swal({
+  title: "รายงานPDF",
+  text: "ต้องการออกรายงานใช่หรือไม่?",
+  icon: "warning",
+  buttons: true,
+  dangerMode: true,
+  buttons: ["ยกเลิก","ตกลง"]
+})
+.then((willDelete) => {
+  if (willDelete) {
+    var reidcard = $("#focusarre<?php echo $md ?>").val()
+      $.post("module/fuction/test_send_reidcard.php",{reidcard}).done(function(data,txtstuta){
+      alert(reidcard)
+      alert(data)
+      window.location.href="module/fuction/arrest_record_report.php";
+     })
+}
+else {
+    window.location.href="home.php?datacase=<?php echo $case_id; ?>&module=1&action=1";
+  }
+});
+})
+
 $("#canclebtn1<?php echo $md;  ?>").click(function(){
  // alert("ggg")
  $(".edit<?php echo $md; ?>").prop("disabled", true);
