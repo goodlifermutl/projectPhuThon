@@ -69,7 +69,7 @@
         <input type="hidden" id="chk_link" value="<?php echo $l  ?>">
         
          <div class="col-md">
-         <b><label for="formGroupExampleInput">คำร้องออกหมายจับ ฉบับที่ <?php echo $i; ?></label></b><button type="button" id="btn_edit3<?php echo $i ?>"><i class="fas fa-edit" style="font-size: 10px"></i></button>
+         <b><label for="formGroupExampleInput">คำร้องออกหมายจับ ฉบับที่ <?php echo $i; ?></label></b><button type="button" id="btn_edit3<?php echo $i ?>"><i class="fas fa-edit" style="font-size: 10px"></i></button><button type="button" id="btn_report_rw<?php echo $i ?>"><i class="fas fa-edit" style="font-size: 10px"></i></button>
          
         </div>
         <div class="col-md">
@@ -354,6 +354,32 @@ $("#btn_edit3<?php echo $md; ?>").click(function(){
   }
 });
 })
+
+$("#btn_report_rw<?php echo $md; ?>").click(function(){
+    swal({
+  title: "รายงานPDF",
+  text: "ต้องการออกรายงานใช่หรือไม่?",
+  icon: "warning",
+  buttons: true,
+  dangerMode: true,
+  buttons: ["ยกเลิก","ตกลง"]
+})
+.then((willDelete) => {
+  if (willDelete) {
+    var reidcard = "<?php echo $case_id_rw; ?>";
+      $.post("module/fuction/test_send_reidcard.php",{reidcard}).done(function(data,txtstuta){
+      alert(reidcard)
+      alert(data)
+      window.open('module/fuction/request_warrant_report.php','_blank');
+     })
+}
+else {
+    window.location.href="home.php?datacase=<?php echo $case_id_rw; ?>&module=1&action=1";
+  }
+});
+})
+
+
 $("#canclebtn3<?php echo $md;  ?>").click(function(){
  // alert("ggg")
  $(".editrw<?php echo $md; ?>").prop("disabled", true);

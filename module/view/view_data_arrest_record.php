@@ -336,11 +336,11 @@ $("#btn_ar_report<?php echo $md; ?>").click(function(){
       $.post("module/fuction/test_send_reidcard.php",{reidcard}).done(function(data,txtstuta){
       alert(reidcard)
       alert(data)
-      window.location.href="module/fuction/arrest_record_report.php";
+      window.open('module/fuction/arrest_record_report.php','_blank');
      })
 }
 else {
-    window.location.href="home.php?datacase=<?php echo $case_id; ?>&module=1&action=1";
+    window.location.href="home.php?datacase=<?php echo $case_id_arre; ?>&module=1&action=1";
   }
 });
 })

@@ -191,7 +191,7 @@
                                       </label>
                                     </div>&nbsp;
                                     <div class="form-check">
-                                      <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="2">
+                                      <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="2" checked>
                                       <label class="form-check-label" for="exampleRadios2">
                                         ไม่เคย
                                       </label>
@@ -199,7 +199,7 @@
                                       
                                     </div>
                                     <div class="col">
-                                      <input type="text" class="form-control" id=""name="rw_Request">
+                                      <input type="text" class="form-control" id="rw_request"name="rw_Request" readonly>
                                       </div>
                                     </div>
 
@@ -243,6 +243,14 @@ $(document).ready(function(){
   $("#changAdd2").change(function(){
     loadaddreq2()
   })
+})
+
+$("#exampleRadios1").click(function(){
+  $("#rw_request").prop("readonly",false);
+})
+$("#exampleRadios2").click(function(){
+  $("#rw_request").prop("readonly",true);
+  $("#rw_request").val("");
 })
 
 $("#insertReWa").submit(function(e){

@@ -48,5 +48,5 @@ div{
 ";
 $mpdf->WriteHTML($content);
 
-$mpdf->Output($victim_idcard.'.pdf','D');
+$mpdf->Output();
 ?>

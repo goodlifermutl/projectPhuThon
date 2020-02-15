@@ -18,7 +18,7 @@ $mpdf = new \Mpdf\Mpdf(['tempDir' => __DIR__ . '/tmp',
 ]);
 
 echo $_COOKIE['idcardvictimreport'];
-$result_data_arre = mysqli_query($con,"SELECT arrest_no, por_jor_wor,case_id, ar_re_time, ar_re_typecase, ar_re_no, ar_re_acc, ar_re_address_save, ar_re_save_date, ar_re_save_catch, ar_re_address_catch, ar_re_location_ob, ar_re_say, ar_re_atcs, ar_re_depose, ar_re_location_place, ar_re_date_place FROM arrest_record  WHERE por_jor_wor = '884/62.ก'")or die("result_data_object sqli error".mysqli_error($con));
+$result_data_arre = mysqli_query($con,"SELECT arrest_no, por_jor_wor,case_id, ar_re_time, ar_re_typecase, ar_re_no, ar_re_acc, ar_re_address_save, ar_re_save_date, ar_re_save_catch, ar_re_address_catch, ar_re_location_ob, ar_re_say, ar_re_atcs, ar_re_depose, ar_re_location_place, ar_re_date_place FROM arrest_record  WHERE por_jor_wor = '$_COOKIE[idcardvictimreport]'")or die("result_data_object sqli error".mysqli_error($con));
 list($arrest_no, $por_jor_wor,$case_id_ar,$ar_re_time,$ar_re_typecase,$ar_re_no,$ar_re_acc,$ar_re_address_save,$ar_re_save_date,$ar_re_save_catch,$ar_re_address_catch,$ar_re_location_ob,$ar_re_say,$ar_re_atcs,$ar_re_depose,$ar_re_location_place,$ar_re_date_place)=mysqli_fetch_row($result_data_arre);
 
 if($ar_re_typecase=='1'){
@@ -39,7 +39,7 @@ div{
     font-size: 12pt;
 }
 </style>
-<div style='float: right;width:250px;'>ป.จ.ว.ข้อ : ".$por_jor_wor."เวลา : ".$ar_re_time."</div>
+<div style='float: right;width:250px;'>ป.จ.ว.ข้อ : ".$por_jor_wor."&nbsp;เวลา : ".$ar_re_time."</div>
 <div style='clear: right;'></div>
 <div style='float: right;width:250px;'>".$case_type." : ".$ar_re_no."</div>
 <div style='clear: right;'></div>
@@ -49,9 +49,9 @@ div{
 <div style='clear: left;'></div>
 <div style='float: left;width:1000px;'>สถานที่ทำการบันทึก ".$ar_re_address_save."</div>
 <div style='clear: left;'></div>
-<div style='float: left;width:1000px;'>วัน/เดือน/ปี ที่บันทึก ".$ar_re_save_date."</div>
+<div style='float: left;width:1000px;'>วัน/เดือน/ปี ที่บันทึก ".DateThai($ar_re_save_date)."</div>
 <div style='clear: left;'></div>
-<div style='float: left;width:1000px;'>วัน/เดือน/ปี ที่จับกุม ".$ar_re_save_catch."</div>
+<div style='float: left;width:1000px;'>วัน/เดือน/ปี ที่จับกุม ".DateThai($ar_re_save_catch)."</div>
 <div style='clear: left;'></div>
 <div style='float: left;width:1000px;'>สถานที่จับกุม ที่".$ar_re_address_catch."</div>
 <div style='clear: left;'></div>
@@ -121,7 +121,7 @@ $content.="
 <div style='clear: left;'></div>
 <div style='float: left;width:1000px;'>เหตุเกิดที่ ".$ar_re_location_place."</div>
 <div style='clear: left;'></div>
-<div style='float: left;width:1000px;'>เมื่อวันที่ ".$ar_re_date_place."</div>
+<div style='float: left;width:1000px;'>เมื่อวันที่ ".DateThai($ar_re_date_place)."</div>
 <div style='clear: left;'></div>
 <br>
 <div style='margin-left:110px;float: left;width:1000px;'>อนึ่งในการจับกุมครั้งนี้ เจ้าพนักงานตำรวจมิได้ทำให้ทรัพย์สินของผู้ใดเสียหาย สูญหาย </div>
