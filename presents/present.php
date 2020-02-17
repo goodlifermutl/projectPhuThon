@@ -1,5 +1,11 @@
 <?php
- 
+include ("../module/fuction/connect_db.php");
+$con = connect_db(); 
+
+$sql="SELECT case_type,case_savetime FROM case_name";
+$result=mysqli_query($con,$sql)or die("SQL error datetime".mysqli_error($con));
+list($type_case,$date)=mysqli_fetch_row($result);
+
 $dataPoints = array(
 	array("label"=> 1992, "y"=>105),
 	array("label"=> 1993, "y"=>130),
