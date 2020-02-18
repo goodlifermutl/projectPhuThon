@@ -7,6 +7,7 @@ $case_inves=$_SESSION['case_id'];
 $qq1=$_POST['ir_Casetype'];
 $qq2=$_POST['ir_order'];
 $qq3=$_POST['ir_Policestation'];
+$qq35=$_POST['ir_date_station'];
 $qq4=$_POST['ir_offer'];
 $qqvic=$_POST['vic_ir'];
 $qqvil=$_POST['vil_ir'];
@@ -19,7 +20,7 @@ $qq16=$_POST['ir_Complaint'];
 $qq17=$_POST['ir_control'];
 $qq18=$_POST['ir_fact'];
 
-$sql="INSERT INTO investigation_report VALUE('','$case_inves','$qq1','$qq2','$qq3','$qq4','$qqvic','$qqvil','$qq11','$qq12'
+$sql="INSERT INTO investigation_report VALUE('','$case_inves','$qq1','$qq2','$qq3','$qq35','$qq4','$qqvic','$qqvil','$qq11','$qq12'
 ,'$qq13','$qq14','$qq15','$qq16','$qq17','$qq18')";
 
 echo $sql;

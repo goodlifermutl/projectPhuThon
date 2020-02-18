@@ -31,6 +31,9 @@ $con=connect_db();
         <div class="col-md">
             <input type="text" class="form-control " placeholder="ที่อยู่สถาณีตำรวจ" name="ir_Policestation"  required>
         </div>
+        <div class="col-md">
+            <input type="date" class="form-control "  name="ir_date_station"  required>
+        </div>
         </div>
     </div>
     <p></p>

@@ -8,6 +8,7 @@ $qq0=$_POST['ir_no_id'];
 $qq1=$_POST['ir_Casetype'];
 $qq2=$_POST['ir_order'];
 $qq3=$_POST['ir_Policestation'];
+$qq35=$_POST['ir_date_station'];
 $qq4=$_POST['ir_offer'];
 $qqvic=$_POST['vic_ir'];
 $qqvil=$_POST['vil_ir'];
@@ -22,7 +23,7 @@ $qq18=$_POST['ir_fact'];
 
 // $sql="INSERT INTO investigation_report VALUE('$qq0[0]','$case_inves[0]','$qq1[0]','$qq2[0]','$qq3[0]','$qq4[0]','$qq5[0]','$qq6[0]','$qq7[0]','$qq8[0]','$qq9[0]','$qq10[0]','$qq11[0]','$qq12[0]'
 // ,'$qq13[0]','$qq14[0]','$qq15[0]','$qq16[0]','$qq17[0]','$qq18[0]')";
-$sql="UPDATE investigation_report SET ir_casetype='$qq1[0]',ir_order='$qq2[0]',ir_policestation='$qq3[0]',ir_offer='$qq4[0]',vic_ir='$qqvic[0]',vil_ir='$qqvil[0]',ir_charge='$qq11[0]',ir_date='$qq12[0]',ir_district='$qq13[0]',ir_price='$qq14[0]',ir_wound='$qq15[0]',ir_complaint='$qq16[0]',ir_control='$qq17[0]',ir_fact='$qq18[0]' WHERE no_ir='$qq0[0]'";
+$sql="UPDATE investigation_report SET ir_casetype='$qq1[0]',ir_order='$qq2[0]',ir_policestation='$qq3[0]',ir_date_station='$qq35[0]',ir_offer='$qq4[0]',vic_ir='$qqvic[0]',vil_ir='$qqvil[0]',ir_charge='$qq11[0]',ir_date='$qq12[0]',ir_district='$qq13[0]',ir_price='$qq14[0]',ir_wound='$qq15[0]',ir_complaint='$qq16[0]',ir_control='$qq17[0]',ir_fact='$qq18[0]' WHERE no_ir='$qq0[0]'";
 
 echo $sql;
 

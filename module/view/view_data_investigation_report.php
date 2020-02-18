@@ -24,7 +24,7 @@
         $i=1;
         
         $result_chk_inr = mysqli_query($con,"SELECT ir_case FROM investigation_report  WHERE ir_case = '$data'")or die("result_chk_object sqli error".mysqli_error($con));
-        $result_data_inr = mysqli_query($con,"SELECT no_ir, ir_casetype, ir_order, ir_policestation, ir_offer, vic_ir, vil_ir, ir_charge, ir_date, ir_district, ir_price, ir_wound, ir_complaint, ir_control, ir_fact FROM investigation_report  WHERE ir_case = '$data'".mysqli_error($con));
+        $result_data_inr = mysqli_query($con,"SELECT no_ir, ir_casetype, ir_order, ir_policestation, ir_date_station, ir_offer, vic_ir, vil_ir, ir_charge, ir_date, ir_district, ir_price, ir_wound, ir_complaint, ir_control, ir_fact FROM investigation_report  WHERE ir_case = '$data'".mysqli_error($con));
         list($case_id_inr)=mysqli_fetch_row($result_chk_inr);
         $num_loop=mysqli_num_rows($result_data_inr);
         // echo $data,$num_loop;
@@ -33,7 +33,7 @@
           echo "<h5 class='text-center'>----ไม่พบข้อมูล----</h5>";
         }else {
         
-        while(list($no_ir,$ir_casetype,$ir_order,$ir_policestation,$ir_offer,$vic_ir,$vil_ir,$ir_charge,$ir_date,$ir_district,$ir_price,$ir_wound,$ir_complaint,$ir_control,$ir_fact)=mysqli_fetch_row($result_data_inr)){
+        while(list($no_ir,$ir_casetype,$ir_order,$ir_policestation, $ir_date_station,$ir_offer,$vic_ir,$vil_ir,$ir_charge,$ir_date,$ir_district,$ir_price,$ir_wound,$ir_complaint,$ir_control,$ir_fact)=mysqli_fetch_row($result_data_inr)){
 
             if($ir_casetype == 1){
                 $status1="selected";
@@ -49,7 +49,7 @@
         <input type="hidden" id="chk_link" value="<?php echo $l  ?>">
         
          <div class="col-md">
-         <b><label for="formGroupExampleInput">รายงานการสอบสวน ฉบับที่ <?php echo $i; ?></label></b><button type="button" id="btn_edit4<?php echo $i ?>"><i class="fas fa-edit" style="font-size: 10px"></i></button>
+         <b><label for="formGroupExampleInput">รายงานการสอบสวน ฉบับที่ <?php echo $i; ?></label></b><button type="button" id="btn_edit4<?php echo $i ?>"><i class="fas fa-edit" style="font-size: 10px"></i></button><button type="button" id="btn_inves_report<?php echo $i ?>"><i class="fas fa-edit" style="font-size: 10px"></i></button>
          
         </div>
         <div class="col-md">
@@ -74,13 +74,24 @@
             <label class="col-sm col-form-label">ที่ : </label>
         </div>
         <div class="col-md-1">
-            <input type="text" class="form-control editinr<?php echo $i; ?>" placeholder="ที่" value="<?php echo $ir_order ?>" name="ir_order[]"  required disabled>
+            <input type="text" class="form-control editinr<?php echo $i; ?>" id="report_order<?php echo $i ?>" placeholder="ที่" value="<?php echo $ir_order ?>" name="ir_order[]"  required disabled>
         </div>
             <div>
               <label class="col-sm col-form-label">สถานีตำรวจ : </label>
             </div>
         <div class="col-md">
             <input type="text" class="form-control editinr<?php echo $i; ?>" placeholder="ที่อยู่สถาณีตำรวจ" value="<?php echo $ir_policestation ?>" name="ir_Policestation[]"  required disabled>
+        </div>
+        </div>
+    </div>
+    <p></p>
+    <div class="col-md">
+    <div class="form-row">
+        <div>
+            <label class="col-sm col-form-label">วันที่ : </label>
+        </div>
+        <div class="col-md">
+        <input type="date" class="form-control editinr<?php echo $i; ?>"  value="<?php echo $ir_date_station ?>"  name="ir_date_station[]"  required disabled>
         </div>
         </div>
     </div>
@@ -279,6 +290,32 @@ $("#btn_edit4<?php echo $md; ?>").click(function(){
   }
 });
 })
+
+$("#btn_inves_report<?php echo $md; ?>").click(function(){
+    swal({
+  title: "รายงานPDF",
+  text: "ต้องการออกรายงานใช่หรือไม่?",
+  icon: "warning",
+  buttons: true,
+  dangerMode: true,
+  buttons: ["ยกเลิก","ตกลง"]
+})
+.then((willDelete) => {
+  if (willDelete) {
+    var reidcard = $("#report_order<?php echo $md?>").val();
+      $.post("module/fuction/test_send_reidcard.php",{reidcard}).done(function(data,txtstuta){
+      alert(reidcard)
+      alert(data)
+      window.open('module/fuction/report_investigation_report.php','_blank');
+     })
+}
+else {
+    window.location.href="home.php?datacase=<?php echo $case_id_inr; ?>&module=1&action=1";
+  }
+});
+})
+
+
 $("#canclebtn4<?php echo $md;  ?>").click(function(){
  // alert("ggg")
  $(".editinr<?php echo $md; ?>").prop("disabled", true);
