@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 24, 2020 at 07:56 AM
+-- Generation Time: Feb 18, 2020 at 08:50 AM
 -- Server version: 10.3.15-MariaDB
 -- PHP Version: 7.3.6
 
@@ -186,6 +186,7 @@ CREATE TABLE `investigation_report` (
   `ir_casetype` tinyint(2) NOT NULL,
   `ir_order` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `ir_policestation` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `ir_date_station` date NOT NULL,
   `ir_offer` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `vic_ir` char(13) COLLATE utf8_unicode_ci NOT NULL,
   `vil_ir` char(13) COLLATE utf8_unicode_ci NOT NULL,
@@ -203,11 +204,11 @@ CREATE TABLE `investigation_report` (
 -- Dumping data for table `investigation_report`
 --
 
-INSERT INTO `investigation_report` (`no_ir`, `ir_case`, `ir_casetype`, `ir_order`, `ir_policestation`, `ir_offer`, `vic_ir`, `vil_ir`, `ir_charge`, `ir_date`, `ir_district`, `ir_price`, `ir_wound`, `ir_complaint`, `ir_control`, `ir_fact`) VALUES
-(1, 'ค.001', 2, '85/98', 'สถานีตำรวจทดสอบ', 'test2', '1486648521352', '1248846257625', 'test9', '2020-01-04', 'test9', 'test10', 'test11', '2020-01-05', '2020-01-06', 'test122'),
-(2, 'testnow1', 2, '6666', 'test1', 'test2', '', '', 'test9', '2020-01-06', 'test10', 'test11', 'test12', '2020-01-05', '2020-01-15', 'test13'),
-(3, 'todaytest11/01', 2, '01/63', 'สถานีทดลอง', 'เสนอทดลอง', '1408809625186', '124884612389', 'ข้อหาทดลอง', '2020-01-07', 'ตำบลทดลอง', 'ราคาทรัพย์ทดลอง', 'บาดแผลทดลอง', '2020-01-07', '2020-01-07', 'ข้อเท็จจริงทดลอง'),
-(4, 'กก44', 2, '85/98', 'สถานีตำรวจภูธรเชียงใหญ่', 'ให้การสอบสวน', '1234567114247', '124145251938', 'ขมขื่นกระทำชำเราและทำร้ายผุ้อื่นโดยเจตนา    ', '2020-01-08', '47/8 หมู่ 5 บ้าน จับจอง ต.ป่าไม้งาม อ.ดอยเมิง จ.เชียงใจ 140200 ', 'ไม่สามารถระบุได้', 'ทางจิตใจ', '2020-01-08', '2020-01-09', 'ได้กระทำการจริง');
+INSERT INTO `investigation_report` (`no_ir`, `ir_case`, `ir_casetype`, `ir_order`, `ir_policestation`, `ir_date_station`, `ir_offer`, `vic_ir`, `vil_ir`, `ir_charge`, `ir_date`, `ir_district`, `ir_price`, `ir_wound`, `ir_complaint`, `ir_control`, `ir_fact`) VALUES
+(1, 'ค.001', 2, '85/98', 'สถานีตำรวจทดสอบ', '0000-00-00', 'test2', '1486648521352', '1248846257625', 'test9', '2020-01-04', 'test9', 'test10', 'test11', '2020-01-05', '2020-01-06', 'test122'),
+(2, 'testnow1', 2, '6666', 'test1', '0000-00-00', 'test2', '', '', 'test9', '2020-01-06', 'test10', 'test11', 'test12', '2020-01-05', '2020-01-15', 'test13'),
+(3, 'todaytest11/01', 2, '01/63', 'สถานีทดลอง', '2019-12-19', 'เสนอทดลอง', '1408809625186', '124884612389', 'ข้อหาทดลอง', '2020-01-07', 'ตำบลทดลอง', 'ราคาทรัพย์ทดลอง', 'บาดแผลทดลอง', '2020-01-07', '2020-01-07', 'ข้อเท็จจริงทดลอง'),
+(4, 'กก44', 2, '85/98', 'สถานีตำรวจภูธรเชียงใหญ่', '0000-00-00', 'ให้การสอบสวน', '1234567114247', '124145251938', 'ขมขื่นกระทำชำเราและทำร้ายผุ้อื่นโดยเจตนา    ', '2020-01-08', '47/8 หมู่ 5 บ้าน จับจอง ต.ป่าไม้งาม อ.ดอยเมิง จ.เชียงใจ 140200 ', 'ไม่สามารถระบุได้', 'ทางจิตใจ', '2020-01-08', '2020-01-09', 'ได้กระทำการจริง');
 
 -- --------------------------------------------------------
 
@@ -308,7 +309,7 @@ CREATE TABLE `police_person` (
 --
 
 INSERT INTO `police_person` (`card_id`, `rank_id`, `ps_name`, `ps_lastname`, `sex`, `address`, `ps_num`, `police_pic`, `sta_per_police`) VALUES
-('1458867563768', 6, 'test', 'รักษ์ยม', 0, '12/534 หมู่ 78 บ้าน สันป่าไผ่ อ.ไผ่งาม จ.เชียงราย 50448', '0924563321', '', 2),
+('1458867563768', 6, 'test', 'รักษ์ยม', 0, '12/534 หมู่ 78 บ้าน สันป่าไผ่ อ.ไผ่งาม จ.เชียงราย 50448', '0924563321', '', 1),
 ('1509901623453', 4, 'ytest', 'testy', 0, '667/3 หมู่บ้าน เจริญละ', '0954434234', '', 2),
 ('1509908798090', 8, 'ลูกจ๊อก', 'อ่อนด๊อย', 2, 'หมู่ 8 บ้าน 78', '0977865786', '', 1),
 ('1568867987693', 9, 'คนที่สอง', 'ลองดู', 2, '77/5 หมู 8 บ้าน ค่ำ', '085786553', '', 1),
@@ -386,7 +387,8 @@ INSERT INTO `request_warrant` (`no_rw`, `rw_case`, `rw_no`, `rw_court`, `rw_cell
 (3, 'ค.001', 'test1', 'ศาลทดลอง1', '2020-01-04', 'ผู้พิพากษาทดลอง', 2, 'test4', 'test5', 'test6', 20, 'test8', 'test9', 'test10', 'test11', 'true1', 'true2', 'test12', 'test13', 'test14', 'test15', 'test16', 'test17', 'test18', 'test19', 1, 'test20', 'test21', 'test22'),
 (4, 'testnow1', 'test1', 'test2', '2020-01-06', 'test3', 2, 'test4', 'test5', 'test6', 0, 'test8', 'test9', 'test10', 'test11', 'true1', 'true2', 'test12', 'test13', 'test14', 'test15', 'test16', 'test17', 'test18', 'test19', 1, 'test20', 'test21', 'test22'),
 (5, 'todaytest11/01', '001.1/63', 'ศาลทดลอง', '2020-01-07', 'ผู้พิพากษาทดลอง', 2, 'ผู้ร้องทดลอง', 'ชื่อทดลอง', 'ตำแหน่งทดลอง', 34, 'รับราชการ', 'สถานที่ทำงานทดลอง', '0867681543', 'คำกล่าวทดลอง', 'true1', 'true2', 'สถานที่ทดลอง', 'พฤติกรรมทดลอง', 'การกระทำทดลอง', 'พยานเอกสารและวัตถุทดลอง', 'จับกุมทดลอง', 'หมายจับทดลอง', 'มอบหมายให้ทดลอง', 'ตำแหน่งทดลอง', 2, 'ร้องขอทดลอง', 'เหตุอื่น ๆ ทดลอง', 'คำสั่งศาลทดลอง'),
-(6, 'กก44', '01/63', ' ศาลจังหวัดเชียงใหญ่', '2020-01-11', ' นาย อัศนี คุณมานะ', 2, 'นิบุญเลิศ องอาจกิจ ', 'นิบุญเลิศ องอาจกิจ ', ' ผู้บังคับบํญชา', 35, 'รับราชกาล', '55/2 ต.บางที อ.บางอยู่ จ.เชียงใหญ่ 140860', '0909901594', 'ขมขืนกระทำชำเราและทำร้ายร่างกาย    ', 'true1', 'true2', ' 47/8 หมู่ 5 บ้าน จับจอง ต.ป่าไม้งาม อ.ดอยเมิง จ.เชียงใจ 140200 ', 'ขมขื่นกระทำชำเรา   ', 'ขมขื่นกระทำชำเราและทำร้ายผุ้อื่นโดยเจตนา  ', '1 ชิ้น', 'จิตจำนง สีดำ ', 'จิตจำนง สีดำ ', ' แสงสิริ เกรียงทองดี ', 'เจ้าหน้าที่ประสานงาน', 1, 'ออกหมายจับ', 'ขมขืนกระทำชำเราและทำร้ายร่างกาย  ', 'ให้จับกุมตัว');
+(6, 'กก44', '01/63', ' ศาลจังหวัดเชียงใหญ่', '2020-01-11', ' นาย อัศนี คุณมานะ', 2, 'นิบุญเลิศ องอาจกิจ ', 'นิบุญเลิศ องอาจกิจ ', ' ผู้บังคับบํญชา', 35, 'รับราชกาล', '55/2 ต.บางที อ.บางอยู่ จ.เชียงใหญ่ 140860', '0909901594', 'ขมขืนกระทำชำเราและทำร้ายร่างกาย    ', 'true1', 'true2', ' 47/8 หมู่ 5 บ้าน จับจอง ต.ป่าไม้งาม อ.ดอยเมิง จ.เชียงใจ 140200 ', 'ขมขื่นกระทำชำเรา   ', 'ขมขื่นกระทำชำเราและทำร้ายผุ้อื่นโดยเจตนา  ', '1 ชิ้น', 'จิตจำนง สีดำ ', 'จิตจำนง สีดำ ', ' แสงสิริ เกรียงทองดี ', 'เจ้าหน้าที่ประสานงาน', 1, 'ออกหมายจับ', 'ขมขืนกระทำชำเราและทำร้ายร่างกาย  ', 'ให้จับกุมตัว'),
+(7, 'test/667.62', 'test1', 'test2', '2020-02-15', 'test3', 2, 'test4', 'test5', 'test6', 0, 'test8', 'test9', 'test10', 'test11', 'false', 'false', 'test12', 'test13', 'test14', 'test15', 'test16', 'test17', 'test18', 'test19', 2, '', 'test20', 'test21');
 
 -- --------------------------------------------------------
 
@@ -462,6 +464,7 @@ INSERT INTO `search_warrant` (`sw_no`, `sw_case`, `sw_searchwarrant`, `sw_court`
 --
 
 CREATE TABLE `status_case` (
+  `num_status` int(11) NOT NULL,
   `sta_case_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `text_status` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `date_status` date NOT NULL
@@ -471,8 +474,10 @@ CREATE TABLE `status_case` (
 -- Dumping data for table `status_case`
 --
 
-INSERT INTO `status_case` (`sta_case_id`, `text_status`, `date_status`) VALUES
-('ค.001', 'ส่งฟ้องศาลชั้นต้น', '2020-01-24');
+INSERT INTO `status_case` (`num_status`, `sta_case_id`, `text_status`, `date_status`) VALUES
+(1, 'ค.001', 'ส่งฟ้องศาลชั้นต้น', '2020-01-24'),
+(2, 'ค.001', 'ส่งฟ้องศาลชั้นกลาง', '2020-01-25'),
+(3, 'ค.001', 'ส่งฟ้องศาลชั้นสูง ', '2020-01-26');
 
 -- --------------------------------------------------------
 
@@ -942,7 +947,8 @@ INSERT INTO `witness_request_warr` (`no_witness`, `witness_case`, `rw_witness`) 
 (11, 'todaytest11/01', 'การสอบสวนทดลอง3'),
 (12, 'todaytest11/01', 'การสอบสวนทดลอง4'),
 (13, 'กก44', 'นาย ชอบมุง ทุกที่เลย'),
-(14, 'กก44', ' นาง เหมือนจะช่วย แต่ไม่ช่วย');
+(14, 'กก44', ' นาง เหมือนจะช่วย แต่ไม่ช่วย'),
+(15, 'test/667.62', 'mm1');
 
 -- --------------------------------------------------------
 
@@ -1098,7 +1104,7 @@ ALTER TABLE `search_warrant`
 -- Indexes for table `status_case`
 --
 ALTER TABLE `status_case`
-  ADD PRIMARY KEY (`sta_case_id`);
+  ADD PRIMARY KEY (`num_status`);
 
 --
 -- Indexes for table `subpoena`
@@ -1271,13 +1277,19 @@ ALTER TABLE `rank_police`
 -- AUTO_INCREMENT for table `request_warrant`
 --
 ALTER TABLE `request_warrant`
-  MODIFY `no_rw` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `no_rw` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `search_warrant`
 --
 ALTER TABLE `search_warrant`
   MODIFY `sw_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `status_case`
+--
+ALTER TABLE `status_case`
+  MODIFY `num_status` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `summon_villain`
@@ -1343,7 +1355,7 @@ ALTER TABLE `villain_nose`
 -- AUTO_INCREMENT for table `witness_request_warr`
 --
 ALTER TABLE `witness_request_warr`
-  MODIFY `no_witness` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `no_witness` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `words_villain`
