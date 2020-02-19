@@ -57,14 +57,14 @@
         <input type="hidden" id="chk_link" value="<?php echo $l  ?>">
         
          <div class="col-md">
-         <b><label for="formGroupExampleInput">หมายเรียกผู้ต้องหา ฉบับที่ <?php echo $i; ?></label></b><button type="button" id="btn_edit5<?php echo $i ?>"><i class="fas fa-edit" style="font-size: 10px"></i></button>
+         <b><label for="formGroupExampleInput">หมายเรียกผู้ต้องหา ฉบับที่ <?php echo $i; ?></label></b><button type="button" id="btn_edit5<?php echo $i ?>"><i class="fas fa-edit" style="font-size: 10px"></i></button><button type="button" id="btn_summon_report<?php echo $i ?>"><i class="fas fa-edit" style="font-size: 10px"></i></button>
          
         </div>
         <div class="col-md">
 
     </div>
     <form class="save5<?php echo$i ?>" method="post" id="insertSumVil">
-    <input type="hidden"  value="<?php echo $no_sv ?>" name="sv_no_id[]">
+    <input type="hidden"  value="<?php echo $no_sv ?>" id="key<?php echo $i ?>" name="sv_no_id[]">
 <div class="col">
   <div class="form-group row">
     <label class="col-form-label">หมายเรียกผู้ต้องหาครั้งที่ : </label>
@@ -72,23 +72,26 @@
     <input type="text" class="form-control editsv<?php echo $i; ?>" id="focussv<?php echo $i ?>" value="<?php echo $sv_suspect ?>" name="sv_suspect[]" disabled>
     </div>
     <label class="col-form-label">สถานที่ออกหมาย : </label>
-    <div class="col-3">
+    <div class="col-md">
     <input type="text" class="form-control editsv<?php echo $i; ?>" id="" value="<?php echo $sv_warrant ?>" name="sv_warrant[]" disabled>
     </div>
-    <label class="col-form-label">ออกหมายวันที่่ : </label>
+
+  </div>
+  <div class="form-group row">
+  <label class="col-form-label">ออกหมายวันที่่ : </label>
     <div class="col-md">
     <input type="date" class="form-control editsv<?php echo $i; ?>" id="" value="<?php echo $sv_date ?>" name="sv_date[]" disabled>
     </div>
-  </div>
+    </div>
   <div class="form-group row">
     <label class="col-form-label">ผู้กล่าวหา : </label>
     <div class="col-5">
     <input type="text" class="form-control editsv<?php echo $i; ?>" id="" value="<?php echo $sv_accused ?>" name="sv_Accused[]" disabled>
     </div>
     <div class="col-md">
-    <select class="custom-select " id="" name="sv_villain" required disabled >
+    <select class="custom-select  editsv<?php echo $i; ?>" id="" name="sv_villain[]" required disabled >
                 <option disabled selected value="0">ผู้ต้องหา</option>
-                <?php $result_vil = mysqli_query($con,"SELECT villain_idcard,title_name,villain_name,villain_lastname FROM villain WHERE case_id='$_SESSION[case_id]'")or die("select villain error".mysqli_error($con));
+                <?php $result_vil = mysqli_query($con,"SELECT villain_idcard,title_name,villain_name,villain_lastname FROM villain WHERE case_id='$case_id_sv'")or die("select villain error".mysqli_error($con));
                     while(list($vil_idcard,$title,$vil_name,$vil_lastname)=mysqli_fetch_row($result_vil)){
                         $selected=$sv_villain==$vil_idcard?"selected":"";
                         echo"<option value='$vil_idcard' $selected>$title $vil_name $vil_lastname</option>";
@@ -296,6 +299,32 @@ $("#btn_edit5<?php echo $md; ?>").click(function(){
   }
 });
 })
+
+$("#btn_summon_report<?php echo $md; ?>").click(function(){
+    swal({
+  title: "รายงานPDF",
+  text: "ต้องการออกรายงานใช่หรือไม่?",
+  icon: "warning",
+  buttons: true,
+  dangerMode: true,
+  buttons: ["ยกเลิก","ตกลง"]
+})
+.then((willDelete) => {
+  if (willDelete) {
+    var reidcard = $("#key<?php echo $md?>").val();
+      $.post("module/fuction/test_send_reidcard.php",{reidcard}).done(function(data,txtstuta){
+      alert(reidcard)
+      alert(data)
+      window.open('module/fuction/report_summon_vil.php','_blank');
+     })
+}
+else {
+    window.location.href="home.php?datacase=<?php echo $case_id_sv; ?>&module=1&action=1";
+  }
+});
+})
+
+
 $("#canclebtn5<?php echo $md;  ?>").click(function(){
  // alert("ggg")
  $(".editsv<?php echo $md; ?>").prop("disabled", true);

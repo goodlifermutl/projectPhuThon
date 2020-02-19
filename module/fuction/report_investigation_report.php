@@ -27,8 +27,8 @@ if($ir_casetype=='1'){
     $case_type="คดีอาญา";
 }
 
-$result_vil = mysqli_query($con,"SELECT victim_idcard,title_name,victim_name,victim_lastname FROM victim WHERE victim_idcard='$vic_ir'")or die("select villain error".mysqli_error($con));
-list($vil_idcard,$title_vic,$vic_name,$vic_lastname)=mysqli_fetch_row($result_vil);
+$result_vic = mysqli_query($con,"SELECT victim_idcard,title_name,victim_name,victim_lastname FROM victim WHERE victim_idcard='$vic_ir'")or die("select villain error".mysqli_error($con));
+list($vil_idcard,$title_vic,$vic_name,$vic_lastname)=mysqli_fetch_row($result_vic);
 
 $result_vil = mysqli_query($con,"SELECT villain_idcard,title_name,villain_name,villain_lastname FROM villain WHERE villain_idcard='$vil_ir'")or die("select villain error".mysqli_error($con));
 list($vil_idcard,$title_vil,$vil_name,$vil_lastname)=mysqli_fetch_row($result_vil);

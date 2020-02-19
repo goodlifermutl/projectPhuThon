@@ -10,4 +10,5 @@ if(!isset($_COOKIE['idcardvictimreport'])) {
 } else {
     echo "Cookie '" . $test . "' is set!<br>";
 }
+
 ?>
