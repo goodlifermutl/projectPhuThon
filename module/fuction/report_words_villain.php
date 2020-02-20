@@ -52,12 +52,16 @@ b{
     font-size:18pt;
 }
 </style>
-<div>
-<div style='text-align:center;'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src='../../image/icon_report.jpg' width='100 'height='100'></div>
-<div style='text-align:center;'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>สำนักงานตำรวจแห่งชาติ</b></div>
-<div style='text-align:center;'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<u>บันทึกคำให้การผู้ต้องหา</u></div>
-</div>
+
 <div style='float:left;width:190px;'>
+<br>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
 <div style='float: left;width:190px;'>คำให้การของ ".$title_vil." ".$vil_name." ".$vil_lastname." เป็น ".$wv_are."</div>
 <div style='clear: left;'></div>
 <br>
@@ -78,6 +82,9 @@ b{
 <div style='clear: left;'></div>
 </div>
 <div style='border-left:solid 1px black;float:left;'>
+<div style='text-align:center;'><img src='../../image/icon_report.jpg' width='100 'height='100'></div>
+<div style='text-align:center;'><b>สำนักงานตำรวจแห่งชาติ</b></div>
+<div style='text-align:center;'><u>บันทึกคำให้การผู้ต้องหา</u></div>
 <div style='float: left;padding-left:10px;'>สถานีตำรวจ ".$wv_station."</div>
 <div style='clear: left;'></div>
 <div style='text-align:center'>วันที่ ".DateThai_day($wv_date)." เดือน ".DateThai_month($wv_date)." พ.ศ. ".DateThai_year($wv_date)."</div>
