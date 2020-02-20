@@ -24,7 +24,7 @@
         $i=1;
         
         $result_chk_wv = mysqli_query($con,"SELECT wv_case FROM words_villain  WHERE wv_case = '$data'")or die("result_chk_object sqli error".mysqli_error($con));
-        $result_data_wv = mysqli_query($con,"SELECT wv_no, wv_testimony, wv_are, wv_phone, wv_card, wv_output1, wv_output2, wv_last, wv_police, wv_station, wv_date, wv_accused, wv_suspect, wv_before, wv_investigate, wv_name, wv_age, wv_race, wv_nationality, wv_religion, wv_address, wv_headman, wv_villageheadmane, wv_farthername, wv_mothername, wv_birthday, wv_official FROM words_villain  WHERE wv_case = '$data'".mysqli_error($con));
+        $result_data_wv = mysqli_query($con,"SELECT wv_no, wv_testimony, wv_are, wv_phone, wv_card, wv_output1, wv_output2, wv_last, wv_police, wv_station, wv_date, wv_accused, wv_suspect, wv_before, wv_investigate, wv_name, wv_age, wv_race, wv_nationality, wv_religion, wv_careen, wv_address, wv_headman, wv_villageheadmane, wv_farthername, wv_mothername, wv_birthday, wv_official FROM words_villain  WHERE wv_case = '$data'".mysqli_error($con));
         list($case_id_wv)=mysqli_fetch_row($result_chk_wv);
         $num_loop=mysqli_num_rows($result_data_wv);
         // echo $data,$num_loop;
@@ -33,7 +33,7 @@
           echo "<h5 class='text-center'>----ไม่พบข้อมูล----</h5>";
         }else {
         
-        while(list($wv_no,$wv_testimony,$wv_are,$wv_phone,$wv_card,$wv_output1,$wv_output2,$wv_last,$wv_police,$wv_station,$wv_date,$wv_accused,$wv_suspect,$wv_before,$wv_investigate,$wv_name,$wv_age,$wv_race,$wv_nationality,$wv_religion,$wv_address,$wv_headman,$wv_villageheadmane,$wv_farthername,$wv_mothername,$wv_birthday,$wv_official)=mysqli_fetch_row($result_data_wv)){
+        while(list($wv_no,$wv_testimony,$wv_are,$wv_phone,$wv_card,$wv_output1,$wv_output2,$wv_last,$wv_police,$wv_station,$wv_date,$wv_accused,$wv_suspect,$wv_before,$wv_investigate,$wv_name,$wv_age,$wv_race,$wv_nationality,$wv_religion, $wv_careen,$wv_address,$wv_headman,$wv_villageheadmane,$wv_farthername,$wv_mothername,$wv_birthday,$wv_official)=mysqli_fetch_row($result_data_wv)){
 
           // if($ir_casetype == 1){
             //     $status1="selected";
@@ -70,12 +70,12 @@
         <input type="hidden" id="chk_link" value="<?php echo $l  ?>">
         
          <div class="col-md">
-         <b><label for="formGroupExampleInput">คำให้การผู้ต้องหา ฉบับที่ <?php echo $i; ?></label></b><button type="button" id="btn_edit6<?php echo $i ?>"><i class="fas fa-edit" style="font-size: 10px"></i></button>
+         <b><label for="formGroupExampleInput">คำให้การผู้ต้องหา ฉบับที่ <?php echo $i; ?></label></b><button type="button" id="btn_edit6<?php echo $i ?>"><i class="fas fa-edit" style="font-size: 10px"></i></button><button type="button" id="btn_wv_report<?php echo $i ?>"><i class="fas fa-edit" style="font-size: 10px"></i></button>
          
         </div>
 
     <form class="save6<?php echo$i ?>" method="post" id="insertWordsVill">
-    <input type="hidden"  value="<?php echo $wv_no  ?>" name="wv_no_id[]">
+    <input type="hidden" id="key_wv<?php echo $i ?>" value="<?php echo $wv_no  ?>" name="wv_no_id[]">
     <input type="hidden"  value="<?php echo $wv_card  ?>" name="wv_idcard[]">
 <div class="col">
   <div class="form-group row">
@@ -187,6 +187,12 @@
     <input type="text" class="form-control editwv<?php echo $i; ?>" id="" value="<?php echo $wv_religion  ?>" name="wv_religion[]" disabled>
     </div>
 </div>
+<div class="form-group row">
+    <label class="col-form-label">อาชีพ : </label>
+    <div class="col">
+    <input type="text" class="form-control editwv<?php echo $i; ?>" id="" value="<?php echo $wv_careen  ?>" name="wv_careen[]" disabled>
+    </div>
+</div>
 <h3 class="text-center">----------------------------------------------------------------------------</h3>
 <div class="form-group row">
     <label class="col-form-label">ตั้งบ้านเรือนอยู่ที่ : </label>
@@ -279,6 +285,32 @@ $("#btn_edit6<?php echo $md; ?>").click(function(){
   }
 });
 })
+
+$("#btn_wv_report<?php echo $md; ?>").click(function(){
+    swal({
+  title: "รายงานPDF",
+  text: "ต้องการออกรายงานใช่หรือไม่?",
+  icon: "warning",
+  buttons: true,
+  dangerMode: true,
+  buttons: ["ยกเลิก","ตกลง"]
+})
+.then((willDelete) => {
+  if (willDelete) {
+    var reidcard = $("#key_wv<?php echo $md?>").val();
+      $.post("module/fuction/test_send_reidcard.php",{reidcard}).done(function(data,txtstuta){
+      alert(reidcard)
+      alert(data)
+      window.open('module/fuction/report_words_villain.php','_blank');
+     })
+}
+else {
+    window.location.href="home.php?datacase=<?php echo $case_id_sv; ?>&module=1&action=1";
+  }
+});
+})
+
+
 $("#canclebtn6<?php echo $md;  ?>").click(function(){
  // alert("ggg")
  $(".editwv<?php echo $md; ?>").prop("disabled", true);

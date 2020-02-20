@@ -112,6 +112,12 @@ $con=connect_db();
     <input type="text" class="form-control" id=""name="wv_religion">
     </div>
 </div>
+<div class="form-group row">
+    <label class="col-form-label">อาชีพ : </label>
+    <div class="col">
+    <input type="text" class="form-control" id=""name="wv_careen">
+    </div>
+</div>
 <h3 class="text-center">----------------------------------------------------------------------------</h3>
 <div class="form-group row">
     <label class="col-form-label">ตั้งบ้านเรือนอยู่ที่ : </label>
