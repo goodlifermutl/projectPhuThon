@@ -40,11 +40,15 @@ div{
 	font-family: 'Garuda';
     font-size: 12pt;
 }
+b{
+    font-size:18pt;
+}
 </style>
 <div style='padding-left: 100px;'>
+<div style='border-left:solid 1px black;padding-left:10px;'>
 <div style='text-align:center;color:red;'>สั่งฟ้อง-ผู้ต้องหาฝากขัง</div>
 <div style='text-align:center'><img src='../../image/icon_report.jpg'></div>
-<div style='text-align:center'>สำนักงานตำรวจแห่งชาติ</div>
+<div style='text-align:center'><b>สำนักงานตำรวจแห่งชาติ</b></div>
 <div style='text-align:center'><u>รายงานการสอบสวน</u></div>
 <div style='float: left;width:70px;'>".$case_type."</div>
 <div style='float: left;width:250px;'>ที่ ".$ir_order."</div>
@@ -77,6 +81,7 @@ div{
 <div style='clear: left;'></div>
 <div style='float: left;'>วันเวลาที่ผู้ต้องหาถูกควบคุมหรือขังและปล่อยชั่วคราว วันที่ ".DateThai_day($ir_control)." เดือน ".DateThai_month($ir_control)." พ.ศ. ".DateThai_year($ir_control)."</div>
 <div style='clear: left;'></div>
+</div>
 </div>
 ";
 
