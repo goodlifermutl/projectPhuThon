@@ -114,12 +114,12 @@
         <input type="hidden" id="chk_link" value="<?php echo $l  ?>">
         
          <div class="col-md">
-         <b><label for="formGroupExampleInput">หมายค้น ฉบับที่ <?php echo $i; ?></label></b><button type="button" id="btn_edit7<?php echo $i ?>"><i class="fas fa-edit" style="font-size: 10px"></i></button>
+         <b><label for="formGroupExampleInput">หมายค้น ฉบับที่ <?php echo $i; ?></label></b><button type="button" id="btn_edit7<?php echo $i ?>"><i class="fas fa-edit" style="font-size: 10px"></i></button><button type="button" id="btn_sw_report<?php echo $i ?>"><i class="fas fa-edit" style="font-size: 10px"></i></button>
          
         </div>
 
     <form class="save7<?php echo$i ?>" method="post" id="insertWarrSearch">
-    <input type="hidden" value="<?php echo $sw_no  ?>" name="sw_no_id[]">
+    <input type="hidden" id="key_sw<?php echo $i ?>" value="<?php echo $sw_no  ?>" name="sw_no_id[]">
   <div class="form-group row">
     <label class="col-form-label">หมายค้น ที่ : </label>
     <div class="col-3">
@@ -355,6 +355,32 @@ $("#btn_edit7<?php echo $md; ?>").click(function(){
   }
 });
 })
+
+$("#btn_sw_report<?php echo $md; ?>").click(function(){
+    swal({
+  title: "รายงานPDF",
+  text: "ต้องการออกรายงานใช่หรือไม่?",
+  icon: "warning",
+  buttons: true,
+  dangerMode: true,
+  buttons: ["ยกเลิก","ตกลง"]
+})
+.then((willDelete) => {
+  if (willDelete) {
+    var reidcard = $("#key_sw<?php echo $md?>").val();
+      $.post("module/fuction/test_send_reidcard.php",{reidcard}).done(function(data,txtstuta){
+      alert(reidcard)
+      alert(data)
+      window.open('module/fuction/report_search_warrant.php','_blank');
+     })
+}
+else {
+    window.location.href="home.php?datacase=<?php echo $case_id_sw; ?>&module=1&action=1";
+  }
+});
+})
+
+
 $("#canclebtn7<?php echo $md;  ?>").click(function(){
  // alert("ggg")
  $(".editsw<?php echo $md; ?>").prop("disabled", true);
