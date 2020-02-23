@@ -140,7 +140,7 @@ $("#btnDelete<?php echo$md; ?>").click(function(){
       }).then((willDelete) => {
         if (willDelete) {
           $.post("module/fuction/police_incase_delete.php",{decasesend:send}).done(function(data,txtstuta){
-            alert(data)
+            // alert(data)
             window.location.href="home.php?&module=2&action=19";
             });
           
