@@ -29,6 +29,7 @@
             case 16 : $a="insert_summon_villain.php"; break;
             case 17 : $a="insert_words_villain.php"; break;
             case 18 : $a="insert_search_warrant.php"; break;
+            case 19 : $a="insert_policeincase.php"; break;
             default : $a="404.php";
         }
         if($m=="404"||$a=="404.php"){

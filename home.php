@@ -100,6 +100,15 @@ else{
   $ul_n="-->";
 
 }
+
+if($permiss=='3'&&$ac_chk=='2'||$ac_chk=='19'){
+  $nu_t="";
+  $nu_n="";
+}else{
+  $nu_t="<!--";
+  $nu_n="-->";
+}
+
 if($ac_chk=='4'){
   $action1="active";
 }else if($ac_chk=='10'){
@@ -120,6 +129,10 @@ if($ac_chk=='4'){
   $action9="active";
 }else if($ac_chk=='18'){
   $action10="active";
+}else if($ac_chk=='2'){
+  $action11="active";
+}else if($ac_chk=='19'){
+  $action12="active";
 }
 ?>
 <?php echo $com_s ?>
@@ -229,6 +242,16 @@ if($ac_chk=='4'){
 </ul>
 <button onclick="topFunction()" id="myBtn" title="Go to top"><b>Top</b></button>
 <?php echo $bar_n ?>
+<?php echo $nu_t ?>
+<ul class="nav nav-tabs" style="background-color: #ffffff;">
+  <li class="nav-item">
+  <a class="nav-link <?php echo $action11 ?>" href="home.php?&module=2&action=2" id="">เพิ่มข้อมูลคดี</a>
+  </li>
+  <li class="nav-item">
+  <a class="nav-link <?php echo $action12 ?>" href="home.php?&module=2&action=19" id="">เพิ่มผู้รับผิดชอบคุดี</a>
+  </li>
+</ul>
+<?php echo $nu_n ?>
 <!-- <div class="" style="padding-top:3px;background:white;">
 
 <button type="button" id="btnPinG" class="btn btn-warning"><b>ปักหมุดคดี</b></button>
