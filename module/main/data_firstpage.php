@@ -54,77 +54,18 @@
     
   </div>
   <div class="beforfooter">
-      <br>
-      <h1 class="text-center">สร้างโพสต์</h1>
-      <div class="container">
-        <div class="row">
-          <div class="col">
-          <div class="input-group">
-          <div class="input-group-prepend">
-            <span class="input-group-text">ข้อความ : </span>
-          </div>
-          <textarea class="form-control" id="clk_post" aria-label="With textarea"></textarea>
-          </div>
-          <hr>
-          <?php 
-          $showT ="<!--";
-          $showN ="-->";
-          ?>
-          <div class="TagFriend">
-          <div class="dropdown">
-            <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <span class="input-group-text" id="basic-addon1">แท็กเพื่อน</span>
-            </div>
-            <button type="button" class="btn dropdown-toggle btn-light" data-toggle="dropdown" role="button" title="" aria-expanded="true"></button>
-            <select class="selectpicker" data-live-search="true">
-            <option data-tokens="ketchup mustard">Hot Dog, Fries and a Soda</option>
-            <option data-tokens="mustard">Burger, Shake and a Smile</option>
-            <option data-tokens="frosting">Sugar, Spice and all things nice</option>
-            </select>
-
-              <input class=" dropdown-toggle" type="text" id="txtdrop" value="<?php echo $tagF=''; ?>" name="sc_friend" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <button type="button" class="close" id="sc_friend_close" >&times;</button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenu2" id="loadDropPF">
-              
-            </div>
-          </div>  
-          </div>
-          <hr>
-          </div>
-          <button type="button" class="btn btn-outline-secondary" id="btnTagKaD">แท็กคดี</button>
-          <button type="button" class="btn btn-outline-secondary" id="btnTagFri">แท็กเพื่อน</button>
-          
-          <hr>
-          <button type="button" class="btn btn-success btn-lg btn-block">โพสต์</button>
-          <br>
-          </div>
-        </div>
-      </div>
+  <br>
+<?php 
+include("presents/year_present.php");
+// include("presents/present.php");
+?>
 
 </div>
-<div class="beforfooter2">
-      <br>
-      <hr>
-      <div class="container">
-        <h5 class="text-center">Postอื่นๆ</h5>
-        <div class="row">
-          <div class="col">
-            PostBlock
-          </div>
-        </div>
-        <div class="row">
-          <div class="col">
-            PostComment
-          </div>
-        </div>
-      </div>
 
-</div>
 <div class="clearfloat"></div>
 
 
-<!-- <div class="footer">1</div> -->
+<div class="footer"></div>
 
 <div class="modal fade" id="SC" role="dialog">
   <div class="modal-dialog modal-xl"  role="document">
@@ -279,7 +220,7 @@
 $(document).ready(function() {
     loadsunass()
     loadtagsc()
-    
+    loadyearsent();
     $("#btnsearch").click(function(){
         var id1= $("#inputGroupSelect02").val();
         var id2 = $("#textsearch").val();

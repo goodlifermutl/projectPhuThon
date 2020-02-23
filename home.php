@@ -20,6 +20,7 @@
  
  <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.18/datatables.min.js"></script>
 
+ <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script> 
 
   <link rel="stylesheet" href="home.css">
   <?php //validate ?>
@@ -262,7 +263,7 @@ if(empty($_GET['module'])||empty($_GET['action'])){
 ?>
 
   </div>
-  <div class="footer">1</div>
+  <!-- <div class="footer"></div> -->
        
 <?php echo $com_e?>
 

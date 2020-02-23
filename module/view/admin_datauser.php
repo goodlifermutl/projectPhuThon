@@ -1,7 +1,7 @@
 <?php
 include("../fuction/connect_db.php");
 $con = connect_db();
-echo $_POST['no'];
+// echo $_POST['no'];
 if($_POST['no']==6){
   $select = mysqli_query($con,"SELECT permiss_id,user_id,card_id FROM user")or die("select sql error!!!!".mysqli_error($con));     
 }else if($_POST['no']==5){
