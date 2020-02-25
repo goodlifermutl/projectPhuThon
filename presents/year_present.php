@@ -1,4 +1,22 @@
+<?php
+$select = mysqli_query($con,"SELECT permiss_id FROM user WHERE user_id='$_SESSION[user_name]'")or die("select sql error".mysqli_error($con));
+list($permiss)=mysqli_fetch_row($select);
+// echo $permiss;
+if($permiss=='1'){
+  $aaa="<!--";
+  $aaa2="-->";
+  $bbb="";
+  $bbb2="";
+}else if($permiss=='2'){
+  $bbb="<!--";
+  $bbb2="-->";
+  $aaa="";
+  $aaa2="";
+}
+
+?>
 <form method="post">
+<?php echo $bbb; ?>
 <div class="form-group row" style="text-align:right;">
     <label for="yearinsert" class=" col-sm col-form-label"><b>สถิติในปี</b></label>
     <div class="col-md">
@@ -20,6 +38,7 @@
             <div class="col-auto" id='loaddataInasm'></div>
         </div>
     </div>
+    <?php echo $bbb2; ?>
 </form>
 
   <script>

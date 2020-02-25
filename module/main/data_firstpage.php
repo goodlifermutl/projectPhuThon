@@ -1,4 +1,5 @@
 
+
 <div  class="topbigbody">
     <div class="subbigbody">
       <br>
@@ -53,13 +54,71 @@
     ?>
     
   </div>
+<?php
+$select = mysqli_query($con,"SELECT permiss_id FROM user WHERE user_id='$_SESSION[user_name]'")or die("select sql error".mysqli_error($con));
+list($permiss)=mysqli_fetch_row($select);
+// echo $permiss;
+if($permiss=='1'){
+  $aaa="<!--";
+  $aaa2="-->";
+  $bbb="";
+  $bbb2="";
+}else if($permiss=='2'){
+  $bbb="<!--";
+  $bbb2="-->";
+  $aaa="";
+  $aaa2="";
+}
+
+?>
+
+
   <div class="beforfooter">
   <br>
+
 <?php 
 include("presents/year_present.php");
 // include("presents/present.php");
 ?>
+<?php echo $aaa; ?>
+ <h3>คดีที่รับผิดชอบ</h3>
+    <hr>
+    <table style='width:100%'>
+    <tr>
+            <th>เลือก</th>
+            <th>ชื่อคดี</th>
+            <th>ปะรเภทคดี</th>
+          </tr>
+    <?php
+     $con = connect_db();
+     
+     $sql_idcard=mysqli_query($con,"SELECT usr.user_id,pp.card_id  FROM user as usr INNER JOIN police_person as pp ON usr.card_id = pp.card_id WHERE usr.user_id ='$_SESSION[user_name]' ")or die("select sql user_idcard error".mysqli_error($con));
+     list($id_user,$user_card_id)=mysqli_fetch_row($sql_idcard);
+    //  echo $id_user,$user_card_id;
 
+     $sql_io = mysqli_query($con,"SELECT io.case_id,cn.case_name,cn.case_type FROM inquiry_official AS io INNER JOIN case_name AS cn ON cn.case_id = io.case_id WHERE io.card_id = '$user_card_id'")or die("select sql inquiry_official error".mysqli_error($con));
+
+     
+     while(list($case_id,$case_name,$case_type)=mysqli_fetch_row($sql_io)){
+      if($case_type==1){
+        $case_typeName="คดีเพ่ง";
+      }else{
+        $case_typeName="คดีอาญา";
+      }
+      ?><?php
+          echo"
+          <tr>
+            <td><button type='button' class='btn btn-outline-info'><a href='?datacase=$case_id&module=1&action=1'>ดูข้อมูล</a></button></td>
+            <td>$case_name</td>
+            <td>$case_typeName</td>
+          </tr>     
+          ";
+
+      }
+
+    ?>
+    </table>
+    <?php echo $aaa2; ?>
 </div>
 
 <div class="clearfloat"></div>
