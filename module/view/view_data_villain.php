@@ -555,7 +555,7 @@ $("#villain_report<?php echo $md; ?>").click(function(){
       $.post("module/fuction/test_send_reidcard.php",{reidcard}).done(function(data,txtstuta){
       alert(reidcard)
       alert(data)
-      window.location.href="module/fuction/villain_report.php";
+      window.open('module/fuction/villain_report.php','_blank');
      })
 }
 

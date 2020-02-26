@@ -211,5 +211,5 @@ div{
 ";
 $mpdf->WriteHTML($content);
 
-$mpdf->Output($villain_idcard.'.pdf','D');
+$mpdf->Output();
 ?>

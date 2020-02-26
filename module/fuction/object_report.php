@@ -43,11 +43,11 @@ div{
 <div style='margin-right:20px;float: left;width:200px;'>ชื่อของกลาง : ".$object_name."</div>
 <div style='margin-right:20px;float: left;width:200px;'>สถานะของกลาง : ".$status."</div>
 <div style='clear: left;'></div>
-<div style='margin-right:20px;float: left;width:200px;'>ขนาดของกลาง : ".$object_size."</div>
+<div style='margin-right:20px;float: left;'>ขนาดของกลาง : ".$object_size."</div>
 <div style='clear: left;'></div>
-<div style='margin-right:20px;float: left;width:200px;'>ลักษณะของกลาง : ".$object_look."</div>
+<div style='margin-right:20px;float: left;'>ลักษณะของกลาง : ".$object_look."</div>
 ";
 $mpdf->WriteHTML($content);
 
-$mpdf->Output($id_object.'.pdf','D');
+$mpdf->Output();
 ?>
