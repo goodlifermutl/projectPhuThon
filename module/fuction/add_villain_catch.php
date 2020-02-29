@@ -18,16 +18,16 @@ $i=1;
             <label class="col-sm col-form-label">ชื่อ : </label>
         </div>
         <div class="col-md-2">
-            <input type="text" class="form-control " placeholder="คำนำหน้าชื่อ" value="" id="focus<?php echo $i?>" name="villain_titlename[]" >
+            <input type="text" class="form-control " placeholder="คำนำหน้าชื่อ" value="" id="focus<?php echo $i?>" name="villain_titlename[]" required>
         </div>
             <div class="col-md">
-            <input type="text" class="form-control " placeholder="ชื่อ" value="" name="villain_name[]" >
+            <input type="text" class="form-control " placeholder="ชื่อ" value="" name="villain_name[]" required>
         </div>
             <div>
               <label class="col-sm col-form-label">นามสกุล : </label>
             </div>
         <div class="col-md">
-            <input type="text" class="form-control " placeholder="นามสกุล" value="" name="villain_lastname[]"  >
+            <input type="text" class="form-control " placeholder="นามสกุล" value="" name="villain_lastname[]"  required>
         </div>
     </div>
     </div>
@@ -38,19 +38,19 @@ $i=1;
               <label class="col-sm col-form-label">เชื้อชาติ : </label>
             </div>
             <div class="col-md">
-              <input type="text" class="form-control" placeholder="เชื้อชาติ" value="" name="villain_race[]"  >
+              <input type="text" class="form-control" placeholder="เชื้อชาติ" value="ไทย" name="villain_race[]"  required>
             </div>
             <div>
               <label class="col-sm col-form-label">สัญชาติ : </label>
             </div>
             <div class="col-md">
-              <input type="text" class="form-control " placeholder="สัญชาติ" value="" name="villain_nationality[]"  >
+              <input type="text" class="form-control " placeholder="สัญชาติ" value="ไทย" name="villain_nationality[]" required >
             </div>
             <div>
               <label class="col-sm col-form-label">อาชีพ : </label>
             </div>
             <div class="col-md">
-            <input type="text" class="form-control " placeholder="อาชีพ" value="" name="villain_careen[]"  >
+            <input type="text" class="form-control " placeholder="อาชีพ" value="" name="villain_careen[]" required >
             </div>
           </div>
           </div>
@@ -61,7 +61,8 @@ $i=1;
             <label class="col-sm col-form-label">เลขบัตรประจำตัวประชาชน : </label>
         </div>
         <div class="col-md">
-            <input type="text" class="form-control" placeholder="เลขบัตร" id="" name="villain_idcard[]" data-idcard="<?php echo $victim_idcard ?>"  value=""  >
+            <!-- <input type="text" class="form-control" placeholder="เลขบัตร" id="villain_idcard" name="villain_idcard[]"   value="" > -->
+            <input type="text" class="form-control" placeholder="เลขบัตร" id="villain_idcard" name="villain_idcard[]" data-idcard=""  value=""  required>
         </div>
         <div>
             <label class="col-sm col-form-label" >ระดับการศึกษา : </label>
@@ -81,9 +82,27 @@ $i=1;
             <label class="col-sm col-form-label">เพศ : </label>
               
         </div>
-        <div class="col-md">
+        <!-- <div class="col-md">
+        <div class="form-group row"> 
+            
+            <div class="form-check">
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <input class="form-check-input" type="radio" name="villain_sex[]" id="exampleRadios1" value="1">
+            <label class="form-check-label" for="exampleRadios1">
+            ชาย
+            </label>
+            </div>&nbsp;
+            <div class="form-check">
+            <input class="form-check-input" type="radio" name="villain_sex[]" id="exampleRadios2" value="2">
+            <label class="form-check-label" for="exampleRadios2">
+            หญิง
+            </label>
+            </div>
+            </div>
+            </div> -->
+        <div class="col-md-2">
 
-            <select class="custom-select " id="" name="villain_sex[]"  >
+            <select class="custom-select " id="" name="villain_sex[]" required >
       
                 <option disabled selected value="0">เพศ</option>
                 <option value="1" >ชาย</option>
@@ -99,7 +118,7 @@ $i=1;
             <label class="col-sm col-form-label">ที่อยู่ : </label>
         </div>
         <div class="col-md">
-        <input type="text" class="form-control " placeholder="ที่อยู่" value="" name="villain_address[]"  >
+        <input type="text" class="form-control " placeholder="ที่อยู่" value="" name="villain_address[]" required >
         </div>
         </div>
     </div>
@@ -128,7 +147,7 @@ $i=1;
             <label class="col-sm col-form-label">รูปร่าง : </label>
             </div>
             <div class="col-md">
-            <select class="custom-select " id="" name="villain_body[]" >
+            <select class="custom-select " id="" name="villain_body[]" required>
             <option disabled selected value="0">รูปร่าง</option>
             <option value="1">สูง</option>
             <option value="2">สันทัด</option>
@@ -145,7 +164,7 @@ $i=1;
             <label class="col-sm col-form-label">ใบหน้า : </label>
             </div>
             <div class="col-md">
-            <select class="custom-select " id="" name="villain_face[]" >
+            <select class="custom-select " id="" name="villain_face[]" required>
             <option disabled selected value="0">ใบหน้า</option>
             <option value="1">กลม</option>
             <option value="2">รูปไข่</option>
@@ -166,7 +185,7 @@ $i=1;
             <label class="col-sm col-form-label">ทรงผม : </label>
             </div>
             <div class="col-md">
-            <select class="custom-select " id="" name="villain_hair[]" >
+            <select class="custom-select " id="" name="villain_hair[]" required>
             <option disabled selected value="0">ทรงผม</option>
             <option value="1">ทุ่งหมาหลง</option>
             <option value="2">ดงช้างข้าม</option>
@@ -194,7 +213,7 @@ $i=1;
             <label class="col-sm col-form-label">จมูก : </label>
             </div>
             <div class="col-md">
-            <select class="custom-select " id="" name="villain_nose[]" >
+            <select class="custom-select " id="" name="villain_nose[]" required>
             <option disabled selected value="0">จมูก</option>
             <option value="1">จมูกแคบ</option>
             <option value="2">จมูกกว้าง</option>
@@ -218,7 +237,7 @@ $i=1;
             <label class="col-sm col-form-label">ปาก : </label>
             </div>
             <div class="col-md">
-            <select class="custom-select " id="" name="villain_mouth[]" >
+            <select class="custom-select " id="" name="villain_mouth[]" required>
             <option disabled selected value="0">ปาก</option>
             <option value="1">ปากกระจับ</option>
             <option value="2">ปากหนา</option>
@@ -241,7 +260,7 @@ $i=1;
             <label class="col-sm col-form-label">คาง : </label>
             </div>
             <div class="col-md">
-            <select class="custom-select " id="" name="villain_chin[]" >
+            <select class="custom-select " id="" name="villain_chin[]" required>
             <option disabled selected value="0">คาง</option>
             <option value="1">คางตรง</option>
             <option value="2">คางราบ</option>
@@ -266,7 +285,7 @@ $i=1;
             <label class="col-sm col-form-label">หู : </label>
             </div>
             <div class="col-md">
-            <select class="custom-select " id="" name="villain_ears[]" >
+            <select class="custom-select " id="" name="villain_ears[]" required>
             <option disabled selected value="0">หู</option>
             <option value="1">หูสามเหลี่ยม</option>
             <option value="2">หูสี่เหลี่ยม</option>
@@ -288,7 +307,7 @@ $i=1;
             <label class="col-sm col-form-label">หน้าผาก : </label>
             </div>
             <div class="col-md">
-            <select class="custom-select " id="" name="villain_forehead[]" >
+            <select class="custom-select " id="" name="villain_forehead[]" required>
             <option disabled selected value="0">หน้าผาก</option>
             <option value="1">หน้าผากโหนง</option>
             <option value="2">หน้าผากลาด</option>
@@ -308,7 +327,7 @@ $i=1;
             <label class="col-sm col-form-label">ตา : </label>
             </div>
             <div class="col-md">
-            <select class="custom-select " id="" name="villain_eyes[]" >
+            <select class="custom-select " id="" name="villain_eyes[]" required>
             <option disabled selected value="0">ตา</option>
             <option value="1">ตาสองชั้น</option>
             <option value="2">ตาชั้นเดียว</option>
@@ -338,25 +357,15 @@ $i=1;
     </div> -->
 
 <script>
-// $('#insert_villain').validate({ 
+// $('#insertrecord').validate({ 
 								
-//     rules: {
-//     usrname:{
-//     minlength:6
-//     },
-//     psw: { 
-//     minlength:8
-//     },
-//     psw2: {
-//     minlength:8,
-//     equalTo: ".password"
-//     },
-//     idcard: {
-//     minlength:13,
-//     maxlength:13
-//             }
-//         }
-//     });
+//    rules: {					
+//     villain_idcard: {
+//    minlength:13,
+//    maxlength:13
+//            }
+//    }
+// });
 // $("#insert_villain").submit(function(e){
 // 	e.preventDefault();
 // 	$check = $("#insert_villain").valid();

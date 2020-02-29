@@ -16,19 +16,19 @@ $i=1;
             <label class="col-sm col-form-label">ID ของกลาง : </label>
         </div>
         <div class="col-md-2">
-            <input type="text" class="form-control " placeholder="ID" name="idob[]" >     
+            <input type="text" class="form-control " placeholder="ID" name="idob[]" required>     
         </div>
         <div>
             <label class="col-sm col-form-label">ชื่อของกลาง : </label>
         </div>
         <div class="col-md-2">
-            <input type="text" class="form-control " placeholder="ชื่อของกลาง" name="nameob[]" >     
+            <input type="text" class="form-control " placeholder="ชื่อของกลาง" name="nameob[]" required>     
         </div>
         <div>
             <label class="col-sm col-form-label">ขนาดของกลาง : </label>
         </div>
         <div class="col-md">
-            <input type="text" class="form-control " placeholder="ขนาดของกลาง" name="sizeob[]"  >
+            <input type="text" class="form-control " placeholder="ขนาดของกลาง" name="sizeob[]"  required>
         </div>
         </div>
     </div>
@@ -39,7 +39,7 @@ $i=1;
             <label class="col-sm col-form-label">ลักษณะของกลาง : </label>
         </div>
         <div class="input-group">
-        <textarea class="form-control" name="lookob[]" aria-label="With textarea"></textarea>
+        <textarea class="form-control" name="lookob[]" aria-label="With textarea" required></textarea>
         </div>
         </div>
     </div>
@@ -50,7 +50,7 @@ $i=1;
             <label class="col-sm col-form-label">สถานะของกลาง : </label>
         </div>
         <div class="col-md-2">
-        <select class="custom-select " id="" name="staob[]"  >
+        <select class="custom-select " id="" name="staob[]"  required>
                 <option disabled selected value="0">สถานะ</option>
                 <option value="1">ยึด</option>
                 <option  value="2">คืน</option>
@@ -63,7 +63,7 @@ $i=1;
         <div class="col-md">
         <div class="input-group mb-3">
         <div class="custom-file">
-            <input type="file" class="custom-file-input" id="customFile" name="object_file[]">
+            <input type="file" class="custom-file-input" id="customFile" name="object_file[]" required>
             <label class="custom-file-label" for="customFile">Choose file</label>
         </div>
         </div>

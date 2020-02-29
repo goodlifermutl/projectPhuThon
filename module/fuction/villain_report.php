@@ -22,7 +22,7 @@ $result_villain = mysqli_query($con,"SELECT case_id,vl.title_name,vl.villain_nam
 list($case_id,$title_name,$villain_name,$villain_lastname,$villain_sex,$villain_idcard,$villain_address,$villain_education,$villain_image,$villain_race,$villain_nationality,$villain_career)=mysqli_fetch_row($result_villain);
 
 $iden_vill=mysqli_query($con,"SELECT * FROM villain_identities WHERE villain_idcard='$_COOKIE[idcardvictimreport]'")or die("select iden error!!!!!".mysqli_error($con));
-list($idcard_iden,$iden_face,$iden_hair,$iden_ears,$iden_forehead,$iden_eyes,$iden_nose,$iden_mouth,$iden_chin,$iden_body)=mysqli_fetch_row($iden_vill);
+list($iden_no,$idcard_iden,$iden_face,$iden_hair,$iden_ears,$iden_forehead,$iden_eyes,$iden_nose,$iden_mouth,$iden_chin,$iden_body)=mysqli_fetch_row($iden_vill);
 
 if ($villain_sex==1){
     $sex="ชาย";

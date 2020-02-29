@@ -178,8 +178,8 @@ if(!empty($coutcatch_vill)){
         }
 
         // echo "ชื่อไฟล์รูป>>>".$imgname;
-        $sql_insert_villain="INSERT INTO villain VALUES('$ar_case','$vil_title[$won1]','$vil_name[$won1]','$vil_lastname[$won1]','$vil_sex[$won1]','$vil_idcard[$won1]','$vil_address[$won1]','$vil_edu[$won1]','$imgname1','$vil_race[$won1]','$vil_nationality[$won1]','$vil_careen[$won1]','$no_ar')";
-        $sql_insert_villain_iden="INSERT INTO villain_identities VALUES('$vil_idcard[$won1]','$vil_face[$won1]','$vil_hair[$won1]','$vil_ears[$won1]','$vil_forehead[$won1]','$vil_eyes[$won1]','$vil_nose[$won1]','$vil_mouth[$won1]','$vil_chin[$won1]','$vil_body[$won1]')";
+        $sql_insert_villain="INSERT INTO villain VALUES('','$ar_case','$vil_title[$won1]','$vil_name[$won1]','$vil_lastname[$won1]','$vil_sex[$won1]','$vil_idcard[$won1]','$vil_address[$won1]','$vil_edu[$won1]','$imgname1','$vil_race[$won1]','$vil_nationality[$won1]','$vil_careen[$won1]','$no_ar')";
+        $sql_insert_villain_iden="INSERT INTO villain_identities VALUES('','$vil_idcard[$won1]','$vil_face[$won1]','$vil_hair[$won1]','$vil_ears[$won1]','$vil_forehead[$won1]','$vil_eyes[$won1]','$vil_nose[$won1]','$vil_mouth[$won1]','$vil_chin[$won1]','$vil_body[$won1]')";
         //echo "sqlผู้ต้องหา++++++++++>".$sql_insert_villain,$sql_insert_villain_iden;
         mysqli_query($con,$sql_insert_villain)or die("sql insert villain error!!!!!!!".mysqli_error($con));
        mysqli_query($con,$sql_insert_villain_iden)or die("sql insert villain_iden ERROR!!!!".mysqli_error($con));

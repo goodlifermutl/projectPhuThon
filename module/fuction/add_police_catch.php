@@ -16,8 +16,8 @@ while($i<=$num_po_count){?>
       <div class='input-group-prepend'>
         <span class='input-group-text' id='inputGroup-sizing-default'>นามพนักงานจับกุมคนที่<?php echo $i?> </span>
       </div>
-      <input type='text' id='input_police_name<?php echo $i?>' name='name_police[]' value='' class='form-control' aria-label='Sizing example input' aria-describedby='inputGroup-sizing-default'>
-      <select class="custom-select edit_rs" id="focus" name="title_rank[]" style="">
+      <input type='text' id='input_police_name<?php echo $i?>' name='name_police[]' value='' class='form-control' aria-label='Sizing example input' aria-describedby='inputGroup-sizing-default' required>
+      <select class="custom-select edit_rs" id="focus" name="title_rank[]" style="" required>
 		<option value=0 disabled selected>ตำแหน่ง</option>
     <?php $result_rank = mysqli_query($con,"SELECT * FROM rank_police")or die("select education error".mysqli_error($con));
     while(list($rank_id,$rank_name)=mysqli_fetch_row($result_rank)){

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 23, 2020 at 07:00 AM
+-- Generation Time: Feb 29, 2020 at 12:40 PM
 -- Server version: 10.3.15-MariaDB
 -- PHP Version: 7.3.6
 
@@ -102,7 +102,8 @@ CREATE TABLE `arrest_record` (
 INSERT INTO `arrest_record` (`arrest_no`, `por_jor_wor`, `case_id`, `ar_re_time`, `ar_re_typecase`, `ar_re_no`, `ar_re_acc`, `ar_re_address_save`, `ar_re_save_date`, `ar_re_save_catch`, `ar_re_address_catch`, `ar_re_location_ob`, `ar_re_say`, `ar_re_atcs`, `ar_re_depose`, `ar_re_location_place`, `ar_re_date_place`) VALUES
 (1, '884/62.ก', 'ค.001', '14:36:00', '2', '781/113', '90', 'จำลองสถานที่บันทึก', '2020-01-02', '2019-12-19', 'สถานที่จับจำลอง', 'ในสวนน้ำ', 'ขมขืน', 'อุ้มไปขมขืน', 'ยอมรับทั้งหมด', 'สถานที่เกิดเหตุจำลอง', '2019-12-19'),
 (5, '001/63', 'todaytest11/01', '09:00:00', '2', '001.11/63', '100', 'จำลองสถานที่', '2020-01-07', '2020-01-07', 'สถานที่จับจำลอง', 'จำลองตำแหล่งที่พบ', 'ฆ่าผู้อื่นโดยเจตนา', 'จงใจสังหาร', 'ยอมรับทั้งหมด', 'สถานที่เกิดเหตุจำลอง', '2020-01-05'),
-(7, '221/01', 'กก44', '16:15:00', '2', '221/12', '90', 'จำลองสถานที่', '2020-01-08', '2020-01-08', ' 47/8 หมู่ 5 บ้าน จับจอง ต.ป่าไม้งาม อ.ดอยเมิง จ.เชียงใจ 140200 ', 'ข้างทาง ถนน เส้นนอกเมือง ', 'ขมขืนกระทำชำเราและทำร้ายร่างกาย', 'วางยาสลบและลักพาตัวไปขมขื่น', 'ยอมรับทุกข้อกล่าวหา', ' 47/8 หมู่ 5 บ้าน จับจอง ต.ป่าไม้งาม อ.ดอยเมิง จ.เชียงใจ 140200 ', '0000-00-00');
+(7, '221/01', 'กก44', '16:15:00', '2', '221/12', '90', 'จำลองสถานที่', '2020-01-08', '2020-01-08', ' 47/8 หมู่ 5 บ้าน จับจอง ต.ป่าไม้งาม อ.ดอยเมิง จ.เชียงใจ 140200 ', 'ข้างทาง ถนน เส้นนอกเมือง ', 'ขมขืนกระทำชำเราและทำร้ายร่างกาย', 'วางยาสลบและลักพาตัวไปขมขื่น', 'ยอมรับทุกข้อกล่าวหา', ' 47/8 หมู่ 5 บ้าน จับจอง ต.ป่าไม้งาม อ.ดอยเมิง จ.เชียงใจ 140200 ', '0000-00-00'),
+(13, '13b', '123b', '09:00:00', '2', '13/13', '15', 'จำลองสถานที่', '2020-02-29', '2020-02-29', 'สถานที่จับจำลอง', 'เทส', 'เทส', 'เทส', 'เทส', 'เทส', '2020-02-29');
 
 -- --------------------------------------------------------
 
@@ -261,7 +262,9 @@ INSERT INTO `object_case` (`ob_no`, `id_object`, `case_id`, `object_status`, `ob
 (2, '0011', 'ค.001', 2, 'test11', 'test11', 'test111111111', '0F0KA2V222.jpeg', '781/113'),
 (8, '001', 'todaytest11/01', 1, 'มีดดาบ', '12นิ้ว', 'ใบมีดยาวมีความคมสูง', 'CZDF21L0A0.jpeg', '001.11/63'),
 (9, '002', 'todaytest11/01', 1, 'ปืน', '6*6', 'ปืนก็อกสั้นกระสุน9มม', 'X0S0NL0D60.jpeg', '001.11/63'),
-(10, '001', 'กก44', 1, 'มีดดาบ', '14นิ้ว', 'ใบมีดเป็นเคียวงอ', '2K070LXS7J.jpeg', '221/12');
+(10, '001', 'กก44', 1, 'มีดดาบ', '14นิ้ว', 'ใบมีดเป็นเคียวงอ', '2K070LXS7J.jpeg', '221/12'),
+(14, '001', '123b', 1, 'เทสของกลาง', 'เทสของกลาง', 'เทสของกลาง', '', '13/13'),
+(15, '002', '123b', 2, 'เทสของกลางสอง', 'เทสของกลางสอง', 'เทสของกลางสอง', '', '13/13');
 
 -- --------------------------------------------------------
 
@@ -308,7 +311,9 @@ INSERT INTO `police_catch_arrest` (`id_po_ca_ar`, `case_id`, `name_po_ar`, `rank
 (11, 'todaytest11/01', 'แคนดี้', 1, '001.11/63'),
 (12, 'todaytest11/01', 'ลูกอม', 4, '001.11/63'),
 (13, 'กก44', 'นิบุญเลิศ องอาจกิจ', 1, '221/12'),
-(14, 'กก44', 'แสงสิริ เกรียงทองดี', 3, '221/12');
+(14, 'กก44', 'แสงสิริ เกรียงทองดี', 3, '221/12'),
+(21, '123b', 'รวจหนึ่ง', 3, '13/13'),
+(22, '123b', 'รวจสอง', 6, '13/13');
 
 -- --------------------------------------------------------
 
@@ -613,6 +618,7 @@ INSERT INTO `user` (`permiss_id`, `user_id`, `pass_id`, `card_id`, `user_email`,
 --
 
 CREATE TABLE `victim` (
+  `vic_no` int(11) NOT NULL,
   `case_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `title_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `victim_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -631,22 +637,23 @@ CREATE TABLE `victim` (
 -- Dumping data for table `victim`
 --
 
-INSERT INTO `victim` (`case_id`, `title_name`, `victim_name`, `victim_lastname`, `victim_sex`, `victim_idcard`, `victim_address`, `victim_education`, `victim_image`, `victim_race`, `victim_nationality`, `victim_career`) VALUES
-('กก44', 'นางสาว', 'วงการ', 'วงลอง', 2, '1234567114247', '123/2 หมู่ 1 ต.ป่าไผ่ อ.ดอกจัน จ.เชียงใหม่ 50089', 6, 'GHF027D072.jpeg', 'ไทย', 'ไทย', 'รับจ้างทั่วไป'),
-('test123456', 'นาย', 'กกกกก', 'ขขขขขข', 1, '1234567237654', '123/2 หมู่ 6 ต.ป่าไผ่ อ.ดอกจัน จ.เชียงใหม่ 50089', 6, '3V20K02J02.jpeg', 'ไทย', 'ไทย', 'พ่อค้า'),
-('ฮ.0324', 'นาย', 'กี้', 'แปปนึง', 1, '1306607845367', '123/2 หมู่ 6 ต.ป่าไผ่ อ.ดอกจัน จ.เชียงใหม่ 50089', 6, 'BV99D7SL9M.jpeg', 'ไทย', 'ไทย', 'พ่อค้าเร่'),
-('todaytest11/01', 'นาย', 'ทดสอบใหม่', 'นะครับ', 1, '1408809625186', '123/2 หมู่ 6 บ้านทดสอบใหม่', 5, 'icon_data_usermale.png', 'ไทย', 'ไทย', 'ค้าขาย'),
-('ค.001', 'นางสาว', 'รีน่าจังงับ', 'อุยอ้าย', 2, '1486648521352', '25/185 หมู่ 6 ต.ป่าไผ่ อ.ดอกจัน จ.เชียงใหม่ 50089', 5, 'icon_data_userfemale.png', 'ไทย', 'ไทย', 'รับจ้างทั่วไป'),
-('ง.12/52', 'นาย', 'จันทร์ดี', 'โอโออา', 1, '1508890723431', '23 หมู่ 4 บ้าน ดง ต.ก่อไผ่ อ.ดอกไม้ จ.เชียงใหม่ 54334', 5, 'icon_data_usermale.png', 'ไทย', 'ไทย', 'ธุรกิจส่วนตัว'),
-('ค.001', 'นางสาว', 'พะยองจ้าเอ่ย', 'จังเลยงาว', 2, '1509643456712', '25 หมู่ 7 ต.ดอกไม้ อ.ต้นไม้ จ.เชียงใหม่ 54334', 7, 'icon_data_userfemale.png', 'ไทย', 'ไทย/ญีปุ่น', 'ธรุกิจส่วนตัว'),
-('ค.001', 'นาย', 'ช้าง', 'โตที่สุด', 1, '1509901658485', '68 หมู่ 8 บ้าน นอก ต.ใน อ.นอก จ.ใน 45667', 7, 'icon_data_usermale.png', 'ไทย', 'ไทย', 'ธรุกิจส่วนตัว'),
-('กบ/24.33', 'นาย', 'เศรษฐศิลป์', 'เพ็ญสิทธิ์', 1, '1509908675432', '34/5 หมู่ 6 ต.ป่าไผ่ อ.ดอกจัน จ.เชียงใหม่ 50089', 4, 'icon_data_usermale.png', 'ไทย', 'ไทย', 'นักศึกษา'),
-('ฮ.0324', 'นางสาว', 'ยู', 'ไอ', 2, '1569908977456', '123/2 หมู่ 6 ต.ป่าไผ่ อ.ดอกจัน จ.เชียงใหม่ 50089', 6, '00LB7NVDKS.jpeg', 'ไทย', 'ไทย', 'นักแสดง'),
-('ค.001', 'นาย', 'ทด', 'ลอง', 1, '1586677898675', '123/2 หมู่ 6 ต.ป่าไผ่ อ.ดอกจัน จ.เชียงใหม่ 50089', 6, 'icon_data_usermale.png', 'ไทย', 'ไทย ', 'การค้า'),
-('ง.12/52', 'นาย', 'ลึงลง', 'ใต้น้ำใหญ่', 1, '1607782455677', '123 หมู่ 9 ต.เชิงบน อ.เชิงล่าง จ.เชียงใหม่ 49668', 6, 'icon_data_usermale.png', 'ไทย', 'อังกฤษ', 'นักศึกษา'),
-('123a', 'นางสาว', 'อุอะ', 'รารา', 2, '1748869532121', '123/2 หมู่ 6 บ้านดงใหญ่ 8888', 4, 'icon_data_userfemale.png', 'ไทย', 'ไทย', 'ฟหกด'),
-('123a', 'นาย', 'ฟฟกหดฟหกดฟก', 'dsafadsfasdg', 1, '1754486255132', '123/2 หมู่ 855', 5, 'icon_data_usermale.png', 'ไทย', 'ไทย', 'ttt'),
-('testnow1', 'นาย', 'test1', 'test2', 1, 'test6', 'test6', 4, 'G2VMHL0060.jpeg', 'test3', 'test4', 'test5');
+INSERT INTO `victim` (`vic_no`, `case_id`, `title_name`, `victim_name`, `victim_lastname`, `victim_sex`, `victim_idcard`, `victim_address`, `victim_education`, `victim_image`, `victim_race`, `victim_nationality`, `victim_career`) VALUES
+(1, 'กก44', 'นางสาว', 'วงการ', 'วงลอง', 2, '1234567114247', '123/2 หมู่ 1 ต.ป่าไผ่ อ.ดอกจัน จ.เชียงใหม่ 50089', 6, 'GHF027D072.jpeg', 'ไทย', 'ไทย', 'รับจ้างทั่วไป'),
+(2, 'test123456', 'นาย', 'กกกกก', 'ขขขขขข', 1, '1234567237654', '123/2 หมู่ 6 ต.ป่าไผ่ อ.ดอกจัน จ.เชียงใหม่ 50089', 6, '3V20K02J02.jpeg', 'ไทย', 'ไทย', 'พ่อค้า'),
+(3, 'ฮ.0324', 'นาย', 'กี้', 'แปปนึง', 1, '1306607845367', '123/2 หมู่ 6 ต.ป่าไผ่ อ.ดอกจัน จ.เชียงใหม่ 50089', 6, 'BV99D7SL9M.jpeg', 'ไทย', 'ไทย', 'พ่อค้าเร่'),
+(4, 'todaytest11/01', 'นาย', 'ทดสอบใหม่', 'นะครับ', 1, '1408809625186', '123/2 หมู่ 6 บ้านทดสอบใหม่', 5, 'icon_data_usermale.png', 'ไทย', 'ไทย', 'ค้าขาย'),
+(5, 'ค.001', 'นางสาว', 'รีน่าจังงับ', 'อุยอ้าย', 2, '1486648521352', '25/185 หมู่ 6 ต.ป่าไผ่ อ.ดอกจัน จ.เชียงใหม่ 50089', 5, 'icon_data_userfemale.png', 'ไทย', 'ไทย', 'รับจ้างทั่วไป'),
+(6, 'ง.12/52', 'นาย', 'จันทร์ดี', 'โอโออา', 1, '1508890723431', '23 หมู่ 4 บ้าน ดง ต.ก่อไผ่ อ.ดอกไม้ จ.เชียงใหม่ 54334', 5, 'icon_data_usermale.png', 'ไทย', 'ไทย', 'ธุรกิจส่วนตัว'),
+(7, 'ค.001', 'นางสาว', 'พะยองจ้าเอ่ย', 'จังเลยงาว', 2, '1509643456712', '25 หมู่ 7 ต.ดอกไม้ อ.ต้นไม้ จ.เชียงใหม่ 54334', 7, 'icon_data_userfemale.png', 'ไทย', 'ไทย/ญีปุ่น', 'ธรุกิจส่วนตัว'),
+(8, 'ค.001', 'นาย', 'ช้าง', 'โตที่สุด', 1, '1509901658485', '68 หมู่ 8 บ้าน นอก ต.ใน อ.นอก จ.ใน 45667', 7, 'icon_data_usermale.png', 'ไทย', 'ไทย', 'ธรุกิจส่วนตัว'),
+(9, 'กบ/24.33', 'นาย', 'เศรษฐศิลป์', 'เพ็ญสิทธิ์', 1, '1509908675432', '34/5 หมู่ 6 ต.ป่าไผ่ อ.ดอกจัน จ.เชียงใหม่ 50089', 4, 'icon_data_usermale.png', 'ไทย', 'ไทย', 'นักศึกษา'),
+(10, 'ฮ.0324', 'นางสาว', 'ยู', 'ไอ', 2, '1569908977456', '123/2 หมู่ 6 ต.ป่าไผ่ อ.ดอกจัน จ.เชียงใหม่ 50089', 6, '00LB7NVDKS.jpeg', 'ไทย', 'ไทย', 'นักแสดง'),
+(11, 'ค.001', 'นาย', 'ทด', 'ลอง', 1, '1586677898675', '123/2 หมู่ 6 ต.ป่าไผ่ อ.ดอกจัน จ.เชียงใหม่ 50089', 6, 'icon_data_usermale.png', 'ไทย', 'ไทย ', 'การค้า'),
+(12, 'ง.12/52', 'นาย', 'ลึงลง', 'ใต้น้ำใหญ่', 1, '1607782455677', '123 หมู่ 9 ต.เชิงบน อ.เชิงล่าง จ.เชียงใหม่ 49668', 6, 'icon_data_usermale.png', 'ไทย', 'อังกฤษ', 'นักศึกษา'),
+(13, '123a', 'นางสาว', 'อุอะ', 'รารา', 2, '1748869532121', '123/2 หมู่ 6 บ้านดงใหญ่ 8888', 4, 'icon_data_userfemale.png', 'ไทย', 'ไทย', 'ฟหกด'),
+(14, '123a', 'นาย', 'ฟฟกหดฟหกดฟก', 'dsafadsfasdg', 1, '1754486255132', '123/2 หมู่ 855', 5, 'icon_data_usermale.png', 'ไทย', 'ไทย', 'ttt'),
+(15, 'testnow1', 'นาย', 'test1', 'test2', 1, 'test6', 'test6', 4, 'G2VMHL0060.jpeg', 'test3', 'test4', 'test5'),
+(16, '123b', 'นางสาว', 'เห้อ', 'เห้อหนัก', 2, '1111111111444', '123/2 หมู่ 6 ต.ป่าไผ่ อ.ดอกจัน จ.เชียงใหม่ 50089', 6, 'icon_data_userfemale.png', 'ไทย', 'ไทย', 'รับจ้างทั่วไป');
 
 -- --------------------------------------------------------
 
@@ -655,6 +662,7 @@ INSERT INTO `victim` (`case_id`, `title_name`, `victim_name`, `victim_lastname`,
 --
 
 CREATE TABLE `villain` (
+  `vil_no` int(11) NOT NULL,
   `case_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `title_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `villain_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -674,19 +682,21 @@ CREATE TABLE `villain` (
 -- Dumping data for table `villain`
 --
 
-INSERT INTO `villain` (`case_id`, `title_name`, `villain_name`, `villain_lastname`, `villain_sex`, `villain_idcard`, `villain_address`, `villain_education`, `villain_image`, `villain_race`, `villain_nationality`, `villain_career`, `villain_arya_no`) VALUES
-('ค.001', 'นาย', 'ลองอีก', 'เกิดไรขึ้นครับ', 1, '1158497684857', '1/1/64 บ้านจัดไป หมู่ 8 ', 4, 'icon_data_usermale.png', 'ไทย', 'ไทย', 'นักร้อง', ''),
-('ค.001', 'นาย', 'ทดสอบ', 'ทดลอง', 1, '1158497685123', '154/552 บ้านจัดไป หมู่ 8 ต.จันจ๋า อ.ดอยจัน จ.เชียงตุง 70550', 5, 'icon_data_usermale.png', 'ไทย', 'ไทย/ลาว', 'นักพากษ์', ''),
-('กบ/24.33', 'นาง', 'อทัย', 'สุกล', 2, '1234895674536', '154/552 บ้านจัดไป หมู่ 8 ต.เอือก อ.สักรำ จ.เชียงราย 56776', 7, '0XA0301J22.jpeg', 'ไทย', 'ไทย', 'ผู้รับเหมา', ''),
-('กก44', 'นาย', 'จิตจำนง', 'สีดำ', 1, '124145251938', '715/8  หมู่ 8 ต.จันจ๋า อ.ดอยจัน จ.เชียงตุง 70550', 4, 'icon_data_usermale.png', 'ไทย', 'ไทย/ลาว', 'นักแสดง', '221/12'),
-('กก44', 'นางสาว', ' บุญดี', 'ใจใหญ่', 2, '1248846123456', '154/552 บ้านจัดไป หมู่ 8 ต.จันจ๋า อ.ดอยจัน จ.เชียงคอง 70550', 6, 'icon_data_userfemale.png', 'ไทย', 'ไทย', 'นักแสดง', '221/12'),
-('todaytest11/01', 'นาย', 'ฐานรอง', 'ไตรรัต', 1, '124884612389', '5/8 บ้านจัดไป หมู่ 8 ต.จันจ๋า อ.ดอยจัน จ.เชียงตุง 70550', 5, 'icon_data_usermale.png', 'ไทย', 'ไทย/ลาว', 'นักแสดง', '001.11/63'),
-('ค.001', 'นางสาว', 'ภูมิลอง', 'ลองพูม', 2, '1248846251938', '75/8 บ้านจัดไป หมู่ 8 ต.จันจ๋า อ.ดอยจัน จ.เชียงตุง 70550', 6, 'L2B02C0Z2K.jpeg', 'ไทย', 'ไทย/ลาว', 'นักแสดง', '781/113'),
-('todaytest11/01', 'นาย', 'ภูมิลอง', 'ลองพูม', 1, '1248846256851', '154/5 บ้านจัดไป หมู่ 8 ต.จันจ๋า อ.ดอยจัน จ.เชียงตุง 70550', 6, 'icon_data_usermale.png', 'ไทย', 'ไทย', 'นักแสดง', '001.11/63'),
-('ค.001', 'นาย', 'ลองเชิง', 'เชิงกราน', 1, '1248846257625', '154/552 บ้านจัดไป หมู่ 8 ต.จันจ๋า อ.ดอยจัน จ.เชียงตุง 70550', 7, 'icon_data_usermale.png', 'ไทย', 'ไทย', 'หมอ', '781/113'),
-('testnow1', 'test1', 'test2', 'test3', 1, '1248854621938', 'test7', 5, '1ZL00000XN.jpeg', 'test4', 'test5', 'test6', 'test3'),
-('testnow1', 'test1', 'test2', 'test3', 1, '1448846661938', 'test7', 3, 'G606HD2N1K.jpeg', 'test4', 'test5', 'test6', 'test3'),
-('ง.12/52', 'นาย', 'แดง', 'สีแดง', 1, '1508509823421', NULL, 1, 'icon_data_usermale.png', 'ไทย', 'ไทย', 'พ่อค้า', '');
+INSERT INTO `villain` (`vil_no`, `case_id`, `title_name`, `villain_name`, `villain_lastname`, `villain_sex`, `villain_idcard`, `villain_address`, `villain_education`, `villain_image`, `villain_race`, `villain_nationality`, `villain_career`, `villain_arya_no`) VALUES
+(1, 'ค.001', 'นาย', 'ลองอีก', 'เกิดไรขึ้นครับ', 1, '1158497684857', '1/1/64 บ้านจัดไป หมู่ 8 ', 4, 'icon_data_usermale.png', 'ไทย', 'ไทย', 'นักร้อง', ''),
+(2, 'ค.001', 'นาย', 'ทดสอบ', 'ทดลอง', 1, '1158497685123', '154/552 บ้านจัดไป หมู่ 8 ต.จันจ๋า อ.ดอยจัน จ.เชียงตุง 70550', 5, 'icon_data_usermale.png', 'ไทย', 'ไทย/ลาว', 'นักพากษ์', ''),
+(3, 'กบ/24.33', 'นาง', 'อทัย', 'สุกล', 2, '1234895674536', '154/552 บ้านจัดไป หมู่ 8 ต.เอือก อ.สักรำ จ.เชียงราย 56776', 7, '0XA0301J22.jpeg', 'ไทย', 'ไทย', 'ผู้รับเหมา', ''),
+(4, 'กก44', 'นาย', 'จิตจำนง', 'สีดำ', 1, '124145251938', '715/8  หมู่ 8 ต.จันจ๋า อ.ดอยจัน จ.เชียงตุง 70550', 4, 'icon_data_usermale.png', 'ไทย', 'ไทย/ลาว', 'นักแสดง', '221/12'),
+(5, 'กก44', 'นางสาว', ' บุญดี', 'ใจใหญ่', 2, '1248846123456', '154/552 บ้านจัดไป หมู่ 8 ต.จันจ๋า อ.ดอยจัน จ.เชียงคอง 70550', 6, 'icon_data_userfemale.png', 'ไทย', 'ไทย', 'นักแสดง', '221/12'),
+(6, 'todaytest11/01', 'นาย', 'ฐานรอง', 'ไตรรัต', 1, '124884612389', '5/8 บ้านจัดไป หมู่ 8 ต.จันจ๋า อ.ดอยจัน จ.เชียงตุง 70550', 5, 'icon_data_usermale.png', 'ไทย', 'ไทย/ลาว', 'นักแสดง', '001.11/63'),
+(7, 'ค.001', 'นางสาว', 'ภูมิลอง', 'ลองพูม', 2, '1248846251938', '75/8 บ้านจัดไป หมู่ 8 ต.จันจ๋า อ.ดอยจัน จ.เชียงตุง 70550', 6, 'L2B02C0Z2K.jpeg', 'ไทย', 'ไทย/ลาว', 'นักแสดง', '781/113'),
+(8, 'todaytest11/01', 'นาย', 'ภูมิลอง', 'ลองพูม', 1, '1248846256851', '154/5 บ้านจัดไป หมู่ 8 ต.จันจ๋า อ.ดอยจัน จ.เชียงตุง 70550', 6, 'icon_data_usermale.png', 'ไทย', 'ไทย', 'นักแสดง', '001.11/63'),
+(9, 'ค.001', 'นาย', 'ลองเชิง', 'เชิงกราน', 1, '1248846257625', '154/552 บ้านจัดไป หมู่ 8 ต.จันจ๋า อ.ดอยจัน จ.เชียงตุง 70550', 7, 'icon_data_usermale.png', 'ไทย', 'ไทย', 'หมอ', '781/113'),
+(10, 'testnow1', 'test1', 'test2', 'test3', 1, '1248854621938', 'test7', 5, '1ZL00000XN.jpeg', 'test4', 'test5', 'test6', 'test3'),
+(11, 'testnow1', 'test1', 'test2', 'test3', 1, '1448846661938', 'test7', 3, 'G606HD2N1K.jpeg', 'test4', 'test5', 'test6', 'test3'),
+(12, 'ง.12/52', 'นาย', 'แดง', 'สีแดง', 1, '1508509823421', NULL, 1, 'icon_data_usermale.png', 'ไทย', 'ไทย', 'พ่อค้า', ''),
+(28, '123b', 'นาย', 'เทส', 'เทส', 1, '1111111111222', '154/552 บ้านจัดไป หมู่ 8 ต.จันจ๋า อ.ดอยจัน จ.เชียงตุง 70550', 6, 'icon_data_usermale.png', 'ไทย', 'ไทย', 'นักศึกษา', '13/13'),
+(29, '123b', 'นางสาว', 'เทสหญิง', 'เทสหญิง', 2, '1111111111333', '154/552 บ้านจัดไป หมู่ 8 ต.จันจ๋า อ.ดอยจัน จ.เชียงตุง 70550', 5, 'icon_data_userfemale.png', 'ไทย', 'ไทย', 'นักศึกษา', '13/13');
 
 -- --------------------------------------------------------
 
@@ -861,6 +871,7 @@ INSERT INTO `villain_hair` (`hair_style_id`, `hair_name`) VALUES
 --
 
 CREATE TABLE `villain_identities` (
+  `vil_iden_no` int(11) NOT NULL,
   `villain_idcard` char(13) COLLATE utf8_unicode_ci NOT NULL,
   `face_villain` tinyint(2) DEFAULT NULL,
   `hair_style_villain` tinyint(2) DEFAULT NULL,
@@ -877,18 +888,20 @@ CREATE TABLE `villain_identities` (
 -- Dumping data for table `villain_identities`
 --
 
-INSERT INTO `villain_identities` (`villain_idcard`, `face_villain`, `hair_style_villain`, `ears_villain`, `forehead_villain`, `eyes_villain`, `nose_villain`, `mouth_villain`, `chin_villain`, `body_villain`) VALUES
-('1158497684857', 3, 3, 5, 4, 6, 8, 5, 3, 1),
-('1158497685123', 3, 7, 5, 3, 1, 6, 5, 2, 1),
-('1234895674536', 4, 8, 6, 5, 5, 7, 6, 4, 3),
-('124145251938', 4, 4, 6, 3, 7, 8, 7, 5, 2),
-('1248846123456', 1, 2, 5, 5, 7, 8, 6, 4, 2),
-('124884612389', 6, 6, 3, 3, 5, 4, 5, 3, 2),
-('1248846251938', 1, 8, 6, 3, 3, 10, 2, 4, 3),
-('1248846256851', 6, 8, 4, 5, 4, 5, 4, 3, 1),
-('1248846257625', 7, 8, 5, 1, 2, 10, 5, 3, 2),
-('1248854621938', 1, 5, 5, 3, 7, 8, 6, 3, 2),
-('1448846661938', 6, 8, 6, 4, 5, 8, 7, 4, 3);
+INSERT INTO `villain_identities` (`vil_iden_no`, `villain_idcard`, `face_villain`, `hair_style_villain`, `ears_villain`, `forehead_villain`, `eyes_villain`, `nose_villain`, `mouth_villain`, `chin_villain`, `body_villain`) VALUES
+(1, '1158497684857', 3, 3, 5, 4, 6, 8, 5, 3, 1),
+(2, '1158497685123', 3, 7, 5, 3, 1, 6, 5, 2, 1),
+(3, '1234895674536', 4, 8, 6, 5, 5, 7, 6, 4, 3),
+(4, '124145251938', 4, 4, 6, 3, 7, 8, 7, 5, 2),
+(5, '1248846123456', 1, 2, 5, 5, 7, 8, 6, 4, 2),
+(6, '124884612389', 6, 6, 3, 3, 5, 4, 5, 3, 2),
+(7, '1248846251938', 1, 8, 6, 3, 3, 10, 2, 4, 3),
+(8, '1248846256851', 6, 8, 4, 5, 4, 5, 4, 3, 1),
+(9, '1248846257625', 7, 8, 5, 1, 2, 10, 5, 3, 2),
+(10, '1248854621938', 1, 5, 5, 3, 7, 8, 6, 3, 2),
+(11, '1448846661938', 6, 8, 6, 4, 5, 8, 7, 4, 3),
+(22, '1111111111222', 3, 3, 6, 5, 6, 9, 7, 3, 2),
+(23, '1111111111333', 6, 9, 7, 3, 7, 7, 2, 4, 2);
 
 -- --------------------------------------------------------
 
@@ -1153,15 +1166,16 @@ ALTER TABLE `user`
 -- Indexes for table `victim`
 --
 ALTER TABLE `victim`
-  ADD PRIMARY KEY (`victim_idcard`),
+  ADD PRIMARY KEY (`vic_no`),
   ADD KEY `victim_education` (`victim_education`),
-  ADD KEY `case_id` (`case_id`);
+  ADD KEY `case_id` (`case_id`),
+  ADD KEY `victim_idcard` (`victim_idcard`) USING BTREE;
 
 --
 -- Indexes for table `villain`
 --
 ALTER TABLE `villain`
-  ADD PRIMARY KEY (`villain_idcard`),
+  ADD PRIMARY KEY (`vil_no`) USING BTREE,
   ADD KEY `case_id` (`case_id`),
   ADD KEY `villain_education` (`villain_education`);
 
@@ -1211,16 +1225,7 @@ ALTER TABLE `villain_hair`
 -- Indexes for table `villain_identities`
 --
 ALTER TABLE `villain_identities`
-  ADD PRIMARY KEY (`villain_idcard`),
-  ADD KEY `body_villain` (`body_villain`),
-  ADD KEY `chin_villain` (`chin_villain`),
-  ADD KEY `ears_villain` (`ears_villain`),
-  ADD KEY `eyes_villain` (`eyes_villain`),
-  ADD KEY `face_villain` (`face_villain`),
-  ADD KEY `forehead_villain` (`forehead_villain`),
-  ADD KEY `hair_style_villain` (`hair_style_villain`),
-  ADD KEY `mouth_villain` (`mouth_villain`),
-  ADD KEY `nose_villain` (`nose_villain`);
+  ADD PRIMARY KEY (`vil_iden_no`);
 
 --
 -- Indexes for table `villain_mouth`
@@ -1260,7 +1265,7 @@ ALTER TABLE `arrestor`
 -- AUTO_INCREMENT for table `arrest_record`
 --
 ALTER TABLE `arrest_record`
-  MODIFY `arrest_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `arrest_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `education`
@@ -1284,13 +1289,13 @@ ALTER TABLE `investigation_report`
 -- AUTO_INCREMENT for table `object_case`
 --
 ALTER TABLE `object_case`
-  MODIFY `ob_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `ob_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `police_catch_arrest`
 --
 ALTER TABLE `police_catch_arrest`
-  MODIFY `id_po_ca_ar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id_po_ca_ar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `rank_police`
@@ -1321,6 +1326,18 @@ ALTER TABLE `status_case`
 --
 ALTER TABLE `summon_villain`
   MODIFY `no_sv` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `victim`
+--
+ALTER TABLE `victim`
+  MODIFY `vic_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
+--
+-- AUTO_INCREMENT for table `villain`
+--
+ALTER TABLE `villain`
+  MODIFY `vil_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `villain_body`
@@ -1363,6 +1380,12 @@ ALTER TABLE `villain_forehead`
 --
 ALTER TABLE `villain_hair`
   MODIFY `hair_style_id` tinyint(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `villain_identities`
+--
+ALTER TABLE `villain_identities`
+  MODIFY `vil_iden_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `villain_mouth`
@@ -1461,23 +1484,7 @@ ALTER TABLE `victim`
 -- Constraints for table `villain`
 --
 ALTER TABLE `villain`
-  ADD CONSTRAINT `villain_ibfk_1` FOREIGN KEY (`case_id`) REFERENCES `case_name` (`case_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `villain_ibfk_2` FOREIGN KEY (`villain_education`) REFERENCES `education` (`edu_id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `villain_identities`
---
-ALTER TABLE `villain_identities`
-  ADD CONSTRAINT `villain_identities_ibfk_1` FOREIGN KEY (`villain_idcard`) REFERENCES `villain` (`villain_idcard`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `villain_identities_ibfk_10` FOREIGN KEY (`nose_villain`) REFERENCES `villain_nose` (`nose_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `villain_identities_ibfk_2` FOREIGN KEY (`body_villain`) REFERENCES `villain_body` (`body_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `villain_identities_ibfk_3` FOREIGN KEY (`chin_villain`) REFERENCES `villain_chin` (`chin_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `villain_identities_ibfk_4` FOREIGN KEY (`ears_villain`) REFERENCES `villain_ears` (`ears_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `villain_identities_ibfk_5` FOREIGN KEY (`eyes_villain`) REFERENCES `villain_eyes` (`eyes_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `villain_identities_ibfk_6` FOREIGN KEY (`face_villain`) REFERENCES `villain_face` (`face_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `villain_identities_ibfk_7` FOREIGN KEY (`forehead_villain`) REFERENCES `villain_forehead` (`forehead_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `villain_identities_ibfk_8` FOREIGN KEY (`hair_style_villain`) REFERENCES `villain_hair` (`hair_style_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `villain_identities_ibfk_9` FOREIGN KEY (`mouth_villain`) REFERENCES `villain_mouth` (`mouth_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

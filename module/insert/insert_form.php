@@ -58,25 +58,6 @@ a:hover{
       </a>
     </div>
     <div class="col-sm-4">
-      <p class="text-center"><b>เพิ่มข้อมูลผู้ต้องหา</b></p>
-      <a href="#" id="myBtnNsVT1">
-      <p class="text-center"><i class="fas fa-user-secret" style="font-size: 80px"></i></p>
-      </a>
-    </div>
-    <div class="col-sm-4">
-      <p class="text-center"><b>เพิ่มข้อมูลของกลาง</b></p>
-      <a href="#" id="myBtnNsVT2">
-      <p class="text-center"><i class="fas fa-shoe-prints" style="font-size: 80px"></i></p>
-      </a>
-    </div>
-    </div>
-    <!-- </div>
-    </div> -->
-    <!-- <div  class="topbigbody3">
-    <div class="subbigbody"> -->
-      <br>
-    <div class="row">
-    <div class="col-sm-4">
 
     <p class="text-center"><b>เพิ่มบันทึกการจับกุม</b></p>
       <a href="#" id="myBtnNsVT3">
@@ -89,13 +70,18 @@ a:hover{
       <p class="text-center"><i class="fas fa-sticky-note" style="font-size: 80px"></i></p>
       </a>
     </div>
-    <div class="col-sm-4">
-      <p class="text-center"><b>เพิ่มข้อมูลหมายจับ</b></p>
-      <a href="#" id="myBtnNsVT4">
-      <p class="text-center"><i class="fas fa-sticky-note" style="font-size: 80px"></i></p>
+    <!-- <div class="col-sm-4">
+      <p class="text-center"><b>เพิ่มข้อมูลผู้ต้องหา</b></p>
+      <a href="#" id="myBtnNsVT1">
+      <p class="text-center"><i class="fas fa-user-secret" style="font-size: 80px"></i></p>
       </a>
     </div>
-    
+    <div class="col-sm-4">
+      <p class="text-center"><b>เพิ่มข้อมูลของกลาง</b></p>
+      <a href="#" id="myBtnNsVT2">
+      <p class="text-center"><i class="fas fa-shoe-prints" style="font-size: 80px"></i></p>
+      </a>
+    </div> -->
     </div>
     <!-- </div>
     </div> -->
@@ -103,6 +89,25 @@ a:hover{
     <div class="subbigbody"> -->
       <br>
     <div class="row">
+    <!-- <div class="col-sm-4">
+
+    <p class="text-center"><b>เพิ่มบันทึกการจับกุม</b></p>
+      <a href="#" id="myBtnNsVT3">
+      <p class="text-center"><i class="fas fa-sticky-note" style="font-size: 80px"></i></p>
+      </a>
+    </div>
+    <div class="col-sm-4">
+      <p class="text-center"><b>เพิ่มคำร้องออกหมายจับ</b></p>
+      <a href="#" id="myBtnNsVT5">
+      <p class="text-center"><i class="fas fa-sticky-note" style="font-size: 80px"></i></p>
+      </a>
+    </div> -->
+    <div class="col-sm-4">
+      <p class="text-center"><b>เพิ่มข้อมูลหมายจับ</b></p>
+      <a href="#" id="myBtnNsVT4">
+      <p class="text-center"><i class="fas fa-sticky-note" style="font-size: 80px"></i></p>
+      </a>
+    </div>
     <div class="col-sm-4">
 
     <p class="text-center"><b>เพิ่มรายงานการสอบสวน</b></p>
@@ -116,12 +121,40 @@ a:hover{
       <p class="text-center"><i class="fas fa-sticky-note" style="font-size: 80px"></i></p>
       </a>
     </div>
+
+    </div>
+    <!-- </div>
+    </div> -->
+    <!-- <div  class="topbigbody3">
+    <div class="subbigbody"> -->
+      <br>
+    <div class="row">
+    <!-- <div class="col-sm-4">
+
+    <p class="text-center"><b>เพิ่มรายงานการสอบสวน</b></p>
+      <a href="#" id="myBtnNsVT6">
+      <p class="text-center"><i class="fas fa-sticky-note" style="font-size: 80px"></i></p>
+      </a>
+    </div>
+    <div class="col-sm-4">
+      <p class="text-center"><b>เพิ่มหมายเรียกผู้ต้องหา</b></p>
+      <a href="#" id="myBtnNsVT7">
+      <p class="text-center"><i class="fas fa-sticky-note" style="font-size: 80px"></i></p>
+      </a>
+    </div> -->
     <div class="col-sm-4">
       <p class="text-center"><b>เพิ่มคำให้การผู้ต้องหา</b></p>
       <a href="#" id="myBtnNsVT8">
       <p class="text-center"><i class="fas fa-sticky-note" style="font-size: 80px"></i></p>
       </a>
     </div>
+    <div class="col-sm-4">
+
+<p class="text-center"><b>เพิ่มหมายค้น</b></p>
+  <a href="#" id="myBtnNsVT9">
+  <p class="text-center"><i class="fas fa-sticky-note" style="font-size: 80px"></i></p>
+  </a>
+</div>
     </div>
     <!-- </div>
     </div>
@@ -129,13 +162,13 @@ a:hover{
     <div class="subbigbody"> -->
       <br>
     <div class="row">
-    <div class="col-sm-12">
+    <!-- <div class="col-sm-12">
 
     <p class="text-center"><b>เพิ่มหมายค้น</b></p>
       <a href="#" id="myBtnNsVT9">
       <p class="text-center"><i class="fas fa-sticky-note" style="font-size: 80px"></i></p>
       </a>
-    </div>
+    </div> -->
     </div>
     <!-- </div>
     </div> -->

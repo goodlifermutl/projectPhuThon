@@ -169,12 +169,7 @@ if($ac_chk=='4'){
   <li class="nav-item">
   <a class="nav-link <?php echo $action1 ?>" href="#" id="myBtnNsVT0">เพิ่มข้อมูลผู้เสียหาย</a>
   </li>
-  <li class="nav-item">
-  <a class="nav-link <?php echo $action2 ?>" href="#" id="myBtnNsVT1">เพิ่มข้อมูลผู้ต้องหา</a>
-  </li>
-  <li class="nav-item">
-  <a class="nav-link <?php echo $action3 ?>" href="#" id="myBtnNsVT2">เพิ่มข้อมูลของกลาง</a>
-  </li>
+  
   <li class="nav-item">
   <a class="nav-link <?php echo $action4 ?>" href="#" id="myBtnNsVT3">เพิ่มบันทึกการจับกุม</a>
   </li>
@@ -347,3 +342,9 @@ function topFunction() {
 }
 </script>
 
+<!-- <li class="nav-item">
+  <a class="nav-link <?php echo $action2 ?>" href="#" id="myBtnNsVT1">เพิ่มข้อมูลผู้ต้องหา</a>
+  </li>
+  <li class="nav-item">
+  <a class="nav-link <?php echo $action3 ?>" href="#" id="myBtnNsVT2">เพิ่มข้อมูลของกลาง</a>
+  </li> -->
