@@ -41,7 +41,7 @@ var chart = new CanvasJS.Chart("chartContainer", {
 	animationEnabled: true,
 	theme: "light2", // "light1", "light2", "dark1", "dark2"
 	title: {
-		text: "สถิติการเกิดคดีใน ปีxxxx"
+		text: "สถิติการเกิดคดีใน ปี<?php echo $year_seach?>"
 	},
 	axisY: {
 		title: "จำนวน(ครั้ง)",

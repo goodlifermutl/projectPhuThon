@@ -30,13 +30,13 @@
               <label class="col-sm col-form-label">เชื้อชาติ : </label>
             </div>
             <div class="col-md">
-              <input type="text" class="form-control" placeholder="เชื้อชาติ" value="" name="villain_race" required >
+              <input type="text" class="form-control" placeholder="เชื้อชาติ" value="ไทย" name="villain_race" required >
             </div>
             <div>
               <label class="col-sm col-form-label">สัญชาติ : </label>
             </div>
             <div class="col-md">
-              <input type="text" class="form-control " placeholder="สัญชาติ" value="" name="villain_nationality" required >
+              <input type="text" class="form-control " placeholder="สัญชาติ" value="ไทย" name="villain_nationality" required >
             </div>
             <div>
               <label class="col-sm col-form-label">อาชีพ : </label>
@@ -53,7 +53,7 @@
             <label class="col-sm col-form-label">เลขบัตรประจำตัวประชาชน : </label>
         </div>
         <div class="col-md">
-            <input type="text" class="form-control" placeholder="เลขบัตร" id="" name="villain_idcard" data-idcard="<?php echo $victim_idcard ?>"  value="" required >
+            <input type="text" class="form-control" placeholder="เลขบัตร" id="villain_idcard" name="villain_idcard" data-idcard="<?php echo $victim_idcard ?>"  value="" required >
         </div>
         <div>
             <label class="col-sm col-form-label" >ระดับการศึกษา : </label>
@@ -69,7 +69,28 @@
                    
             </select>
         </div>
+        <div class="col-md">
+        <div class="form-group row"> 
         <div>
+            <label class="col-sm col-form-label">เพศ : </label>
+              
+        </div>
+            <div class="form-check">
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <input class="form-check-input" type="radio" name="villain_sex" id="exampleRadios1" value="1">
+            <label class="form-check-label" for="exampleRadios1">
+            ชาย
+            </label>
+            </div>&nbsp;
+            <div class="form-check">
+            <input class="form-check-input" type="radio" name="villain_sex" id="exampleRadios2" value="2">
+            <label class="form-check-label" for="exampleRadios2">
+            หญิง
+            </label>
+            </div>
+        </div>
+        </div>
+        <!-- <div>
             <label class="col-sm col-form-label">เพศ : </label>
               
         </div>
@@ -81,7 +102,7 @@
                 <option value="1" >ชาย</option>
                 <option value="2" >หญิง</option>
             </select>
-        </div>
+        </div> -->
     </div>
     </div>
     <p></p>
@@ -266,18 +287,8 @@
 <script>
 $('#insert_villain').validate({ 
 								
-    rules: {
-    usrname:{
-    minlength:6
-    },
-    psw: { 
-    minlength:8
-    },
-    psw2: {
-    minlength:8,
-    equalTo: ".password"
-    },
-    idcard: {
+    rules: {					
+    villain_idcard: {
     minlength:13,
     maxlength:13
             }

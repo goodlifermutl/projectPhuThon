@@ -72,7 +72,7 @@ if(!empty($_FILES['villain_file']['name'])){
     }
 }
 
-$sql_insert_villain="INSERT INTO villain VALUES('$vil_case','$vil_title','$vil_name','$vil_lastname','$vil_sex','$vil_idcard','$vil_address','$vil_edu','$imgname','$vil_race','$vil_nationality','$vil_careen')";
+$sql_insert_villain="INSERT INTO villain VALUES('$vil_case','$vil_title','$vil_name','$vil_lastname','$vil_sex','$vil_idcard','$vil_address','$vil_edu','$imgname','$vil_race','$vil_nationality','$vil_careen','')";
 $sql_insert_villain_iden="INSERT INTO villain_identities VALUES('$vil_idcard','$vil_face','$vil_hair','$vil_ears','$vil_forehead','$vil_eyes','$vil_nose','$vil_mouth','$vil_chin','$vil_body')";
 mysqli_query($con,$sql_insert_villain)or die("sql insert villain error!!!!!!!".mysqli_error($con));
 mysqli_query($con,$sql_insert_villain_iden)or die("sql insert villain_iden ERROR!!!!".mysqli_error($con));

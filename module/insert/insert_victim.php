@@ -30,13 +30,13 @@
               <label class="col-sm col-form-label">เชื้อชาติ : </label>
             </div>
             <div class="col-md">
-              <input type="text" class="form-control" placeholder="เชื้อชาติ" value="" name="victim_race"  required>
+              <input type="text" class="form-control"  placeholder="เชื้อชาติ" value="ไทย" name="victim_race"  required>
             </div>
             <div>
               <label class="col-sm col-form-label">สัญชาติ : </label>
             </div>
             <div class="col-md">
-              <input type="text" class="form-control " placeholder="สัญชาติ" value="" name="victim_nationality"  required>
+              <input type="text" class="form-control " placeholder="สัญชาติ" value="ไทย" name="victim_nationality"  required>
             </div>
             <div>
               <label class="col-sm col-form-label">อาชีพ : </label>
@@ -47,13 +47,13 @@
           </div>
           </div>
     <p></p>
-    <div class="col-md">
+    <div class="col-md-14">
     <div class="form-row">
         <div>
             <label class="col-sm col-form-label">เลขบัตรประจำตัวประชาชน : </label>
         </div>
         <div class="col-md">
-            <input type="text" class="form-control" placeholder="เลขบัตร" id="" name="victim_idcard" data-idcard="<?php echo $victim_idcard ?>"  value=""  required>
+            <input type="text" class="form-control" placeholder="เลขบัตร" id="victim_idcard" name="victim_idcard" data-idcard="<?php echo $victim_idcard ?>"  value=""  required>
         </div>
         <div>
             <label class="col-sm col-form-label" >ระดับการศึกษา : </label>
@@ -74,12 +74,29 @@
               
         </div>
         <div class="col-md">
+        <div class="form-group row"> 
+            
+            <div class="form-check">
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <input class="form-check-input" type="radio" name="victim_sex" id="exampleRadios1" value="1">
+            <label class="form-check-label" for="exampleRadios1">
+            ชาย
+            </label>
+            </div>&nbsp;
+            <div class="form-check">
+            <input class="form-check-input" type="radio" name="victim_sex" id="exampleRadios2" value="2">
+            <label class="form-check-label" for="exampleRadios2">
+            หญิง
+            </label>
+            </div>
+        <!-- <div class="col-md">
             <select class="custom-select " id="" name="victim_sex" required>
                 <option disabled selected value="0">เพศ</option>
                 <option value="1" >ชาย</option>
                 <option value="2" >หญิง</option>
             </select>
-        </div>
+        </div> -->
+    </div>
     </div>
     </div>
     <p></p>
@@ -117,19 +134,8 @@
 
 <script>
 $('#insertvictim').validate({ 
-								
-    rules: {
-    usrname:{
-    minlength:6
-    },
-    psw: { 
-    minlength:8
-    },
-    psw2: {
-    minlength:8,
-    equalTo: ".password"
-    },
-    idcard: {
+    rules: {					
+    victim_idcard: {
     minlength:13,
     maxlength:13
             }
@@ -163,6 +169,8 @@ $("#insertvictim").submit(function(e){
 	  });	
 	}
 });
+
+
 
 // Add the following code if you want the name of the file appear on select
 $(".custom-file-input").on("change", function() {
