@@ -48,7 +48,11 @@
         <input type="hidden" id="chk_link" value="<?php echo $l  ?>">
         
          <div class="col-md">
-         <b><label for="formGroupExampleInput">ของกลาง อย่างที่ <?php echo $i; ?></label></b><button type="button" id="btn_edit<?php echo $i ?>"><i class="fas fa-edit" style="font-size: 10px"></i></button><button type="button" id="btn_report<?php echo $i ?>"><i class="fas fa-edit" style="font-size: 10px"></i></button>
+         <b><label for="formGroupExampleInput">ของกลาง อย่างที่ <?php echo $i; ?></label></b>
+         <div class="btn-group" role="group" aria-label="Basic example">
+          <button type="button" class="btn btn-info" id="btn_edit<?php echo $i ?>"><i class="fas fa-edit" style="font-size: 10px"></i> แก้ไข</button>
+          <button type="button" class="btn btn-info" id="btn_report<?php echo $i ?>"><i class="far fa-file-alt"></i> รายงาน</button>
+        </div>
          <p><img src="image/<?php echo $object_image; ?>" class="img-fluid mx-auto d-block rounded-circle victimpic" alt="Responsive image" width="128";height="128"; id="victimpic<?php echo $i; ?>"></p>
         </div>
         <div class="col-md">

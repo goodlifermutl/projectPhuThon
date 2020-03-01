@@ -48,9 +48,13 @@
         <input type="hidden" id="chk_link" value="<?php echo $l  ?>">
         
          <div class="col-md">
-         <b><label for="formGroupExampleInput">หมายจับ ฉบับที่ <?php echo $i; ?></label></b><button type="button" id="btn_edit2<?php echo $i ?>"><i class="fas fa-edit" style="font-size: 10px"></i></button><button type="button" id="btn_arrestinfo_report<?php echo $i ?>"><i class="fas fa-edit" style="font-size: 10px"></i></button>
-         
+         <b><label for="formGroupExampleInput">หมายจับ ฉบับที่ <?php echo $i; ?></label></b>
+         <div class="btn-group" role="group" aria-label="Basic example">
+          <button type="button" class="btn btn-info" id="btn_edit2<?php echo $i ?>"><i class="fas fa-edit" style="font-size: 10px"></i> แก้ไข</button>
+          <button type="button" class="btn btn-info" id="btn_arrestinfo_report<?php echo $i ?>"><i class="far fa-file-alt"></i> รายงาน</button>
         </div>
+        </div>
+        <br>
         <div class="col-md">
 
     </div>
@@ -220,7 +224,8 @@
             <button type="button" class="btn btn-outline-danger" id="canclebtnArrInfo<?php echo $i; ?>">ยกเลิก</button></p>
             </div>
     </form>
-
+<hr>
+<br>
       <?php
         $i++;
       }

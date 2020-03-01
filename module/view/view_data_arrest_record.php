@@ -49,9 +49,13 @@
         <input type="hidden" id="chk_link" value="<?php echo $l  ?>">
         
          <div class="col-md">
-         <b><label for="formGroupExampleInput">บันทึกการจับกุม ฉบับที่ <?php echo $i; ?></label></b><button type="button" id="btn_edit1<?php echo $i ?>"><i class="fas fa-edit" style="font-size: 10px"></i></button><button type="button" id="btn_ar_report<?php echo $i ?>"><i class="fas fa-edit" style="font-size: 10px"></i></button>
+         <b><label for="formGroupExampleInput">บันทึกการจับกุม ฉบับที่ <?php echo $i; ?></label></b>
+         <div class="btn-group" role="group" aria-label="Basic example">
+          <button type="button" class="btn btn-info" id="btn_edit1<?php echo $i ?>"><i class="fas fa-edit" style="font-size: 10px"></i> แก้ไข</button>
+          <button type="button" class="btn btn-info" id="btn_ar_report<?php echo $i ?>"><i class="far fa-file-alt"></i> รายงาน</button>
+        </div>
          </div>
-      
+         <br>
 
 <form class="save1<?php echo$i ?>" method="post" id="insertrecord">
   <div class="col-md">
@@ -272,7 +276,8 @@
             <p class="text-center"><button type="submit" class="btn btn-outline-success savebtn1" id="savebtn1<?php echo $i; ?>" data-idcard="<?php echo $victim_idcard ?>">บันทึก</button>
             <button type="button" class="btn btn-outline-danger" id="canclebtn1<?php echo $i; ?>">ยกเลิก</button></p>
             </div>
-    
+    <hr>
+    <br>
 
 </form>
 

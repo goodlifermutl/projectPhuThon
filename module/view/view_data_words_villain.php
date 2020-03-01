@@ -70,10 +70,13 @@
         <input type="hidden" id="chk_link" value="<?php echo $l  ?>">
         
          <div class="col-md">
-         <b><label for="formGroupExampleInput">คำให้การผู้ต้องหา ฉบับที่ <?php echo $i; ?></label></b><button type="button" id="btn_edit6<?php echo $i ?>"><i class="fas fa-edit" style="font-size: 10px"></i></button><button type="button" id="btn_wv_report<?php echo $i ?>"><i class="fas fa-edit" style="font-size: 10px"></i></button>
-         
+         <b><label for="formGroupExampleInput">คำให้การผู้ต้องหา ฉบับที่ <?php echo $i; ?></label></b>
+         <div class="btn-group" role="group" aria-label="Basic example">
+          <button type="button" class="btn btn-info" id="btn_edit6<?php echo $i ?>"><i class="fas fa-edit" style="font-size: 10px"></i> แก้ไข</button>
+          <button type="button" class="btn btn-info" id="btn_wv_report<?php echo $i ?>"><i class="far fa-file-alt"></i> รายงาน</button>
         </div>
-
+        </div>
+        <br>
     <form class="save6<?php echo$i ?>" method="post" id="insertWordsVill">
     <input type="hidden" id="key_wv<?php echo $i ?>" value="<?php echo $wv_no  ?>" name="wv_no_id[]">
     <input type="hidden"  value="<?php echo $wv_card  ?>" name="wv_idcard[]">
@@ -239,7 +242,8 @@
             </div>
             
     </form>
-
+    <hr>
+    <br>
       <?php
         $i++;
       }

@@ -51,7 +51,11 @@
         <a name="<?php echo $victim_name ?>"></a> 
         <a name="<?php echo $victim_lastname ?>"></a> 
          <div class="col-md">
-         <b><label for="formGroupExampleInput">ผู้เสียหาย คนที่ <?php echo $i; ?></label></b><button type="button" id="victim_test<?php echo $i ?>"><i class="fas fa-edit" style="font-size: 10px"></i></button><button type="button" id="victim_report<?php echo $i ?>"><i class="fas fa-edit" style="font-size: 10px"></i></button>
+         <b><label for="formGroupExampleInput">ผู้เสียหาย คนที่ <?php echo $i; ?></label></b>
+         <div class="btn-group" role="group" aria-label="Basic example">
+          <button type="button" class="btn btn-info" id="victim_test<?php echo $i ?>"><i class="fas fa-edit" style="font-size: 10px"></i> แก้ไข</button>
+          <button type="button" class="btn btn-info" id="victim_report<?php echo $i ?>"><i class="far fa-file-alt"></i> รายงาน</button>
+        </div>
          <p><img src="image/<?php echo $victim_image; ?>" class="img-fluid mx-auto d-block rounded-circle victimpic" alt="Responsive image" width="128";height="128"; id="victimpic<?php echo $i; ?>"></p>
           <div class="col-md">
           <div class="form-row">

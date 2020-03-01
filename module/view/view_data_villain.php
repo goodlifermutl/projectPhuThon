@@ -52,7 +52,11 @@
         <a name="<?php echo $villain_lastname ?>"></a> 
         <form class="villain<?php echo$i ?>" method="post" enctype="multipart/form-data">
          <div class="col-md">
-          <b><label for="formGroupExampleInput">ผู้ต้องหา คนที่ <?php echo $i; ?></label></b><button type="button" id="villain_test<?php echo $i ?>"><i class="fas fa-edit" style="font-size: 10px"></i></button><button type="button" id="villain_report<?php echo $i ?>"><i class="fas fa-edit" style="font-size: 10px"></i></button>
+          <b><label for="formGroupExampleInput">ผู้ต้องหา คนที่ <?php echo $i; ?></label></b>
+        <div class="btn-group" role="group" aria-label="Basic example">
+          <button type="button" class="btn btn-info" id="villain_test<?php echo $i ?>"><i class="fas fa-edit" style="font-size: 10px"></i> แก้ไข</button>
+          <button type="button" class="btn btn-info" id="villain_report<?php echo $i ?>"><i class="far fa-file-alt"></i> รายงาน</button>
+        </div>
           <p><img src="image/<?php echo $villain_image; ?>" class="img-fluid mx-auto d-block rounded-circle vill_pic" alt="Responsive image" width="128";height="128"; id="vill_pic<?php echo $i; ?>"> </p>
           <div class="col-md">
           <div class="form-row">
