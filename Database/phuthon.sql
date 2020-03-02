@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 29, 2020 at 12:40 PM
+-- Generation Time: Mar 02, 2020 at 09:58 AM
 -- Server version: 10.3.15-MariaDB
 -- PHP Version: 7.3.6
 
@@ -103,7 +103,8 @@ INSERT INTO `arrest_record` (`arrest_no`, `por_jor_wor`, `case_id`, `ar_re_time`
 (1, '884/62.ก', 'ค.001', '14:36:00', '2', '781/113', '90', 'จำลองสถานที่บันทึก', '2020-01-02', '2019-12-19', 'สถานที่จับจำลอง', 'ในสวนน้ำ', 'ขมขืน', 'อุ้มไปขมขืน', 'ยอมรับทั้งหมด', 'สถานที่เกิดเหตุจำลอง', '2019-12-19'),
 (5, '001/63', 'todaytest11/01', '09:00:00', '2', '001.11/63', '100', 'จำลองสถานที่', '2020-01-07', '2020-01-07', 'สถานที่จับจำลอง', 'จำลองตำแหล่งที่พบ', 'ฆ่าผู้อื่นโดยเจตนา', 'จงใจสังหาร', 'ยอมรับทั้งหมด', 'สถานที่เกิดเหตุจำลอง', '2020-01-05'),
 (7, '221/01', 'กก44', '16:15:00', '2', '221/12', '90', 'จำลองสถานที่', '2020-01-08', '2020-01-08', ' 47/8 หมู่ 5 บ้าน จับจอง ต.ป่าไม้งาม อ.ดอยเมิง จ.เชียงใจ 140200 ', 'ข้างทาง ถนน เส้นนอกเมือง ', 'ขมขืนกระทำชำเราและทำร้ายร่างกาย', 'วางยาสลบและลักพาตัวไปขมขื่น', 'ยอมรับทุกข้อกล่าวหา', ' 47/8 หมู่ 5 บ้าน จับจอง ต.ป่าไม้งาม อ.ดอยเมิง จ.เชียงใจ 140200 ', '0000-00-00'),
-(13, '13b', '123b', '09:00:00', '2', '13/13', '15', 'จำลองสถานที่', '2020-02-29', '2020-02-29', 'สถานที่จับจำลอง', 'เทส', 'เทส', 'เทส', 'เทส', 'เทส', '2020-02-29');
+(13, '13b', '123b', '09:00:00', '2', '13/13', '15', 'จำลองสถานที่', '2020-02-29', '2020-02-29', 'สถานที่จับจำลอง', 'เทส', 'เทส', 'เทส', 'เทส', 'เทส', '2020-02-29'),
+(14, '13b2', '123b', '11:22:00', '2', '132/63', '45', 'จำลองสถานที่', '2020-03-01', '2020-03-01', 'สถานที่จับจำลอง', 'ตำแหน่ง', 'กล่าวหา', 'พฤติกรรม', 'จับกุม', 'เหตุเกิด', '2020-03-01');
 
 -- --------------------------------------------------------
 
@@ -199,6 +200,14 @@ CREATE TABLE `inquiry_official` (
   `card_id` char(13) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Dumping data for table `inquiry_official`
+--
+
+INSERT INTO `inquiry_official` (`in_of_id`, `case_id`, `card_id`) VALUES
+(2, 'ค.001', '1568867987693'),
+(3, 'ค.001', '1509908798090');
+
 -- --------------------------------------------------------
 
 --
@@ -264,7 +273,8 @@ INSERT INTO `object_case` (`ob_no`, `id_object`, `case_id`, `object_status`, `ob
 (9, '002', 'todaytest11/01', 1, 'ปืน', '6*6', 'ปืนก็อกสั้นกระสุน9มม', 'X0S0NL0D60.jpeg', '001.11/63'),
 (10, '001', 'กก44', 1, 'มีดดาบ', '14นิ้ว', 'ใบมีดเป็นเคียวงอ', '2K070LXS7J.jpeg', '221/12'),
 (14, '001', '123b', 1, 'เทสของกลาง', 'เทสของกลาง', 'เทสของกลาง', '', '13/13'),
-(15, '002', '123b', 2, 'เทสของกลางสอง', 'เทสของกลางสอง', 'เทสของกลางสอง', '', '13/13');
+(15, '002', '123b', 2, 'เทสของกลางสอง', 'เทสของกลางสอง', 'เทสของกลางสอง', '', '13/13'),
+(16, '115', '123b', 1, 'ของกลาง', 'ของกลาง', 'ของกลาง', '0XGJN20AK0.jpeg', '132/63');
 
 -- --------------------------------------------------------
 
@@ -273,6 +283,7 @@ INSERT INTO `object_case` (`ob_no`, `id_object`, `case_id`, `object_status`, `ob
 --
 
 CREATE TABLE `pin_case` (
+  `pin_no` int(11) NOT NULL,
   `case_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `user_id` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -281,9 +292,10 @@ CREATE TABLE `pin_case` (
 -- Dumping data for table `pin_case`
 --
 
-INSERT INTO `pin_case` (`case_id`, `user_id`) VALUES
-('todaytest11/01', 'user01'),
-('ค.001', 'user01');
+INSERT INTO `pin_case` (`pin_no`, `case_id`, `user_id`) VALUES
+(1, 'todaytest11/01', 'user01'),
+(2, 'ค.001', 'user01'),
+(3, 'todaytest11/01', 'user03');
 
 -- --------------------------------------------------------
 
@@ -313,7 +325,11 @@ INSERT INTO `police_catch_arrest` (`id_po_ca_ar`, `case_id`, `name_po_ar`, `rank
 (13, 'กก44', 'นิบุญเลิศ องอาจกิจ', 1, '221/12'),
 (14, 'กก44', 'แสงสิริ เกรียงทองดี', 3, '221/12'),
 (21, '123b', 'รวจหนึ่ง', 3, '13/13'),
-(22, '123b', 'รวจสอง', 6, '13/13');
+(22, '123b', 'รวจสอง', 6, '13/13'),
+(23, '123b', 'รวจหนึ่ง', 3, '132/63'),
+(24, '123b', 'รวจสอง', 4, '132/63'),
+(25, '123b', 'รวจสาม', 5, '132/63'),
+(26, '123b', 'รวจสี่', 5, '132/63');
 
 -- --------------------------------------------------------
 
@@ -340,7 +356,7 @@ CREATE TABLE `police_person` (
 INSERT INTO `police_person` (`card_id`, `rank_id`, `ps_name`, `ps_lastname`, `sex`, `address`, `ps_num`, `police_pic`, `sta_per_police`) VALUES
 ('1458867563768', 6, 'test', 'รักษ์ยม', 0, '12/534 หมู่ 78 บ้าน สันป่าไผ่ อ.ไผ่งาม จ.เชียงราย 50448', '0924563321', '', 1),
 ('1509901623453', 4, 'ytest', 'testy', 0, '667/3 หมู่บ้าน เจริญละ', '0954434234', '', 2),
-('1509908798090', 8, 'ลูกจ๊อก', 'อ่อนด๊อย', 2, 'หมู่ 8 บ้าน 78', '0977865786', '', 1),
+('1509908798090', 8, 'ลูกจ๊อก', 'อ่อนด๊อย', 1, 'หมู่ 8 บ้าน 78', '0977865786', '', 1),
 ('1568867987693', 9, 'คนที่สอง', 'ลองดู', 2, '77/5 หมู 8 บ้าน ค่ำ', '085786553', '', 1),
 ('1569789090974', 9, 'แอดดี้', 'แอตตี้กัส', 0, 'บ้านโคก หมู่ 9 ต.เฮือก อ.อะเจียง จ.พิษณุโลก 40570', '0828894625', '', 1);
 
@@ -642,7 +658,7 @@ INSERT INTO `victim` (`vic_no`, `case_id`, `title_name`, `victim_name`, `victim_
 (2, 'test123456', 'นาย', 'กกกกก', 'ขขขขขข', 1, '1234567237654', '123/2 หมู่ 6 ต.ป่าไผ่ อ.ดอกจัน จ.เชียงใหม่ 50089', 6, '3V20K02J02.jpeg', 'ไทย', 'ไทย', 'พ่อค้า'),
 (3, 'ฮ.0324', 'นาย', 'กี้', 'แปปนึง', 1, '1306607845367', '123/2 หมู่ 6 ต.ป่าไผ่ อ.ดอกจัน จ.เชียงใหม่ 50089', 6, 'BV99D7SL9M.jpeg', 'ไทย', 'ไทย', 'พ่อค้าเร่'),
 (4, 'todaytest11/01', 'นาย', 'ทดสอบใหม่', 'นะครับ', 1, '1408809625186', '123/2 หมู่ 6 บ้านทดสอบใหม่', 5, 'icon_data_usermale.png', 'ไทย', 'ไทย', 'ค้าขาย'),
-(5, 'ค.001', 'นางสาว', 'รีน่าจังงับ', 'อุยอ้าย', 2, '1486648521352', '25/185 หมู่ 6 ต.ป่าไผ่ อ.ดอกจัน จ.เชียงใหม่ 50089', 5, 'icon_data_userfemale.png', 'ไทย', 'ไทย', 'รับจ้างทั่วไป'),
+(5, 'ค.001', 'นางสาว', 'รีน่าจังงับ', 'อุยอ้ายจัง', 2, '1486648521352', '25/185 หมู่ 6 ต.ป่าไผ่ อ.ดอกจัน จ.เชียงใหม่ 50089', 5, 'icon_data_userfemale.png', 'ไทย', 'ไทย', 'รับจ้างทั่วไป'),
 (6, 'ง.12/52', 'นาย', 'จันทร์ดี', 'โอโออา', 1, '1508890723431', '23 หมู่ 4 บ้าน ดง ต.ก่อไผ่ อ.ดอกไม้ จ.เชียงใหม่ 54334', 5, 'icon_data_usermale.png', 'ไทย', 'ไทย', 'ธุรกิจส่วนตัว'),
 (7, 'ค.001', 'นางสาว', 'พะยองจ้าเอ่ย', 'จังเลยงาว', 2, '1509643456712', '25 หมู่ 7 ต.ดอกไม้ อ.ต้นไม้ จ.เชียงใหม่ 54334', 7, 'icon_data_userfemale.png', 'ไทย', 'ไทย/ญีปุ่น', 'ธรุกิจส่วนตัว'),
 (8, 'ค.001', 'นาย', 'ช้าง', 'โตที่สุด', 1, '1509901658485', '68 หมู่ 8 บ้าน นอก ต.ใน อ.นอก จ.ใน 45667', 7, 'icon_data_usermale.png', 'ไทย', 'ไทย', 'ธรุกิจส่วนตัว'),
@@ -696,7 +712,8 @@ INSERT INTO `villain` (`vil_no`, `case_id`, `title_name`, `villain_name`, `villa
 (11, 'testnow1', 'test1', 'test2', 'test3', 1, '1448846661938', 'test7', 3, 'G606HD2N1K.jpeg', 'test4', 'test5', 'test6', 'test3'),
 (12, 'ง.12/52', 'นาย', 'แดง', 'สีแดง', 1, '1508509823421', NULL, 1, 'icon_data_usermale.png', 'ไทย', 'ไทย', 'พ่อค้า', ''),
 (28, '123b', 'นาย', 'เทส', 'เทส', 1, '1111111111222', '154/552 บ้านจัดไป หมู่ 8 ต.จันจ๋า อ.ดอยจัน จ.เชียงตุง 70550', 6, 'icon_data_usermale.png', 'ไทย', 'ไทย', 'นักศึกษา', '13/13'),
-(29, '123b', 'นางสาว', 'เทสหญิง', 'เทสหญิง', 2, '1111111111333', '154/552 บ้านจัดไป หมู่ 8 ต.จันจ๋า อ.ดอยจัน จ.เชียงตุง 70550', 5, 'icon_data_userfemale.png', 'ไทย', 'ไทย', 'นักศึกษา', '13/13');
+(29, '123b', 'นางสาว', 'เทสหญิง', 'เทสหญิง', 2, '1111111111333', '154/552 บ้านจัดไป หมู่ 8 ต.จันจ๋า อ.ดอยจัน จ.เชียงตุง 70550', 5, 'icon_data_userfemale.png', 'ไทย', 'ไทย', 'นักศึกษา', '13/13'),
+(30, '123b', 'นาย', 'โดนจับ', 'ครั้งที่หนึ่ง', 1, '1111111111444', '154/552 บ้านจัดไป หมู่ 8 ต.จันจ๋า อ.ดอยจัน จ.เชียงตุง 70550', 5, '0MDL22S0ZA.jpeg', 'ไทย', 'ไทย', 'นักธุรกิจ', '132/63');
 
 -- --------------------------------------------------------
 
@@ -901,7 +918,8 @@ INSERT INTO `villain_identities` (`vil_iden_no`, `villain_idcard`, `face_villain
 (10, '1248854621938', 1, 5, 5, 3, 7, 8, 6, 3, 2),
 (11, '1448846661938', 6, 8, 6, 4, 5, 8, 7, 4, 3),
 (22, '1111111111222', 3, 3, 6, 5, 6, 9, 7, 3, 2),
-(23, '1111111111333', 6, 9, 7, 3, 7, 7, 2, 4, 2);
+(23, '1111111111333', 6, 9, 7, 3, 7, 7, 2, 4, 2),
+(24, '1111111111444', 5, 7, 5, 3, 6, 7, 5, 5, 2);
 
 -- --------------------------------------------------------
 
@@ -1098,7 +1116,8 @@ ALTER TABLE `object_case`
 -- Indexes for table `pin_case`
 --
 ALTER TABLE `pin_case`
-  ADD PRIMARY KEY (`case_id`);
+  ADD PRIMARY KEY (`pin_no`),
+  ADD KEY `case_id` (`case_id`) USING BTREE;
 
 --
 -- Indexes for table `police_catch_arrest`
@@ -1265,7 +1284,7 @@ ALTER TABLE `arrestor`
 -- AUTO_INCREMENT for table `arrest_record`
 --
 ALTER TABLE `arrest_record`
-  MODIFY `arrest_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `arrest_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `education`
@@ -1277,7 +1296,7 @@ ALTER TABLE `education`
 -- AUTO_INCREMENT for table `inquiry_official`
 --
 ALTER TABLE `inquiry_official`
-  MODIFY `in_of_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `in_of_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `investigation_report`
@@ -1289,13 +1308,19 @@ ALTER TABLE `investigation_report`
 -- AUTO_INCREMENT for table `object_case`
 --
 ALTER TABLE `object_case`
-  MODIFY `ob_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `ob_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
+--
+-- AUTO_INCREMENT for table `pin_case`
+--
+ALTER TABLE `pin_case`
+  MODIFY `pin_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `police_catch_arrest`
 --
 ALTER TABLE `police_catch_arrest`
-  MODIFY `id_po_ca_ar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id_po_ca_ar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `rank_police`
@@ -1337,7 +1362,7 @@ ALTER TABLE `victim`
 -- AUTO_INCREMENT for table `villain`
 --
 ALTER TABLE `villain`
-  MODIFY `vil_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `vil_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `villain_body`
@@ -1385,7 +1410,7 @@ ALTER TABLE `villain_hair`
 -- AUTO_INCREMENT for table `villain_identities`
 --
 ALTER TABLE `villain_identities`
-  MODIFY `vil_iden_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `vil_iden_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `villain_mouth`
