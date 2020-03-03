@@ -38,9 +38,15 @@
             if($object_status == 1){
                 $status1="selected";
                 $status2="";
+                $status3="";
               }else if(($object_status == 2)){
                 $status2="selected";
                 $status1="";
+                $status3="";
+              }else if($object_status == 3){
+                $status3="selected";
+                $status1="";
+                $status2="";
               }
 
         ?>
@@ -71,6 +77,7 @@
                 <option disabled selected value="0">สถานะ</option>
                 <option value="1" <?php echo $status1 ?>>ยึด</option>
                 <option  value="2"<?php echo $status2 ?>>คืน</option>
+                <option  value="3"<?php echo $status3 ?>>ทำลาย</option>
                    
         </select>   
         </div>

@@ -7,24 +7,24 @@
   <div class="form-group row">
     <label class="col-form-label">คำร้องที่ : </label>
     <div class="col-2">
-    <input type="text" class="form-control" id="" name="rw_no">
+    <input type="text" class="form-control" id="" name="rw_no" required>
     </div>
     <label class="col-form-label">ขอหมายจับรับที่ร้อง ศาล : </label>
     <div class="col">
-    <input type="text" class="form-control" id="" name="rw_court">
+    <input type="text" class="form-control" id="" name="rw_court" required>
     </div>
     <label class="col-form-label">เรียกสอบ : </label>
     <div class="col-2">
-    <input type="date" class="form-control" id=""name="rw_cell">
+    <input type="date" class="form-control" id=""name="rw_cell" required>
     </div>
   </div>
     <div class="form-group row">
       <label class="col-form-label">ผู้พิพากษา : </label>
       <div class="col-5">
-      <input type="text" class="form-control" id=""name="rw_judge">
+      <input type="text" class="form-control" id=""name="rw_judge" required>
       </div>
       <div class="col-md-2">
-        <select class="custom-select " id="" name="rw_type"  >
+        <select class="custom-select " id="" name="rw_type"  required>
                 <option disabled selected value="0">ประเภทคดี</option>
                 <option value="1">คดีเพ่ง</option>
                 <option  value="2">คดีอาญา</option>
@@ -37,37 +37,37 @@
       <div class="form-group row">
         <label class="col-form-label">ผู้ร้อง : </label>
         <div class="col-5">
-        <input type="text" class="form-control" id="" name="rw_Petitioner">
+        <input type="text" class="form-control" id="" name="rw_Petitioner" required>
         </div>
         </div>
         <div class="form-group row">
           <label class="col-form-label">ข้าพเจ้า : </label>
           <div class="col">
-          <input type="text" class="form-control" id="" name="rw_policename">
+          <input type="text" class="form-control" id="" name="rw_policename" required>
           </div>
           <label class="col-form-label">ตำแหน่ง : </label>
           <div class="col">
-          <input type="text" class="form-control" id=""name="rw_position">
+          <input type="text" class="form-control" id=""name="rw_position" required>
           </div>
           </div>
           <div class="form-group row">
             <label class="col-form-label">อายุ : </label>
             <div class="col">
-            <input type="text" class="form-control" id=""name="rw_age">
+            <input type="text" class="form-control" id=""name="rw_age" required>
             </div>
             <label class="col-form-label">อาชีพ : </label>
             <div class="col">
-            <input type="text" class="form-control" id=""name="rw_career">
+            <input type="text" class="form-control" id=""name="rw_career" required>
             </div>
             <label class="col-form-label">สถานที่ทำงาน : </label>
             <div class="col">
-            <input type="text" class="form-control" id=""name="rw_Workplace">
+            <input type="text" class="form-control" id=""name="rw_Workplace" required>
             </div>
             </div>
             <div class="form-group row">
               <label class="col-form-label">โทรศัพท์ : </label>
               <div class="col-5">
-              <input type="text" class="form-control" id=""name="rw_phone">
+              <input type="text" class="form-control" id=""name="rw_phone" required>
               </div>
               </div>
               <p></p>
@@ -82,7 +82,7 @@
                   <label class="col-form-label">ข้อ 1. </label>
                   </div>
                   <div class="col-md">
-                      <input type="text" class="form-control" placeholder="ด้วย" id="changAdd" name="rw_dos">
+                      <input type="text" class="form-control" placeholder="ด้วย" id="changAdd" name="rw_dos" required>
                   </div> 
               <hr>
               <p></p>
@@ -104,25 +104,25 @@
                   <div class="form-group row">
                     <label class="col-form-label">เหตุเกิดที่ : </label>
                     <div class="col">
-                    <input type="text" class="form-control" id=""name="rw_incident">
+                    <input type="text" class="form-control" id=""name="rw_incident" required>
                     </div>
                     </div>
                     <div class="form-group row">
                       <label class="col-form-label">มีพฤติการณ์กระทำความผิดที่เกี่ยวกับเหตุออกหมายจับ คือ	 : </label>
                       <div class="col">
-                      <input type="text" class="form-control" id=""name="rw_circumstances">
+                      <input type="text" class="form-control" id=""name="rw_circumstances" required>
                       </div>
                       </div>
                       <div class="form-group row">
                         <label class="col-form-label">การกระทำของผู้ต้องหาเป็นการกระทำความผิด ฐาน : </label>
                         <div class="col">
-                        <input type="text" class="form-control" id=""name="rw_action">
+                        <input type="text" class="form-control" id=""name="rw_action" required>
                         </div>
                         </div>
                         <div class="form-group row">
                           <label class="col-form-label">พยานเอกสาร และพยานวัตถุ : </label>
                           <div class="col">
-                          <input type="text" class="form-control" id=""name="rw_Documentary">
+                          <input type="text" class="form-control" id=""name="rw_Documentary" required>
                           </div>
                           </div>
                           <p></p>
@@ -132,7 +132,7 @@
                               <label class="col-form-label">พยานบุคคล ได้ทำการสอบสวนแล้วจำนวน  : </label>
                               </div>
                               <div class="col-md-2">
-                                  <input type="text" class="form-control" placeholder="จับกุมทั้งหมด" id="changAdd2" name="re_warr_mmadd">
+                                  <input type="text" class="form-control" placeholder="จับกุมทั้งหมด" id="changAdd2" name="re_warr_mmadd" required>
                               </div> 
                               <div>
                               <label class="col-form-label">ปาก </label>
@@ -148,22 +148,22 @@
                             <div class="form-group row">
                               <label class="col-form-label">ข้อ 2. ผู้ร้องประสงค์จะทำการจับกุม : </label>
                               <div class="col">
-                              <input type="text" class="form-control" id=""name="rw_Arrest">
+                              <input type="text" class="form-control" id=""name="rw_Arrest" required>
                               </div>
                               <label class="col-form-label">จึงขอให้ศาลออกหมายจับ : </label>
                               <div class="col">
-                              <input type="text" class="form-control" id=""name="rw_warrant">
+                              <input type="text" class="form-control" id=""name="rw_warrant" required>
                               </div>
                               <label class="col-form-label">มาดำเนินคดี</label>
                               </div>
                               <div class="form-group row">
                                 <label class="col-form-label">ในการยื่นคำร้องนี้ ผู้ร้องได้มอบหมายให้  : </label>
                                 <div class="col">
-                                <input type="text" class="form-control" id=""name="rw_petition">
+                                <input type="text" class="form-control" id=""name="rw_petition" required>
                                 </div>
                                 <label class="col-form-label">ตำแหน่ง : </label>
                                 <div class="col">
-                                <input type="text" class="form-control" id=""name="rw_position2">
+                                <input type="text" class="form-control" id=""name="rw_position2" required>
                                 </div>
                                 </div>
                                   <!-- <div class="form-group row">

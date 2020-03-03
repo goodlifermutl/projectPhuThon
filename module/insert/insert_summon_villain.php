@@ -7,21 +7,21 @@
   <div class="form-group row">
     <label class="col-form-label">หมายเรียกผู้ต้องหาครั้งที่ : </label>
     <div class="col-2">
-    <input type="text" class="form-control" id=""name="sv_suspect">
+    <input type="text" class="form-control" id=""name="sv_suspect" required>
     </div>
     <label class="col-form-label">สถานที่ออกหมาย : </label>
     <div class="col-3">
-    <input type="text" class="form-control" id=""name="sv_warrant">
+    <input type="text" class="form-control" id=""name="sv_warrant" required>
     </div>
     <label class="col-form-label">ออกหมายวันที่่ : </label>
     <div class="col-md">
-    <input type="date" class="form-control" id=""name="sv_date">
+    <input type="date" class="form-control" id=""name="sv_date" required>
     </div>
   </div>
   <div class="form-group row">
     <label class="col-form-label">ผู้กล่าวหา : </label>
     <div class="col-5">
-    <input type="text" class="form-control" id=""name="sv_Accused">
+    <input type="text" class="form-control" id=""name="sv_Accused" required>
     </div>
     <div class="col-md">
     <select class="custom-select " id="" name="sv_villain" required >
@@ -38,63 +38,63 @@
 <div class="form-group row">
   <label class="col-form-label">หมายมายัง : </label>
   <div class="col-5">
-  <input type="text" class="form-control" id=""name="sv_Refer">
+  <input type="text" class="form-control" id=""name="sv_Refer" required>
   </div>
 </div>
 <div class="form-group row">
   <label class="col-form-label">ที่อยู่ : </label>
   <div class="col">
-  <input type="text" class="form-control" id=""name="sv_address">
+  <input type="text" class="form-control" id=""name="sv_address" required>
   </div>
 </div>
 <div class="form-group row">
   <label class="col-form-label">ผู้ใหญ่บ้าน : </label>
   <div class="col-5">
-  <input type="text" class="form-control" id=""name="sv_Headman">
+  <input type="text" class="form-control" id=""name="sv_Headman" required>
   </div>
   <label class="col-form-label">กำนัน : </label>
   <div class="col-5">
-  <input type="text" class="form-control" id=""name="sv_village">
+  <input type="text" class="form-control" id=""name="sv_village" required>
   </div>
 </div>
 <div class="form-group row">
   <label class="col-form-label">ด้วยเหตุที่ท่านต้องหาว่า : </label>
   <div class="col">
-  <input type="text" class="form-control" id=""name="sv_Hey">
+  <input type="text" class="form-control" id=""name="sv_Hey" required>
   </div>
 </div>
 <div class="form-group row">
   <label class="col-form-label">ฉะนั้นให้ : </label>
   <div class="col">
-  <input type="text" class="form-control" id=""name="sv_text">
+  <input type="text" class="form-control" id=""name="sv_text" required>
   </div>
 </div>
 <div class="form-group row">
   <label class="col-form-label">ไป ณ ที่  : </label>
   <div class="col">
-  <input type="text" class="form-control" id=""name="sv_goto">
+  <input type="text" class="form-control" id=""name="sv_goto" required>
   </div>
   <label class="col-form-label">พบ : </label>
   <div class="col">
-  <input type="text" class="form-control" id=""name="sv_staff">
+  <input type="text" class="form-control" id=""name="sv_staff" required>
   </div>
   <label class="col-form-label">พนักงานสอบสวนเจ้าของคดี</label>
 </div>
 <div class="form-group row">
   <label class="col-form-label">วัน/เดือน/ปี : </label>
   <div class="col-md">
-  <input type="datetime-local" class="form-control" id=""name="sv_datetime">
+  <input type="datetime-local" class="form-control" id=""name="sv_datetime" required>
   </div>
 </div>
 <div class="form-group row">
   <label class="col-form-label">( ลงชื่อ ) : </label>
   <div class="col">
-  <input type="text" class="form-control" id=""name="sv_staff2">
+  <input type="text" class="form-control" id=""name="sv_staff2" required>
   </div>
   <label class="col-form-label">ผู้ออกหมาย</label>
   &nbsp;<label class="col-form-label">ตำแหน่ง : </label>
   <div class="col">
-  <input type="text" class="form-control" id=""name="sv_position">
+  <input type="text" class="form-control" id=""name="sv_position" required>
   </div>
 </div>
   <h3 class="text-center">ใบรับหมายตำรวจ</h3>
@@ -102,37 +102,37 @@
 <div class="form-group row">
   <label class="col-form-label">วัน/เดือน/ปี : </label>
   <div class="col-md">
-  <input type="datetime-local" class="form-control" id=""name="sv_datetime2">
+  <input type="datetime-local" class="form-control" id=""name="sv_datetime2" required>
   </div>
 </div>
 <div class="form-group row">
   <label class="col-form-label">ข้าพเจ้า : </label>
   <div class="col-md">
-  <input type="text" class="form-control" id=""name="sv_policename">
+  <input type="text" class="form-control" id=""name="sv_policename" required>
     </div>
     <label class="col-form-label">ได้รับหมายเรียกของพนักงานตำรวจ</label>
 </div>
 <div class="form-group row">
   <label class="col-form-label">ซึ่งกำหนดให้ข้าพเจ้าไปยัง: </label>
   <div class="col">
-  <input type="text" class="form-control" id=""name="sv_set">
+  <input type="text" class="form-control" id=""name="sv_set" required>
     </div>
 </div>
 <div class="form-group row">
   <label class="col-form-label">วัน/เดือน/ปี : </label>
   <div class="col-md">
-  <input type="datetime-local" class="form-control" id=""name="sv_datetime3">
+  <input type="datetime-local" class="form-control" id=""name="sv_datetime3" required>
   </div>
 </div>
 <div class="form-group row">
   <label class="col-form-label">( ลงชื่อ )</label>
   <div class="col">
-  <input type="text" class="form-control" id=""name="sv_Recipient">
+  <input type="text" class="form-control" id=""name="sv_Recipient" required>
   </div>
   <label class="col-form-label">ผู้รับหมาย</label>
     &nbsp;<label class="col-form-label">( ลงชื่อ )</label>
   <div class="col">
-  <input type="text" class="form-control" id=""name="sv_Sender">
+  <input type="text" class="form-control" id=""name="sv_Sender" required>
   </div>
   <label class="col-form-label">ผู้ส่งหมาย</label>
 </div>
@@ -141,23 +141,23 @@
 <div class="form-group row">
   <label class="col-form-label">ข้าพเจ้า ( ยศ ชื่อผู้ส่งหมาย )</label>
   <div class="col">
-  <input type="text" class="form-control" id=""name="sv_policename4">
+  <input type="text" class="form-control" id=""name="sv_policename4" required>
   </div>
   <label class="col-form-label">ตำแหน่ง</label>
   <div class="col">
-  <input type="text" class="form-control" id=""name="sv_position2">
+  <input type="text" class="form-control" id=""name="sv_position2" required>
   </div>
 </div>
 <div class="form-group row">
   <label class="col-form-label">ได้มาดำเนินการส่งหมายเรียกให้กับ</label>
   <div class="col">
-  <input type="text" class="form-control" id=""name="sv_policename5">
+  <input type="text" class="form-control" id=""name="sv_policename5" required>
   </div>
 </div>
 <div class="form-group row">
   <label class="col-form-label">ที่อยู่</label>
   <div class="col">
-  <input type="text" class="form-control" id=""name="sv_address2">
+  <input type="text" class="form-control" id=""name="sv_address2" required>
   </div>
 </div>
 <div class="form-group row">
@@ -172,12 +172,12 @@
 <div class="form-group row">
   <label class="col-form-label">( ลงชื่อ )</label>
   <div class="col">
-  <input type="text" class="form-control" id=""name="sv_sign">
+  <input type="text" class="form-control" id=""name="sv_sign" required>
   </div>
   <label class="col-form-label">ผู้ส่งหมาย</label>
     &nbsp;<label class="col-form-label">ตำแหน่ง</label>
   <div class="col">
-  <input type="text" class="form-control" id=""name="sv_position3">
+  <input type="text" class="form-control" id=""name="sv_position3" required>
   </div>
 </div>
 <div>

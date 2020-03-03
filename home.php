@@ -219,14 +219,14 @@ if($ac_chk=='4'){
   <li>
   <a class="nav-link <?php echo $action7 ?>" href="#รายงานการสอบสวน" id="">รายงานการสอบสวน</a>
   </li>
-  <li>
-  <a class="nav-link <?php echo $action8 ?>" href="#หมายเรียกผู้ต้องหา" id="">หมายเรียกผู้ต้องหา</a>
-  </li>
+
 
 
   <li class="nav-item dropdown">
   <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">อื่น ๆ</a>
     <div class="dropdown-menu">
+      <a class="nav-link <?php echo $action8 ?>" href="#หมายเรียกผู้ต้องหา" id="">หมายเรียกผู้ต้องหา</a>
+      <div class="dropdown-divider"></div>
       <a class="dropdown-item <?php echo $action9 ?>" href="#คำให้การผู้ต้องหา" id="">คำให้การผู้ต้องหา</a>
       <div class="dropdown-divider"></div>
       <a class="dropdown-item <?php echo $action10 ?>" href="#หมายค้น" id="">หมายค้น</a>

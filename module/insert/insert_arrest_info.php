@@ -12,19 +12,19 @@ $con=connect_db();
             <label class="col-sm col-form-label">หมายจับที่ : </label>
         </div>
         <div class="col-md-2">
-            <input type="text" class="form-control " placeholder="หมายจับที่" name="info_arr_list" >     
+            <input type="text" class="form-control " placeholder="หมายจับที่" name="info_arr_list" required>     
         </div>
         <div>
             <label class="col-sm col-form-label">ชื่อศาล : </label>
         </div>
         <div class="col-md">
-            <input type="text" class="form-control " placeholder="ชื่อศาล" name="san_arr_info" >
+            <input type="text" class="form-control " placeholder="ชื่อศาล" name="san_arr_info" required>
         </div>
             <div>
               <label class="col-sm col-form-label">วัน/เดือน/ปี : </label>
             </div>
         <div class="col-md">
-            <input type="date" class="form-control " placeholder="วัน/เดือน/ปี" name="date_arr_info"  >
+            <input type="date" class="form-control " placeholder="วัน/เดือน/ปี" name="date_arr_info"  required>
         </div>
         </div>
     </div>
@@ -46,13 +46,13 @@ $con=connect_db();
             <label class="col-sm col-form-label">ผู้ร้อง : </label>
         </div>
         <div class="col-md">
-            <input type="text" class="form-control " placeholder="ผู้ร้อง" name="victim_ar_info" >
+            <input type="text" class="form-control " placeholder="ผู้ร้อง" name="victim_ar_info" required>
         </div>
             <div>
               <label class="col-sm col-form-label">หมายถึง : </label>
             </div>
         <div class="col-md">
-            <input type="text" class="form-control " placeholder="หมายถึง" name="villain_ar_info" >
+            <input type="text" class="form-control " placeholder="หมายถึง" name="villain_ar_info" required>
         </div>
         </div>
     </div>
@@ -64,7 +64,7 @@ $con=connect_db();
         </div>
         <div class="col-md-10">
         <div class="input-group">
-        <textarea class="form-control" aria-label="With textarea" name="victim_arin_say"></textarea>
+        <textarea class="form-control" aria-label="With textarea" name="victim_arin_say" required></textarea>
         </div>
         </div>
         </div>
@@ -77,7 +77,7 @@ $con=connect_db();
         </div>
         <div class="col-md-9">
         <div class="input-group">
-        <textarea class="form-control" aria-label="With textarea" name="villain_perpetrate_arin"></textarea>
+        <textarea class="form-control" aria-label="With textarea" name="villain_perpetrate_arin" required></textarea>
         </div>
         </div>
         </div>
@@ -108,7 +108,7 @@ $con=connect_db();
             <label class="col-sm col-form-label">ใกล้เคียงพื้นที่ : </label>
         </div>
         <div class="col-md">
-        <input type="text" class="form-control " placeholder="ใกล้เคียงพื้นที่" value="" name="vil_close_address"  >
+        <input type="text" class="form-control " placeholder="ใกล้เคียงพื้นที่" value="" name="vil_close_address"  required>
         </div>
         </div>
     </div>
@@ -119,13 +119,13 @@ $con=connect_db();
             <label class="col-sm col-form-label">ไปส่งที่ : </label>
         </div>
         <div class="col-md-7">
-            <input type="text" class="form-control " placeholder="ส่งตัวไปที่" name="vill_to_place">     
+            <input type="text" class="form-control " placeholder="ส่งตัวไปที่" name="vill_to_place" required>     
         </div>
         <div>
             <label class="col-sm col-form-label">ภายในอายุความ : </label>
         </div>
         <div class="col-md">
-            <input type="text" class="form-control " placeholder="ภายในอายุความ" name="intime_ar_info" >
+            <input type="text" class="form-control " placeholder="ภายในอายุความ" name="intime_ar_info" required>
         </div>
         <div>
             <label class="col-sm col-form-label">ปี </label>
@@ -139,7 +139,7 @@ $con=connect_db();
             <label class="col-sm col-form-label">นับตั้งแต่วันที่ : </label>
         </div>
         <div class="col-md-5">
-            <input type="date" class="form-control " placeholder="วัน/เดือน/ปี" name="stdate_ar_info" >     
+            <input type="date" class="form-control " placeholder="วัน/เดือน/ปี" name="stdate_ar_info" required >     
         </div>
         </div>
     </div>
@@ -154,13 +154,13 @@ $con=connect_db();
             <label class="col-sm col-form-label">แต่ไม่เกินวันที่ : </label>
         </div>
         <div class="col-md-5">
-            <input type="date" class="form-control " placeholder="วัน/เดือน/ปี" name="dl_ar_info" >     
+            <input type="date" class="form-control " placeholder="วัน/เดือน/ปี" name="dl_ar_info" required>     
         </div>
         <div>
             <label class="col-sm col-form-label">ผู้พิพากษา : </label>
         </div>
         <div class="col-md">
-            <input type="text" class="form-control " placeholder="ชื่อผู้พิพากษา" name="judge_ar_info" >     
+            <input type="text" class="form-control " placeholder="ชื่อผู้พิพากษา" name="judge_ar_info" required>     
         </div>
         </div>
     </div>

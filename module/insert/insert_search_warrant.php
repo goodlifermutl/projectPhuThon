@@ -7,33 +7,33 @@
   <div class="form-group row">
     <label class="col-form-label">หมายค้น ที่ : </label>
     <div class="col-3">
-    <input type="text" class="form-control" id=""name="sw_Searchwarrant">
+    <input type="text" class="form-control" id=""name="sw_Searchwarrant" required>
     </div>
     <label class="col-form-label">ศาล : </label>
     <div class="col-3">
-    <input type="text" class="form-control" id=""name="sw_court">
+    <input type="text" class="form-control" id=""name="sw_court" required>
     </div>
     <label class="col-form-label">วัน/เดือน/ปี : </label>
     <div class="col-3">
-    <input type="date" class="form-control" id=""name="sw_date">
+    <input type="date" class="form-control" id=""name="sw_date" required>
     </div>
   </div>
   <div class="form-group row">
     <label class="col-form-label">ผู้ร้อง : </label>
     <div class="col-md">
-    <input type="text" class="form-control" id=""name="sw_Petitioner">
+    <input type="text" class="form-control" id=""name="sw_Petitioner" required>
     </div>
   </div>
   <div class="form-group row">
     <label class="col-form-label">หมายถึง : </label>
     <div class="col-md">
-    <input type="text" class="form-control" id=""name="sw_send">
+    <input type="text" class="form-control" id=""name="sw_send" required>
     </div>
   </div>
   <div class="form-group row">
     <label class="col-form-label">ด้วยศาลเห็นมีเหตุสมควรให้ค้นสถานที่ / บ้านเลขที่ : </label>
     <div class="col-md">
-    <input type="text" class="form-control" id=""name="sw_location">
+    <input type="text" class="form-control" id=""name="sw_location" required>
     </div>
   </div>
   <!-- <div class="form-group row">
@@ -73,7 +73,7 @@
       <label class="form-check-label" for="inlineCheckbox2">เพื่อพบและยึดสิ่งของ </label>
     </div>
     <div class="col-5">
-    <input type="text" class="form-control" id=""name="sw_seize">
+    <input type="text" class="form-control" id=""name="sw_seize" required>
     </div>
   </div>
 <div class="form-group row">
@@ -100,7 +100,7 @@
       <label class="form-check-label" for="inlineCheckbox2">เพื่อพบ  </label>
     </div>
     <div class="col-5">
-    <input type="text" class="form-control" id=""name="sw_find">
+    <input type="text" class="form-control" id=""name="sw_find" required>
     </div>
   </div>
   <div class="form-group row">
@@ -115,30 +115,30 @@
         <label class="form-check-label" for="inlineCheckbox2">บุคคลที่ออกหมายจับ ตามหมายจับที่ </label>
       </div>
       <div class="col-3">
-      <input type="text" class="form-control" id=""name="sw_warrant2">
+      <input type="text" class="form-control" id=""name="sw_warrant2" required>
       </div>
       <label class="col-form-label">ลงวันที่ : </label>
       <div class="col-3">
-      <input type="date" class="form-control" id=""name="sw_date2">
+      <input type="date" class="form-control" id=""name="sw_date2" required>
       </div>
       </div>
 
     <div class="form-group row">
       <label class="col-form-label">ซึ่งออกให้โดย : </label>
       <div class="col-6">
-      <input type="text" class="form-control" id=""name="sw_issued">
+      <input type="text" class="form-control" id=""name="sw_issued" required>
       </div>
     </div>
   <div class="form-group row">
     <label class="col-form-label">จึงออกหมายค้นให้: </label>
     <div class="col-6">
-    <input type="text" class="form-control" id=""name="sw_sw_issued2">
+    <input type="text" class="form-control" id=""name="sw_sw_issued2" required>
     </div>
   </div>
   <div class="form-group row">
     <label class="col-form-label">ตำแหน่ง : </label>
     <div class="col-6">
-    <input type="text" class="form-control" id=""name="sw_position">
+    <input type="text" class="form-control" id=""name="sw_position" required>
     </div>
     <label class="col-form-label">มีอำนาจค้น  </label>
   </div>
@@ -146,13 +146,13 @@
   <div class="form-group row">
     <label class="col-form-label">สถานที่ / บ้านข้างต้นได้ในวันที่ : </label>
     <div class="col-3">
-    <input type="date" class="form-control" id=""name="sw_location2">
+    <input type="date" class="form-control" id=""name="sw_location2" required>
     </div>
    </div>
     <div class="form-group row">
       <label class="col-form-label">เวลา : </label>
       <div class="col-3">
-      <input type="time" class="form-control" id=""name="sw_time">
+      <input type="time" class="form-control" id=""name="sw_time" required>
       </div>
       <label class="col-form-label">นาฬิกา ถึง</label>
       &nbsp;  &nbsp;<div class="form-check form-check-inline">
@@ -182,7 +182,7 @@
           <div class="form-group row">
             <label class="col-form-label">ผู้พิพากษา : </label>
             <div class="col">
-            <input type="text" class="form-control" id=""name="sw_judge">
+            <input type="text" class="form-control" id=""name="sw_judge" required>
             </div>
             </div>
             <div>

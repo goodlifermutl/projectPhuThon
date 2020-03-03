@@ -6,18 +6,19 @@
 	$html_l="";
 	$select = mysqli_query($con,"SELECT permiss_id FROM user WHERE user_id='$_SESSION[user_name]'")or die("select sql error".mysqli_error($con));
 	list($permiss)=mysqli_fetch_row($select);
-	if($permiss==2||$permiss==3){
-		$html_l="window.location.href='home.php?module=1&action=5';";
-	}else{
+	if($permiss==4){
 		$html_l="window.location.href='home_admin.php?module=1&action=5';";
+		
+	}else{
+		$html_l="window.location.href='home.php?module=1&action=5';";
 	}
 
     $re_user=mysqli_query($con,
     "SELECT rank_id,ps_name,ps_lastname,card_id,sex,address,ps_num,police_pic
     FROM  police_person WHERE card_id ='$_SESSION[id_card]'")or die("SQL.error>>user".mysqli_error($conh));
 	list($id_rank,$ps_name,$ps_lastname,$card_id,$sex,$address,$ps_tel,$name_pic)=mysqli_fetch_row($re_user);
-	echo $card_id,$ps_name;
-	echo "gggg";
+	// echo $card_id,$ps_name;
+	// echo "gggg";
 	if(empty($card_id)){
 		$id_rank="";$ps_name="";$ps_lastname="";$card_id="";$sex="";$address="";$ps_tel="";
 	}

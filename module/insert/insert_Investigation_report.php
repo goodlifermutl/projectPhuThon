@@ -143,7 +143,7 @@ $con=connect_db();
         </div>
         <div class="col-md">
         <div class="input-group">
-        <textarea class="form-control" aria-label="With textarea"name="ir_Charge" ></textarea>
+        <textarea class="form-control" aria-label="With textarea"name="ir_Charge" required></textarea>
         </div>
         </div>
         </div>
@@ -217,7 +217,7 @@ $con=connect_db();
         </div>
         <div class="col-md">
         <div class="input-group">
-        <textarea class="form-control" aria-label="With textarea"name="ir_fact" ></textarea>
+        <textarea class="form-control" aria-label="With textarea"name="ir_fact" required></textarea>
         </div>
         </div>
         </div>

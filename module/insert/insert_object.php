@@ -32,7 +32,7 @@
             <label class="col-sm col-form-label">ลักษณะของกลาง : </label>
         </div>
         <div class="input-group">
-        <textarea class="form-control" name="lookob" aria-label="With textarea"></textarea>
+        <textarea class="form-control" name="lookob" aria-label="With textarea" required></textarea>
         </div>
         </div>
     </div>
@@ -47,6 +47,7 @@
                 <option disabled selected value="0">สถานะ</option>
                 <option value="1">ยึด</option>
                 <option  value="2">คืน</option>
+                <option  value="3">ทำลาย</option>
                    
         </select>   
         </div>
@@ -56,7 +57,7 @@
         <div class="col-md">
         <div class="input-group mb-3">
         <div class="custom-file">
-            <input type="file" class="custom-file-input" id="customFile" name="object_file">
+            <input type="file" class="custom-file-input" id="customFile" name="object_file" required>
             <label class="custom-file-label" for="customFile">Choose file</label>
         </div>
         </div>

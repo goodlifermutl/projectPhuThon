@@ -20,13 +20,13 @@ $con=connect_db();
     </div>
     <label class="col-form-label">เป็น : </label>
     <div class="col">
-    <input type="text" class="form-control" id=""name="wv_are">
+    <input type="text" class="form-control" id=""name="wv_are" required>
     </div>
   </div>
   <div class="form-group row">
     <label class="col-form-label">โทรศัพท์ติดต่อ : </label>
     <div class="col-2">
-    <input type="text" class="form-control" id=""name="wv_phone">
+    <input type="text" class="form-control" id=""name="wv_phone" required>
     </div>
     <label class="col-form-label">บัตรประจำตัวประชาชน : </label>
     <div class="col-md" id="loadSLidcard">
@@ -35,21 +35,21 @@ $con=connect_db();
   <div class="form-group row">
     <label class="col-form-label">ออก ณ : </label>
     <div class="col-4">
-    <input type="text" class="form-control" id=""name="wv_output1">
+    <input type="text" class="form-control" id=""name="wv_output1" required>
     </div>
     <label class="col-form-label">ออกเมื่อ : </label>
     <div class="col">
-    <input type="date" class="form-control" id=""name="wv_output2">
+    <input type="date" class="form-control" id=""name="wv_output2" required>
     </div>
     <label class="col-form-label">หมดอายุ : </label>
     <div class="col">
-    <input type="date" class="form-control" id=""name="wv_last">
+    <input type="date" class="form-control" id=""name="wv_last" required>
     </div>
   </div>
   <div class="form-group row">
     <label class="col-form-label">ร.ต.ท. : </label>
     <div class="col-6">
-    <input type="text" class="form-control" id=""name="wv_police">
+    <input type="text" class="form-control" id=""name="wv_police" required>
     </div>
     <label class="col-form-label">บันทึก  </label>
   </div>
@@ -58,103 +58,103 @@ $con=connect_db();
   <div class="form-group row">
     <label class="col-form-label">สถานีตำรวจ : </label>
     <div class="col-7">
-    <input type="text" class="form-control" id=""name="wv_station">
+    <input type="text" class="form-control" id=""name="wv_station" required>
     </div>
     <label class="col-form-label">วัน/เดือน/ปี : </label>
     <div class="col-3">
-    <input type="date" class="form-control" id=""name="wv_date">
+    <input type="date" class="form-control" id=""name="wv_date" required>
     </div>
   </div>
   <div class="form-group row">
     <label class="col-form-label">ผู้กล่าวหา : </label>
     <div class="col">
-    <input type="text" class="form-control" id=""name="wv_accused">
+    <input type="text" class="form-control" id=""name="wv_accused" required>
     </div>
     <label class="col-form-label">ผู้ต้องหา : </label>
     <div class="col">
-    <input type="text" class="form-control" id=""name="wv_suspect">
+    <input type="text" class="form-control" id=""name="wv_suspect" required>
     </div>
   </div>
   <div class="form-group row">
     <label class="col-form-label">ต่อหน้า : </label>
     <div class="col">
-    <input type="text" class="form-control" id=""name="wv_before">
+    <input type="text" class="form-control" id=""name="wv_before" required>
     </div>
   </div>
   <div class="form-group row">
     <label class="col-form-label">สอบสวนที่ : </label>
     <div class="col">
-    <input type="text" class="form-control" id=""name="wv_investigate">
+    <input type="text" class="form-control" id=""name="wv_investigate" required>
     </div>
   </div>
   <div class="form-group row">
     <label class="col-form-label">ชื่อ : </label>
     <div class="col">
-    <input type="text" class="form-control" id=""name="wv_name">
+    <input type="text" class="form-control" id=""name="wv_name" required>
     </div>
     <label class="col-form-label">อายุ : </label>
     <div class="col-3">
-    <input type="text" class="form-control" id=""name="wv_age">
+    <input type="text" class="form-control" id=""name="wv_age" required>
     </div>
     <label class="col-form-label">ปี</label>
     &nbsp;<label class="col-form-label">เชื้อชาติ : </label>
     <div class="col">
-    <input type="text" class="form-control" id=""name="wv_race">
+    <input type="text" class="form-control" id=""name="wv_race" required>
     </div>
   </div>
 <div class="form-group row">
     <label class="col-form-label">สัญชาติ : </label>
     <div class="col">
-    <input type="text" class="form-control" id=""name="wv_nationality">
+    <input type="text" class="form-control" id=""name="wv_nationality" required>
     </div>
     <label class="col-form-label">ศาสนา : </label>
     <div class="col">
-    <input type="text" class="form-control" id=""name="wv_religion">
+    <input type="text" class="form-control" id=""name="wv_religion" required>
     </div>
 </div>
 <div class="form-group row">
     <label class="col-form-label">อาชีพ : </label>
     <div class="col">
-    <input type="text" class="form-control" id=""name="wv_careen">
+    <input type="text" class="form-control" id=""name="wv_careen" required>
     </div>
 </div>
 <h3 class="text-center">----------------------------------------------------------------------------</h3>
 <div class="form-group row">
     <label class="col-form-label">ตั้งบ้านเรือนอยู่ที่ : </label>
     <div class="col">
-    <input type="text" class="form-control" id=""name="wv_address">
+    <input type="text" class="form-control" id=""name="wv_address" required>
     </div>
   </div>
   <div class="form-group row">
       <label class="col-form-label">ชื่อผู้ใหญ่บ้าน : </label>
       <div class="col">
-      <input type="text" class="form-control" id=""name="wv_headman">
+      <input type="text" class="form-control" id=""name="wv_headman" required>
       </div>
       <label class="col-form-label">ชื่อกำนัน : </label>
       <div class="col">
-      <input type="text" class="form-control" id=""name="wv_villageheadmane">
+      <input type="text" class="form-control" id=""name="wv_villageheadmane" required>
       </div>
     </div>
     <div class="form-group row">
         <label class="col-form-label">ชื่อบิดา : </label>
         <div class="col">
-        <input type="text" class="form-control" id=""name="wv_farthername">
+        <input type="text" class="form-control" id=""name="wv_farthername" required>
         </div>
         <label class="col-form-label">ชื่อมารดา : </label>
         <div class="col">
-        <input type="text" class="form-control" id=""name="wv_mothername">
+        <input type="text" class="form-control" id=""name="wv_mothername" required>
         </div>
       </div>
       <div class="form-group row">
           <label class="col-form-label">เกิดที่ : </label>
           <div class="col">
-          <input type="text" class="form-control" id=""name="wv_birthday">
+          <input type="text" class="form-control" id=""name="wv_birthday" required>
           </div>
         </div>
         <div class="form-group row">
             <label class="col-form-label">เจ้าพนักงานได้แจ้งแก่ข้าพเจ้าว่า ข้าพเจ้าต้องหาว่า : </label>
             <div class="col">
-          <textarea class="form-control" aria-label="With textarea"name="wv_official" ></textarea>
+          <textarea class="form-control" aria-label="With textarea"name="wv_official" required ></textarea>
             </div>
           </div>
 
