@@ -3,10 +3,10 @@ include("../fuction/connect_db.php");
 $con = connect_db();
 
 $sql="SELECT card_id,rp.rank_name,ps_name,ps_lastname,sex,address,ps_num,police_pic,sta_per_police FROM police_person as pp INNER JOIN rank_police as rp ON pp.rank_id = rp.rank_id";
-$sql2="SELECT user_id FROM user as ur INNER JOIN police_person as pp ON pp.card_id = ur.card_id";
+
 
 $result=mysqli_query($con,$sql)or die("sql error!!!!!!!".mysqli_error($con));
-$result2=mysqli_query($con,$sql2)or die("sql2 error!!!!!!!".mysqli_error($con));
+
 
 $num_loop_sql=mysqli_num_rows($result);
 $num_peson=1;
@@ -16,6 +16,8 @@ $per;
 // echo $_GET['cardid'];
 
 while(list($p_cardid,$p_rk,$p_name,$p_lastname,$p_sex,$p_address,$p_tel,$p_pic,$p_sta_per)=mysqli_fetch_row($result)){
+    $sql2="SELECT user_id FROM user as ur INNER JOIN police_person as pp ON pp.card_id = ur.card_id WHERE pp.card_id ='$p_cardid'";
+    $result2=mysqli_query($con,$sql2)or die("sql2 error!!!!!!!".mysqli_error($con));
     list($id_user)=mysqli_fetch_row($result2);
 if($p_sex==1){
     $sex="ชาย";
@@ -113,7 +115,7 @@ if($p_sta_per==1){
             </div>
             <div class="col-md">
                 <select class="custom-select edit<?php echo $num_peson; ?>" id="choice_per<?php echo $num_peson; ?>" name="per_police[]" disabled required>
-                    <option value="1">ปฎิบัติงาน</option>
+                    <option value="1">ปฏิบัติงาน</option>
                     <option value="2">ออกจากข้าราชการ</option> 
                 </select>
             </div>

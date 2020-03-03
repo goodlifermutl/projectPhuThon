@@ -19,7 +19,7 @@ if(empty($_GET['see'])){
         <option value="6" selected id="6">ทั้งหมด</option>
         <option value="4">ผู้ดูแล</option>
         <option value="3">เจ้าหน้าที่กรอกข้อมูล</option>
-        <option value="2">เจ้าหน้าที่ปัฎิบัติงาน</option>
+        <option value="2">เจ้าหน้าที่ปฏิบัติงาน</option>
         <option value="1">เจ้าหน้าที่ชั้นสูง</option>
         <option value="5" selected id="5">ไม่มีสถานะ</option>
     </select>

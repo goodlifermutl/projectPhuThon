@@ -40,7 +40,7 @@ if($_POST['no']==6){
         }else if($permiss_id==3){
           $status_text="เจ้าหน้าที่กรอกข้อมูล";
         }else if($permiss_id==2){
-          $status_text="เจ้าหน้าที่ปัฎิบัติงาน";
+          $status_text="เจ้าหน้าที่ปฎิบัติงาน";
         }else{
           $status_text="เจ้าหน้าที่ชั้นสูง";
         }
@@ -58,7 +58,7 @@ if($_POST['no']==6){
             <option selected disabled>เปลี่ยนสถานะ</option>
             <option value="4">ผู้ดูแล</option>
             <option value="3">เจ้าหน้าที่กรอกข้อมูล</option>
-            <option value="2">เจ้าหน้าที่ปัฎิบัติงาน</option>
+            <option value="2">เจ้าหน้าที่ปฏิบัติงาน</option>
             <option value="1">เจ้าหน้าที่ชั้นสูง</option>
           </select>
         </div>
