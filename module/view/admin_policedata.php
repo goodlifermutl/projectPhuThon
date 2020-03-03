@@ -32,7 +32,7 @@ if($p_sta_per==1){
 }
 
 if(empty($p_pic)){
-    $imgshow="logo.png";
+    $imgshow="icon_user_pic.png";
 }else{
     $imgshow=$p_pic;
 }
