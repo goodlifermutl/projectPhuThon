@@ -30,13 +30,19 @@ if($p_sta_per==1){
 }else{
     $per="ออกจากราชการ";
 }
+
+if(empty($p_pic)){
+    $imgshow="logo.png";
+}else{
+    $imgshow=$p_pic;
+}
 ?>
 <div class="row mb-2">
     <div class="col-md-12">
     <form class="police_form<?php echo$num_peson ?>" method="post" enctype="multipart/form-data">
       <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
 
-      <img src="image/logo.png" class="mx-auto d-block rounded-circle" width="30%">
+      <img src="image/<?php echo $imgshow ?>" class="mx-auto d-block rounded-circle" width="30%">
         <a name="<?php echo $p_cardid; ?>"></a>
         <div class="col p-4 d-flex flex-column position-static">
             <strong class="d-inline-block mb-2 text-primary">คนที่ <?php echo $num_peson ?></strong>
