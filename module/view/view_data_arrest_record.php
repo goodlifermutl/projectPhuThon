@@ -339,8 +339,8 @@ $("#btn_ar_report<?php echo $md; ?>").click(function(){
   if (willDelete) {
     var reidcard = $("#focusarre<?php echo $md ?>").val()
       $.post("module/fuction/test_send_reidcard.php",{reidcard}).done(function(data,txtstuta){
-      alert(reidcard)
-      alert(data)
+      //alert(reidcard)
+      //alert(data)
       window.open('module/fuction/arrest_record_report.php','_blank');
      })
 }
@@ -358,7 +358,7 @@ $("#canclebtn1<?php echo $md;  ?>").click(function(){
   window.location.href="home.php?datacase=<?php echo $case_id_arre; ?>&module=1&action=1";
 })
 $(".save1<?php echo$md; ?>").submit(function(){
-  alert("ggggggg")
+  //alert("ggggggg")
   $check = $(".save1<?php echo$md; ?>").valid();
 
 		if($check == true){
@@ -368,7 +368,7 @@ $(".save1<?php echo$md; ?>").submit(function(){
 					        type: 'POST',
 					        data: formData,
 					        success: function (data) {
-								alert(data);
+								//alert(data);
 								//swal("บันทึกสำเร็จแล้ว!", "", "success")
 								swal("บันทึกสำเร็จ!", {
 									icon: "success",

@@ -309,8 +309,8 @@ $("#btn_inves_report<?php echo $md; ?>").click(function(){
   if (willDelete) {
     var reidcard = $("#report_order<?php echo $md?>").val();
       $.post("module/fuction/test_send_reidcard.php",{reidcard}).done(function(data,txtstuta){
-      alert(reidcard)
-      alert(data)
+      //alert(reidcard)
+      //alert(data)
       window.open('module/fuction/report_investigation_report.php','_blank');
      })
 }
@@ -329,7 +329,7 @@ $("#canclebtn4<?php echo $md;  ?>").click(function(){
   window.location.href="home.php?datacase=<?php echo $case_id_inr; ?>&module=1&action=1";
 })
 $(".save4<?php echo$md; ?>").submit(function(){
-  alert("ggggggg")
+  //alert("ggggggg")
   $check = $(".save4<?php echo$md; ?>").valid();
 
 		if($check == true){
@@ -339,7 +339,7 @@ $(".save4<?php echo$md; ?>").submit(function(){
 					        type: 'POST',
 					        data: formData,
 					        success: function (data) {
-								alert(data);
+								//alert(data);
 								//swal("บันทึกสำเร็จแล้ว!", "", "success")
 								swal("บันทึกสำเร็จ!", {
 									icon: "success",

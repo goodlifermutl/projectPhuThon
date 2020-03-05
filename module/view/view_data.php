@@ -291,14 +291,14 @@ $("#add_status").submit(function(e){
 })
 
 $("#btnPinG").click(function(){
-  alert("ggggggg")
+  //alert("ggggggg")
   $("#btnPinG").hide();
   $("#btnPinN").show();
 
     var idcase = "<?php echo $data ?>";
   
     $.post("module/fuction/add_pin.php",{idcase:idcase}).done(function(data,txtstuta){
-      alert(data)
+     // alert(data)
       
         
       swal({
@@ -317,7 +317,7 @@ $("#btnPinG").click(function(){
 });
 
 $("#btnPinN").click(function(){
-  alert("ggggggg")
+ // alert("ggggggg")
   
   swal({
   title: "ยกเลิกการปักหมุด",
@@ -335,7 +335,7 @@ $("#btnPinN").click(function(){
     var idcase = "<?php echo $pin_id ?>"
 
     $.post("module/fuction/delete_pin.php",{idcase:idcase}).done(function(data,txtstuta){
-    alert(data)
+    //alert(data)
     window.location.href="home.php?datacase=<?php echo $pin_id ?>&module=1&action=1";
   });
   } else {
