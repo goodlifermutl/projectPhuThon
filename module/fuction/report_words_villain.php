@@ -62,21 +62,21 @@ b{
 <p></p>
 <p></p>
 <p></p>
-<div style='float: left;width:190px;'>คำให้การของ ".$title_vil." ".$vil_name." ".$vil_lastname." เป็น ".$wv_are."</div>
+<div style='float: left;width:190px;'>คำให้การของ : <u>".$title_vil." ".$vil_name." ".$vil_lastname."</u> เป็น : <u>".$wv_are."</u></div>
 <div style='clear: left;'></div>
 <br>
-<div style='text-align:center;'>โทรศัพท์ติดต่อ</div>
-<div style='float: left;width:190px;'>".$wv_phone."</div>
+<div style='text-align:center;'>โทรศัพท์ติดต่อ : <u></div>
+<div style='float: left;width:190px;'>".$wv_phone."</u></div>
 <div style='clear: left;'></div>
-<div style='text-align:center;'>บัตรประจำตัวประชาชน</div>
-<div style='float: left;width:190px;'>".$wv_card."</div>
+<div style='text-align:center;'>บัตรประจำตัวประชาชน : <u></div>
+<div style='float: left;width:190px;'>".$wv_card."</u></div>
 <div style='clear: left;'></div>
-<div style='float: left;width:190px;'>ออก ณ ".$wv_output1."</div>
+<div style='float: left;width:190px;'>ออก ณ : <u>".$wv_output1."</u></div>
 <div style='clear: left;'></div>
-<div style='float: left;width:190px;'>ออกเมื่อ ".DateThai($wv_output2)."</div>
+<div style='float: left;width:190px;'>ออกเมื่อ : <u>".DateThai($wv_output2)."</u></div>
 <div style='clear: left;'></div>
 <p></p>
-<div style='float: left;width:190px;'>หมดอายุ ".DateThai($wv_last)."</div>
+<div style='float: left;width:190px;'>หมดอายุ : <u>".DateThai($wv_last)."</u></div>
 <div style='clear: left;'></div>
 <div style='float: left;width:190px;'>".$wv_police." บันทึก</div>
 <div style='clear: left;'></div>
@@ -85,7 +85,7 @@ b{
 <div style='text-align:center;'><img src='../../image/icon_report.jpg' width='100 'height='100'></div>
 <div style='text-align:center;'><b>สำนักงานตำรวจแห่งชาติ</b></div>
 <div style='text-align:center;'><u>บันทึกคำให้การผู้ต้องหา</u></div>
-<div style='float: left;padding-left:10px;'>สถานีตำรวจ ".$wv_station."</div>
+<div style='float: left;padding-left:10px;'>สถานีตำรวจ : <u>".$wv_station."</u></div>
 <div style='clear: left;'></div>
 <div style='text-align:center'>วันที่ ".DateThai_day($wv_date)." เดือน ".DateThai_month($wv_date)." พ.ศ. ".DateThai_year($wv_date)."</div>
 <div style='clear: left;'></div>
@@ -96,26 +96,26 @@ b{
 <div style='float: left;width:250;padding-left:160px;'>".$wv_suspect."</div>
 <div style='float: left;'> ผู้ต้องหา</div>
 <div style='clear: left;'></div>
-<div style='float: left;padding-left:10px;'>ต่อหน้า ".$wv_before."</div>
+<div style='float: left;padding-left:10px;'>ต่อหน้า : <u>".$wv_before."</u></div>
 <div style='clear: left;'></div>
-<div style='float: left;padding-left:10px;'>สอบสวนที่ ".$wv_investigate."</div>
+<div style='float: left;padding-left:10px;'>สอบสวนที่ : <u>".$wv_investigate."</u></div>
 <div style='clear: left;'></div>
-<div style='float: left;padding-left:10px;'>ชื่อ ".$wv_name." อายุ ".$wv_age." ปี</div>
+<div style='float: left;padding-left:10px;'>ชื่อ : <u>".$wv_name."</u> อายุ : <u>".$wv_age."</u> ปี</div>
 <div style='clear: left;'></div>
-<div style='float: left;padding-left:10px;'>เชื้อชาติ ".$wv_race." สัญชาติ ".$wv_nationality." ศาสนา ".$wv_religion."</div>
+<div style='float: left;padding-left:10px;'>เชื้อชาติ : <u>".$wv_race."</u> สัญชาติ : <u>".$wv_nationality."</u> ศาสนา : <u>".$wv_religion."</u></div>
 <div style='clear: left;'></div>
-<div style='float: left;padding-left:10px;'>อาชีพ ".$wv_careen."</div>
+<div style='float: left;padding-left:10px;'>อาชีพ : <u>".$wv_careen."</u></div>
 <div style='clear: left;'></div>
 <br>
-<div style='float: left;padding-left:10px;'>ตั้งบ้านเรือนอยู่ที่ ".$wv_address."</div>
+<div style='float: left;padding-left:10px;'>ตั้งบ้านเรือนอยู่ที่ : <u>".$wv_address."</u></div>
 <div style='clear: left;'></div>
-<div style='float: left;padding-left:10px;'>ชื่อผู้ใหญ่บ้าน ".$wv_headman." ชื่อกำนัน ".$wv_villageheadmane."</div>
+<div style='float: left;padding-left:10px;'>ชื่อผู้ใหญ่บ้าน : <u>".$wv_headman."</u> ชื่อกำนัน : <u>".$wv_villageheadmane."</u></div>
 <div style='clear: left;'></div>
-<div style='float: left;padding-left:10px;'>ชื่อบิดา ".$wv_farthername." ชื่อมารดา ".$wv_mothername."</div>
+<div style='float: left;padding-left:10px;'>ชื่อบิดา : <u>".$wv_farthername."</u> ชื่อมารดา : <u>".$wv_mothername."</u></div>
 <div style='clear: left;'></div>
-<div style='float: left;padding-left:10px;'>เกิดที่ ".$wv_birthday."</div>
+<div style='float: left;padding-left:10px;'>เกิดที่ : <u>".$wv_birthday."</u></div>
 <div style='clear: left;'></div>
-<div style='float: left;padding-left:10px;'>เจ้าพนักงานได้แจ้งแก่ข้าพเจ้าว่า ข้าพเจ้าต้องหาว่า ".$wv_official."</div>
+<div style='float: left;padding-left:10px;'>เจ้าพนักงานได้แจ้งแก่ข้าพเจ้าว่า ข้าพเจ้าต้องหาว่า : <u>".$wv_official."</u></div>
 <div style='clear: left;'></div>
 <div style='float: left;padding-left:10px;'>และได้แจ้งให้ข้าพเจ้าทราบด้วยว่า 	<u>ถ้อยคำที่ ข้าฯ ให้การในชั้นสอบสวนนี้อาจใช้เป็น</u>
 พยานหลักฐานในการพิจารณาคดีของศาลได้  และได้แจ้งสิทธิ์ของผู้ต้องหาให้ข้าฯทราบดังนี้

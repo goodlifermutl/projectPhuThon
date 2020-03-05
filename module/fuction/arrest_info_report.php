@@ -53,19 +53,19 @@ div{
 <div style='clear: left;'></div>
 <div style='float: left;width:350px;'>หมายถึง &nbsp;&nbsp;".$villain_arr_info."</div>
 <div style='clear: left;'></div>
-<div style='float: left;padding-left:70px;'>ด้วยผู้ร้องยื่นคำร้องว่า ".$victim_say_arr_info."</div>
+<div style='float: left;padding-left:70px;'>ด้วยผู้ร้องยื่นคำร้องว่า : <u>".$victim_say_arr_info."</u></div>
 <div style='clear: left;'></div>
-<div style='float: left;padding-left:90px;'>ซึ่งต้องหาว่ากระทำผิดฐาน ".$vil_perpetrate_arr_info."</div>
+<div style='float: left;padding-left:90px;'>ซึ่งต้องหาว่ากระทำผิดฐาน : <u>".$vil_perpetrate_arr_info."</u></div>
 <div style='clear: left;'></div>
-<div style='float: left;padding-left:90px;'>เพราะฉะนั้นให้ท่านจับตัว ".$title." ".$vil_name." ".$vil_lastname."</div>
-<div style='float: left;'>เชื้อชาติ ".$villain_race." สัญชาติ ".$villain_nationality." อาชีพ ".$villain_career." ที่อยู่ ".$villain_address."</div>
+<div style='float: left;padding-left:90px;'>เพราะฉะนั้นให้ท่านจับตัว : <u>".$title." ".$vil_name." ".$vil_lastname."</u></div>
+<div style='float: left;'>เชื้อชาติ : <u>".$villain_race."</u> สัญชาติ : <u>".$villain_nationality."</u> อาชีพ : <u>".$villain_career."</u> ที่อยู่ : <u>".$villain_address."</u></div>
 <div style='clear: left;'></div>
-<div style='float: left;'>ใกล้เคียงพื้นที่ ".$close_add_arr_info."</div>
+<div style='float: left;'>ใกล้เคียงพื้นที่ : <u>".$close_add_arr_info."</u></div>
 <div style='clear: left;'></div>
-<div style='float: left;'>ไปส่งที่ ".$send_to_arr_info." ภายในอายุความ ".$dl_arr_info." ปี</div>
+<div style='float: left;'>ไปส่งที่ : <u>".$send_to_arr_info."</u> ภายในอายุความ : <u>".$dl_arr_info."</u> ปี</div>
 <div style='clear: left;'></div>
-<div style='float: left;'>นับตั้งแต่วันที่ ".DateThai_day($st_date_arr_info)." เดือน ".DateThai_month($st_date_arr_info)." พ.ศ. ".DateThai_year($st_date_arr_info)." เพื่อจะได้ดำเนินการตามกฎหมาย</div>
-<div style='float: left;'>แต่ไม่เกินวันที่ ".DateThai_day($end_date_arr_info)." เดือน ".DateThai_month($end_date_arr_info)." พ.ศ. ".DateThai_year($end_date_arr_info)."</div>
+<div style='float: left;'>นับตั้งแต่วันที่ : <u>".DateThai_day($st_date_arr_info)." เดือน ".DateThai_month($st_date_arr_info)." พ.ศ. ".DateThai_year($st_date_arr_info)."</u> เพื่อจะได้ดำเนินการตามกฎหมาย</div>
+<div style='float: left;'>แต่ไม่เกินวันที่ : <u>".DateThai_day($end_date_arr_info)." เดือน ".DateThai_month($end_date_arr_info)." พ.ศ. ".DateThai_year($end_date_arr_info)."</u></div>
 <div style='clear: left;'></div>
 <p></p>
 <div style='float: right;width:400px;'>".$judge_name." &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ผู้พิพากษา</div>

@@ -26,6 +26,9 @@ if($object_status=='1'){
 }else if($object_status=='2'){
     $status="คืน";
 }
+else if($object_status=='3'){
+    $status="ทำลาย";
+}
 
 $content = "
 
@@ -39,13 +42,13 @@ div{
 <div style='text-align:center'><img src='../../image/$object_image' height='450px' width='400px'></div>
 <p></p>
 <p></p>
-<div style='margin-right:20px;float: left;width:200px;'>รหัสของกลาง : ".$id_object."</div>
-<div style='margin-right:20px;float: left;width:200px;'>ชื่อของกลาง : ".$object_name."</div>
-<div style='margin-right:20px;float: left;width:200px;'>สถานะของกลาง : ".$status."</div>
+<div style='margin-right:20px;float: left;width:200px;'>รหัสของกลาง : <u>".$id_object."</u></div>
+<div style='margin-right:20px;float: left;width:200px;'>ชื่อของกลาง : <u>".$object_name."</u></div>
+<div style='margin-right:20px;float: left;width:200px;'>สถานะของกลาง : <u>".$status."</u></div>
 <div style='clear: left;'></div>
-<div style='margin-right:20px;float: left;'>ขนาดของกลาง : ".$object_size."</div>
+<div style='margin-right:20px;float: left;'>ขนาดของกลาง : <u>".$object_size."</u></div>
 <div style='clear: left;'></div>
-<div style='margin-right:20px;float: left;'>ลักษณะของกลาง : ".$object_look."</div>
+<div style='margin-right:20px;float: left;'>ลักษณะของกลาง : <u>".$object_look."</u></div>
 ";
 $mpdf->WriteHTML($content);
 

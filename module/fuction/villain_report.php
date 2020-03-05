@@ -192,22 +192,22 @@ div{
 <div style='text-align:center'><img src='../../image/$villain_image' height='450px' width='400px'></div>
 <p></p>
 <p></p>
-<div>รหัสคดี : ".$case_id." &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ชื่อ : ".$villain_name."&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; นามสกุล : ".$villain_lastname."</div>
-<div>เลขบัตรประชาชน : ".$villain_idcard." &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;เชื้อชาติ : ".$villain_race."&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;สัญชาติ : ".$villain_nationality."</div>
-<div>อาชีพ : ".$villain_career."&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ระดับการศึกษา : ".$villain_education."&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;เพศ : ".$sex."</div>
-<div>ที่อยู่ : ".$villain_address."</div><p></p>
+<div>รหัสคดี : <u>".$case_id."</u> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ชื่อ : <u>".$villain_name."</u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; นามสกุล : <u>".$villain_lastname."</u></div>
+<div>เลขบัตรประชาชน : <u>".$villain_idcard."</u> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;เชื้อชาติ : <u>".$villain_race."</u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;สัญชาติ : <u>".$villain_nationality."</u></div>
+<div>อาชีพ : <u>".$villain_career."</u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ระดับการศึกษา : <u>".$villain_education."</u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;เพศ : <u>".$sex."</u></div>
+<div>ที่อยู่ : <u>".$villain_address."</u></div><p></p>
 <div><b>รูปพรรณ</b></div><p></p>
-<div style='margin-right:20px;float: left;width:200px;'>รูปร่าง : ".$body."</div>
-<div style='margin-right:20px;float: left;width:200px;'>ใบหน้า : ".$face."</div>
-<div style='margin-right:20px;float: left;width:200px;'>ทรงผม : ".$hair."</div>
+<div style='margin-right:20px;float: left;width:200px;'>รูปร่าง : <u>".$body."</u></div>
+<div style='margin-right:20px;float: left;width:200px;'>ใบหน้า : <u>".$face."</u></div>
+<div style='margin-right:20px;float: left;width:200px;'>ทรงผม : <u>".$hair."</u></div>
 <div style='clear: left;'></div>
-<div style='margin-right:20px;float: left;width:200px;'>จมูก : ".$nose."</div>
-<div style='margin-right:20px;float: left;width:200px;'>ปาก : ".$mouth."</div>
-<div style='margin-right:20px;float: left;width:200px;'>คาง : ".$chin."</div>
+<div style='margin-right:20px;float: left;width:200px;'>จมูก : <u>".$nose."</u></div>
+<div style='margin-right:20px;float: left;width:200px;'>ปาก : <u>".$mouth."</u></div>
+<div style='margin-right:20px;float: left;width:200px;'>คาง : <u>".$chin."</u></div>
 <div style='clear: left;'></div>
-<div style='margin-right:20px;float: left;width:200px;'>หู : ".$ears."</div>
-<div style='margin-right:20px;float: left;width:200px;'>หน้าผาก : ".$forehead."</div>
-<div style='margin-right:20px;float: left;width:200px;'>ตา : ".$eyes."</div>
+<div style='margin-right:20px;float: left;width:200px;'>หู : <u>".$ears."</u></div>
+<div style='margin-right:20px;float: left;width:200px;'>หน้าผาก : <u>".$forehead."</u></div>
+<div style='margin-right:20px;float: left;width:200px;'>ตา : <u>".$eyes."</u></div>
 ";
 $mpdf->WriteHTML($content);
 

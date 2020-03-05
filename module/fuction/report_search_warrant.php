@@ -111,24 +111,24 @@ div{
 <div style='float:left;width:580px;text-align:center;'>".$sw_petitioner."</div>
 <div style='float:right;width:50px;'>ร้อง</div>
 <div style='clear: right;'></div>
-<div style='text-align:left;padding-left:80px;'>หมายถึง ".$sw_send."</div>
-<div style='text-align:left;'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ด้วยศาลเห็นมีเหตุสมควรให้ค้นสถานที่ ".$sw_adderss."</div>
+<div style='text-align:left;padding-left:80px;'>หมายถึง : <u>".$sw_send."</u></div>
+<div style='text-align:left;'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ด้วยศาลเห็นมีเหตุสมควรให้ค้นสถานที่ : <u>".$sw_adderss."</u></div>
 <div style='text-align:left;'>ตามแผนที่สังเขปแนบท้าย</div>
-<div style='text-align:left;padding-left:100px;'>".$imgmap." เพื่อพบและยึดสิ่งของ ".$sw_seize."</div>
+<div style='text-align:left;padding-left:100px;'>".$imgmap." เพื่อพบและยึดสิ่งของ : <u>".$sw_seize."</u></div>
 <div style='text-align:left;'>".$img1." ซึ่งจะเป็นพยานหลักฐานประกอบการสอบสวน ไต่สวนมูลฟ้องหรือพิจารณา </div>
 <div style='text-align:left;'>".$img2." ซึ่งมีไว้เป็นความผิดหรือได้มาโดยผิดกฎหมาย หรือได้ใช้ หรือตั้งใจจะใช้ในการกระทำความผิด</div>
 <div style='text-align:left;'>".$img3." ตามคำพิพากษา หรือคำสั่งของศาล </div>
-<div style='text-align:left;padding-left:100px;'>".$img4." เพื่อพบ ".$sw_find."</div>
+<div style='text-align:left;padding-left:100px;'>".$img4." เพื่อพบ : <u>".$sw_find."</u></div>
 <div style='text-align:left;'>".$img5." บุคคลที่ถูกหน่วงเหนี่ยวหรือกักขังโดยมิชอบด้วยกฎหมาย  </div>
-<div style='text-align:left;'>".$img6." บุคคลที่ออกหมายจับ ตามหมายจับที่  ".$sw_warrant2." ลงวันที่ ".DateThai($sw_date2)." </div>
-<div style='text-align:left;padding-left:130px;'>ซึ่งออกให้โดย ".$sw_issued."</div>
-<div style='text-align:left;padding-left:100px;'>จึงออกหมายค้นให้ ".$sw_sw_issued2."</div>
-<div style='text-align:left;'>ตำแหน่ง ".$sw_position." มีอำนาจค้นสถานที่ / บ้านข้างต้นได้ในวันที่ ".DateThai($sw_location2)."</div>
-<div style='text-align:left;'>เวลา ".DateThaiTime_test($sw_time)." นาฬิกา ถึง ".$img7." เวลา ".DateThaiTime_test($sw_time_to)." นาฬิกา ".$img8." ติดต่อกันไป จนกว่าจะเสร็จสิ้นการตรวจค้น</div>
+<div style='text-align:left;'>".$img6." บุคคลที่ออกหมายจับ ตามหมายจับที่  : <u>".$sw_warrant2."</u> ลงวันที่ ".DateThai($sw_date2)." </div>
+<div style='text-align:left;padding-left:130px;'>ซึ่งออกให้โดย : <u>".$sw_issued."</u></div>
+<div style='text-align:left;padding-left:100px;'>จึงออกหมายค้นให้ : <u>".$sw_sw_issued2."</u></div>
+<div style='text-align:left;'>ตำแหน่ง : <u>".$sw_position."</u> มีอำนาจค้นสถานที่ / บ้านข้างต้นได้ในวันที่ : <u>".DateThai($sw_location2)."</u></div>
+<div style='text-align:left;'>เวลา : <u>".DateThaiTime_test($sw_time)."</u> นาฬิกา ถึง : <u>".$img7."</u> เวลา : <u>".DateThaiTime_test($sw_time_to)."</u> นาฬิกา : <u>".$img8."</u> ติดต่อกันไป จนกว่าจะเสร็จสิ้นการตรวจค้น</div>
 <div style='text-align:left;padding-left:100px;'>เมื่อค้นได้ตามหมายนี้แล้วให้ส่ง ".$sw_search."</div>
 <div style='text-align:left;'>พร้อมบันทึกการตรวจค้นละบัญชีสิ่งของ ( ถ้ามี ) ไปยัง ".$sw_save." เพื่อจัดการตามกฎหมายต่อไป</div>
 <br>
-<div style='text-align:right;'>".$sw_judge." ผู้พิพากษา</div>
+<div style='text-align:right;'><u>".$sw_judge."</u> ผู้พิพากษา</div>
 <hr>
 <div class='botton' style='text-align:left;'><u>หมายเหตุ</u>  :  ให้ระบุชื่อหรือรูปพรรณบุคคลหรือลักษณะสิ่งของที่ต้องการค้น</div>
 ";

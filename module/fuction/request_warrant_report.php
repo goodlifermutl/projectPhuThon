@@ -75,8 +75,8 @@ div{
 <div style='text-align:center;'><b>".$case_type."</b></div>
 <div style='float: right;width:450px;'>".$rw_Petitioner." &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ผู้ร้อง</div>
 <div style='clear: right;'></div>
-<div style='float: left;'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ข้าพเจ้า ".$rw_policename."
-&nbsp;&nbsp;ตำแหน่ง &nbsp;".$rw_position." &nbsp;&nbsp;อายุ &nbsp;&nbsp;&nbsp;".$rw_age."&nbsp;ปี&nbsp;&nbsp; อาชีพ &nbsp;".$rw_career."&nbsp; สถานที่ทำงาน &nbsp;&nbsp;".$rw_Workplace."&nbsp; โทรศัพท์ &nbsp;".$rw_phone."</div>
+<div style='float: left;'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ข้าพเจ้า : <u>".$rw_policename." </u>
+&nbsp;&nbsp;ตำแหน่ง &nbsp;: <u>".$rw_position." </u> &nbsp;&nbsp;อายุ &nbsp;&nbsp;&nbsp; :  <u>".$rw_age." </u>&nbsp;ปี&nbsp;&nbsp; อาชีพ &nbsp; :  <u>".$rw_career." </u>&nbsp; สถานที่ทำงาน &nbsp;&nbsp; : <u>".$rw_Workplace." </u>&nbsp; โทรศัพท์ &nbsp; :  <u>".$rw_phone." </u></div>
 <div style='clear: left;'></div>
 <div style='float: left;padding-left:80px;'>ขอยื่นคำร้องขอออกหมายจับต่อศาล ดังมีข้อความที่จะกล่าวดังต่อไปนี้</div>
 <div style='clear: left;padding-left:80px;'></div>
@@ -84,9 +84,9 @@ div{
 <div style='clear: left;'></div>
 <div style='float: left;padding-left:80px;'>ซึ่งมีตำหนิรูปพรรณตามที่แนบมาพร้อมนี้</div>
 <div style='clear: left;'></div>
-<div style='float: left;padding-left:80px;'>".$img1.$rw_cherk1."ได้หรือน่าจะได้กระทำผิดอาญาร้ายแรงซึ่งมีอัตราโทษจำคุกอย่างสูงเกิน 3 ปี</div>
+<div style='float: left;padding-left:80px;'>".$img1."ได้หรือน่าจะได้กระทำผิดอาญาร้ายแรงซึ่งมีอัตราโทษจำคุกอย่างสูงเกิน 3 ปี</div>
 <div style='clear: left;'></div>
-<div style='float: left;padding-left:80px;'>".$img1.$rw_cherk2."ได้หรือน่าจะได้กระทำความผิดอาญา และน่าจะหลบหนีหรือไปยุ่งเหยิงกับพยานหลัก</div>
+<div style='float: left;padding-left:80px;'>".$img1."ได้หรือน่าจะได้กระทำความผิดอาญา และน่าจะหลบหนีหรือไปยุ่งเหยิงกับพยานหลัก</div>
 <div style='float: left;'>ฐานหรือก่ออันตรายประการอื่น</div>
 <div style='clear: left;'></div>
 <div style='float: left;'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;เหตุเกิดที่ ".$rw_incident."</div>

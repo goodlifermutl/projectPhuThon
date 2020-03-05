@@ -67,19 +67,19 @@ b{
 <div style='float: left;padding-left: 200px;width:300px;'>".$title_vil." ".$vil_name." ".$vil_lastname."</div>
 <div style='float: right;'>ผู้ต้องหา</div>
 <div style='clear: left;'></div>
-<div style='float: left;'>ข้อหา ".$ir_charge."</div>
+<div style='float: left;'>ข้อหา : <u>".$ir_charge."</u></div>
 <div style='clear: left;'></div>
-<div style='float: left;'>วันที่เกิดเหตุ วันที่ ".DateThai_day($ir_date)." เดือน ".DateThai_month($ir_date)." พ.ศ. ".DateThai_year($ir_date)."</div>
+<div style='float: left;'>วันที่เกิดเหตุ วันที่ : <u>".DateThai_day($ir_date)." เดือน ".DateThai_month($ir_date)." พ.ศ. ".DateThai_year($ir_date)."</u></div>
 <div style='clear: left;'></div>
-<div style='float: left;'>ตำบลที่เกิดเหตุ ".$ir_district."</div>
+<div style='float: left;'>ตำบลที่เกิดเหตุ : <u>".$ir_district."</u></div>
 <div style='clear: left;'></div>
-<div style='float: left;'>ราคาทรัพย์ที่ถูกประทุษร้าย ".$ir_price."</div>
+<div style='float: left;'>ราคาทรัพย์ที่ถูกประทุษร้าย : <u>".$ir_price."</u></div>
 <div style='clear: left;'></div>
-<div style='float: left;'>บาดแผล ".$ir_wound."</div>
+<div style='float: left;'>บาดแผล : <u>".$ir_wound."</u></div>
 <div style='clear: left;'></div>
-<div style='float: left;'>วันเวลาที่ร้องทุกข์หรือกล่าวโทษ วันที่ ".DateThai_day($ir_complaint)." เดือน ".DateThai_month($ir_complaint)." พ.ศ. ".DateThai_year($ir_complaint)."</div>
+<div style='float: left;'>วันเวลาที่ร้องทุกข์หรือกล่าวโทษ วันที่ : <u>".DateThai_day($ir_complaint)." เดือน ".DateThai_month($ir_complaint)." พ.ศ. ".DateThai_year($ir_complaint)."</u></div>
 <div style='clear: left;'></div>
-<div style='float: left;'>วันเวลาที่ผู้ต้องหาถูกควบคุมหรือขังและปล่อยชั่วคราว วันที่ ".DateThai_day($ir_control)." เดือน ".DateThai_month($ir_control)." พ.ศ. ".DateThai_year($ir_control)."</div>
+<div style='float: left;'>วันเวลาที่ผู้ต้องหาถูกควบคุมหรือขังและปล่อยชั่วคราว วันที่ : <u>".DateThai_day($ir_control)." เดือน ".DateThai_month($ir_control)." พ.ศ. ".DateThai_year($ir_control)."</u></div>
 <div style='clear: left;'></div>
 </div>
 </div>

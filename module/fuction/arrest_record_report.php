@@ -39,23 +39,23 @@ div{
     font-size: 12pt;
 }
 </style>
-<div style='float: right;width:250px;'>ป.จ.ว.ข้อ : ".$por_jor_wor."&nbsp;เวลา : ".$ar_re_time."</div>
+<div style='float: right;width:250px;'>ป.จ.ว.ข้อ : <u>".$por_jor_wor."</u>&nbsp;เวลา : <u>".$ar_re_time."</u></div>
 <div style='clear: right;'></div>
-<div style='float: right;width:250px;'>".$case_type." : ".$ar_re_no."</div>
+<div style='float: right;width:250px;'>".$case_type." : <u>".$ar_re_no."</u></div>
 <div style='clear: right;'></div>
-<div style='float: right;width:250px;'>บัญชีของกลางลำดับที่ : ".$ar_re_acc."</div>
+<div style='float: right;width:250px;'>บัญชีของกลางลำดับที่ : <u>".$ar_re_acc."</u></div>
 <div style='clear: right;'></div>
 <div style='margin-left:300px;float: left;width:200px;'><h3>บันทึกการจับกุม</h3></div>
 <div style='clear: left;'></div>
-<div style='float: left;width:1000px;'>สถานที่ทำการบันทึก ".$ar_re_address_save."</div>
+<div style='float: left;width:1000px;'>สถานที่ทำการบันทึก : <u>".$ar_re_address_save."</u></div>
 <div style='clear: left;'></div>
-<div style='float: left;width:1000px;'>วัน/เดือน/ปี ที่บันทึก ".DateThai($ar_re_save_date)."</div>
+<div style='float: left;width:1000px;'>วัน/เดือน/ปี ที่บันทึก : <u>".DateThai($ar_re_save_date)."</u></div>
 <div style='clear: left;'></div>
-<div style='float: left;width:1000px;'>วัน/เดือน/ปี ที่จับกุม ".DateThai($ar_re_save_catch)."</div>
+<div style='float: left;width:1000px;'>วัน/เดือน/ปี ที่จับกุม : <u>".DateThai($ar_re_save_catch)."</u></div>
 <div style='clear: left;'></div>
-<div style='float: left;width:1000px;'>สถานที่จับกุม ที่".$ar_re_address_catch."</div>
+<div style='float: left;width:1000px;'>สถานที่จับกุม ที่ : <u>".$ar_re_address_catch."</u></div>
 <div style='clear: left;'></div>
-<div style='float: left;width:1000px;'>นามเจ้าพนักงานจับกุม
+<div style='float: left;width:1000px;'>นามเจ้าพนักงานจับกุม : 
 ";
 
 $pol=1;
@@ -66,14 +66,14 @@ while(list($id_po_ca_ar,$case_id,$name_po_ar,$rank_po_ar,$police_arya_no)=mysqli
     list($namerank)=mysqli_fetch_row($rank_re);
 
 $content.= "
-".$namerank.$name_po_ar."
+<u>".$namerank.$name_po_ar."</u>
 ";
 $pol++;
 }
 $content.="
 </div>
 <div style='clear: left;'></div>
-<div style='float: left;width:1000px;'>ได้ร่วมกันจับกุมตัว
+<div style='float: left;width:1000px;'>ได้ร่วมกันจับกุมตัว : 
 ";
 
 $vi=1;
@@ -81,14 +81,14 @@ $vil_result=mysqli_query($con," SELECT title_name,villain_name,villain_lastname,
 $loop_vil=mysqli_num_rows($vil_result);
 while(list($title_name,$villain_name,$villain_lastname,$villain_idcard)=mysqli_fetch_row($vil_result)){
 $content.= "
-".$title_name.$villain_name.$villain_lastname."
+<u>".$title_name.$villain_name.$villain_lastname."</u>
 ";
 $vi++;
 }
 $content.="
 </div>
 <div style='clear: left;'></div>
-<div style='float: left;width:1000px;'>พร้อมด้วยของกลางมี
+<div style='float: left;width:1000px;'>พร้อมด้วยของกลางมี : <u>
 ";
 
 $ob=1;
@@ -96,7 +96,7 @@ $ob_result=mysqli_query($con," SELECT ob_no,id_object,object_name FROM object_ca
 $loop_ob=mysqli_num_rows($ob_result);
 while(list($ob_no,$id_object,$object_name)=mysqli_fetch_row($ob_result)){
 $content.= "
-รหัส ".$id_object." ชื่อ ".$object_name."
+<u>รหัส ".$id_object." ชื่อ ".$object_name."</u>
 ";
 $ob++;
 }
@@ -111,19 +111,22 @@ $wit=1;
 $content.="
 </div>
 <div style='clear: left;'></div>
-<div style='float: left;width:1000px;'>ตำแหน่งที่พบของกลาง ".$ar_re_location_ob."</div>
+<div style='float: left;width:1000px;'>ตำแหน่งที่พบของกลาง : <u>".$ar_re_location_ob."</u></div>
 <div style='clear: left;'></div>
-<div style='float: left;width:1000px;'>โดยกล่าวหาว่า ".$ar_re_say."</div>
+<div style='float: left;width:1000px;'>โดยกล่าวหาว่า : <u>".$ar_re_say."</u></div>
 <div style='clear: left;'></div>
-<div style='float: left;width:1000px;'>พฤติการณ์กล่าวคือ ".$ar_re_atcs."</div>
+<div style='float: left;width:1000px;'>พฤติการณ์กล่าวคือ : <u>".$ar_re_atcs."</u></div>
 <div style='clear: left;'></div>
-<div style='float: left;width:1000px;'>ขณะจับกุมผู้ต้องหาได้ทราบข้อกล่าวหาแล้วให้การ ".$ar_re_depose."</div>
+<div style='float: left;width:1000px;'>ขณะจับกุมผู้ต้องหาได้ทราบข้อกล่าวหาแล้วให้การ : <u>".$ar_re_depose."</u></div>
 <div style='clear: left;'></div>
-<div style='float: left;width:1000px;'>เหตุเกิดที่ ".$ar_re_location_place."</div>
+<div style='float: left;width:1000px;'>เหตุเกิดที่ : <u>".$ar_re_location_place."</u></div>
 <div style='clear: left;'></div>
-<div style='float: left;width:1000px;'>เมื่อวันที่ ".DateThai($ar_re_date_place)."</div>
+<div style='float: left;width:1000px;'>เมื่อวันที่ : <u>".DateThai($ar_re_date_place)."</u></div>
 <div style='clear: left;'></div>
-<br>
+<br>";
+
+$content2="
+<div style='text-align:center'>(2)</div>
 <div style='margin-left:110px;float: left;width:1000px;'>อนึ่งในการจับกุมครั้งนี้ เจ้าพนักงานตำรวจมิได้ทำให้ทรัพย์สินของผู้ใดเสียหาย สูญหาย </div>
 <div style='clear: left;'></div>
 <div style='float: left;width:1000px;'>หรือเสื่อมค่าแต่ประการใด และมิได้ทำให้ผู้ใดได้รับอันตรายแก่กาย หรือจิตใจแต่อย่างใด</div>
@@ -132,29 +135,28 @@ $content.="
 <div style='clear: left;'></div>
 ";
 for($p=1;$p<=$loop_po;$p++){
-    $content.="
-    <div style='margin-left:150px;float: left;width:1000px;'>(ลงชื่อ)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ผู้ต้องหา</div>
+    $content2.="
+    <div style='margin-left:150px;float: left;width:1000px;'>(ลงชื่อ)............................................................ผู้ต้องหา</div>
     <div style='clear: left;'></div>
     ";
 }
 for($v=1;$v<=$loop_vil;$v++){
-    $content.="
-    <div style='margin-left:150px;float: left;width:1000px;'>(ลงชื่อ)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ผู้จับกุม</div>
+    $content2.="
+    <div style='margin-left:150px;float: left;width:1000px;'>(ลงชื่อ)............................................................ผู้จับกุม</div>
+    <div style='margin-left:150px;float: left;width:1000px;'>ตำแหน่ง............................................................</div>
     <div style='clear: left;'></div>
     ";
 }
 for($wi=1;$wi<=$loop_wir;$wi++){
-    $content.="
-    <div style='margin-left:150px;float: left;width:1000px;'>(ลงชื่อ)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;พยาน</div>
+    $content2.="
+    <div style='margin-left:150px;float: left;width:1000px;'>(ลงชื่อ)............................................................พยาน</div>
     <div style='clear: left;'></div>
     ";
 }
 
 
 $mpdf->WriteHTML($content);
-
+$mpdf->AddPage();
+$mpdf->WriteHTML($content2);
 $mpdf->Output();
 ?>

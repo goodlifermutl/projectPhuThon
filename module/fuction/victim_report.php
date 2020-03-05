@@ -34,15 +34,18 @@ div{
 	font-family: 'Garuda';
     font-size: 12pt;
 }
+u {
+    text-decoration: underline;
+  }
 </style>
 <div style='display: flex;text-align:centter;position:relative;margin-bottom:20px;'>
 <div style='text-align:center'><img src='../../image/$victim_image' height='450px' width='400px'></div>
 <p></p>
 <p></p>
-<div>รหัสคดี : ".$case_id." &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ชื่อ : ".$victim_name."&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; นามสกุล : ".$victim_lastname."</div>
-<div>เลขบัตรประชาชน : ".$victim_idcard." &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;เชื้อชาติ : ".$victim_race."&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;สัญชาติ : ".$victim_nationality."</div>
-<div>อาชีพ : ".$victim_careen."&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ระดับการศึกษา : ".$victim_education."&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;เพศ : ".$sex."</div>
-<div>ที่อยู่ : ".$victim_address."</div>
+<div>รหัสคดี : <u>".$case_id."</u> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ชื่อ : <u>".$victim_name."</u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; นามสกุล : <u>".$victim_lastname."<u/></div>
+<div>เลขบัตรประชาชน : <u>".$victim_idcard."</u> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;เชื้อชาติ : <u>".$victim_race."</u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;สัญชาติ : <u>".$victim_nationality."</u></div>
+<div>อาชีพ : <u>".$victim_careen."</u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ระดับการศึกษา : <u>".$victim_education."</u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;เพศ : <u>".$sex."</u></div>
+<div>ที่อยู่ : <u>".$victim_address."</u></div>
 </div>
 
 ";
