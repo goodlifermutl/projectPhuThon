@@ -54,6 +54,7 @@ $i=1;
                 <option disabled selected value="0">สถานะ</option>
                 <option value="1">ยึด</option>
                 <option  value="2">คืน</option>
+                <option  value="3">ทำลาย</option>
                    
         </select>   
         </div>
@@ -67,6 +68,17 @@ $i=1;
             <label class="custom-file-label" for="customFile">Choose file</label>
         </div>
         </div>
+        </div>
+        </div>
+    </div>
+    <P></P>
+    <div class="col-md">
+        <div class="form-row">
+        <div>
+            <label class="col-sm col-form-label">สถานที่เก็บของกลาง : </label>
+        </div>
+        <div class="col-md">
+        <input type="text" class="form-control " placeholder="สถานที่เก็บของกลาง" name="name_location[]" required> 
         </div>
         </div>
     </div>

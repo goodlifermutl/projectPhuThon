@@ -18,8 +18,8 @@ $mpdf = new \Mpdf\Mpdf(['tempDir' => __DIR__ . '/tmp',
 ]);
 
 echo $_COOKIE['idcardvictimreport'];
-$result_data_object = mysqli_query($con,"SELECT ob_no,id_object,object_status,object_name,object_size,object_look,object_image FROM object_case  WHERE id_object = '$_COOKIE[idcardvictimreport]'")or die("result_data_object sqli error".mysqli_error($con));
-list($ob_no,$id_object,$object_status,$object_name,$object_size,$object_look,$object_image)=mysqli_fetch_row($result_data_object);
+$result_data_object = mysqli_query($con,"SELECT ob_no,id_object,object_status,object_name,object_size,object_look,object_image,ob_location FROM object_case  WHERE id_object = '$_COOKIE[idcardvictimreport]'")or die("result_data_object sqli error".mysqli_error($con));
+list($ob_no,$id_object,$object_status,$object_name,$object_size,$object_look,$object_image,$ob_location)=mysqli_fetch_row($result_data_object);
 
 if($object_status=='1'){
     $status="ยึด";
@@ -49,6 +49,7 @@ div{
 <div style='margin-right:20px;float: left;'>ขนาดของกลาง : <u>".$object_size."</u></div>
 <div style='clear: left;'></div>
 <div style='margin-right:20px;float: left;'>ลักษณะของกลาง : <u>".$object_look."</u></div>
+<div style='margin-right:20px;float: left;'>สถานที่เก็บของกลาง : <u>".$ob_location."</u></div>
 ";
 $mpdf->WriteHTML($content);
 

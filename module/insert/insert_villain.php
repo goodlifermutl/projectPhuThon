@@ -306,7 +306,7 @@ $("#insert_villain").submit(function(e){
 		type: 'POST',
 		data: formData,
 			success: function (data) {
-            alert(data) 
+            //alert(data) 
             swal({
             title: "บันทึกผู้ต้องหาสำเร็จ",
             icon: "success",

@@ -49,6 +49,7 @@ if(empty($_POST['idob'])||empty($_POST['nameob'])||empty($_POST['sizeob'])||empt
     $ob_size=$_POST['sizeob'];
     $ob_look=$_POST['lookob'];
     $ob_status=$_POST['staob'];
+    $ob_location=$_POST['name_location'];
     $object_file=$_FILES['object_file']['name'];
     $file_type=$_FILES['object_file']['type'];
     $file_tmp=$_FILES['object_file']['tmp_name'];
@@ -219,7 +220,7 @@ if(!empty($coutcatch)){
                 }
                 
     
-            $sql_insert_object="INSERT INTO object_case VALUES('','$ob_id[$won2]','$ar_case','$ob_status[$won2]','$ob_name[$won2]','$ob_size[$won2]','$ob_look[$won2]','$imgname','$no_ar')";
+            $sql_insert_object="INSERT INTO object_case VALUES('','$ob_id[$won2]','$ar_case','$ob_status[$won2]','$ob_name[$won2]','$ob_size[$won2]','$ob_look[$won2]','$imgname','$no_ar','$ob_location[$won2]')";
             //echo "ของกลาง--->".$sql_insert_object;
 
             mysqli_query($con,$sql_insert_object)or die("ERROR insert OB +++!!!".mysqli_error($con));

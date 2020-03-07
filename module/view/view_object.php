@@ -23,8 +23,8 @@
         $sex_name;
         $i=1;
         
-        $result_chk_object = mysqli_query($con,"SELECT id_object,case_id,object_status,object_name,object_size,object_look,object_image FROM object_case  WHERE case_id = '$data'")or die("result_chk_object sqli error".mysqli_error($con));
-        $result_data_object = mysqli_query($con,"SELECT ob_no,id_object,object_status,object_name,object_size,object_look,object_image FROM object_case  WHERE case_id = '$data'")or die("result_data_object sqli error".mysqli_error($con));
+        $result_chk_object = mysqli_query($con,"SELECT id_object,case_id,object_status,object_name,object_size,object_look,object_image,ob_location FROM object_case  WHERE case_id = '$data'")or die("result_chk_object sqli error".mysqli_error($con));
+        $result_data_object = mysqli_query($con,"SELECT ob_no,id_object,object_status,object_name,object_size,object_look,object_image,ob_location FROM object_case  WHERE case_id = '$data'")or die("result_data_object sqli error".mysqli_error($con));
         list($case_id_ob)=mysqli_fetch_row($result_chk_object);
         $num_loop=mysqli_num_rows($result_chk_object);
         // echo $data,$num_loop;
@@ -33,7 +33,7 @@
           echo "<h5 class='text-center'>----ไม่พบข้อมูล----</h5>";
         }else {
         
-        while(list($ob_no,$id_object,$object_status,$object_name,$object_size,$object_look,$object_image)=mysqli_fetch_row($result_data_object)){
+        while(list($ob_no,$id_object,$object_status,$object_name,$object_size,$object_look,$object_image,$ob_location)=mysqli_fetch_row($result_data_object)){
 
             if($object_status == 1){
                 $status1="selected";
@@ -118,6 +118,16 @@
         </div>
     </div>
    <p></p>
+   <div class="col-md">
+        <div class="form-row">
+        <div>
+            <label class="col-sm col-form-label">สถานที่เก็บของกลาง : </label>
+        </div>
+        <div class="col-md">
+        <input type="text" class="form-control edit<?php echo $i; ?>" placeholder="สถานที่เก็บของกลาง" name="name_location[]" value="<?php echo $ob_location ?>"disabled required> 
+        </div>
+        </div>
+    </div>
    <div class="col-md">
             <p class="text-center"><button type="submit" class="btn btn-outline-success savebtn" id="savebtn<?php echo $i; ?>" data-idcard="<?php echo $victim_idcard ?>">บันทึก</button>
             <button type="button" class="btn btn-outline-danger" id="canclebtn<?php echo $i; ?>">ยกเลิก</button></p>
@@ -211,7 +221,7 @@ $(".save<?php echo$md; ?>").submit(function(){
 					        type: 'POST',
 					        data: formData,
 					        success: function (data) {
-								//alert(data);
+								alert(data);
 								//swal("บันทึกสำเร็จแล้ว!", "", "success")
 								swal("บันทึกสำเร็จ!", {
 									icon: "success",

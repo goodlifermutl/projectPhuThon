@@ -153,13 +153,13 @@ $("#insertvictim").submit(function(e){
 		type: 'POST',
 		data: formData,
 			success: function (data) {
-            alert(data) 
+            //alert(data) 
             swal({
             title: "บันทึกผู้เสียหายสำเร็จ",
             icon: "success",
             button: "ตกลง",
           }).then((value) => {
-            // window.location.href="home.php?&module=2&action=3"
+            window.location.href="home.php?&module=2&action=3"
  
 })
 		},

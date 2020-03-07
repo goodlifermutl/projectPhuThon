@@ -9,6 +9,7 @@ $ob_name=$_POST['nameob'];
 $ob_size=$_POST['sizeob'];
 $ob_look=$_POST['lookob'];
 $ob_status=$_POST['staob'];
+$ob_location=$_POST['name_location'];
 
 if($ob_status=='1'){
     $status_ob="ยึด";
@@ -43,7 +44,7 @@ if(!empty($_FILES['object_file']['name'])){
 }    
  echo $object_file,$imgname,$ob_case,$ob_name,$ob_size,$ob_look,$status_ob,$ob_id;
 
-$sql_insert_object="INSERT INTO object_case VALUES('$ob_id','$ob_case','$status_ob','$ob_name','$ob_size','$ob_look','$imgname')";
+$sql_insert_object="INSERT INTO object_case VALUES('$ob_id','$ob_case','$status_ob','$ob_name','$ob_size','$ob_look','$imgname','$ob_location')";
 
 mysqli_query($con,$sql_insert_object)or die("sql insert object error!!!!!!!".mysqli_error($con));
 mysqli_close($con);
