@@ -121,10 +121,11 @@ display: none;
         
 <script>
  $(document).ready( function () {
-    $('#myTable').DataTable({
-      "aLengthMenu": [[5, 10, -1], [5, 10,"All"]]
+  $.getScript('module/fuction/mydatatable.js')
+    // $('#myTable').DataTable({
+    //   "aLengthMenu": [[5, 10, -1], [5, 10,"All"]]
 
-    });
+    // });
 
 } );
 </script>

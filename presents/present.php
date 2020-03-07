@@ -4,7 +4,7 @@
  $con = connect_db(); 
  
  $year_seach=$_POST['year']??"null";
-	echo $year_seach;
+	// echo $year_seach;
 
 //  $result=mysqli_query($con,$sql)or die("SQL error datetime".mysqli_error($con));
 //  list($type_case,$date)=mysqli_fetch_row($result);

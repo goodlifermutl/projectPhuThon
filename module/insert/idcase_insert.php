@@ -111,10 +111,11 @@ $sql_res = mysqli_query($con,"SELECT cn.case_id,cn.case_name,cn.case_type,cn.cas
 });
 
  $(document).ready( function () {
-    $('#myTable').DataTable({
-      "aLengthMenu": [[5, 10, -1], [5, 10,"All"]]
+  $.getScript('module/fuction/mydatatable.js')
+    // $('#myTable').DataTable({
+    //   "aLengthMenu": [[5, 10, -1], [5, 10,"All"]]
 
-    });
+    // });
 
 } );
 

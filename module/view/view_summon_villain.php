@@ -153,7 +153,7 @@
 <div class="form-group row">
   <label class="col-form-label">วัน/เดือน/ปี : </label>
   <div class="col-md">
-  <input type="datetime-local " class="form-control editsv<?php echo $i; ?>" id="" value="<?php echo $sv_datetime ?>" name="sv_datetime[]" disabled>
+  <input type="datetime" class="form-control editsv<?php echo $i; ?>" id="" value="<?php echo $sv_datetime ?>" name="sv_datetime[]" disabled>
   </div>
 </div>
 <div class="form-group row">

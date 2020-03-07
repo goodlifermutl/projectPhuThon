@@ -100,7 +100,7 @@ div{
 <div><b>หมายค้น</b></div>
 </div>
 <div style='float:left;'>
-<div style='text-align:left;padding-left:220px;'><img src='../../image/icon_report.jpg' width='100 'height='100'></div>
+<div style='text-align:left;padding-left:220px;'><img src='../../image/icon_report.jpg' width='113 'height='113'></div>
 <div style='text-align:right;'>ที่ &nbsp;&nbsp;&nbsp;".$sw_searchwarrant."</div>
 </div>
 <div style='clear: left;'></div>

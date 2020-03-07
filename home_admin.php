@@ -1,6 +1,6 @@
 <html lang="en">
 <head>
-  <title>PhuThon</title>
+  <title>ศูนย์พิทักษ์เด็ก เยาวชน สตรีและป้องกันปราบปรามการค้ามนุษย์ ตำรวจภูธรภาค5</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -66,7 +66,7 @@ $con = connect_db();
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <a class="navbar-brand" href="home_admin.php"><i style="font-size: 36px" class="fas fa-h-square"></i> PhuThon pak5</a>  
+  <a class="navbar-brand" href="home_admin.php"><img src="image/logonew.png" width="32px" height="32px"> ศูนย์พิทักษ์เด็ก เยาวชน สตรีและป้องกันปราบปรามการค้ามนุษย์ ตำรวจภูธรภาค5</a>  
  
   <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">

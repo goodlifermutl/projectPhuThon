@@ -85,6 +85,19 @@ if($user_name==$_POST['username'] && $password==$pass){
             </script>
             <?php
         }
+        else if($permiss_id==0){
+            ?>
+             <script>
+                swal({
+                title: "ไม่มีสิทธิ์เข้าใช้งานแล้ว",
+                text: "คุณ <?php echo $_POST['username']; ?>",
+                icon: "warning",
+                    }).then((value) => {
+                window.location.href = "../../index.php";
+                });
+            </script>
+            <?php
+        }
     }
 }else{
     ?>

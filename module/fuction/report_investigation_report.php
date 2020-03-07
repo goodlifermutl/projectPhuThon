@@ -47,7 +47,7 @@ b{
 <div style='padding-left: 100px;'>
 <div style='border-left:solid 1px black;padding-left:10px;'>
 <div style='text-align:center;color:red;'>สั่งฟ้อง-ผู้ต้องหาฝากขัง</div>
-<div style='text-align:center'><img src='../../image/icon_report.jpg'></div>
+<div style='text-align:center'><img src='../../image/icon_report.jpg' height='113px' width='113px'></div>
 <div style='text-align:center'><b>สำนักงานตำรวจแห่งชาติ</b></div>
 <div style='text-align:center'><u>รายงานการสอบสวน</u></div>
 <div style='float: left;width:70px;'>".$case_type."</div>

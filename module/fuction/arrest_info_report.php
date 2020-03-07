@@ -38,7 +38,7 @@ div{
     font-size: 12pt;
 }
 </style>
-<div style='text-align:center'><img src='../../image/icon_report.jpg'></div>
+<div style='text-align:center'><img src='../../image/icon_report.jpg' height='113px' width='113px'></div>
 <div style='float: left;width:100px;'>หมายจับ</div>
 <div style='float: right;width:100px;'>ที่ ".$id_arr_info."</div>
 <div style='clear: right;'></div>

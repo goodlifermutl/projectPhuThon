@@ -1,7 +1,7 @@
 
 <html lang="en">
 <head>
-  <title>PhuThon</title>
+  <title>ศูนย์พิทักษ์เด็ก เยาวชน สตรีและป้องกันปราบปรามการค้ามนุษย์ ตำรวจภูธรภาค5</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -141,7 +141,7 @@ if($ac_chk=='4'){
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <a class="navbar-brand" href="<?php echo $html_l ?>"><img src="image/logonew.png" width="32px" height="32px"> PhuThon pak5</a>  
+  <a class="navbar-brand" href="<?php echo $html_l ?>"><img src="image/logonew.png" width="32px" height="32px"> ศูนย์พิทักษ์เด็ก เยาวชน สตรีและป้องกันปราบปรามการค้ามนุษย์ ตำรวจภูธรภาค5</a>  
    
    <!-- <div class="row">
     <div class="col-md">
@@ -235,7 +235,7 @@ if($ac_chk=='4'){
     </div>
   </li>
 </ul>
-<button onclick="topFunction()" id="myBtn" title="Go to top"><b>Top</b></button>
+<button onclick="topFunction()" id="myBtn" title="Go to top"><b>ขึ้นบน</b></button>
 <?php echo $bar_n ?>
 <?php echo $nu_t ?>
 <ul class="nav nav-tabs" style="background-color: #ffffff;">

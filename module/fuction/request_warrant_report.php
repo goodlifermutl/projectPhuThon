@@ -58,7 +58,7 @@ div{
     font-size: 12pt;
 }
 </style>
-<div style='text-align:center'><img src='../../image/icon_report.jpg' height='85px' width='85px'></div>
+<div style='text-align:center'><img src='../../image/icon_report.jpg' height='113px' width='113px'></div>
 <div style='float: left;width:50px;'>คำร้อง</div>
 <div style='float: right;width:100px;'>ที่ ".$rw_no."</div>
 <div style='clear: right;'></div>

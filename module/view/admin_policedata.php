@@ -183,7 +183,7 @@ $("#cancle<?php echo $num_p_sc;  ?>").click(function(){
 })
 
 $(".police_form<?php echo $num_p_sc; ?>").submit(function(){
-  alert("ggggggg")
+  //alert("ggggggg")
   $check = $(".police_form<?php echo $num_p_sc; ?>").valid();
 
 		if($check == true){
@@ -193,7 +193,7 @@ $(".police_form<?php echo $num_p_sc; ?>").submit(function(){
 					        type: 'POST',
 					        data: formData,
 					        success: function (data) {
-								alert(data);
+								//alert(data);
 								//swal("บันทึกสำเร็จแล้ว!", "", "success")
 								swal("บันทึกสำเร็จ!", {
 									icon: "success",

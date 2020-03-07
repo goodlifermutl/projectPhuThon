@@ -1,6 +1,6 @@
 <html lang="en">
 <head>
-  <title>PhuThon</title>
+  <title>ศูนย์พิทักษ์เด็ก เยาวชน สตรีและป้องกันปราบปรามการค้ามนุษย์ ตำรวจภูธรภาค5</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -26,10 +26,11 @@
  <nav class="navbar navbar-expand-sm bg-dark navbar-dark"> 
   <div class="container-fluid">
    
-      <a class="navbar-brand" href="index.php"><img src="image/logonew.png" width="32px" height="32px"> PhuThon pak5</a>
+      <a class="navbar-brand" href="index.php"><img src="image/logonew.png" width="32px" height="32px">ศูนย์พิทักษ์เด็ก เยาวชน สตรีและป้องกันปราบปรามการค้ามนุษย์ ตำรวจภูธรภาค5</a>
     
     <ul class="navbar-nav">
       <li class="nav-item"><a class="nav-link" href="#" id="myBtnlogin"><i class="fas fa-sign-in-alt"></i> เข้าสู่ระบบ</a></li>
+      <li class="nav-item"><a class="nav-link" href="#" id="myBtnsignup"><i  class="fas fa-user-plus"></i><b> สมัครสมาชิก</b></a></li>
     </ul>
   </div>
 </nav>
@@ -46,12 +47,13 @@
 
 <div class="footer">
 <ul class="menu nav justify-content-center">
-    <li class="nav-item">
+ศูนย์พิทักษ์เด็ก เยาวชน สตรีและป้องกันปราบปรามการค้ามนุษย์ ตำรวจภูธรภาค5
+    <!-- <li class="nav-item">
       <a class="nav-link" href="#" id="myBtnsignup"><i style="font-size: 64px" class="fas fa-user-plus"></i><br><b>สมัครสมาชิก</b></a>
-    </li>
-    <li class="nav-item">
+    </li> -->
+    <!-- <li class="nav-item">
         <a class="nav-link active" href="index.php"><i style="font-size: 64px" class="far fa-question-circle"></i><br><b>คู่มือการใช้งาน</b></a>
-      </li>
+      </li> -->
   </ul>
 </div>
 

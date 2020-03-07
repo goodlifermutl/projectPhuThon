@@ -82,7 +82,7 @@ b{
 <div style='clear: left;'></div>
 </div>
 <div style='border-left:solid 1px black;float:left;'>
-<div style='text-align:center;'><img src='../../image/icon_report.jpg' width='100 'height='100'></div>
+<div style='text-align:center;'><img src='../../image/icon_report.jpg' width='113 'height='113'></div>
 <div style='text-align:center;'><b>สำนักงานตำรวจแห่งชาติ</b></div>
 <div style='text-align:center;'><u>บันทึกคำให้การผู้ต้องหา</u></div>
 <div style='float: left;padding-left:10px;'>สถานีตำรวจ : <u>".$wv_station."</u></div>

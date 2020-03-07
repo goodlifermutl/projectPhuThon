@@ -78,7 +78,7 @@
             
             <div class="form-check">
             &nbsp;&nbsp;&nbsp;&nbsp;
-            <input class="form-check-input" type="radio" name="victim_sex" id="exampleRadios1" value="1">
+            <input class="form-check-input" type="radio" name="victim_sex" id="exampleRadios1" value="1" checked>
             <label class="form-check-label" for="exampleRadios1">
             ชาย
             </label>
